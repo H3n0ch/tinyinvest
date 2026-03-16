@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <a href="#" className="flex items-center mb-4">
               <Image
-                src="/images/logo (2).png"
+                src="/images/logo.png"
                 alt="TinyInvest Logo"
                 width={150}
                 height={44}
