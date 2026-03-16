@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "TinyInvest – Investiere in Tiny Houses",
   description:
     "Investiere in nachhaltige Tiny Houses und erziele 10–15 % Rendite p.a. Durch unsere Partnerschaft mit Tiny Escapes sind 70 % Belegung garantiert.",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({

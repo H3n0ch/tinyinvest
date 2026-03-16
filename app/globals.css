@@ -1,85 +1,37 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
-  --green-primary: #2d6a4f;
-  --green-light: #52b788;
-  --green-pale: #d8f3dc;
-  --cream: #f8f4ee;
-  --gold: #c9a84c;
-}
+/* ─── Custom Utilities ─────────────────────────────────────────────────────── */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
-}
-
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer utilities {
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease both;
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.7s ease both;
   }
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.7s ease forwards;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease forwards;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #2d6a4f, #52b788);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Card hover effect */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
-
-/* Accordion */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.accordion-content.open {
-  max-height: 500px;
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Range input styling */
@@ -87,23 +39,31 @@ input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   height: 6px;
-  border-radius: 3px;
-  background: #d8f3dc;
+  border-radius: 9999px;
+  background: #d1fae5;
   outline: none;
+  cursor: pointer;
 }
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #2d6a4f;
+  background: #15803d;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(45,106,79,0.4);
+  box-shadow: 0 2px 8px rgba(21, 128, 61, 0.35);
+  transition: transform 0.15s ease;
 }
-
-/* Section spacing */
-section {
-  scroll-margin-top: 80px;
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #15803d;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(21, 128, 61, 0.35);
 }
