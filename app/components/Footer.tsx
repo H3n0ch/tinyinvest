@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { navLinks } from "./data";
 
 export default function Footer() {
@@ -7,14 +6,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-1">
-            <a href="#" className="flex items-center mb-4">
-              <Image
-                src="/images/logo.png"
-                alt="TinyInvest Logo"
-                width={150}
-                height={44}
-                className="h-10 w-auto object-contain brightness-0 invert"
-              />
+            <a href="#" className="flex items-center gap-2 mb-4">
+              <span className="text-2xl font-black text-green-400">Tiny<span className="text-white">Invest</span></span>
+              <span className="text-xl">🏡</span>
             </a>
             <p className="text-gray-400 text-sm leading-relaxed">
               Hochwertige, moderne Tiny Houses – als Steuer-Investment, Rendite-Objekt oder Traumhaus auf Raten. Mobil. Zukunftssicher. Sicher.

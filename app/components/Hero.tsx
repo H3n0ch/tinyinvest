@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="/images/675538184.jpg" alt="TinyInvest Tiny House in der Natur" fill className="object-cover" priority />
+        <Image src="/images/escape.webp" alt="TinyInvest Tiny House in der Natur" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75" />
       </div>
 
