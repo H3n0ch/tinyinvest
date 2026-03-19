@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import PainPoints from "./components/PainPoints";
 import DreiWege from "./components/DreiWege";
+import Oekosystem from "./components/Oekosystem";
 import Modelle from "./components/Modelle";
 import SteuerSection from "./components/SteuerSection";
 import WinWinWin from "./components/WinWinWin";
@@ -19,6 +19,7 @@ export default function Home() {
     <main className="font-sans antialiased text-gray-900 bg-white">
       <Navbar />
       <Hero />
+      <Oekosystem />
       <DreiWege />
       <Modelle />
       <SteuerSection />

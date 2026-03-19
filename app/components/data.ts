@@ -223,6 +223,47 @@ export const testimonials = [
   },
 ];
 
+export const oekosystemItems = [
+  {
+    icon: "📣",
+    title: "Maximale Reichweite",
+    desc: "Dein Haus wird gleichzeitig auf Airbnb UND auf unserer eigenen Buchungsplattform Tiny Escapes (tiny.rentals) gelistet – doppelte Sichtbarkeit, maximale Auslastung.",
+    highlight: "Airbnb + tiny.rentals",
+    link: "https://www.tiny.rentals",
+    linkLabel: "→ tiny.rentals besuchen",
+  },
+  {
+    icon: "📍",
+    title: "Standort & Placement",
+    desc: "Wir suchen und organisieren den optimalen Standort für dein Tiny House – ob Ferienpark, Naturgrundstück oder Campingplatz. Du musst dich um nichts kümmern.",
+    highlight: "Komplettvermittlung",
+  },
+  {
+    icon: "🛎️",
+    title: "Full-Service wie ein Hotelkonzern",
+    desc: "Ein motivierter Host vor Ort übernimmt Reinigung, Check-in, Gäste-Kommunikation und Pflege. Du lehnst dich zurück – wir liefern den passiven Cashflow.",
+    highlight: "100 % passiv",
+  },
+  {
+    icon: "👔",
+    title: "Steuerberater-Netzwerk",
+    desc: "Auf Wunsch vermitteln wir dich direkt an spezialisierte Steuerberater, die IAB & Sonder-AfA kennen – für eine reibungslose, maximale Steueroptimierung.",
+    highlight: "Auf Wunsch verfügbar",
+  },
+  {
+    icon: "🏦",
+    title: "Bankfinanzierung",
+    desc: "Wir arbeiten mit Finanzierungspartnern zusammen, die IAB-gestützte Kreditfinanzierungen kennen – damit du mit minimalem Eigenkapital einsteigen kannst.",
+    highlight: "Finanzierungspartner",
+  },
+  {
+    icon: "🛡️",
+    title: "Versicherung inklusive",
+    desc: "Dein Tiny House wird als bewegliches Wirtschaftsgut vollständig versichert – Feuer, Sturm, Diebstahl. Auf Wunsch vermitteln wir direkt an unsere Versicherungspartner.",
+    highlight: "Vollversicherung",
+  },
+];
+
 export const partnerBenefits = [
   {
     icon: "🌿",
