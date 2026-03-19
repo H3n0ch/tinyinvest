@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { navLinks } from "./data";
 
 export default function Footer() {

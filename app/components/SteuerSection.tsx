@@ -6,7 +6,7 @@ export default function SteuerSection() {
   return (
     <section id="steuer" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="/images/675538117.jpg" alt="Tiny House Steuervorteile" fill className="object-cover" />
+        <Image src="/images/outside/green.webp" alt="Tiny House Steuervorteile" fill className="object-cover" />
         <div className="absolute inset-0 bg-black/70" />
       </div>
 

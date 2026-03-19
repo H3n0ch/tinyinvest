@@ -7,6 +7,7 @@ export const navLinks = [
   { label: "Steuer-Vorteile", href: "#steuer" },
   { label: "Rendite-Modell", href: "#rendite" },
   { label: "So funktioniert's", href: "#prozess" },
+  { label: "Referenzen", href: "#referenzen" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -52,7 +53,7 @@ export const investorPaths = [
 
 export const models = [
   {
-    img: "/images/675538093.jpg",
+    img: "/images/outside/escape3.webp",
     tag: "On-Grid · Einstieg",
     title: "TinyInvest Comfort",
     desc: "Vollwertiges Tiny House mit modernem Design und allen Annehmlichkeiten. Netzgebunden für maximalen Komfort auf Ferienparks und Campingplätzen.",
@@ -64,7 +65,7 @@ export const models = [
     badgeColor: "bg-blue-100 text-blue-700",
   },
   {
-    img: "/images/675538100.jpg",
+    img: "/images/outside/ESCAPE1.webp",
     tag: "Off-Grid · Standard",
     title: "TinyInvest Escape",
     desc: "Vollautarkes Tiny House mit Solaranlage, Wassertanks und Clansana-Komposttoilette. Perfekt für naturnahe Standorte ohne Infrastruktur.",
@@ -76,7 +77,7 @@ export const models = [
     badgeColor: "bg-green-100 text-green-700",
   },
   {
-    img: "/images/675538106.jpg",
+    img: "/images/outside/Escape2.webp",
     tag: "Off-Grid · Premium",
     title: "TinyInvest Elite",
     desc: "Das Flaggschiff. Vollautarkes Premium-Haus mit Loop-Duschwassersystem, Cinderella-Verbrennungstoilette, hochwertiger Schafwoll-Dämmung und Hotel-Standard Innenausstattung.",
@@ -198,6 +199,48 @@ export const vergleichRows = [
   ["Rendite p.a.", "3–4 % (nach Kosten)", "10–18 % (effektiv) 🚀"],
 ];
 
+export const testimonials = [
+  {
+    initials: "MK",
+    name: "Michael K.",
+    role: "Selbstständiger Unternehmer, München",
+    quote:
+      "Ich war zunächst skeptisch, ob das wirklich alles legal ist. Nach einem Gespräch mit meinem Steuerberater war klar: IAB und Sonder-AfA sind hier zu 100 % legitim. Im ersten Jahr habe ich über 22.000 € Steuern gespart – und bekomme jetzt monatlich passiven Cashflow. TinyInvest ist die beste Investment-Entscheidung, die ich je getroffen habe.",
+  },
+  {
+    initials: "SR",
+    name: "Sandra R.",
+    role: "Ärztin, Hamburg",
+    quote:
+      "Als Ärztin zahle ich regelmäßig enorme Steuerbeträge. TinyInvest hat mir gezeigt, wie ich das Finanzamt auf meine Seite bringen kann. Der Full-Service nimmt mir komplett die Arbeit ab – ich muss mich um nichts kümmern. Die monatlichen Auszahlungen kommen zuverlässig, und mein Steuerberater ist begeistert vom Konzept.",
+  },
+  {
+    initials: "TH",
+    name: "Thomas H.",
+    role: "Handwerker & Gewerbetreibender, Köln",
+    quote:
+      "Als Handwerker wollte ich mein Geld nicht in irgendwelchen Aktienfonds verschwinden sehen. Ein echtes, anfassbares Tiny House – das leuchtet mir ein. Der IAB hat mir direkt im ersten Jahr über 16.000 € zurückgebracht. Und die Rendite von über 12 % p.a. sucht ihresgleichen. Klare Empfehlung!",
+  },
+];
+
+export const partnerBenefits = [
+  {
+    icon: "🌿",
+    title: "Nachhaltige Produkte",
+    desc: "Du vermittelst Produkte mit echtem Mehrwert – mobile Tiny Houses als ökologisch sinnvolle Sachwerte, die sich praktisch von selbst verkaufen.",
+  },
+  {
+    icon: "💰",
+    title: "Attraktive Provision",
+    desc: "Überdurchschnittliche Vergütung pro erfolgreich vermitteltem Kauf – kein Deckel, keine Vorabgebühren, kein Risiko.",
+  },
+  {
+    icon: "🚀",
+    title: "Einfaches Onboarding",
+    desc: "Kostenloses Schulungskonzept, Einwandbehandlung, fertige Präsentationsunterlagen und direkter Ansprechpartner bei TinyInvest.",
+  },
+];
+
 export const sicherheitItems = [
   { icon: "📜", text: "Eigentumsübertragung mit deutschen Unterlagen" },
   { icon: "🚛", text: "Mobil – Standortwechsel innerhalb der EU jederzeit möglich" },
@@ -208,10 +251,16 @@ export const sicherheitItems = [
 ];
 
 export const galleryImages = [
-  "/images/675538093.jpg",
-  "/images/675538100.jpg",
-  "/images/675538106.jpg",
-  "/images/675538110.jpg",
-  "/images/675538117.jpg",
-  "/images/675538184.jpg",
+  "/images/inside/DSC08893.webp",
+  "/images/inside/DSC08900.webp",
+  "/images/inside/DSC08904.webp",
+  "/images/inside/DSC08912.webp",
+  "/images/inside/DSC08915.webp",
+  "/images/inside/DSC08918.webp",
+  "/images/inside/DSC08922.webp",
+  "/images/inside/DSC08924_3544fd99-9b28-46c3-8a38-ca757a23c105.webp",
+  "/images/inside/DSC08930.webp",
+  "/images/inside/DSC08936.webp",
+  "/images/inside/DSC08916.webp",
+  "/images/inside/DSC08916_10fc4c81-2ce1-4879-97c3-aa8b75688770.webp",
 ];
