@@ -24,6 +24,11 @@ export default function Footer() {
                   <a href={l.href} className="text-gray-400 hover:text-green-400 text-sm transition-colors">{l.label}</a>
                 </li>
               ))}
+              <li>
+                <Link href="/partner" className="text-green-400 hover:text-green-300 text-sm transition-colors font-semibold">
+                  🤝 Vertriebspartner werden
+                </Link>
+              </li>
             </ul>
           </div>
 
