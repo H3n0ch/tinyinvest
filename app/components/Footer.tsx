@@ -69,10 +69,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">© {new Date().getFullYear()} TinyInvest. Alle Rechte vorbehalten.</p>
-          <p className="text-gray-600 text-xs max-w-xl text-center sm:text-right">
-            ⚠️ Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtige unsere Risikohinweise und ziehe einen Steuerberater zu Rate.
+        <div className="border-t border-gray-800 pt-8 flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p className="text-gray-500 text-sm">© {new Date().getFullYear()} TinyInvest. Alle Rechte vorbehalten.</p>
+            <div className="flex gap-4 text-xs">
+              <Link href="/impressum" className="text-gray-600 hover:text-green-400 transition-colors">Impressum</Link>
+              <Link href="/datenschutz" className="text-gray-600 hover:text-green-400 transition-colors">Datenschutz</Link>
+              <Link href="/agb" className="text-gray-600 hover:text-green-400 transition-colors">AGB</Link>
+            </div>
+          </div>
+          <p className="text-gray-600 text-xs text-center sm:text-left">
+            ⚠️ Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtige unsere Risikohinweise.
           </p>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default function Testimonials() {
           <p className="text-center text-white/60 text-sm uppercase tracking-widest mb-8 font-semibold">
             Unsere Bilanz – Zahlen die sprechen
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { value: "200+", label: "Investoren vertrauen uns" },
               { value: "12 Mio. €", label: "Steuergelder zurückgeholt" },

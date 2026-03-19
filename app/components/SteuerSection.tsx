@@ -73,10 +73,10 @@ export default function SteuerSection() {
                   { jahr: "Jahr 2", afa: "12.500 €", kumuliert: "25.000 €" },
                   { jahr: "Jahr 3", afa: "12.500 €", kumuliert: "37.500 €" },
                 ].map((r) => (
-                  <div key={r.jahr} className="flex justify-between text-sm border-b border-white/10 pb-2">
-                    <span className="text-white/60">{r.jahr}</span>
-                    <span className="text-white/70">{r.afa}</span>
-                    <span className="text-white/50 text-xs">{r.kumuliert}</span>
+                  <div key={r.jahr} className="flex justify-between text-xs border-b border-white/10 pb-2 gap-2">
+                    <span className="text-white/60 flex-shrink-0">{r.jahr}</span>
+                    <span className="text-white/70 font-medium">{r.afa}</span>
+                    <span className="text-white/40">∑ {r.kumuliert}</span>
                   </div>
                 ))}
               </div>

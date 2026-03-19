@@ -80,54 +80,53 @@ export default function SteuerRechner() {
         </button>
       </div>
 
-      {/* Tabelle */}
-      <div className="overflow-x-auto mb-6">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-gray-100">
-              <th className="text-left py-3 text-gray-500 font-semibold">Abzugsposten</th>
-              <th className="text-right py-3 text-gray-500 font-semibold">Gewinnminderung</th>
-              <th className="text-right py-3 text-gray-700 font-semibold">Steuer-Cashback</th>
-            </tr>
-          </thead>
-          <tbody>
-            {mitIAB && (
-              <tr className="border-b border-gray-50">
-                <td className="py-3 font-medium text-gray-800">
-                  <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded mr-2">IAB §7g Abs.1</span>
-                  50 % vorab (Vorjahr)
-                </td>
-                <td className="py-3 text-right font-bold text-gray-800">{fmt(iabBasis)} €</td>
-                <td className="py-3 text-right font-bold text-green-700">+ {fmt(iabSteuer)} €</td>
-              </tr>
-            )}
-            <tr className="border-b border-gray-50">
-              <td className="py-3 font-medium text-gray-800">
-                <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded mr-2">Sonder-AfA §7g Abs.5</span>
-                40 % auf vollen Kaufpreis
-              </td>
-              <td className="py-3 text-right font-bold text-gray-800">{fmt(sonderAfaBasis)} €</td>
-              <td className="py-3 text-right font-bold text-green-700">+ {fmt(sonderAfaSteuer)} €</td>
-            </tr>
-            <tr className="border-b border-gray-100">
-              <td className="py-3 font-medium text-gray-800">
-                <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-2 py-0.5 rounded mr-2">Degr. AfA §7 Abs.2</span>
-                30 % auf vollen Kaufpreis
-              </td>
-              <td className="py-3 text-right font-bold text-gray-800">{fmt(degrAfaBasis)} €</td>
-              <td className="py-3 text-right font-bold text-green-700">+ {fmt(degrAfaSteuer)} €</td>
-            </tr>
-            <tr className="bg-green-700 rounded-xl">
-              <td className="py-4 px-3 rounded-l-xl font-black text-white text-base">
-                {mitIAB ? "Gesamt (IAB-Jahr + Kaufjahr)" : "Gesamt (Kaufjahr 2026)"}
-              </td>
-              <td className="py-4 text-right font-black text-green-200 text-base">
-                {fmt(mitIAB ? iabBasis + gesamtAfaJahr1 : gesamtAfaJahr1)} €
-              </td>
-              <td className="py-4 pr-3 text-right font-black text-white text-xl rounded-r-xl">+ {fmt(gesamtSteuer)} €</td>
-            </tr>
-          </tbody>
-        </table>
+      {/* Mobile-freundliche Abzugsliste */}
+      <div className="space-y-3 mb-6">
+        {mitIAB && (
+          <div className="flex items-center justify-between bg-green-50 rounded-2xl px-4 py-3 border border-green-100">
+            <div className="flex-1 min-w-0 mr-2">
+              <span className="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded mb-1">IAB §7g Abs.1</span>
+              <p className="text-gray-700 text-xs font-medium">50 % vorab (Vorjahr)</p>
+            </div>
+            <div className="text-right flex-shrink-0">
+              <p className="text-xs text-gray-400">Minderung</p>
+              <p className="font-bold text-gray-800 text-sm">{fmt(iabBasis)} €</p>
+              <p className="font-bold text-green-700 text-sm">+{fmt(iabSteuer)} €</p>
+            </div>
+          </div>
+        )}
+        <div className="flex items-center justify-between bg-blue-50 rounded-2xl px-4 py-3 border border-blue-100">
+          <div className="flex-1 min-w-0 mr-2">
+            <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded mb-1">Sonder-AfA §7g</span>
+            <p className="text-gray-700 text-xs font-medium">40 % auf Kaufpreis</p>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-xs text-gray-400">Minderung</p>
+            <p className="font-bold text-gray-800 text-sm">{fmt(sonderAfaBasis)} €</p>
+            <p className="font-bold text-green-700 text-sm">+{fmt(sonderAfaSteuer)} €</p>
+          </div>
+        </div>
+        <div className="flex items-center justify-between bg-purple-50 rounded-2xl px-4 py-3 border border-purple-100">
+          <div className="flex-1 min-w-0 mr-2">
+            <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-2 py-0.5 rounded mb-1">Degr. AfA §7</span>
+            <p className="text-gray-700 text-xs font-medium">30 % auf Kaufpreis</p>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-xs text-gray-400">Minderung</p>
+            <p className="font-bold text-gray-800 text-sm">{fmt(degrAfaBasis)} €</p>
+            <p className="font-bold text-green-700 text-sm">+{fmt(degrAfaSteuer)} €</p>
+          </div>
+        </div>
+        <div className="flex items-center justify-between bg-green-700 rounded-2xl px-4 py-4">
+          <div>
+            <p className="text-green-200 text-xs font-semibold">{mitIAB ? "Gesamt (inkl. IAB)" : "Gesamt Kaufjahr 2026"}</p>
+            <p className="text-green-100 text-xs">{fmt(mitIAB ? iabBasis + gesamtAfaJahr1 : gesamtAfaJahr1)} € Gewinnminderung</p>
+          </div>
+          <div className="text-right">
+            <p className="text-green-200 text-xs">Steuer-Cashback</p>
+            <p className="font-black text-white text-xl">+{fmt(gesamtSteuer)} €</p>
+          </div>
+        </div>
       </div>
 
       {/* Info-Box Restbuchwert */}

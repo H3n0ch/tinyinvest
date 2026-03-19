@@ -70,7 +70,7 @@ export default function WinWinWin() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="bg-white/10 rounded-2xl p-5">
               <p className="text-gray-400 text-xs mb-1">Investiert</p>
               <p className="text-2xl font-black text-white">80.000 €</p>

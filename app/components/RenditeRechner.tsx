@@ -96,39 +96,45 @@ export default function RenditeRechner() {
       </div>
 
       {/* Ergebnisse */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="bg-gray-50 rounded-2xl p-5 text-center">
-          <p className="text-xs text-gray-400 font-semibold uppercase mb-1">Dein Anteil monatlich</p>
-          <p className="text-3xl font-black text-green-700">{fmt(investorMonatlich)} €</p>
-          <p className="text-xs text-gray-400 mt-1">40 % der Mieteinnahmen</p>
+      <div className="grid grid-cols-1 gap-3 mb-5">
+        <div className="flex justify-between items-center bg-gray-50 rounded-2xl px-5 py-4">
+          <div>
+            <p className="text-xs text-gray-400 font-semibold uppercase">Monatlich (deine 40 %)</p>
+            <p className="text-xs text-gray-400 mt-0.5">{naechteJahr} Nächte × {preisNacht} € × 40 %</p>
+          </div>
+          <p className="text-2xl font-black text-green-700">{fmt(investorMonatlich)} €</p>
         </div>
-        <div className="bg-gray-50 rounded-2xl p-5 text-center">
-          <p className="text-xs text-gray-400 font-semibold uppercase mb-1">Jährlicher Ertrag</p>
-          <p className="text-3xl font-black text-green-700">{fmt(investorAnteil)} €</p>
-          <p className="text-xs text-gray-400 mt-1">vor Steuern auf Einnahmen</p>
+        <div className="flex justify-between items-center bg-gray-50 rounded-2xl px-5 py-4">
+          <div>
+            <p className="text-xs text-gray-400 font-semibold uppercase">Jährlicher Ertrag</p>
+            <p className="text-xs text-gray-400 mt-0.5">vor Steuern auf Einnahmen</p>
+          </div>
+          <p className="text-2xl font-black text-green-700">{fmt(investorAnteil)} €</p>
         </div>
-        <div className="bg-gray-50 rounded-2xl p-5 text-center">
-          <p className="text-xs text-gray-400 font-semibold uppercase mb-1">Steuer-Erstattung (Jahr 1)</p>
-          <p className="text-3xl font-black text-green-700">+ {fmt(gesamtSteuererstattung)} €</p>
-          <p className="text-xs text-gray-400 mt-1">IAB + Sonder-AfA + degr. AfA</p>
+        <div className="flex justify-between items-center bg-gray-50 rounded-2xl px-5 py-4">
+          <div>
+            <p className="text-xs text-gray-400 font-semibold uppercase">Steuer-Erstattung Jahr 1</p>
+            <p className="text-xs text-gray-400 mt-0.5">IAB + Sonder-AfA + degr. AfA</p>
+          </div>
+          <p className="text-2xl font-black text-green-700">+{fmt(gesamtSteuererstattung)} €</p>
         </div>
       </div>
 
       {/* Hauptergebnis */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
+      <div className="bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-5">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex-1 min-w-0">
             <p className="text-green-100 text-sm font-semibold">Effektive Eigenkapitalrendite</p>
-            <p className="text-green-200 text-xs mt-1">
-              ({fmt(investorAnteil)} € Jahresertrag ÷ {fmt(effektivesKapital)} € Netto-Investment)
+            <p className="text-green-200 text-xs mt-1 leading-relaxed">
+              {fmt(investorAnteil)} € ÷ {fmt(effektivesKapital)} € Netto-Investment
             </p>
           </div>
-          <p className={`text-5xl font-black text-white`}>{rendite.toFixed(1)} %</p>
+          <p className="text-4xl sm:text-5xl font-black text-white flex-shrink-0">{rendite.toFixed(1)} %</p>
         </div>
-        <div className="mt-4 pt-4 border-t border-green-500/40 flex flex-col sm:flex-row gap-3 text-xs text-green-200">
-          <span>📊 Bruttoertrag: {fmt(bruttoJahr)} €/Jahr</span>
-          <span>🏠 Effektiver Kaufpreis: {fmt(effektivesKapital)} €</span>
-          <span>🌙 {naechteJahr} Nächte × {preisNacht} €</span>
+        <div className="mt-3 pt-3 border-t border-green-500/40 grid grid-cols-1 sm:grid-cols-3 gap-1.5 text-xs text-green-200">
+          <span>📊 Brutto: {fmt(bruttoJahr)} €/Jahr</span>
+          <span>🏠 Effektiv: {fmt(effektivesKapital)} €</span>
+          <span>🌙 {naechteJahr} × {preisNacht} €</span>
         </div>
       </div>
 
