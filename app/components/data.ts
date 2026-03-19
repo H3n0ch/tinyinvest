@@ -12,8 +12,8 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "73 %", label: "Im 1. Jahr absetzbar" },
-  { value: "~18 %", label: "Rendite p.a." },
+  { value: "70 %", label: "Im Kaufjahr absetzbar" },
+  { value: "bis 18 %", label: "Rendite p.a." },
   { value: "100 %", label: "Full-Service" },
   { value: "100 %", label: "Mobiles Wirtschaftsgut" },
 ];
@@ -24,7 +24,7 @@ export const investorPaths = [
     tag: "Steuer-Investor",
     title: "Steuern sparen & Vermögen aufbauen",
     desc: "Du verdienst gut und zahlst hohe Steuern? Mit unserem beweglichen Wirtschaftsgut nutzt du IAB, Sonder-AfA und lineare Abschreibung – und holst dir bis zu 25.000 € direkt vom Finanzamt zurück.",
-    highlights: ["IAB: 50 % vorab absetzbar", "Sonder-AfA: 40 % (2024)", "Bis zu 73 % im Jahr 1"],
+    highlights: ["IAB: 50 % vorab absetzbar", "Sonder-AfA: 40 % + degr. AfA 30 % (ab 2025)", "70 % im Kaufjahr absetzbar"],
     cta: "Steuer-Hebel berechnen",
     href: "#steuer",
     color: "green",
@@ -173,12 +173,12 @@ export const steuerCards = [
     tagColor: "bg-blue-100 text-blue-700",
   },
   {
-    icon: "📅",
-    label: "Lineare AfA",
-    title: "8–10 Jahre statt 50 Jahre",
-    desc: "Während Immobilien 33–50 Jahre abgeschrieben werden, gilt das Tiny House als bewegliche Einheit – du schreibst in nur 8–10 Jahren ab.",
-    tag: "10× schneller",
-    tagColor: "bg-amber-100 text-amber-700",
+    icon: "📉",
+    label: "Degressive AfA · §7 Abs.2",
+    title: "30 % degressiv – ab dem ersten Tag",
+    desc: "Ab 01.07.2025 gilt zusätzlich zur Sonder-AfA die degressive Abschreibung: 30 % des vollen Kaufpreises im Kaufjahr. Kombiniert mit der Sonder-AfA sind so 70 % sofort absetzbar.",
+    tag: "30 % degressiv",
+    tagColor: "bg-purple-100 text-purple-700",
   },
 ];
 

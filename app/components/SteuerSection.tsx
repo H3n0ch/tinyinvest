@@ -45,8 +45,127 @@ export default function SteuerSection() {
         </div>
         <SteuerRechner />
 
-        {/* Vergleich */}
+        {/* 3-Varianten-Vergleich vom Steuerberater */}
         <div className="mt-16">
+          <div className="text-center mb-8">
+            <span className="text-green-400 font-semibold text-xs uppercase tracking-widest">Analyse vom Steuerberater · Stand 2026</span>
+            <h3 className="text-2xl font-black text-white mt-2">
+              Steuerbooster 2026: Der Drei-Varianten-Vergleich
+            </h3>
+            <p className="text-white/60 text-sm mt-2 max-w-2xl mx-auto">
+              Beispielrechnung auf Basis 100.000 € Investition · 42 % Grenzsteuersatz
+            </p>
+          </div>
+
+          {/* Varianten-Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+            {/* Variante 1 */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="bg-gray-500/30 text-gray-300 text-xs font-bold px-3 py-1 rounded-full">Variante 1</span>
+                <span className="text-gray-400 text-xs">Altes Recht</span>
+              </div>
+              <h4 className="text-white font-black text-lg mb-1">8 Jahre linear</h4>
+              <p className="text-white/50 text-xs mb-4">12,5 % p.a. · ohne Sonder-AfA</p>
+              <div className="space-y-2">
+                {[
+                  { jahr: "Jahr 1", afa: "12.500 €", kumuliert: "12.500 €" },
+                  { jahr: "Jahr 2", afa: "12.500 €", kumuliert: "25.000 €" },
+                  { jahr: "Jahr 3", afa: "12.500 €", kumuliert: "37.500 €" },
+                ].map((r) => (
+                  <div key={r.jahr} className="flex justify-between text-sm border-b border-white/10 pb-2">
+                    <span className="text-white/60">{r.jahr}</span>
+                    <span className="text-white/70">{r.afa}</span>
+                    <span className="text-white/50 text-xs">{r.kumuliert}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 bg-gray-600/30 rounded-2xl p-3 text-center">
+                <p className="text-xs text-white/50">Nach 3 Jahren abgeschrieben</p>
+                <p className="text-2xl font-black text-gray-300">37,5 %</p>
+              </div>
+            </div>
+
+            {/* Variante 2 */}
+            <div className="bg-white/10 backdrop-blur-sm border border-green-400/30 rounded-3xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="bg-green-500/30 text-green-300 text-xs font-bold px-3 py-1 rounded-full">Variante 2</span>
+                <span className="text-green-400 text-xs">Neu 2026 · ohne IAB</span>
+              </div>
+              <h4 className="text-white font-black text-lg mb-1">40 % + 30 % im Kaufjahr</h4>
+              <p className="text-white/50 text-xs mb-4">Sonder-AfA + degressive AfA kombiniert</p>
+              <div className="space-y-2">
+                {[
+                  { jahr: "Jahr 1 (2026)", afa: "70.000 €", kumuliert: "70.000 €", highlight: true },
+                  { jahr: "Jahr 2 (2027)", afa: "9.000 €", kumuliert: "79.000 €", highlight: false },
+                  { jahr: "Jahr 3 (2028)", afa: "6.300 €", kumuliert: "85.300 €", highlight: false },
+                ].map((r) => (
+                  <div key={r.jahr} className={`flex justify-between text-sm border-b pb-2 ${r.highlight ? "border-green-400/30" : "border-white/10"}`}>
+                    <span className="text-white/60">{r.jahr}</span>
+                    <span className={r.highlight ? "text-green-300 font-bold" : "text-white/70"}>{r.afa}</span>
+                    <span className="text-white/50 text-xs">{r.kumuliert}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 bg-green-600/30 rounded-2xl p-3 text-center">
+                <p className="text-xs text-green-300">Nach 3 Jahren abgeschrieben</p>
+                <p className="text-2xl font-black text-green-300">85,3 %</p>
+                <p className="text-xs text-green-400/60 mt-1">statt 37,5 % nach altem Recht</p>
+              </div>
+            </div>
+
+            {/* Variante 3 */}
+            <div className="bg-green-700/40 backdrop-blur-sm border border-green-400/50 rounded-3xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="bg-green-400/40 text-green-200 text-xs font-bold px-3 py-1 rounded-full">Variante 3</span>
+                <span className="text-green-300 text-xs font-semibold">Maximum-Hebel ⚡</span>
+              </div>
+              <h4 className="text-white font-black text-lg mb-1">IAB + 40 % + 30 %</h4>
+              <p className="text-white/50 text-xs mb-4">IAB im Vorjahr + voller Booster im Kaufjahr</p>
+              <div className="space-y-2">
+                {[
+                  { jahr: "2025 (Vorjahr)", steuer: "–50.000 €", kumuliert: "–50.000 €", highlight: false },
+                  { jahr: "2026 (Kaufjahr)", steuer: "–20.000 €", kumuliert: "–70.000 €", highlight: true },
+                  { jahr: "2027", steuer: "–9.000 €", kumuliert: "–79.000 €", highlight: false },
+                  { jahr: "2028", steuer: "–6.300 €", kumuliert: "–85.300 €", highlight: false },
+                ].map((r) => (
+                  <div key={r.jahr} className={`flex justify-between text-sm border-b pb-2 ${r.highlight ? "border-green-300/40" : "border-white/10"}`}>
+                    <span className="text-white/60 text-xs">{r.jahr}</span>
+                    <span className={r.highlight ? "text-green-200 font-bold" : "text-white/70"}>{r.steuer}</span>
+                    <span className="text-white/50 text-xs">{r.kumuliert}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 bg-green-500/30 rounded-2xl p-3 text-center">
+                <p className="text-xs text-green-200">IAB = Timing-Vorteil</p>
+                <p className="text-sm font-bold text-green-200 mt-1">Aufwand ins Vorjahr verlagern</p>
+                <p className="text-xs text-green-300/60 mt-1">Ideal bei hohem Gewinn 2025</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Fazit-Box */}
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 mb-12">
+            <p className="text-white/50 text-xs uppercase tracking-wider font-semibold mb-3">Fazit vom Steuerberater</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="flex gap-3">
+                <span className="text-2xl">🪦</span>
+                <p className="text-white/70"><strong className="text-white">Altes Recht ist praktisch tot.</strong> 37,5 % nach 3 Jahren vs. 85,3 % – kein seriöser Steuerberater empfiehlt heute noch die lineare AfA allein.</p>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">⚡</span>
+                <p className="text-white/70"><strong className="text-white">Der Booster ohne IAB ist bereits extrem stark.</strong> 40 % Sonder-AfA + 30 % degressiv = 70 % Sofortabschreibung im Kaufjahr.</p>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-2xl">🎯</span>
+                <p className="text-white/70"><strong className="text-white">IAB = Timing-Instrument, kein Mehrvorteil.</strong> Sinnvoll bei hohem Gewinn im Vorjahr – um Progressionsspitzen zu glätten.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Vergleich */}
+        <div className="mt-0">
           <h3 className="text-2xl font-black text-white text-center mb-8">
             TinyInvest vs. Klassische Immobilie
           </h3>
