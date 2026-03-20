@@ -1,14 +1,9 @@
-import Image from "next/image";
 import { steuerCards, vergleichRows } from "./data";
 import SteuerRechner from "./SteuerRechner";
 
 export default function SteuerSection() {
   return (
-    <section id="steuer" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0">
-        <Image src="/images/outside/green.webp" alt="Tiny House Steuervorteile" fill className="object-cover" />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
+    <section id="steuer" className="relative py-24 overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">

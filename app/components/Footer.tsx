@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
                 <span>📧</span>
-                <a href="mailto:info@tinyinvest.de" className="hover:text-green-400 transition-colors">info@tinyinvest.de</a>
+                <a href="mailto:info@tinyhouse.investments" className="hover:text-green-400 transition-colors">info@tinyhouse.investments</a>
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>
