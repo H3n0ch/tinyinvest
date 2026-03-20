@@ -2,7 +2,47 @@
 import { useState } from "react";
 
 export default function Kontakt() {
+  const [form, setForm] = useState({
+    vorname: "",
+    nachname: "",
+    email: "",
+    telefon: "",
+    interesse: "📋 Steuer-Investment (IAB + Sonder-AfA)",
+    budget: "TinyInvest Comfort – On-Grid (60.000 €)",
+    nachricht: "",
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.vorname || !form.nachname || !form.email) {
+      setError("Bitte fülle alle Pflichtfelder aus.");
+      return;
+    }
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Fehler beim Senden");
+      setSubmitted(true);
+    } catch {
+      setError("Es gab einen Fehler. Bitte versuche es nochmal oder schreib uns direkt.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section id="kontakt" className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
@@ -51,7 +91,7 @@ export default function Kontakt() {
                 <p className="text-gray-500 max-w-sm">Wir melden uns persönlich innerhalb von 24 Stunden bei dir. Schau auch in deinen Spam-Ordner.</p>
               </div>
             ) : (
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+              <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
                 <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-2">
                   <span className="bg-green-100 text-green-700 text-sm font-bold px-3 py-1 rounded-full">Kostenlos</span>
                   Deine Beratungsanfrage
@@ -60,11 +100,27 @@ export default function Kontakt() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Vorname *</label>
-                    <input type="text" placeholder="Max" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300" />
+                    <input
+                      type="text"
+                      name="vorname"
+                      value={form.vorname}
+                      onChange={handleChange}
+                      placeholder="Max"
+                      required
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Nachname *</label>
-                    <input type="text" placeholder="Mustermann" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300" />
+                    <input
+                      type="text"
+                      name="nachname"
+                      value={form.nachname}
+                      onChange={handleChange}
+                      placeholder="Mustermann"
+                      required
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    />
                   </div>
                 </div>
 
@@ -72,7 +128,15 @@ export default function Kontakt() {
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">E-Mail *</label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">✉️</span>
-                    <input type="email" placeholder="max@beispiel.de" className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="max@beispiel.de"
+                      required
+                      className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    />
                   </div>
                 </div>
 
@@ -80,13 +144,25 @@ export default function Kontakt() {
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Telefon <span className="text-gray-400 font-normal normal-case">(optional)</span></label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">📞</span>
-                    <input type="tel" placeholder="+49 ..." className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300" />
+                    <input
+                      type="tel"
+                      name="telefon"
+                      value={form.telefon}
+                      onChange={handleChange}
+                      placeholder="+49 ..."
+                      className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    />
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Ich interessiere mich für …</label>
-                  <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white">
+                  <select
+                    name="interesse"
+                    value={form.interesse}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                  >
                     <option>📋 Steuer-Investment (IAB + Sonder-AfA)</option>
                     <option>📈 Rendite-Investment (passives Einkommen)</option>
                     <option>🏡 Kauf auf Raten / Finanzierung</option>
@@ -97,7 +173,12 @@ export default function Kontakt() {
 
                 <div className="mb-4">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Budget / Kaufpreisrahmen</label>
-                  <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white">
+                  <select
+                    name="budget"
+                    value={form.budget}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                  >
                     <option>TinyInvest Comfort – On-Grid (60.000 €)</option>
                     <option>TinyInvest Escape – Off-Grid + Clansana (79.000 €)</option>
                     <option>TinyInvest Elite – Off-Grid Premium (95.000 €)</option>
@@ -107,20 +188,32 @@ export default function Kontakt() {
 
                 <div className="mb-6">
                   <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Nachricht <span className="text-gray-400 font-normal normal-case">(optional)</span></label>
-                  <textarea rows={3} placeholder="Deine Fragen oder Anmerkungen..." className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300" />
+                  <textarea
+                    name="nachricht"
+                    value={form.nachricht}
+                    onChange={handleChange}
+                    rows={3}
+                    placeholder="Deine Fragen oder Anmerkungen..."
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300"
+                  />
                 </div>
 
+                {error && (
+                  <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+                )}
+
                 <button
-                  onClick={() => setSubmitted(true)}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-black py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-green-900/40 hover:-translate-y-0.5 active:translate-y-0"
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-green-900/40 hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  Jetzt kostenlos anfragen →
+                  {loading ? "Wird gesendet…" : "Jetzt kostenlos anfragen →"}
                 </button>
 
                 <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1.5">
                   <span>🔒</span> Kostenlos & unverbindlich. Kein Spam. Datenschutz wird groß geschrieben.
                 </p>
-              </div>
+              </form>
             )}
           </div>
 
@@ -175,7 +268,7 @@ export default function Kontakt() {
             {/* Direktkontakt */}
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6">
               <p className="text-white/50 text-xs uppercase tracking-wider font-semibold mb-3">Lieber direkt schreiben?</p>
-              <a href="mailto:info@tinyinvest.de" className="flex items-center gap-3 text-green-300 hover:text-green-200 transition-colors font-semibold text-sm">
+              <a href="mailto:info@tinyhouse.investments" className="flex items-center gap-3 text-green-300 hover:text-green-200 transition-colors font-semibold text-sm">
                 <span>✉️</span> info@tinyhouse.investments
               </a>
             </div>
