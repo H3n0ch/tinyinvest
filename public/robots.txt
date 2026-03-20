@@ -1,0 +1,8 @@
+# robots.txt – TinyInvest
+# https://tinyinvest.de/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tinyinvest.de/sitemap.xml
