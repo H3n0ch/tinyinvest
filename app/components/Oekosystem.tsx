@@ -79,7 +79,7 @@ export default function Oekosystem() {
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-full text-base border border-white/30 transition-colors"
               >
-                🏡 tiny.rentals besuchen
+                🏡 tiny Escapes besuchen
               </a>
             </div>
           </div>
