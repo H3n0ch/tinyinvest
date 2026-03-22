@@ -146,7 +146,7 @@ export default function DataRoom() {
             </div>
             <div className="px-6 py-4 border-t border-white/5">
               <ModalButton className="block w-full py-3 rounded-xl bg-green-700 hover:bg-green-600 text-white text-[13px] font-semibold text-center transition-colors">
-                🔐 Investor-Memorandum anfordern
+                🔐 Investitionsunterlagen anfordern
               </ModalButton>
               <p className="text-[10px] text-gray-600 text-center mt-2">
                 Freigabe nach Verifikation · Vertraulich & kostenfrei

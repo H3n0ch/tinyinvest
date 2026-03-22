@@ -54,7 +54,7 @@ export default function SubPageHeader({
 
         <div className="flex flex-wrap gap-3">
           <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-full text-sm transition-all shadow-lg">
-            🔐 Investor-Memorandum →
+            🔐 Investitionsunterlagen →
           </ModalButton>
           <Link
             href="/#modelle"

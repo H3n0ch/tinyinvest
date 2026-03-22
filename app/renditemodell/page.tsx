@@ -166,7 +166,7 @@ export default function RenditeModellPage() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <ModalButton className="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
-              🔐 Memorandum anfordern →
+              🔐 Unterlagen anfordern →
             </ModalButton>
             <Link href="/steuervorteil" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
               §7g-Analyse lesen →

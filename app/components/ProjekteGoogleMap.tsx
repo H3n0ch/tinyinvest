@@ -14,14 +14,39 @@ const greenPin =
     </svg>`
   );
 
-const greyPin =
+const amberPin =
   "data:image/svg+xml;charset=UTF-8," +
   encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" viewBox="0 0 28 36">
-      <path d="M14 0C6.27 0 0 6.27 0 14c0 9.75 14 22 14 22S28 23.75 28 14C28 6.27 21.73 0 14 0z" fill="#9ca3af"/>
+    `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36">
+      <path d="M14 0C6.27 0 0 6.27 0 14c0 9.75 14 22 14 22S28 23.75 28 14C28 6.27 21.73 0 14 0z" fill="#d97706"/>
       <circle cx="14" cy="14" r="6" fill="white"/>
     </svg>`
   );
+
+const indigoPin =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" viewBox="0 0 28 36">
+      <path d="M14 0C6.27 0 0 6.27 0 14c0 9.75 14 22 14 22S28 23.75 28 14C28 6.27 21.73 0 14 0z" fill="#6366f1"/>
+      <circle cx="14" cy="14" r="6" fill="white"/>
+    </svg>`
+  );
+
+const redPin =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36">
+      <path d="M14 0C6.27 0 0 6.27 0 14c0 9.75 14 22 14 22S28 23.75 28 14C28 6.27 21.73 0 14 0z" fill="#dc2626"/>
+      <circle cx="14" cy="14" r="6" fill="white"/>
+    </svg>`
+  );
+
+function getPinIcon(status: string) {
+  if (status === "available") return greenPin;
+  if (status === "reserved")  return amberPin;
+  if (status === "planning")  return indigoPin;
+  return redPin; // sold / other
+}
 
 const MAP_STYLE: React.CSSProperties = { width: "100%", height: "460px" };
 
@@ -110,7 +135,7 @@ export default function ProjekteGoogleMap({ listings }: Props) {
           <Marker
             key={listing.id}
             position={{ lat: listing.lat, lng: listing.lng }}
-            icon={listing.status === "planning" ? greyPin : greenPin}
+            icon={getPinIcon(listing.status)}
             onClick={() => setSelected(listing)}
           />
         ))}

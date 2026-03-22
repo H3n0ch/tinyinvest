@@ -69,8 +69,8 @@ export default function StandortMapWidget() {
         >
           <ZoomableGroup center={[10, 20]} zoom={1} minZoom={1} maxZoom={10}>
             <Geographies geography={GEO_URL}>
-              {({ geographies }: { geographies: any[] }) =>
-                geographies.map((geo: any) => (
+              {({ geographies }: { geographies: { rsmKey: string; [k: string]: unknown }[] }) =>
+                geographies.map((geo: { rsmKey: string; [k: string]: unknown }) => (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // scripts/create-listings.js
 // Run: node scripts/create-listings.js
 // Creates the `listings` table in Supabase and seeds the 6 initial asset cards.

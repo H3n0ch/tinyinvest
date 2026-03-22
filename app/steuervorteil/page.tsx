@@ -249,13 +249,13 @@ export default function SteuerVorteilPage() {
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-3">Bereit zum nächsten Schritt?</p>
-          <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Investor-Memorandum anfordern</h3>
+          <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Investitionsunterlagen anfordern</h3>
           <p className="text-gray-500 text-sm mb-6">
             Erhalten Sie die vollständige §7g-Analyse für Ihre persönliche Steuersituation plus individuelle Beratung.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <ModalButton className="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
-              🔐 Memorandum anfordern →
+              🔐 Unterlagen anfordern →
             </ModalButton>
             <Link href="/renditemodell" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
               Renditemodell ansehen →

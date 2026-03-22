@@ -7,9 +7,10 @@ export default function Kontakt() {
     nachname: "",
     email: "",
     telefon: "",
-    interesse: "Investor-Memorandum + §7g-Steueranalyse anfordern",
+    interesse: "Investitionsunterlagen + §7g-Steueranalyse anfordern",
     budget: "Asset #TE-2026-02 · TinyInvest Escape (79.000 €)",
     investmentVolumen: "60.000 – 80.000 € (1 Asset)",
+    kontaktZeit: "Jederzeit / flexibel",
     nachricht: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -69,17 +70,17 @@ export default function Kontakt() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
             </span>
-            47 Investoren haben in den letzten 30 Tagen ein Memorandum angefragt
+            47 Investoren haben in den letzten 30 Tagen Investitionsunterlagen angefragt
           </div>
         </div>
 
         {/* Headline */}
         <div className="text-center mb-14">
           <span className="inline-block bg-green-500/20 border border-green-400/30 text-green-300 text-[12px] font-semibold px-4 py-2 rounded-full mb-4 font-data">
-            investor_memorandum/request
+            investitionsunterlagen/request
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight">
-            Investor-Memorandum anfordern
+            Investitionsunterlagen anfordern
           </h2>
           <p className="text-white/55 text-base max-w-xl mx-auto leading-relaxed">
             Sie erhalten das vollständige Investor-Paket: §7g-Steueranalyse, tiny Escapes Betreiberkonzept,
@@ -95,7 +96,7 @@ export default function Kontakt() {
             {submitted ? (
               <div className="bg-white rounded-2xl p-10 shadow-2xl text-center flex flex-col items-center justify-center min-h-[420px]">
                 <div className="text-5xl mb-4">✅</div>
-                <h3 className="text-xl font-black text-gray-900 mb-3">Memorandum angefordert</h3>
+                <h3 className="text-xl font-black text-gray-900 mb-3">Unterlagen angefordert</h3>
                 <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
                   Ihre Anfrage ist eingegangen. Wir prüfen Ihre Angaben und senden Ihnen
                   das Investor-Paket innerhalb von 24&nbsp;Stunden persönlich zu.
@@ -107,7 +108,7 @@ export default function Kontakt() {
 
                 {/* Form header */}
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-                  <h3 className="text-base font-black text-gray-900">Memorandum-Anfrage</h3>
+                  <h3 className="text-base font-black text-gray-900">Unterlagen-Anfrage</h3>
                   <span className="bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full">
                     Kostenfrei
                   </span>
@@ -188,7 +189,7 @@ export default function Kontakt() {
                     onChange={handleChange}
                     className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
                   >
-                    <option>Investor-Memorandum + §7g-Steueranalyse anfordern</option>
+                    <option>Investitionsunterlagen + §7g-Steueranalyse anfordern</option>
                     <option>Projektunterlagen zu einem spezifischen Asset</option>
                     <option>Rendite-Beratung (passives Einkommen)</option>
                     <option>Kauf auf Raten / Finanzierungsberatung</option>
@@ -235,6 +236,24 @@ export default function Kontakt() {
                   </select>
                 </div>
 
+                {/* Kontaktzeit */}
+                <div className="mb-4">
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Wann am besten erreichbar?
+                  </label>
+                  <select
+                    name="kontaktZeit"
+                    value={form.kontaktZeit}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                  >
+                    <option>Morgens (8–12 Uhr)</option>
+                    <option>Mittags (12–15 Uhr)</option>
+                    <option>Abends (17–20 Uhr)</option>
+                    <option>Jederzeit / flexibel</option>
+                  </select>
+                </div>
+
                 {/* Message */}
                 <div className="mb-5">
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
@@ -260,7 +279,7 @@ export default function Kontakt() {
                   disabled={loading}
                   className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-xl text-base transition-all shadow-lg"
                 >
-                  {loading ? "Wird übermittelt…" : "🔐 Investor-Memorandum anfordern →"}
+                  {loading ? "Wird übermittelt…" : "🔐 Investitionsunterlagen anfordern →"}
                 </button>
 
                 <p className="text-center text-[11px] text-gray-400 mt-3 flex items-center justify-center gap-1">
@@ -322,7 +341,7 @@ export default function Kontakt() {
                 ))}
               </div>
               <p className="text-white/70 text-[12px] leading-relaxed italic mb-3">
-                „Innerhalb von 2 Wochen nach meiner Anfrage stand der Kaufvertrag. Die Beratung war ehrlich, klar und ohne Druck."
+                &bdquo;Innerhalb von 2 Wochen nach meiner Anfrage stand der Kaufvertrag. Die Beratung war ehrlich, klar und ohne Druck.&rdquo;
               </p>
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-bold text-xs">MK</div>

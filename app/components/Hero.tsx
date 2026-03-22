@@ -130,7 +130,7 @@ export default function Hero() {
                 onClick={openModal}
                 className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all backdrop-blur-sm"
               >
-                🔐 Investor-Memorandum
+                🔐 Investitionsunterlagen
               </button>
             </div>
 

@@ -27,7 +27,6 @@ export default function RenditeRechner() {
 
   const fmt = (n: number) => Math.round(n).toLocaleString("de-DE");
 
-  const renditeColor = rendite >= 15 ? "text-green-600" : rendite >= 12 ? "text-green-700" : "text-green-800";
 
   return (
     <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 max-w-3xl mx-auto">

@@ -7,7 +7,17 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { vorname, nachname, email, telefon, interesse, budget, nachricht } = body;
+    const {
+      vorname,
+      nachname,
+      email,
+      telefon,
+      interesse,
+      budget,
+      investmentVolumen,
+      kontaktZeit,
+      nachricht,
+    } = body;
 
     // 1. Save to Supabase
     const { error: dbError } = await supabaseAdmin.from("leads").insert([
@@ -18,6 +28,8 @@ export async function POST(req: NextRequest) {
         telefon: telefon || null,
         interesse,
         budget,
+        investment_volumen: investmentVolumen || null,
+        kontakt_zeit: kontaktZeit || null,
         nachricht: nachricht || null,
         status: "neu",
       },
@@ -28,7 +40,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Datenbankfehler" }, { status: 500 });
     }
 
-    // 2. Send email notification via Resend (non-blocking — email failure won't break the form)
+    // 2. Send email notification via Resend (non-blocking)
     try {
       await resend.emails.send({
         from: process.env.RESEND_FROM!,
@@ -42,7 +54,7 @@ export async function POST(req: NextRequest) {
             <div style="background: white; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb; border-top: none;">
               <table style="width: 100%; border-collapse: collapse;">
                 <tr>
-                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; width: 120px; font-weight: bold;">Name</td>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; width: 160px; font-weight: bold;">Name</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${vorname} ${nachname}</td>
                 </tr>
                 <tr>
@@ -54,12 +66,20 @@ export async function POST(req: NextRequest) {
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${telefon || "–"}</td>
                 </tr>
                 <tr>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">⏰ Erreichbar</td>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827; font-weight: bold; color: #15803d;">${kontaktZeit || "–"}</td>
+                </tr>
+                <tr>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Interesse</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${interesse}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Budget</td>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Asset-Interesse</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${budget}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Investitionsvolumen</td>
+                  <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${investmentVolumen || "–"}</td>
                 </tr>
                 ${nachricht ? `
                 <tr>
@@ -79,7 +99,6 @@ export async function POST(req: NextRequest) {
         `,
       });
     } catch (emailErr) {
-      // Email failed — log it but don't block the success response
       console.error("Resend error (non-fatal):", emailErr);
     }
 

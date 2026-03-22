@@ -100,7 +100,7 @@ export default function Ueber() {
             {/* CTA */}
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
               <ModalButton className="flex-1 bg-green-700 hover:bg-green-800 text-white font-bold px-5 py-3 rounded-full text-[13px] text-center transition-all">
-                Investor-Memorandum anfordern →
+                Investitionsunterlagen anfordern →
               </ModalButton>
               <ModalButton className="flex-1 border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-3 rounded-full text-[13px] text-center transition-all">
                 Als Host bewerben →

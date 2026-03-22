@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // scripts/add-lat-lng.js — adds lat/lng columns via direct PostgreSQL connection
 const { Client } = require("pg");
 

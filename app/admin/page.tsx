@@ -11,6 +11,8 @@ type Lead = {
   telefon: string | null;
   interesse: string;
   budget: string;
+  investment_volumen: string | null;
+  kontakt_zeit: string | null;
   nachricht: string | null;
   status: "neu" | "kontaktiert" | "abgeschlossen";
 };
@@ -222,15 +224,18 @@ function ListingForm({
 
 // ──────────── Main component ────────────
 export default function AdminPage() {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(() =>
+    typeof window !== "undefined" ? (sessionStorage.getItem("admin_pw") ?? "") : ""
+  );
   const [authed, setAuthed]     = useState(false);
   const [tab, setTab]           = useState<"leads" | "listings">("leads");
 
   // Leads
-  const [leads, setLeads]               = useState<Lead[]>([]);
-  const [loadingLeads, setLoadingLeads] = useState(false);
-  const [filter, setFilter]             = useState<"all" | Lead["status"]>("all");
-  const [selected, setSelected]         = useState<Lead | null>(null);
+  const [leads, setLeads]                   = useState<Lead[]>([]);
+  const [loadingLeads, setLoadingLeads]     = useState(false);
+  const [filter, setFilter]                 = useState<"all" | Lead["status"]>("all");
+  const [selected, setSelected]             = useState<Lead | null>(null);
+  const [confirmDeleteLead, setConfirmDeleteLead] = useState<string | null>(null);
 
   // Listings
   const [listings, setListings]                 = useState<Listing[]>([]);
@@ -274,7 +279,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const saved = sessionStorage.getItem("admin_pw");
-    if (saved) { setPassword(saved); fetchLeads(saved); fetchListings(saved); }
+    if (saved) { fetchLeads(saved); fetchListings(saved); }
   }, [fetchLeads, fetchListings]);
 
   // ── Leads actions ──
@@ -286,6 +291,18 @@ export default function AdminPage() {
     });
     setLeads((prev) => prev.map((l) => (l.id === id ? { ...l, status: status as Lead["status"] } : l)));
     if (selected?.id === id) setSelected((prev) => prev ? { ...prev, status: status as Lead["status"] } : null);
+  };
+
+  const deleteLead = async (id: string) => {
+    const res = await fetch(`/api/admin/leads?id=${id}`, {
+      method: "DELETE",
+      headers: { "x-admin-password": password },
+    });
+    if (res.ok) {
+      setLeads((prev) => prev.filter((l) => l.id !== id));
+      if (selected?.id === id) setSelected(null);
+      setConfirmDeleteLead(null);
+    }
   };
 
   const filtered = filter === "all" ? leads : leads.filter((l) => l.status === filter);
@@ -470,7 +487,9 @@ export default function AdminPage() {
                       <div className="mt-5 pt-5 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
                           <div><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Interesse</p><p className="text-sm text-white">{lead.interesse}</p></div>
-                          <div><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Budget</p><p className="text-sm text-white">{lead.budget}</p></div>
+                          <div><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Asset-Interesse</p><p className="text-sm text-white">{lead.budget}</p></div>
+                          {lead.investment_volumen && <div><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">💰 Investitionsvolumen</p><p className="text-sm text-white font-semibold">{lead.investment_volumen}</p></div>}
+                          {lead.kontakt_zeit && <div><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">⏰ Erreichbar</p><p className="text-sm text-green-400 font-semibold">{lead.kontakt_zeit}</p></div>}
                           {lead.nachricht && <div className="sm:col-span-2"><p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Nachricht</p><p className="text-sm text-white bg-white/5 rounded-xl p-3">{lead.nachricht}</p></div>}
                         </div>
                         <div className="mb-4">
@@ -486,6 +505,16 @@ export default function AdminPage() {
                         <div className="flex flex-wrap gap-2">
                           <a href={`mailto:${lead.email}?subject=TinyInvest – Deine Beratungsanfrage&body=Hallo ${lead.vorname},%0A%0A`} className="text-xs bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-full transition-colors">✉️ E-Mail schreiben</a>
                           {lead.telefon && <a href={`tel:${lead.telefon}`} className="text-xs bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full transition-colors">📞 Anrufen</a>}
+                          {confirmDeleteLead === lead.id ? (
+                            <div className="flex gap-1 ml-auto">
+                              <button onClick={() => deleteLead(lead.id)} className="text-xs bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-2 rounded-full transition-colors">✓ Ja, löschen</button>
+                              <button onClick={() => setConfirmDeleteLead(null)} className="text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 font-bold px-3 py-2 rounded-full transition-colors">✕ Abbrechen</button>
+                            </div>
+                          ) : (
+                            <button onClick={() => setConfirmDeleteLead(lead.id)} className="text-xs border border-red-500/30 text-red-400 hover:bg-red-900/20 font-bold px-4 py-2 rounded-full transition-colors ml-auto">
+                              🗑️ Lead löschen
+                            </button>
+                          )}
                         </div>
                       </div>
                     )}

@@ -29,9 +29,9 @@ export default function AGBPage() {
             <section>
               <h2 className="text-lg font-bold text-white mb-3">§ 1 Geltungsbereich</h2>
               <p>
-                Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle Verträge, die zwischen der
-                TinyInvest GmbH, Musterstraße 1, 12345 Berlin (nachfolgend „TinyInvest") und dem Kunden (nachfolgend
-                „Investor") über die Beteiligung an Tiny-House-Investitionsmodellen geschlossen werden. Abweichende
+                Diese Allgemeinen Geschäftsbedingungen (nachfolgend &bdquo;AGB&rdquo;) gelten für alle Verträge, die zwischen der
+                TinyInvest GmbH, Musterstraße 1, 12345 Berlin (nachfolgend &bdquo;TinyInvest&rdquo;) und dem Kunden (nachfolgend
+                &bdquo;Investor&rdquo;) über die Beteiligung an Tiny-House-Investitionsmodellen geschlossen werden. Abweichende
                 Bedingungen des Investors werden nicht anerkannt, es sei denn, TinyInvest stimmt ihrer Geltung
                 ausdrücklich schriftlich zu.
               </p>

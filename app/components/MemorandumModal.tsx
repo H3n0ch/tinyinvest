@@ -10,9 +10,10 @@ export default function MemorandumModal() {
     nachname: "",
     email: "",
     telefon: "",
-    interesse: "Investor-Memorandum + §7g-Steueranalyse anfordern",
+    interesse: "Investitionsunterlagen + §7g-Steueranalyse anfordern",
     budget: "Asset #TE-2026-02 · TinyInvest Escape (79.000 €)",
     investmentVolumen: "60.000 – 80.000 € (1 Asset)",
+    kontaktZeit: "Jederzeit / flexibel",
     nachricht: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -93,10 +94,10 @@ export default function MemorandumModal() {
           {/* Header */}
           <div className="mb-6 pr-8">
             <span className="inline-block font-data text-[11px] text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full uppercase tracking-widest mb-3">
-              investor_memorandum/request
+              investitionsunterlagen/request
             </span>
             <h2 className="text-xl font-black text-gray-900 tracking-tight mb-1">
-              Investor-Memorandum anfordern
+              Investitionsunterlagen anfordern
             </h2>
             <p className="text-[13px] text-gray-500 leading-relaxed">
               §7g-Steueranalyse · tiny Escapes Betreiberkonzept · Asset-Kennzahlen · Persönliche Beratung
@@ -106,7 +107,7 @@ export default function MemorandumModal() {
           {submitted ? (
             <div className="text-center py-12">
               <div className="text-5xl mb-4">✅</div>
-              <h3 className="text-lg font-black text-gray-900 mb-2">Memorandum angefordert</h3>
+              <h3 className="text-lg font-black text-gray-900 mb-2">Unterlagen angefordert</h3>
               <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed mb-6">
                 Ihre Anfrage ist eingegangen. Wir senden Ihnen das Investor-Paket innerhalb von
                 24&nbsp;Stunden persönlich zu.
@@ -178,7 +179,7 @@ export default function MemorandumModal() {
                   name="interesse" value={form.interesse} onChange={handleChange}
                   className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
                 >
-                  <option>Investor-Memorandum + §7g-Steueranalyse anfordern</option>
+                  <option>Investitionsunterlagen + §7g-Steueranalyse anfordern</option>
                   <option>Projektunterlagen zu einem spezifischen Asset</option>
                   <option>Rendite-Beratung (passives Einkommen)</option>
                   <option>Kauf auf Raten / Finanzierungsberatung</option>
@@ -220,6 +221,22 @@ export default function MemorandumModal() {
                 </div>
               </div>
 
+              {/* Kontaktzeit */}
+              <div>
+                <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                  Wann am besten erreichbar?
+                </label>
+                <select
+                  name="kontaktZeit" value={form.kontaktZeit} onChange={handleChange}
+                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                >
+                  <option>Morgens (8–12 Uhr)</option>
+                  <option>Mittags (12–15 Uhr)</option>
+                  <option>Abends (17–20 Uhr)</option>
+                  <option>Jederzeit / flexibel</option>
+                </select>
+              </div>
+
               {/* Message */}
               <div>
                 <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
@@ -241,7 +258,7 @@ export default function MemorandumModal() {
                 disabled={loading}
                 className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-xl text-sm transition-all shadow-md"
               >
-                {loading ? "Wird übermittelt…" : "🔐 Investor-Memorandum anfordern →"}
+                {loading ? "Wird übermittelt…" : "🔐 Investitionsunterlagen anfordern →"}
               </button>
 
               {/* Trust footer */}

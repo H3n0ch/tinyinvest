@@ -161,7 +161,7 @@ export default function DatenschutzPage() {
               <ul className="list-disc list-inside mt-3 space-y-1 text-gray-400">
                 <li><strong className="text-gray-300">Auskunftsrecht</strong> (Art. 15 DSGVO) – Auskunft über Ihre gespeicherten Daten</li>
                 <li><strong className="text-gray-300">Berichtigungsrecht</strong> (Art. 16 DSGVO) – Korrektur unrichtiger Daten</li>
-                <li><strong className="text-gray-300">Recht auf Löschung</strong> (Art. 17 DSGVO) – „Recht auf Vergessenwerden"</li>
+                <li><strong className="text-gray-300">Recht auf Löschung</strong> (Art. 17 DSGVO) – &bdquo;Recht auf Vergessenwerden&rdquo;</li>
                 <li><strong className="text-gray-300">Recht auf Einschränkung</strong> (Art. 18 DSGVO) – Einschränkung der Verarbeitung</li>
                 <li><strong className="text-gray-300">Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
                 <li><strong className="text-gray-300">Widerspruchsrecht</strong> (Art. 21 DSGVO) – Widerspruch gegen die Verarbeitung</li>
