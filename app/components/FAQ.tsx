@@ -3,12 +3,12 @@ import AccordionItem from "./AccordionItem";
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-5">Häufige Fragen</h2>
-          <p className="text-gray-500 text-lg">Alles, was du wissen musst – bevor du anfragst.</p>
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-4 tracking-tight">Häufige Fragen</h2>
+          <p className="text-gray-500 text-sm">Alles, was du wissen musst – bevor du anfragst.</p>
         </div>
 
         <div className="space-y-3">

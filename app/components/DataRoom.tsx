@@ -61,7 +61,7 @@ const restrictedDocs = [
 
 export default function DataRoom() {
   return (
-    <section id="dataroom" className="py-24 bg-gray-950">
+    <section id="dataroom" className="py-20 bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -69,7 +69,7 @@ export default function DataRoom() {
           <span className="font-data text-green-400 text-xs uppercase tracking-widest font-semibold">
             investor_data_room/
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mt-3 mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-white mt-2 mb-3 tracking-tight">
             Investor Data Room
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
@@ -109,7 +109,7 @@ export default function DataRoom() {
                 </a>
               ))}
             </div>
-            <div className="px-6 py-4 border-t border-white/5 bg-white/2">
+            <div className="px-6 py-4 border-t border-white/5 bg-white/5">
               <a
                 href="#kontakt"
                 className="text-[12px] text-green-400 font-semibold hover:text-green-300 transition-colors"

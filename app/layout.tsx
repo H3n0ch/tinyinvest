@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
+import { ModalProvider } from "./components/ModalContext";
+import MemorandumModal from "./components/MemorandumModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,9 +11,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "TinyInvest – Investiere in Tiny Houses",
+  title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
   description:
-    "Investiere in nachhaltige Tiny Houses und erziele 10–15 % Rendite p.a. Durch unsere Partnerschaft mit Tiny Escapes sind 70 % Belegung garantiert.",
+    "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
   icons: {
     icon: "/images/favicon.png",
     shortcut: "/images/favicon.png",
@@ -27,8 +29,11 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${geistSans.variable} antialiased`}>
-        {children}
-        <CookieBanner />
+        <ModalProvider>
+          {children}
+          <MemorandumModal />
+          <CookieBanner />
+        </ModalProvider>
       </body>
     </html>
   );

@@ -46,7 +46,7 @@ export default function Kontakt() {
   };
 
   return (
-    <section id="kontakt" className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
+    <section id="kontakt" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
       {/* Background grid */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -78,7 +78,7 @@ export default function Kontakt() {
           <span className="inline-block bg-green-500/20 border border-green-400/30 text-green-300 text-[12px] font-semibold px-4 py-2 rounded-full mb-4 font-data">
             investor_memorandum/request
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight">
             Investor-Memorandum anfordern
           </h2>
           <p className="text-white/55 text-base max-w-xl mx-auto leading-relaxed">

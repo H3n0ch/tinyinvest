@@ -42,11 +42,11 @@ export default function Prozess() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="prozess" className="py-24 bg-[#f8f4ee]">
+    <section id="prozess" className="py-20 bg-platform border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">Der Prozess</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-5">
+          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
             So einfach geht&apos;s
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-lg">
