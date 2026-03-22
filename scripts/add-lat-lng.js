@@ -1,51 +1,32 @@
-// scripts/add-lat-lng.js
-// Adds lat + lng nullable float columns to the listings table
-const { createClient } = require("@supabase/supabase-js");
+// scripts/add-lat-lng.js — adds lat/lng columns via direct PostgreSQL connection
+const { Client } = require("pg");
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+const DATABASE_URL =
+  "postgresql://postgres:8exng8sfQ2EGee5Y@db.qtssdcytplgputcvdrhe.supabase.co:5432/postgres";
 
 async function run() {
-  const { error } = await supabase.rpc("exec_sql", {
-    sql: `
-      ALTER TABLE listings
-        ADD COLUMN IF NOT EXISTS lat DOUBLE PRECISION,
-        ADD COLUMN IF NOT EXISTS lng DOUBLE PRECISION;
-    `,
-  });
+  const client = new Client({ connectionString: DATABASE_URL, ssl: { rejectUnauthorized: false } });
+  await client.connect();
+  console.log("✓ Connected to Supabase PostgreSQL");
 
-  if (error) {
-    // rpc exec_sql may not exist — try direct query approach
-    console.log("rpc failed, trying direct query:", error.message);
-    // Use REST API to run raw SQL via the pg endpoint
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/rpc/exec_sql`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": process.env.SUPABASE_SERVICE_ROLE_KEY,
-        "Authorization": `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
-      },
-      body: JSON.stringify({ sql: "ALTER TABLE listings ADD COLUMN IF NOT EXISTS lat DOUBLE PRECISION, ADD COLUMN IF NOT EXISTS lng DOUBLE PRECISION;" }),
-    });
-    const text = await res.text();
-    console.log("Response:", res.status, text);
-  } else {
-    console.log("✓ lat + lng columns added (or already exist).");
-  }
+  await client.query(`
+    ALTER TABLE listings
+      ADD COLUMN IF NOT EXISTS lat DOUBLE PRECISION,
+      ADD COLUMN IF NOT EXISTS lng DOUBLE PRECISION;
+  `);
+  console.log("✓ lat + lng columns added (or already existed)");
 
-  // Verify
-  const { data, error: e2 } = await supabase.from("listings").select("id, lat, lng").limit(1);
-  if (e2) {
-    console.log("✗ Verification failed:", e2.message);
-    console.log("\nPlease run this SQL manually in Supabase SQL Editor:\n");
-    console.log("  ALTER TABLE listings");
-    console.log("    ADD COLUMN IF NOT EXISTS lat DOUBLE PRECISION,");
-    console.log("    ADD COLUMN IF NOT EXISTS lng DOUBLE PRECISION;");
-  } else {
-    console.log("✓ Verified! Sample row:", data);
-  }
+  const res = await client.query("SELECT id, asset_id, lat, lng FROM listings LIMIT 3;");
+  console.log("✓ Verification — sample rows:");
+  res.rows.forEach((r) =>
+    console.log(`  #${r.id} ${r.asset_id}  lat=${r.lat}  lng=${r.lng}`)
+  );
+
+  await client.end();
+  console.log("✓ Done.");
 }
 
-run().catch(console.error);
+run().catch((err) => {
+  console.error("✗ Migration failed:", err.message);
+  process.exit(1);
+});
