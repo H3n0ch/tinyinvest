@@ -7,8 +7,9 @@ export default function Kontakt() {
     nachname: "",
     email: "",
     telefon: "",
-    interesse: "📋 Steuer-Investment (IAB + Sonder-AfA)",
-    budget: "TinyInvest Comfort – On-Grid (60.000 €)",
+    interesse: "Investor-Memorandum + §7g-Steueranalyse anfordern",
+    budget: "Asset #TE-2026-02 · TinyInvest Escape (79.000 €)",
+    investmentVolumen: "60.000 – 80.000 € (1 Asset)",
     nachricht: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -46,60 +47,78 @@ export default function Kontakt() {
 
   return (
     <section id="kontakt" className="py-24 relative overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
-      {/* Dekorative Hintergrund-Elemente */}
+      {/* Background grid */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full" style={{backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)", backgroundSize: "40px 40px"}} />
+        <div
+          className="absolute top-0 left-0 w-full h-full"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-green-500 rounded-full opacity-10 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-green-700 rounded-full opacity-10 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Social Proof Banner */}
+        {/* Live social proof */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-semibold px-5 py-2.5 rounded-full">
-            <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-white text-[13px] font-semibold px-5 py-2.5 rounded-full">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
             </span>
-            Bereits 47 Investoren haben in den letzten 30 Tagen eine Beratung angefragt
+            47 Investoren haben in den letzten 30 Tagen ein Memorandum angefragt
           </div>
         </div>
 
         {/* Headline */}
         <div className="text-center mb-14">
-          <span className="inline-block bg-green-500/20 border border-green-400/30 text-green-300 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            🚀 Bereit loszulegen?
+          <span className="inline-block bg-green-500/20 border border-green-400/30 text-green-300 text-[12px] font-semibold px-4 py-2 rounded-full mb-4 font-data">
+            investor_memorandum/request
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5">
-            Kostenlose Beratung anfragen
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">
+            Investor-Memorandum anfordern
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto leading-relaxed">
-            Egal ob Steuer-Investment, Renditeobjekt oder Finanzierung – wir finden gemeinsam das beste Modell für deine Situation.
+          <p className="text-white/55 text-base max-w-xl mx-auto leading-relaxed">
+            Sie erhalten das vollständige Investor-Paket: §7g-Steueranalyse, tiny Escapes Betreiberkonzept,
+            Asset-Kennzahlen und individuelle Beratung – kostenfrei und unverbindlich.
           </p>
         </div>
 
-        {/* 2-spaltiges Layout */}
+        {/* 2-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
 
-          {/* LINKS: Formular */}
+          {/* LEFT: Form */}
           <div className="lg:col-span-3">
             {submitted ? (
-              <div className="bg-white rounded-3xl p-10 shadow-2xl text-center flex flex-col items-center justify-center min-h-[400px]">
-                <div className="text-6xl mb-4">🎉</div>
-                <h3 className="text-2xl font-black text-gray-900 mb-3">Anfrage erhalten!</h3>
-                <p className="text-gray-500 max-w-sm">Wir melden uns persönlich innerhalb von 24 Stunden bei dir. Schau auch in deinen Spam-Ordner.</p>
+              <div className="bg-white rounded-2xl p-10 shadow-2xl text-center flex flex-col items-center justify-center min-h-[420px]">
+                <div className="text-5xl mb-4">✅</div>
+                <h3 className="text-xl font-black text-gray-900 mb-3">Memorandum angefordert</h3>
+                <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
+                  Ihre Anfrage ist eingegangen. Wir prüfen Ihre Angaben und senden Ihnen
+                  das Investor-Paket innerhalb von 24&nbsp;Stunden persönlich zu.
+                </p>
+                <p className="text-[11px] text-gray-400 mt-4">Bitte auch Spam-Ordner prüfen.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
-                <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-2">
-                  <span className="bg-green-100 text-green-700 text-sm font-bold px-3 py-1 rounded-full">Kostenlos</span>
-                  Deine Beratungsanfrage
-                </h3>
+              <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
 
+                {/* Form header */}
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+                  <h3 className="text-base font-black text-gray-900">Memorandum-Anfrage</h3>
+                  <span className="bg-green-100 text-green-700 text-[11px] font-bold px-3 py-1 rounded-full">
+                    Kostenfrei
+                  </span>
+                </div>
+
+                {/* Name row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Vorname *</label>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Vorname *
+                    </label>
                     <input
                       type="text"
                       name="vorname"
@@ -107,11 +126,13 @@ export default function Kontakt() {
                       onChange={handleChange}
                       placeholder="Max"
                       required
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Nachname *</label>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Nachname *
+                    </label>
                     <input
                       type="text"
                       name="nachname"
@@ -119,82 +140,114 @@ export default function Kontakt() {
                       onChange={handleChange}
                       placeholder="Mustermann"
                       required
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
                     />
                   </div>
                 </div>
 
+                {/* Email */}
                 <div className="mb-4">
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">E-Mail *</label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">✉️</span>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="max@beispiel.de"
-                      required
-                      className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
-                    />
-                  </div>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    E-Mail *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="max@beispiel.de"
+                    required
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                  />
                 </div>
 
+                {/* Phone */}
                 <div className="mb-4">
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Telefon <span className="text-gray-400 font-normal normal-case">(optional)</span></label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">📞</span>
-                    <input
-                      type="tel"
-                      name="telefon"
-                      value={form.telefon}
-                      onChange={handleChange}
-                      placeholder="+49 ..."
-                      className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
-                    />
-                  </div>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Telefon{" "}
+                    <span className="text-gray-300 font-normal normal-case">(optional)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="telefon"
+                    value={form.telefon}
+                    onChange={handleChange}
+                    placeholder="+49 ..."
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                  />
                 </div>
 
+                {/* Interesse */}
                 <div className="mb-4">
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Ich interessiere mich für …</label>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Anfrage-Typ
+                  </label>
                   <select
                     name="interesse"
                     value={form.interesse}
                     onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
                   >
-                    <option>📋 Steuer-Investment (IAB + Sonder-AfA)</option>
-                    <option>📈 Rendite-Investment (passives Einkommen)</option>
-                    <option>🏡 Kauf auf Raten / Finanzierung</option>
-                    <option>📊 Steuer-Factsheet anfordern</option>
-                    <option>💬 Allgemeine Beratung</option>
+                    <option>Investor-Memorandum + §7g-Steueranalyse anfordern</option>
+                    <option>Projektunterlagen zu einem spezifischen Asset</option>
+                    <option>Rendite-Beratung (passives Einkommen)</option>
+                    <option>Kauf auf Raten / Finanzierungsberatung</option>
+                    <option>Host-Bewerbung (Standort / Grundstück)</option>
+                    <option>Allgemeine Erstinformation</option>
                   </select>
                 </div>
 
+                {/* Asset preference */}
                 <div className="mb-4">
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Budget / Kaufpreisrahmen</label>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Asset-Interesse
+                  </label>
                   <select
                     name="budget"
                     value={form.budget}
                     onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
                   >
-                    <option>TinyInvest Comfort – On-Grid (60.000 €)</option>
-                    <option>TinyInvest Escape – Off-Grid + Clansana (79.000 €)</option>
-                    <option>TinyInvest Elite – Off-Grid Premium (95.000 €)</option>
+                    <option>Asset #TE-2026-01 · TinyInvest Comfort (60.000 €)</option>
+                    <option>Asset #TE-2026-02 · TinyInvest Escape (79.000 €)</option>
+                    <option>Asset #TE-2026-03 · TinyInvest Elite (95.000 €)</option>
                     <option>Individuell – bitte beraten</option>
                   </select>
                 </div>
 
-                <div className="mb-6">
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Nachricht <span className="text-gray-400 font-normal normal-case">(optional)</span></label>
+                {/* QUALIFIER: Investment volume — lead scoring field */}
+                <div className="mb-4">
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Geplantes Investitionsvolumen{" "}
+                    <span className="text-gray-300 font-normal normal-case">(zur Vorbereitung)</span>
+                  </label>
+                  <select
+                    name="investmentVolumen"
+                    value={form.investmentVolumen}
+                    onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                  >
+                    <option>60.000 – 80.000 € (1 Asset)</option>
+                    <option>80.000 – 100.000 € (1 Premium Asset)</option>
+                    <option>120.000 – 160.000 € (2 Assets)</option>
+                    <option>200.000 € + (3+ Assets / Portfolio)</option>
+                    <option>Noch unklar – Erstberatung gewünscht</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div className="mb-5">
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Fragen / Anmerkungen{" "}
+                    <span className="text-gray-300 font-normal normal-case">(optional)</span>
+                  </label>
                   <textarea
                     name="nachricht"
                     value={form.nachricht}
                     onChange={handleChange}
                     rows={3}
-                    placeholder="Deine Fragen oder Anmerkungen..."
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300"
+                    placeholder="z.B. Ich habe bereits einen IAB gebildet und möchte 2026 kaufen…"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300"
                   />
                 </div>
 
@@ -205,70 +258,88 @@ export default function Kontakt() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-green-900/40 hover:-translate-y-0.5 active:translate-y-0"
+                  className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-xl text-base transition-all shadow-lg"
                 >
-                  {loading ? "Wird gesendet…" : "Jetzt kostenlos anfragen →"}
+                  {loading ? "Wird übermittelt…" : "🔐 Investor-Memorandum anfordern →"}
                 </button>
 
-                <p className="text-center text-xs text-gray-400 mt-4 flex items-center justify-center gap-1.5">
-                  <span>🔒</span> Kostenlos & unverbindlich. Kein Spam. Datenschutz wird groß geschrieben.
+                <p className="text-center text-[11px] text-gray-400 mt-3 flex items-center justify-center gap-1">
+                  <span>🔒</span> Vertraulich · Keine Anlageberatung · Kein Spam · DSGVO-konform
                 </p>
               </form>
             )}
           </div>
 
-          {/* RECHTS: Trust-Sidebar */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
+          {/* RIGHT: Trust sidebar */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
 
-            {/* Was du bekommst */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6">
-              <h4 className="text-white font-black text-base mb-4">Was du bekommst</h4>
-              <ul className="space-y-3">
+            {/* What you get */}
+            <div className="bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
+              <h4 className="text-white font-black text-sm mb-4 uppercase tracking-wide">
+                Im Investor-Paket enthalten
+              </h4>
+              <ul className="space-y-2.5">
                 {[
-                  { icon: "✅", text: "Persönliche Steueranalyse deiner Situation" },
-                  { icon: "✅", text: "Konkretes Modell-Angebot (Comfort / Escape / Elite)" },
-                  { icon: "✅", text: "Finanzierungsoptionen & IAB-Strategie" },
-                  { icon: "✅", text: "Standort-Empfehlungen für maximale Rendite" },
-                  { icon: "✅", text: "Kein Verkaufsdruck – wir beraten ehrlich" },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-white/80">
-                    <span className="flex-shrink-0">{item.icon}</span>
-                    <span>{item.text}</span>
+                  "§7g-Steueranalyse (Steuerberater-geprüft)",
+                  "tiny Escapes Betreiberkonzept + Belegungsdaten",
+                  "Asset-Kennzahlen: IRR, NPV, Cashflow-Plan",
+                  "Vlemmix Trailer Technisches Datenblatt",
+                  "Individuelle Beratung (ohne Kaufzwang)",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-[13px] text-white/75">
+                    <span className="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Antwort in 24h */}
-            <div className="bg-green-500/20 border border-green-400/30 backdrop-blur-sm rounded-3xl p-6 flex items-center gap-4">
-              <div className="text-4xl flex-shrink-0">🕐</div>
+            {/* Response time */}
+            <div className="bg-green-500/15 border border-green-400/25 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-4">
+              <div className="text-3xl flex-shrink-0">⏱</div>
               <div>
-                <p className="text-white font-black text-base">Antwort innerhalb 24h</p>
-                <p className="text-white/60 text-sm mt-0.5">Wir melden uns persönlich – kein automatisches Antwortmail.</p>
+                <p className="text-white font-black text-sm">Antwort innerhalb 24h</p>
+                <p className="text-white/50 text-[12px] mt-0.5">Persönliche Rückmeldung – kein automatisches Bot-Mail.</p>
               </div>
             </div>
 
-            {/* Mini-Testimonial */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6">
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, i) => <span key={i} className="text-yellow-400 text-sm">★</span>)}
-              </div>
-              <p className="text-white/80 text-sm leading-relaxed italic">
-                „Innerhalb von 2 Wochen nach meiner Anfrage stand der Kaufvertrag. Die Beratung war ehrlich, klar und ohne Druck. Meine IAB-Erstattung kommt noch dieses Jahr."
+            {/* Regulatory clarity */}
+            <div className="bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-3">Rechtlicher Hinweis</p>
+              <p className="text-[12px] text-gray-400 leading-relaxed">
+                TinyInvest hält zu keinem Zeitpunkt Investorengelder.
+                Der Investor kauft das Wirtschaftsgut direkt beim Hersteller.
+                tiny Escapes übernimmt den Betrieb auf Basis eines Bewirtschaftungsvertrags.
+                Dies ist kein Finanzprodukt i.S.d. KAGB.
               </p>
-              <div className="flex items-center gap-3 mt-4">
-                <div className="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-sm">MK</div>
+            </div>
+
+            {/* Testimonial */}
+            <div className="bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-amber-400 text-xs">★</span>
+                ))}
+              </div>
+              <p className="text-white/70 text-[12px] leading-relaxed italic mb-3">
+                „Innerhalb von 2 Wochen nach meiner Anfrage stand der Kaufvertrag. Die Beratung war ehrlich, klar und ohne Druck."
+              </p>
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-bold text-xs">MK</div>
                 <div>
-                  <p className="text-white font-semibold text-sm">Michael K.</p>
-                  <p className="text-white/40 text-xs">Investor · TinyInvest Escape</p>
+                  <p className="text-white font-semibold text-[12px]">Michael K.</p>
+                  <p className="text-white/35 text-[10px]">Asset #TE-2026-02 · Investor</p>
                 </div>
               </div>
             </div>
 
-            {/* Direktkontakt */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6">
-              <p className="text-white/50 text-xs uppercase tracking-wider font-semibold mb-3">Lieber direkt schreiben?</p>
-              <a href="mailto:info@tinyhouse.investments" className="flex items-center gap-3 text-green-300 hover:text-green-200 transition-colors font-semibold text-sm">
+            {/* Direct contact */}
+            <div className="bg-white/8 backdrop-blur-sm border border-white/15 rounded-2xl p-5">
+              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-2">Direktkontakt</p>
+              <a
+                href="mailto:info@tinyhouse.investments"
+                className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors font-semibold text-[13px]"
+              >
                 <span>✉️</span> info@tinyhouse.investments
               </a>
             </div>

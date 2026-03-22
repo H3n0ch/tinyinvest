@@ -14,7 +14,7 @@ export const navLinks = [
 export const stats = [
   { value: "70 %", label: "Im Kaufjahr absetzbar" },
   { value: "bis 18 %", label: "Rendite p.a." },
-  { value: "100 %", label: "Full-Service" },
+  { value: "50–60 %", label: "Ø Belegung (tiny Escapes)" },
   { value: "100 %", label: "Mobiles Wirtschaftsgut" },
 ];
 

@@ -32,7 +32,33 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+  font-size: 15px;
 }
+
+/* Financial / institutional body defaults */
+body {
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.65;
+  color: #1f2937;
+}
+
+/* Mono "data point" utility */
+.font-data {
+  font-family: "Geist Mono", "JetBrains Mono", "Roboto Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Platform off-white background */
+.bg-platform {
+  background-color: #f9fafb;
+}
+
+/* Status badge variants */
+.badge-available  { background: #dcfce7; color: #15803d; }
+.badge-reserved   { background: #fef9c3; color: #a16207; }
+.badge-sold       { background: #fee2e2; color: #b91c1c; }
+.badge-planning   { background: #e0e7ff; color: #3730a3; }
 
 /* Range input styling – mobile-optimized */
 input[type="range"] {
