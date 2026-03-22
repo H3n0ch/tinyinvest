@@ -10,7 +10,7 @@ export const metadata = {
 export default function DatenschutzPage() {
   return (
     <>
-      <Navbar />
+      <Navbar variant="sub" />
       <main className="min-h-screen bg-gray-950 text-gray-100 pt-28 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">

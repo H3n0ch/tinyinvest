@@ -3,10 +3,10 @@
 // ─────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Modelle", href: "#modelle" },
-  { label: "Steuer-Vorteile", href: "#steuer" },
-  { label: "Rendite-Modell", href: "#rendite" },
-  { label: "So funktioniert's", href: "#prozess" },
+  { label: "Projekte", href: "/projekte" },
+  { label: "Steuer-Vorteile", href: "/steuervorteil" },
+  { label: "Rendite-Modell", href: "/renditemodell" },
+  { label: "So funktioniert's", href: "/so-funktioniert-es" },
   { label: "Referenzen", href: "#referenzen" },
   { label: "FAQ", href: "#faq" },
 ];

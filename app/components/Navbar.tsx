@@ -1,16 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
 import { navLinks } from "./data";
+import { useModal } from "./ModalContext";
+import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" }) {
+  const { openModal } = useModal();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(variant === "sub");
 
   useEffect(() => {
+    if (variant === "sub") return; // always scrolled on sub-pages
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [variant]);
 
   const isIce = !scrolled;
 
@@ -25,7 +29,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo + operator badge */}
-          <a href="#" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <div className="flex flex-col leading-none">
               <span className={`text-xl font-black tracking-tight transition-colors duration-300 ${isIce ? "text-green-300" : "text-green-700"}`}>
                 Tiny<span className={isIce ? "text-white" : "text-gray-900"}>Invest</span>
@@ -35,7 +39,7 @@ export default function Navbar() {
                 powered by tiny Escapes
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
@@ -77,8 +81,9 @@ export default function Navbar() {
             </a>
 
             {/* Investor Login ghost button */}
-            <a
-              href="#kontakt"
+            <button
+              type="button"
+              onClick={openModal}
               title="Investor-Portal · Zugang auf Anfrage"
               className={`px-4 py-2 rounded-lg text-[12px] font-semibold border transition-all duration-300 ${
                 isIce
@@ -87,11 +92,12 @@ export default function Navbar() {
               }`}
             >
               🔐 Investor Login
-            </a>
+            </button>
 
             {/* Primary CTA */}
-            <a
-              href="#kontakt"
+            <button
+              type="button"
+              onClick={openModal}
               className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-300 ${
                 isIce
                   ? "bg-white/20 hover:bg-white/30 text-white border border-white/40 backdrop-blur-sm"
@@ -99,7 +105,7 @@ export default function Navbar() {
               }`}
             >
               Projektunterlagen anfragen
-            </a>
+            </button>
           </nav>
 
           {/* Mobile burger */}
@@ -158,20 +164,20 @@ export default function Navbar() {
             tiny Escapes ↗
           </a>
           <div className="h-px bg-white/10 my-1" />
-          <a
-            href="#kontakt"
-            onClick={() => setMenuOpen(false)}
-            className="text-sm font-medium py-2 text-gray-400 hover:text-green-700 transition-colors"
+          <button
+            type="button"
+            onClick={() => { openModal(); setMenuOpen(false); }}
+            className="text-sm font-medium py-2 text-gray-400 hover:text-green-700 transition-colors text-left"
           >
             🔐 Investor Login
-          </a>
-          <a
-            href="#kontakt"
-            onClick={() => setMenuOpen(false)}
-            className="bg-green-700 text-white px-5 py-3 rounded-full text-sm font-semibold text-center hover:bg-green-800 transition-colors mt-2"
+          </button>
+          <button
+            type="button"
+            onClick={() => { openModal(); setMenuOpen(false); }}
+            className="bg-green-700 text-white px-5 py-3 rounded-full text-sm font-semibold text-center hover:bg-green-800 transition-colors mt-2 w-full"
           >
             Projektunterlagen anfragen →
-          </a>
+          </button>
         </nav>
       </div>
     </header>

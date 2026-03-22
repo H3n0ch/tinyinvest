@@ -1,5 +1,5 @@
 // Ueber.tsx — "Über TinyInvest" platform stats + Europe deployment map
-// Inspired by: Milk the Sun's "Über die Milk the Sun" section
+import ModalButton from "./ModalButton";
 
 const platformMetrics = [
   {
@@ -233,18 +233,12 @@ export default function Ueber() {
 
             {/* CTA */}
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
-              <a
-                href="#kontakt"
-                className="flex-1 bg-green-700 hover:bg-green-800 text-white font-bold px-5 py-3 rounded-full text-[13px] text-center transition-all"
-              >
+              <ModalButton className="flex-1 bg-green-700 hover:bg-green-800 text-white font-bold px-5 py-3 rounded-full text-[13px] text-center transition-all">
                 Investor-Memorandum anfordern →
-              </a>
-              <a
-                href="#kontakt"
-                className="flex-1 border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-3 rounded-full text-[13px] text-center transition-all"
-              >
+              </ModalButton>
+              <ModalButton className="flex-1 border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-3 rounded-full text-[13px] text-center transition-all">
                 Als Host bewerben →
-              </a>
+              </ModalButton>
             </div>
           </div>
         </div>

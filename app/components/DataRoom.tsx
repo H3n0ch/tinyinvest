@@ -1,5 +1,6 @@
 // DataRoom.tsx — Institutional document vault
 // "Financial terminal" aesthetic: dark background, mono font, gated docs
+import ModalButton from "./ModalButton";
 
 const publicDocs = [
   {
@@ -91,10 +92,9 @@ export default function DataRoom() {
             </div>
             <div className="divide-y divide-white/5">
               {publicDocs.map((doc) => (
-                <a
+                <ModalButton
                   key={doc.name}
-                  href="#kontakt"
-                  className="flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors group"
+                  className="flex items-start gap-4 px-6 py-4 hover:bg-white/5 transition-colors group w-full text-left"
                 >
                   <span className="text-xl mt-0.5 flex-shrink-0">{doc.icon}</span>
                   <div className="flex-grow min-w-0">
@@ -106,16 +106,13 @@ export default function DataRoom() {
                   <span className={`text-[9px] font-semibold px-2 py-1 rounded-full flex-shrink-0 whitespace-nowrap ${doc.tagColor}`}>
                     {doc.tag}
                   </span>
-                </a>
+                </ModalButton>
               ))}
             </div>
             <div className="px-6 py-4 border-t border-white/5 bg-white/5">
-              <a
-                href="#kontakt"
-                className="text-[12px] text-green-400 font-semibold hover:text-green-300 transition-colors"
-              >
+              <ModalButton className="text-[12px] text-green-400 font-semibold hover:text-green-300 transition-colors">
                 Alle öffentlichen Dokumente anfordern →
-              </a>
+              </ModalButton>
             </div>
           </div>
 
@@ -148,12 +145,9 @@ export default function DataRoom() {
               ))}
             </div>
             <div className="px-6 py-4 border-t border-white/5">
-              <a
-                href="#kontakt"
-                className="block w-full py-3 rounded-xl bg-green-700 hover:bg-green-600 text-white text-[13px] font-semibold text-center transition-colors"
-              >
+              <ModalButton className="block w-full py-3 rounded-xl bg-green-700 hover:bg-green-600 text-white text-[13px] font-semibold text-center transition-colors">
                 🔐 Investor-Memorandum anfordern
-              </a>
+              </ModalButton>
               <p className="text-[10px] text-gray-600 text-center mt-2">
                 Freigabe nach Verifikation · Vertraulich & kostenfrei
               </p>

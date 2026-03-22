@@ -1,5 +1,6 @@
 import { faqs } from "./data";
 import AccordionItem from "./AccordionItem";
+import ModalButton from "./ModalButton";
 
 export default function FAQ() {
   return (
@@ -19,9 +20,9 @@ export default function FAQ() {
 
         <div className="mt-10 bg-green-50 border border-green-200 rounded-2xl p-6 text-center">
           <p className="text-green-800 font-medium mb-3">Noch eine Frage? Wir beraten dich kostenlos und unverbindlich.</p>
-          <a href="#kontakt" className="inline-block bg-green-700 text-white font-bold px-6 py-3 rounded-full hover:bg-green-800 transition-colors">
+          <ModalButton className="inline-block bg-green-700 text-white font-bold px-6 py-3 rounded-full hover:bg-green-800 transition-colors">
             Jetzt Frage stellen →
-          </a>
+          </ModalButton>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { galleryImages } from "../components/data";
+import ModalButton from "../components/ModalButton";
 
 export const metadata = {
   title: "Galerie – TinyInvest Tiny Houses",
@@ -26,7 +27,7 @@ const outsideImages = [
 export default function GaleriePage() {
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
+      <Navbar variant="sub" />
 
       {/* Header */}
       <section className="pt-32 pb-12 border-b border-gray-100">
@@ -88,12 +89,9 @@ export default function GaleriePage() {
           <p className="text-gray-500 text-sm mb-6">
             Erhalten Sie das vollständige Investor-Paket: §7g-Analyse, Asset-Kennzahlen und individuelle Beratung.
           </p>
-          <Link
-            href="/#kontakt"
-            className="inline-block bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm"
-          >
+          <ModalButton className="inline-block bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
             🔐 Memorandum anfordern →
-          </Link>
+          </ModalButton>
         </div>
       </section>
 
