@@ -39,72 +39,72 @@ function ListingCard({ item }: { item: Listing }) {
   return (
     <div className={`bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow duration-200 ${cfg.dim}`}>
       {/* Image */}
-      <div className="relative h-40 overflow-hidden flex-shrink-0">
+      <div className="relative h-52 overflow-hidden flex-shrink-0">
         <img
           src={item.img}
           alt={item.title}
           className={`w-full h-full object-cover ${isPlanning ? "grayscale-[30%]" : ""}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        <div className="absolute top-2 left-2">
-          <span className="font-data bg-black/60 backdrop-blur-sm text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-md">
+        <div className="absolute top-3 left-3">
+          <span className="font-data bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded-md">
             #{item.asset_id}
           </span>
         </div>
-        <div className="absolute top-2 right-2">
-          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${cfg.badgeCls}`}>
+        <div className="absolute top-3 right-3">
+          <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${cfg.badgeCls}`}>
             {item.status_label}
           </span>
         </div>
-        <div className="absolute bottom-2 left-2 right-2">
-          <p className="text-[9px] text-white/70 mb-0.5">{item.category}</p>
-          <p className="text-[11px] text-white font-semibold leading-tight truncate">{item.location}</p>
+        <div className="absolute bottom-3 left-3 right-3">
+          <p className="text-[10px] text-white/70 mb-0.5">{item.category}</p>
+          <p className="text-[13px] text-white font-semibold leading-tight truncate">{item.location}</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-4 flex flex-col flex-grow">
-        <div className="flex items-start justify-between gap-1.5 mb-1.5">
-          <h3 className="font-black text-gray-900 text-[13px] leading-tight">{item.title}</h3>
-          <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 ${item.badge_color}`}>
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <h3 className="font-black text-gray-900 text-[15px] leading-tight">{item.title}</h3>
+          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0 ${item.badge_color}`}>
             {item.badge}
           </span>
         </div>
 
-        <p className="text-gray-500 text-[11px] leading-relaxed mb-2 line-clamp-2">{item.description}</p>
+        <p className="text-gray-500 text-[13px] leading-relaxed mb-3 line-clamp-2">{item.description}</p>
 
         {/* Reservation bar */}
         {!isPlanning && (
-          <div className="mb-2">
+          <div className="mb-3">
             <div className="flex justify-between items-center mb-1">
-              <span className="text-[10px] text-gray-400">Auslastung</span>
-              <span className="font-data text-[10px] font-semibold text-gray-600">{item.reserved}/{item.total}</span>
+              <span className="text-[11px] text-gray-400">Auslastung</span>
+              <span className="font-data text-[11px] font-semibold text-gray-600">{item.reserved}/{item.total}</span>
             </div>
-            <div className={`w-full h-1 rounded-full ${cfg.track}`}>
-              <div className={`h-1 rounded-full ${cfg.bar}`} style={{ width: `${pct}%` }} />
+            <div className={`w-full h-1.5 rounded-full ${cfg.track}`}>
+              <div className={`h-1.5 rounded-full ${cfg.bar}`} style={{ width: `${pct}%` }} />
             </div>
           </div>
         )}
 
         {/* Data row */}
         <div className="mt-auto">
-          <div className="grid grid-cols-3 gap-1 mb-1">
-            <div className="bg-gray-50 rounded-lg p-1.5 text-center">
-              <p className="text-[8px] text-gray-400">IRR</p>
-              <p className="font-data text-[10px] font-black text-green-700 leading-tight">{item.irr}</p>
+          <div className="grid grid-cols-3 gap-1.5 mb-1.5">
+            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+              <p className="text-[10px] text-gray-400">IRR</p>
+              <p className="font-data text-[13px] font-black text-green-700 leading-tight">{item.irr}</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-1.5 text-center">
-              <p className="text-[8px] text-gray-400">NPV*</p>
-              <p className="font-data text-[10px] font-black text-gray-800 leading-tight">{item.npv}</p>
+            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+              <p className="text-[10px] text-gray-400">NPV*</p>
+              <p className="font-data text-[13px] font-black text-gray-800 leading-tight">{item.npv}</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-1.5 text-center">
-              <p className="text-[8px] text-gray-400">Preis</p>
-              <p className="font-data text-[10px] font-black text-gray-800 leading-tight">{item.preis}</p>
+            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+              <p className="text-[10px] text-gray-400">Preis</p>
+              <p className="font-data text-[13px] font-black text-gray-800 leading-tight">{item.preis}</p>
             </div>
           </div>
-          <p className="text-[8px] text-gray-400 mb-2 truncate">* {item.occ_note}</p>
+          <p className="text-[10px] text-gray-400 mb-3 truncate">* {item.occ_note}</p>
           <ModalButton
-            className={`block w-full py-1.5 rounded-full font-semibold text-[11px] text-center transition-colors ${
+            className={`block w-full py-2.5 rounded-full font-semibold text-[13px] text-center transition-colors ${
               isPlanning
                 ? "border border-gray-200 text-gray-500 hover:border-green-300 hover:text-green-700"
                 : "bg-green-700 text-white hover:bg-green-800"
@@ -182,7 +182,7 @@ export default function ModelleCarousel({ listings }: { listings: Listing[] }) {
             <div
               key={item.id}
               className="flex-shrink-0"
-              style={{ width: "calc((100% - 5 * 1rem) / 6)", minWidth: "260px" }}
+          style={{ width: "calc((100% - 4 * 1rem) / 5)", minWidth: "300px" }}
             >
               <ListingCard item={item} />
             </div>

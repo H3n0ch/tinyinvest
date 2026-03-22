@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Modelle from "./components/Modelle";
+import Oekosystem from "./components/Oekosystem";
 import Prozess from "./components/Prozess";
 import Ueber from "./components/Ueber";
 import GalerieTeaser from "./components/GalerieTeaser";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Modelle />
+      <Oekosystem />
       <Prozess />
       <Ueber />
       <GalerieTeaser />
