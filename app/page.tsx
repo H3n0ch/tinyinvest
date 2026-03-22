@@ -5,7 +5,6 @@ import Oekosystem from "./components/Oekosystem";
 import Prozess from "./components/Prozess";
 import Ueber from "./components/Ueber";
 import GalerieTeaser from "./components/GalerieTeaser";
-import StandortMap from "./components/StandortMap";
 import DataRoom from "./components/DataRoom";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
       <Prozess />
       <Ueber />
       <GalerieTeaser />
-      <StandortMap />
       <DataRoom />
       <FAQ />
       <Footer />

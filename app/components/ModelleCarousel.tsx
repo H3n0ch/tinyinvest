@@ -39,7 +39,7 @@ function ListingCard({ item }: { item: Listing }) {
   return (
     <div className={`bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow duration-200 ${cfg.dim}`}>
       {/* Image */}
-      <div className="relative h-52 overflow-hidden flex-shrink-0">
+      <div className="relative h-60 overflow-hidden flex-shrink-0">
         <img
           src={item.img}
           alt={item.title}
@@ -94,15 +94,15 @@ function ListingCard({ item }: { item: Listing }) {
               <p className="font-data text-[13px] font-black text-green-700 leading-tight">{item.irr}</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <p className="text-[10px] text-gray-400">NPV*</p>
-              <p className="font-data text-[13px] font-black text-gray-800 leading-tight">{item.npv}</p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
-              <p className="text-[10px] text-gray-400">Preis</p>
+              <p className="text-[10px] text-gray-400">Preis/Einheit</p>
               <p className="font-data text-[13px] font-black text-gray-800 leading-tight">{item.preis}</p>
             </div>
+            <div className="bg-gray-50 rounded-lg p-2.5 text-center">
+              <p className="text-[10px] text-gray-400">Einheiten frei</p>
+              <p className="font-data text-[13px] font-black text-green-700 leading-tight">{Math.max(0, item.total - item.reserved)}</p>
+            </div>
           </div>
-          <p className="text-[10px] text-gray-400 mb-3 truncate">* {item.occ_note}</p>
+          <p className="text-[10px] text-gray-400 mb-3 truncate">{item.occ_note}</p>
           <ModalButton
             className={`block w-full py-2.5 rounded-full font-semibold text-[13px] text-center transition-colors ${
               isPlanning

@@ -3,7 +3,26 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SubPageHeader from "../components/SubPageHeader";
 import ProjekteGrid from "../components/ProjekteGrid";
+import ProjekteGoogleMap from "../components/ProjekteGoogleMap";
+import type { MapListing } from "../components/ProjekteGoogleMap";
 import type { Listing } from "../components/ModelleCarousel";
+
+// ── Geocode a location string via Google Geocoding API ──────────────────────
+async function geocodeLocation(location: string): Promise<{ lat: number; lng: number } | null> {
+  if (!location.trim()) return null;
+  const key = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  if (!key) return null;
+  try {
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(location)}&key=${key}`;
+    const res = await fetch(url, { next: { revalidate: 86400 } }); // cache 24h
+    const json = await res.json();
+    if (json.status === "OK" && json.results?.[0]) {
+      const { lat, lng } = json.results[0].geometry.location;
+      return { lat, lng };
+    }
+  } catch { /* ignore — pin simply won't show */ }
+  return null;
+}
 
 export const metadata = {
   title: "Projekte – TinyInvest Marktplatz",
@@ -18,7 +37,9 @@ export default async function ProjektePage() {
 
   if (error) console.error("[Projekte] Supabase error:", error.message);
 
-  const listings: Listing[] = (data ?? []).map((row) => ({
+  const rows = data ?? [];
+
+  const listings: Listing[] = rows.map((row) => ({
     id:           row.id,
     asset_id:     row.asset_id,
     img:          row.img,
@@ -44,6 +65,35 @@ export default async function ProjektePage() {
   const reserved  = listings.filter((l) => l.status === "reserved").length;
   const planning  = listings.filter((l) => l.status === "planning").length;
   const sold      = listings.filter((l) => l.status === "sold").length;
+
+  // Build mapListings:
+  // — If the DB row already has lat/lng (set via admin panel), use them directly.
+  // — Otherwise, fall back to geocoding the location string (result cached 24h).
+  const mapListings: MapListing[] = await Promise.all(
+    rows.map(async (row) => {
+      let lat: number | null = row.lat ?? null;
+      let lng: number | null = row.lng ?? null;
+      if (lat === null || lng === null) {
+        const geocoded = await geocodeLocation(row.location ?? "");
+        lat = geocoded?.lat ?? null;
+        lng = geocoded?.lng ?? null;
+      }
+      return {
+        id:           row.id,
+        asset_id:     row.asset_id,
+        title:        row.title,
+        location:     row.location,
+        status:       row.status,
+        status_label: row.status_label,
+        irr:          row.irr,
+        preis:        row.preis,
+        total:        row.total,
+        reserved:     row.reserved,
+        lat,
+        lng,
+      };
+    })
+  );
 
   return (
     <main className="bg-white min-h-screen">
@@ -73,6 +123,34 @@ export default async function ProjektePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Google Map */}
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest mb-0.5">
+                Standortkarte
+              </p>
+              <h3 className="text-lg font-black text-gray-900 tracking-tight">
+                Asset-Standorte im Überblick
+              </h3>
+            </div>
+            <div className="flex items-center gap-4 text-[11px] text-gray-500">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-600 inline-block" /> Verfügbar / Reserviert
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-gray-400 inline-block" /> In Planung
+              </span>
+            </div>
+          </div>
+          <ProjekteGoogleMap listings={mapListings} />
+          <p className="text-[10px] text-gray-400 mt-3 text-center">
+            Klicke auf einen Pin für Projektdetails · Karte zeigt Näherungsstandorte
+          </p>
         </div>
       </section>
 

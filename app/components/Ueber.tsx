@@ -1,5 +1,6 @@
-// Ueber.tsx — "Über TinyInvest" platform stats + Europe deployment map
+// Ueber.tsx — "Über TinyInvest" platform stats + world deployment map
 import ModalButton from "./ModalButton";
+import StandortMapWidget from "./StandortMapWidget";
 
 const platformMetrics = [
   {
@@ -26,20 +27,6 @@ const platformMetrics = [
     label: "Aktive Länder",
     desc: "Deutschland, Österreich, Kroatien und Rumänien – EU-weit einsetzbar als bewegliches Wirtschaftsgut.",
   },
-];
-
-// European location data for the SVG map
-const locations = [
-  // Active
-  { name: "Harz",         cx: 50.5, cy: 34.5, status: "active",   country: "DE" },
-  { name: "Schwarzwald",  cx: 47.5, cy: 44,   status: "active",   country: "DE" },
-  // Planning
-  { name: "Ostsee",       cx: 52,   cy: 22,   status: "planning", country: "DE" },
-  { name: "Brandenburg",  cx: 53.5, cy: 28,   status: "planning", country: "DE" },
-  { name: "Allgäu",       cx: 49,   cy: 47.5, status: "planning", country: "DE" },
-  // International
-  { name: "Salzburg",     cx: 52,   cy: 52,   status: "planning", country: "AT" },
-  { name: "Istrien",      cx: 51,   cy: 60,   status: "planning", country: "HR" },
 ];
 
 export default function Ueber() {
@@ -106,130 +93,9 @@ export default function Ueber() {
             </div>
           </div>
 
-          {/* RIGHT: Europe SVG Map */}
+          {/* RIGHT: Interactive World Map */}
           <div>
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-[12px] font-bold text-gray-700 uppercase tracking-widest">Deployment-Karte</p>
-                <div className="flex items-center gap-4 text-[10px] text-gray-500">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Aktiv
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 inline-block" /> Planung
-                  </span>
-                </div>
-              </div>
-
-              {/* SVG map of Central Europe */}
-              <div className="relative w-full" style={{ paddingBottom: "72%" }}>
-                <svg
-                  viewBox="0 0 100 80"
-                  className="absolute inset-0 w-full h-full"
-                  style={{ fontFamily: "inherit" }}
-                >
-                  {/* Simple Europe outline shapes (stylized) */}
-                  {/* Germany */}
-                  <path
-                    d="M44 20 L47 18 L52 19 L56 22 L57 26 L55 30 L56 34 L54 38 L53 42 L50 45 L47 46 L45 43 L43 40 L41 36 L42 30 L43 25 Z"
-                    fill="#e8f5e9"
-                    stroke="#a5d6a7"
-                    strokeWidth="0.5"
-                  />
-                  {/* Austria */}
-                  <path
-                    d="M47 46 L53 45 L57 47 L58 50 L55 52 L50 52 L46 50 Z"
-                    fill="#f1f8e9"
-                    stroke="#c5e1a5"
-                    strokeWidth="0.5"
-                  />
-                  {/* Croatia */}
-                  <path
-                    d="M48 52 L55 52 L58 55 L57 60 L54 62 L50 63 L47 60 L46 56 L47 53 Z"
-                    fill="#f1f8e9"
-                    stroke="#c5e1a5"
-                    strokeWidth="0.5"
-                  />
-                  {/* Netherlands */}
-                  <path
-                    d="M38 20 L42 19 L44 22 L41 24 L38 23 Z"
-                    fill="#f5f5f5"
-                    stroke="#e0e0e0"
-                    strokeWidth="0.4"
-                  />
-                  {/* Denmark */}
-                  <path
-                    d="M46 14 L49 13 L50 16 L48 17 L46 15 Z"
-                    fill="#f5f5f5"
-                    stroke="#e0e0e0"
-                    strokeWidth="0.4"
-                  />
-                  {/* Poland */}
-                  <path
-                    d="M56 20 L64 20 L66 26 L64 30 L57 30 L55 26 Z"
-                    fill="#f5f5f5"
-                    stroke="#e0e0e0"
-                    strokeWidth="0.4"
-                  />
-                  {/* Switzerland */}
-                  <path
-                    d="M43 45 L47 44 L48 47 L45 48 L42 47 Z"
-                    fill="#f5f5f5"
-                    stroke="#e0e0e0"
-                    strokeWidth="0.4"
-                  />
-                  {/* France (partial) */}
-                  <path
-                    d="M34 28 L40 26 L43 30 L42 36 L38 40 L34 38 L32 33 Z"
-                    fill="#f5f5f5"
-                    stroke="#e0e0e0"
-                    strokeWidth="0.4"
-                  />
-
-                  {/* Country labels */}
-                  <text x="49" y="33" textAnchor="middle" fontSize="2.2" fill="#4caf50" fontWeight="bold">DE</text>
-                  <text x="52" y="49" textAnchor="middle" fontSize="2" fill="#888">AT</text>
-                  <text x="52" y="57" textAnchor="middle" fontSize="2" fill="#888">HR</text>
-
-                  {/* Location pins */}
-                  {locations.map((loc) => (
-                    <g key={loc.name}>
-                      <circle
-                        cx={loc.cx}
-                        cy={loc.cy}
-                        r="1.8"
-                        fill={loc.status === "active" ? "#16a34a" : "#6366f1"}
-                        opacity={loc.status === "active" ? 1 : 0.7}
-                      />
-                      {loc.status === "active" && (
-                        <circle
-                          cx={loc.cx}
-                          cy={loc.cy}
-                          r="3"
-                          fill="none"
-                          stroke="#16a34a"
-                          strokeWidth="0.5"
-                          opacity="0.4"
-                        />
-                      )}
-                      <text
-                        x={loc.cx + 2.5}
-                        y={loc.cy + 0.8}
-                        fontSize="1.8"
-                        fill={loc.status === "active" ? "#166534" : "#4338ca"}
-                        fontWeight={loc.status === "active" ? "bold" : "normal"}
-                      >
-                        {loc.name}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
-              </div>
-
-              <p className="text-[10px] text-gray-400 mt-3 text-center">
-                Stilisierte Karte · Standorte zur Illustration · Laufend erweitert
-              </p>
-            </div>
+            <StandortMapWidget />
 
             {/* CTA */}
             <div className="mt-4 flex flex-col sm:flex-row gap-3">

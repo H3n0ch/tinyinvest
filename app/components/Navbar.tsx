@@ -30,15 +30,10 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo + operator badge */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex flex-col leading-none">
-              <span className={`text-xl font-black tracking-tight transition-colors duration-300 ${isIce ? "text-green-300" : "text-green-700"}`}>
-                Tiny<span className={isIce ? "text-white" : "text-gray-900"}>Invest</span>
-                <span className="ml-1 text-base">🏡</span>
-              </span>
-              <span className={`text-[10px] font-medium tracking-widest uppercase transition-colors duration-300 ${isIce ? "text-white/50" : "text-gray-400"}`}>
-                powered by tiny Escapes
-              </span>
-            </div>
+            <span className={`text-xl font-black tracking-tight transition-colors duration-300 ${isIce ? "text-green-300" : "text-green-700"}`}>
+              Tiny<span className={isIce ? "text-white" : "text-gray-900"}>Invest</span>
+              <span className="ml-1 text-base">🏡</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}

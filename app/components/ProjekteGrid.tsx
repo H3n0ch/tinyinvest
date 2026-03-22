@@ -82,15 +82,15 @@ function ProjectCard({ item }: { item: Listing }) {
               <p className="font-data text-[12px] font-black text-green-700">{item.irr}</p>
             </div>
             <div className="bg-gray-50 rounded-lg p-2 text-center">
-              <p className="text-[9px] text-gray-400">NPV*</p>
-              <p className="font-data text-[12px] font-black text-gray-800">{item.npv}</p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-2 text-center">
-              <p className="text-[9px] text-gray-400">Preis</p>
+              <p className="text-[9px] text-gray-400">Preis/Einheit</p>
               <p className="font-data text-[12px] font-black text-gray-800">{item.preis}</p>
             </div>
+            <div className="bg-gray-50 rounded-lg p-2 text-center">
+              <p className="text-[9px] text-gray-400">Einheiten frei</p>
+              <p className="font-data text-[12px] font-black text-green-700">{Math.max(0, item.total - item.reserved)}</p>
+            </div>
           </div>
-          <p className="text-[9px] text-gray-400 mb-3">* {item.occ_note}</p>
+          <p className="text-[9px] text-gray-400 mb-3">{item.occ_note}</p>
           <ModalButton
             className={`block w-full py-2.5 rounded-full font-semibold text-[12px] text-center transition-colors ${
               isPlanning

@@ -40,10 +40,10 @@ export default async function Modelle() {
 
         <div className="text-center mb-12">
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">
-            Projekte · Asset-Listings 2026
+            Asset-Listings 2026
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
-            Aktuelle Investment-Projekte
+            Projekte
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
             Jedes Asset ist §7g-fähig, auf Vlemmix Trailer zertifiziert und wird durch{" "}
