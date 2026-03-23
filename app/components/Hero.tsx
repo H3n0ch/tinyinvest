@@ -148,7 +148,7 @@ export default function Hero({ heroImage }: { heroImage: string }) {
                 <p className="font-black text-gray-900 text-base">Steuer-Vorteil berechnen</p>
                 <p className="text-[12px] text-gray-400 mt-0.5">Sofortige Schätzung auf Basis §7g EStG</p>
               </div>
-              <span className="text-2xl">🧮</span>
+              <span className="text-2xl"></span>
             </div>
 
             {/* Kaufpreis slider */}
