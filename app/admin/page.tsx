@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 // ──────────── Types ────────────
 type Lead = {
@@ -95,16 +95,112 @@ const inp = "w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text
 const sel = "w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500";
 const ta  = "w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none";
 
+// ──────────── Image Upload Field ────────────
+function ImageUploadField({
+  value,
+  onChange,
+  uploadPath,
+  password,
+  label = "Bild",
+}: {
+  value: string;
+  onChange: (url: string) => void;
+  uploadPath: string;
+  password: string;
+  label?: string;
+}) {
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setUploadError("");
+    try {
+      const ext = file.name.split(".").pop() ?? "jpg";
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("path", `${uploadPath}.${ext}`);
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        headers: { "x-admin-password": password },
+        body: fd,
+      });
+      const data = await res.json();
+      if (res.ok && data.url) {
+        onChange(data.url);
+      } else {
+        setUploadError(data.error ?? "Upload fehlgeschlagen");
+      }
+    } catch {
+      setUploadError("Netzwerkfehler beim Upload");
+    }
+    setUploading(false);
+    // Reset file input so same file can be re-selected
+    if (fileRef.current) fileRef.current.value = "";
+  };
+
+  return (
+    <div className="space-y-2">
+      {/* Image preview */}
+      {value && (
+        <div className="relative w-full h-28 rounded-lg overflow-hidden border border-white/10">
+          <img
+            src={value}
+            alt={label}
+            className="w-full h-full object-cover"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+          />
+        </div>
+      )}
+      {/* Manual URL input */}
+      <input
+        className={inp}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="/images/outside/fog.jpg oder https://…"
+      />
+      {/* Upload button */}
+      <input
+        ref={fileRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={handleFile}
+      />
+      <button
+        type="button"
+        onClick={() => fileRef.current?.click()}
+        disabled={uploading}
+        className="w-full px-3 py-2 rounded-lg text-sm font-semibold bg-blue-700/30 border border-blue-500/30 text-blue-300 hover:bg-blue-700/50 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+      >
+        {uploading ? (
+          <>⏳ Lädt hoch…</>
+        ) : (
+          <>📁 Bild hochladen</>
+        )}
+      </button>
+      {uploadError && <p className="text-red-400 text-[11px]">{uploadError}</p>}
+    </div>
+  );
+}
+
 // ──────────── Create/Edit Form ────────────
 function ListingForm({
   data,
   onChange,
+  password,
 }: {
   data: Partial<NewListing>;
   onChange: (field: keyof NewListing, value: unknown) => void;
+  password: string;
 }) {
   const v = (field: keyof NewListing) => (data[field] as string | number | boolean) ?? "";
   const n = (field: keyof NewListing) => Number(data[field] ?? 0);
+  const assetId = (data.asset_id as string) || "new";
+  const uploadPath = `listings/${assetId}/${Date.now()}`;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -135,9 +231,21 @@ function ListingForm({
       <Field label="Auslastungs-Hinweis">
         <input className={inp} value={v("occ_note") as string} onChange={(e) => onChange("occ_note", e.target.value)} placeholder="Basis: tiny Escapes Ø 2024" />
       </Field>
-      <Field label="Bild-URL">
-        <input className={inp} value={v("img") as string} onChange={(e) => onChange("img", e.target.value)} placeholder="/images/outside/fog.jpg" />
-      </Field>
+
+      {/* ── Image upload ── */}
+      <div className="sm:col-span-2 lg:col-span-3">
+        <div className="bg-gray-800/50 border border-white/10 rounded-xl p-4">
+          <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-3">🖼️ Projektbild</p>
+          <ImageUploadField
+            value={(data.img as string) ?? ""}
+            onChange={(url) => onChange("img", url)}
+            uploadPath={uploadPath}
+            password={password}
+            label="Projektbild"
+          />
+        </div>
+      </div>
+
       <Field label="Badge-Text">
         <input className={inp} value={v("badge") as string} onChange={(e) => onChange("badge", e.target.value)} placeholder="Phase 2" />
       </Field>
@@ -228,7 +336,7 @@ export default function AdminPage() {
     typeof window !== "undefined" ? (sessionStorage.getItem("admin_pw") ?? "") : ""
   );
   const [authed, setAuthed]     = useState(false);
-  const [tab, setTab]           = useState<"leads" | "listings">("leads");
+  const [tab, setTab]           = useState<"leads" | "listings" | "settings">("leads");
 
   // Leads
   const [leads, setLeads]                   = useState<Lead[]>([]);
@@ -247,6 +355,12 @@ export default function AdminPage() {
   const [confirmDelete, setConfirmDelete]       = useState<number | null>(null);
   const [createOpen, setCreateOpen]             = useState(false);
   const [newListing, setNewListing]             = useState<Partial<NewListing>>({ ...EMPTY_LISTING });
+
+  // Settings
+  const [heroImage, setHeroImage]           = useState("/images/outside/ESCAPE3.webp");
+  const [savingHero, setSavingHero]         = useState(false);
+  const [heroSuccess, setHeroSuccess]       = useState(false);
+  const [loadingSettings, setLoadingSettings] = useState(false);
 
   const [error, setError] = useState("");
 
@@ -271,16 +385,29 @@ export default function AdminPage() {
     setLoadingListings(false);
   }, []);
 
+  const fetchSettings = useCallback(async () => {
+    setLoadingSettings(true);
+    try {
+      const res = await fetch("/api/admin/settings");
+      if (res.ok) {
+        const data = await res.json();
+        if (data.hero_image) setHeroImage(data.hero_image);
+      }
+    } catch { /* ignore */ }
+    setLoadingSettings(false);
+  }, []);
+
   const handleLoginSuccess = useCallback((pw: string) => {
     sessionStorage.setItem("admin_pw", pw);
     fetchLeads(pw);
     fetchListings(pw);
-  }, [fetchLeads, fetchListings]);
+    fetchSettings();
+  }, [fetchLeads, fetchListings, fetchSettings]);
 
   useEffect(() => {
     const saved = sessionStorage.getItem("admin_pw");
-    if (saved) { fetchLeads(saved); fetchListings(saved); }
-  }, [fetchLeads, fetchListings]);
+    if (saved) { fetchLeads(saved); fetchListings(saved); fetchSettings(); }
+  }, [fetchLeads, fetchListings, fetchSettings]);
 
   // ── Leads actions ──
   const updateStatus = async (id: string, status: string) => {
@@ -377,6 +504,21 @@ export default function AdminPage() {
     }
   };
 
+  // ── Settings: save hero image ──
+  const saveHeroImage = async () => {
+    setSavingHero(true);
+    const res = await fetch("/api/admin/settings", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", "x-admin-password": password },
+      body: JSON.stringify({ key: "hero_image", value: heroImage }),
+    });
+    if (res.ok) {
+      setHeroSuccess(true);
+      setTimeout(() => setHeroSuccess(false), 3000);
+    }
+    setSavingHero(false);
+  };
+
   // ──────────── Login screen ────────────
   if (!authed) {
     return (
@@ -418,7 +560,7 @@ export default function AdminPage() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => { fetchLeads(password); fetchListings(password); }} className="text-sm text-gray-400 hover:text-white transition-colors">
+          <button onClick={() => { fetchLeads(password); fetchListings(password); fetchSettings(); }} className="text-sm text-gray-400 hover:text-white transition-colors">
             🔄 Aktualisieren
           </button>
           <button onClick={() => { sessionStorage.removeItem("admin_pw"); setAuthed(false); setLeads([]); setListings([]); setPassword(""); }} className="text-sm text-red-400 hover:text-red-300 transition-colors">
@@ -430,9 +572,9 @@ export default function AdminPage() {
       {/* Tabs */}
       <div className="border-b border-white/10 bg-gray-900/50 px-6">
         <div className="flex gap-1">
-          {(["leads", "listings"] as const).map((t) => (
+          {(["leads", "listings", "settings"] as const).map((t) => (
             <button key={t} onClick={() => setTab(t)} className={`px-5 py-3 text-sm font-semibold border-b-2 transition-all ${tab === t ? "border-green-400 text-green-400" : "border-transparent text-gray-400 hover:text-white"}`}>
-              {t === "leads" ? `📋 Leads (${leads.length})` : `🏷️ Projekte (${listings.length})`}
+              {t === "leads" ? `📋 Leads (${leads.length})` : t === "listings" ? `🏷️ Projekte (${listings.length})` : "⚙️ Einstellungen"}
             </button>
           ))}
         </div>
@@ -550,6 +692,7 @@ export default function AdminPage() {
                 <ListingForm
                   data={newListing}
                   onChange={(field, value) => setNewListing((prev) => ({ ...prev, [field]: value }))}
+                  password={password}
                 />
                 <div className="mt-5 flex items-center gap-3">
                   <button
@@ -577,13 +720,14 @@ export default function AdminPage() {
                   const pct             = listing.total > 0 ? Math.round((currentReserved / listing.total) * 100) : 0;
                   const isDirty         = Object.keys(edits[listing.id] ?? {}).length > 0;
                   const isExpanded      = expandedEdit.has(listing.id);
+                  const currentImg      = (e.img as string) ?? listing.img;
 
                   return (
                     <div key={listing.id} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:border-white/20 transition-all">
                       <div className="flex flex-col md:flex-row gap-5">
                         {/* Thumbnail */}
                         <div className="flex-shrink-0">
-                          <img src={(e.img as string) ?? listing.img} alt={listing.title} className="w-20 h-16 object-cover rounded-xl" />
+                          <img src={currentImg} alt={listing.title} className="w-20 h-16 object-cover rounded-xl" />
                         </div>
 
                         {/* Main info + quick controls */}
@@ -680,6 +824,7 @@ export default function AdminPage() {
                           <ListingForm
                             data={{ ...listing, ...edits[listing.id] }}
                             onChange={(field, value) => editListing(listing.id, field as keyof Listing, value)}
+                            password={password}
                           />
                           <div className="mt-4 flex items-center gap-3">
                             <button
@@ -699,6 +844,58 @@ export default function AdminPage() {
               </div>
             )}
           </>
+        )}
+
+        {/* ════ SETTINGS TAB ════ */}
+        {tab === "settings" && (
+          <div className="max-w-2xl mx-auto">
+            <div className="mb-8">
+              <h2 className="text-lg font-black text-white mb-0.5">Website-Einstellungen</h2>
+              <p className="text-gray-400 text-sm">Globale Einstellungen für die Website — Hero-Bild, etc.</p>
+            </div>
+
+            {/* Hero Image */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-2xl">🖼️</span>
+                <div>
+                  <h3 className="font-black text-white text-sm">Hero-Hauptbild</h3>
+                  <p className="text-gray-400 text-xs mt-0.5">Das Hintergrundbild der Startseite (Hero-Section). Empfohlen: 1920×1080px, Querformat.</p>
+                </div>
+              </div>
+
+              {loadingSettings ? (
+                <div className="text-center py-8 text-gray-400 text-sm">⏳ Lade Einstellungen…</div>
+              ) : (
+                <>
+                  <ImageUploadField
+                    value={heroImage}
+                    onChange={setHeroImage}
+                    uploadPath={`hero/${Date.now()}`}
+                    password={password}
+                    label="Hero Bild"
+                  />
+                  <div className="mt-4 flex items-center gap-3">
+                    <button
+                      onClick={saveHeroImage}
+                      disabled={savingHero}
+                      className="px-6 py-2.5 rounded-xl text-sm font-bold bg-green-600 hover:bg-green-700 text-white transition-all disabled:opacity-50"
+                    >
+                      {savingHero ? "⏳ Speichert…" : "💾 Hero-Bild speichern"}
+                    </button>
+                    {heroSuccess && (
+                      <span className="text-green-400 text-sm font-bold flex items-center gap-1">
+                        ✓ Gespeichert! Seite neu laden um die Änderung zu sehen.
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-gray-500 mt-3">
+                    💡 Nach dem Speichern erscheint das neue Bild beim nächsten Laden der Startseite.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
         )}
       </div>
     </div>

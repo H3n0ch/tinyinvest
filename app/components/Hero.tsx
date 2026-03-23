@@ -4,9 +4,9 @@ import { useModal } from "./ModalContext";
 
 const platformStats = [
   { value: "200+", label: "Registrierte Investoren", icon: "💼" },
-  { value: "12+",  label: "Kooperierende Hosts",     icon: "🤝" },
-  { value: "4",    label: "Aktive Länder (EU)",       icon: "🌍" },
-  { value: "1,2 Mio. €", label: "Vermittlungsvolumen", icon: "📊" },
+  { value: "50+",  label: "Kooperierende Hosts",     icon: "🤝" },
+  { value: "10",    label: "Aktive Länder",       icon: "🌍" },
+  { value: "2,2 Mio. €", label: "Vermittlungsvolumen", icon: "📊" },
 ];
 
 const steuersatzOptions = [
@@ -31,7 +31,7 @@ function fmt(n: number) {
   }).format(n);
 }
 
-export default function Hero() {
+export default function Hero({ heroImage }: { heroImage: string }) {
   const { openModal } = useModal();
   const [kaufpreis, setKaufpreis]         = useState(79000);
   const [steuersatzIdx, setSteuersatzIdx] = useState(1); // 42 %
@@ -44,7 +44,7 @@ export default function Hero() {
 
       {/* ── Full-bleed background image ────────────────── */}
       <img
-        src="/images/outside/ESCAPE3.webp"
+        src={heroImage}
         alt="TinyInvest Escape – tiny Escapes Netzwerk"
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
       />

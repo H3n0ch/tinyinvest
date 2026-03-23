@@ -27,7 +27,7 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="flex items-center justify-between h-18 md:h-20">
           {/* Logo + operator badge */}
           <Link href="/" className="flex items-center gap-2.5">
             <span className={`text-xl font-black tracking-tight transition-colors duration-300 ${isIce ? "text-green-300" : "text-green-700"}`}>
@@ -37,7 +37,7 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((l) => (
               <a
                 key={l.href}
