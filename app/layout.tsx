@@ -19,6 +19,32 @@ export const metadata: Metadata = {
     shortcut: "/images/favicon.png",
     apple: "/images/favicon.png",
   },
+  openGraph: {
+    title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
+    description:
+      "§7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
+    url: "https://tinyinvest.de",
+    siteName: "TinyInvest",
+    images: [
+      {
+        url: "https://tinyinvest.de/images/Gemini_Generated_Image_e2327ae2327ae232.png",
+        width: 1200,
+        height: 630,
+        alt: "TinyInvest – Tiny House Investment Plattform",
+      },
+    ],
+    locale: "de_DE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TinyInvest – Mobile Asset Investment",
+    description:
+      "§7g-optimierte Tiny House Investments. Rendite 10–15 % p.a. EU-weit.",
+    images: [
+      "https://tinyinvest.de/images/Gemini_Generated_Image_e2327ae2327ae232.png",
+    ],
+  },
 };
 
 export default function RootLayout({
