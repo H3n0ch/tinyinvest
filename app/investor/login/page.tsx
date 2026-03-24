@@ -8,9 +8,11 @@ export default function InvestorLoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError]   = useState("");
 
+  // Always hard-code to TinyInvest domain so that shared Supabase never
+  // redirects investors to TinyEscapes (tiny.rentals) after OAuth.
   const callbackUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/investor/auth/callback`
+    process.env.NEXT_PUBLIC_SITE_URL
+      ? `${process.env.NEXT_PUBLIC_SITE_URL}/investor/auth/callback`
       : "https://tinyhouse.investments/investor/auth/callback";
 
   // ── Magic Link ──
