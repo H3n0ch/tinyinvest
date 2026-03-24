@@ -80,6 +80,9 @@ export async function PATCH(req: NextRequest) {
     "reserved","total","status","status_label",
     "badge","badge_color","sort_order","active",
     "lat","lng",
+    // Investor fields
+    "owner_id","kaufvertrag_url","mgmt_fee_pct","host_pct",
+    "escapes_escape_id",
   ];
 
   const updates: Record<string, unknown> = {};
@@ -89,6 +92,10 @@ export async function PATCH(req: NextRequest) {
         updates[key] = Number(rest[key]);
       } else if (key === "lat" || key === "lng") {
         updates[key] = rest[key] === "" || rest[key] === null ? null : Number(rest[key]);
+      } else if (key === "mgmt_fee_pct" || key === "host_pct") {
+        updates[key] = rest[key] === "" || rest[key] === null ? null : Number(rest[key]);
+      } else if (key === "owner_id" || key === "escapes_escape_id") {
+        updates[key] = rest[key] === "" ? null : rest[key];
       } else {
         updates[key] = rest[key];
       }

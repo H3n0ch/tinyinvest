@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/app/lib/supabase";
+import { getAdminClient } from "@/app/lib/supabase";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     const finalNachricht = [nachricht, hostSummary].filter(Boolean).join("\n\n") || null;
 
     // 1. Save to Supabase
-    const { error: dbError } = await supabaseAdmin.from("leads").insert([
+    const { error: dbError } = await getAdminClient().from("leads").insert([
       {
         vorname,
         nachname,

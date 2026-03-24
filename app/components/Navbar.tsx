@@ -1,14 +1,34 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { navLinks } from "./data";
 import { useModal } from "./ModalContext";
+import { getBrowserClient } from "@/app/lib/supabase";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" }) {
   const { openModal } = useModal();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(variant === "sub");
+  const [investorLoggedIn, setInvestorLoggedIn] = useState(false);
+
+  // Check if the user already has a Supabase session (investor logged in)
+  useEffect(() => {
+    const supabase = getBrowserClient();
+    supabase.auth.getSession().then(({ data }) => {
+      setInvestorLoggedIn(!!data.session?.user);
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setInvestorLoggedIn(!!session?.user);
+    });
+    return () => listener.subscription.unsubscribe();
+  }, []);
+
+  const handleInvestorClick = useCallback(() => {
+    router.push(investorLoggedIn ? "/investor" : "/investor/login");
+  }, [router, investorLoggedIn]);
 
   useEffect(() => {
     if (variant === "sub") return; // always scrolled on sub-pages
@@ -80,18 +100,18 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
               </svg>
             </a>
 
-            {/* Investor Login ghost button */}
+            {/* Investor Login button — redirects to dashboard if logged in */}
             <button
               type="button"
-              onClick={openModal}
-              title="Investor-Portal · Zugang auf Anfrage"
+              onClick={handleInvestorClick}
+              title={investorLoggedIn ? "Zum Investor-Dashboard" : "Investor-Portal Login"}
               className={`px-4 py-2 rounded-lg text-[12px] font-semibold border transition-all duration-300 ${
                 isIce
                   ? "border-white/30 text-white/70 hover:border-white/60 hover:text-white"
                   : "border-gray-200 text-gray-500 hover:border-green-300 hover:text-green-700 bg-white"
               }`}
             >
-              🔐 Investor Login
+              {investorLoggedIn ? "📊 Mein Dashboard" : "🔐 Investor Login"}
             </button>
 
             {/* Primary CTA */}
@@ -166,10 +186,10 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
           <div className="h-px bg-white/10 my-1" />
           <button
             type="button"
-            onClick={() => { openModal(); setMenuOpen(false); }}
+            onClick={() => { handleInvestorClick(); setMenuOpen(false); }}
             className="text-sm font-medium py-2 text-gray-400 hover:text-green-700 transition-colors text-left"
           >
-            🔐 Investor Login
+            {investorLoggedIn ? "📊 Mein Dashboard" : "🔐 Investor Login"}
           </button>
           <button
             type="button"

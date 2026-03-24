@@ -336,7 +336,7 @@ export default function AdminPage() {
     typeof window !== "undefined" ? (sessionStorage.getItem("admin_pw") ?? "") : ""
   );
   const [authed, setAuthed]     = useState(false);
-  const [tab, setTab]           = useState<"leads" | "listings" | "settings">("leads");
+  const [tab, setTab]           = useState<"leads" | "listings" | "investors" | "settings">("leads");
 
   // Leads
   const [leads, setLeads]                   = useState<Lead[]>([]);
@@ -344,6 +344,9 @@ export default function AdminPage() {
   const [filter, setFilter]                 = useState<"all" | Lead["status"]>("all");
   const [selected, setSelected]             = useState<Lead | null>(null);
   const [confirmDeleteLead, setConfirmDeleteLead] = useState<string | null>(null);
+  const [promotingLead, setPromotingLead]         = useState<string | null>(null);
+  const [promotedLeads, setPromotedLeads]         = useState<Set<string>>(new Set());
+  const [promoteError, setPromoteError]           = useState<string | null>(null);
 
   // Listings
   const [listings, setListings]                 = useState<Listing[]>([]);
@@ -355,6 +358,20 @@ export default function AdminPage() {
   const [confirmDelete, setConfirmDelete]       = useState<number | null>(null);
   const [createOpen, setCreateOpen]             = useState(false);
   const [newListing, setNewListing]             = useState<Partial<NewListing>>({ ...EMPTY_LISTING });
+
+  // Investors
+  type InvestorPending = { id: string; user_id: string; email: string; full_name: string | null; registered_at: string };
+  type InvestorListing = { id: number; asset_id: string; title: string; owner_id: string | null; mgmt_fee_pct: number; host_pct: number; kaufvertrag_url: string | null; escapes_escape_id: string | null };
+  type EscapeOption    = { id: string; name: string; location: string };
+  const [investorPending, setInvestorPending]   = useState<InvestorPending[]>([]);
+  const [investorListings, setInvestorListings] = useState<InvestorListing[]>([]);
+  const [escapeOptions, setEscapeOptions]       = useState<EscapeOption[]>([]);
+  const [loadingInvestors, setLoadingInvestors] = useState(false);
+  const [assignSaving, setAssignSaving]         = useState<number | null>(null);
+  const [assignSuccess, setAssignSuccess]       = useState<number | null>(null);
+  // key = investor.user_id (string uuid)
+  type IEdit = { listing_id?: number; mgmt_fee_pct?: number; host_pct?: number; kaufvertrag_url?: string; escapes_escape_id?: string };
+  const [investorEdits, setInvestorEdits]       = useState<Record<string, IEdit>>({});
 
   // Settings
   const [heroImage, setHeroImage]           = useState("/images/outside/ESCAPE3.webp");
@@ -385,6 +402,17 @@ export default function AdminPage() {
     setLoadingListings(false);
   }, []);
 
+  const fetchInvestors = useCallback(async (pw: string) => {
+    setLoadingInvestors(true);
+    const res = await fetch("/api/admin/investor-users", { headers: { "x-admin-password": pw } });
+    if (!res.ok) { setLoadingInvestors(false); return; }
+    const data = await res.json();
+    setInvestorPending(data.pending ?? []);
+    setInvestorListings(data.listings ?? []);
+    setEscapeOptions(data.escapes ?? []);
+    setLoadingInvestors(false);
+  }, []);
+
   const fetchSettings = useCallback(async () => {
     setLoadingSettings(true);
     try {
@@ -402,12 +430,39 @@ export default function AdminPage() {
     fetchLeads(pw);
     fetchListings(pw);
     fetchSettings();
-  }, [fetchLeads, fetchListings, fetchSettings]);
+    fetchInvestors(pw);
+  }, [fetchLeads, fetchListings, fetchSettings, fetchInvestors]);
 
   useEffect(() => {
     const saved = sessionStorage.getItem("admin_pw");
-    if (saved) { fetchLeads(saved); fetchListings(saved); fetchSettings(); }
-  }, [fetchLeads, fetchListings, fetchSettings]);
+    if (saved) { fetchLeads(saved); fetchListings(saved); fetchSettings(); fetchInvestors(saved); }
+  }, [fetchLeads, fetchListings, fetchSettings, fetchInvestors]);
+
+  // ── Promote lead to investor ──
+  const promoteToInvestor = async (lead: Lead) => {
+    setPromotingLead(lead.id);
+    setPromoteError(null);
+    const res = await fetch("/api/admin/promote-to-investor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-admin-password": password },
+      body: JSON.stringify({
+        lead_id: lead.id,
+        email: lead.email,
+        full_name: `${lead.vorname} ${lead.nachname}`.trim(),
+      }),
+    });
+    if (res.ok) {
+      setPromotedLeads((prev) => new Set(prev).add(lead.id));
+      // Mark lead as abgeschlossen in local state
+      setLeads((prev) => prev.map((l) => l.id === lead.id ? { ...l, status: "abgeschlossen" } : l));
+      // Refresh investor tab data so new pending investor appears immediately
+      fetchInvestors(password);
+    } else {
+      const data = await res.json();
+      setPromoteError(data.error ?? "Fehler beim Hochstufen");
+    }
+    setPromotingLead(null);
+  };
 
   // ── Leads actions ──
   const updateStatus = async (id: string, status: string) => {
@@ -560,7 +615,7 @@ export default function AdminPage() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button onClick={() => { fetchLeads(password); fetchListings(password); fetchSettings(); }} className="text-sm text-gray-400 hover:text-white transition-colors">
+          <button onClick={() => { fetchLeads(password); fetchListings(password); fetchSettings(); fetchInvestors(password); }} className="text-sm text-gray-400 hover:text-white transition-colors">
             🔄 Aktualisieren
           </button>
           <button onClick={() => { sessionStorage.removeItem("admin_pw"); setAuthed(false); setLeads([]); setListings([]); setPassword(""); }} className="text-sm text-red-400 hover:text-red-300 transition-colors">
@@ -572,9 +627,9 @@ export default function AdminPage() {
       {/* Tabs */}
       <div className="border-b border-white/10 bg-gray-900/50 px-6">
         <div className="flex gap-1">
-          {(["leads", "listings", "settings"] as const).map((t) => (
+          {(["leads", "listings", "investors", "settings"] as const).map((t) => (
             <button key={t} onClick={() => setTab(t)} className={`px-5 py-3 text-sm font-semibold border-b-2 transition-all ${tab === t ? "border-green-400 text-green-400" : "border-transparent text-gray-400 hover:text-white"}`}>
-              {t === "leads" ? `📋 Leads (${leads.length})` : t === "listings" ? `🏷️ Projekte (${listings.length})` : "⚙️ Einstellungen"}
+              {t === "leads" ? `📋 Leads (${leads.length})` : t === "listings" ? `🏷️ Projekte (${listings.length})` : t === "investors" ? `👥 Investoren (${investorPending.length})` : "⚙️ Einstellungen"}
             </button>
           ))}
         </div>
@@ -647,6 +702,23 @@ export default function AdminPage() {
                         <div className="flex flex-wrap gap-2">
                           <a href={`mailto:${lead.email}?subject=TinyInvest – Deine Beratungsanfrage&body=Hallo ${lead.vorname},%0A%0A`} className="text-xs bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-full transition-colors">✉️ E-Mail schreiben</a>
                           {lead.telefon && <a href={`tel:${lead.telefon}`} className="text-xs bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full transition-colors">📞 Anrufen</a>}
+
+                          {/* ── Zu Investor machen ── */}
+                          {promotedLeads.has(lead.id) ? (
+                            <span className="text-xs bg-green-900/40 text-green-400 border border-green-500/30 font-bold px-4 py-2 rounded-full flex items-center gap-1">
+                              ✓ Investor-Account erstellt · Jetzt im 👥 Tab zuweisen
+                            </span>
+                          ) : (
+                            <button
+                              onClick={() => promoteToInvestor(lead)}
+                              disabled={promotingLead === lead.id}
+                              className="text-xs bg-amber-600/20 hover:bg-amber-600/40 border border-amber-500/30 text-amber-300 font-bold px-4 py-2 rounded-full transition-colors disabled:opacity-50"
+                            >
+                              {promotingLead === lead.id ? "⏳ Wird erstellt…" : "🏠 Zu Investor machen"}
+                            </button>
+                          )}
+                          {promoteError && <p className="w-full text-xs text-red-400 mt-1">{promoteError}</p>}
+
                           {confirmDeleteLead === lead.id ? (
                             <div className="flex gap-1 ml-auto">
                               <button onClick={() => deleteLead(lead.id)} className="text-xs bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-2 rounded-full transition-colors">✓ Ja, löschen</button>
@@ -844,6 +916,202 @@ export default function AdminPage() {
               </div>
             )}
           </>
+        )}
+
+        {/* ════ INVESTORS TAB ════ */}
+        {tab === "investors" && (
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-lg font-black text-white mb-0.5">Investor-Verwaltung</h2>
+              <p className="text-gray-400 text-sm">Wähle für jeden Investor sein Tiny House Asset und passe Gebühren an.</p>
+            </div>
+
+            {loadingInvestors ? (
+              <div className="text-center py-20 text-gray-400">⏳ Lade Investor-Daten...</div>
+            ) : investorPending.length === 0 ? (
+              <div className="text-center py-20 text-gray-400">
+                <div className="text-5xl mb-4">👤</div>
+                <p className="text-sm">Noch keine Investoren. Führe zuerst <strong>„🏠 Zu Investor machen"</strong> bei einem Lead aus.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {investorPending.map((investor) => {
+                  // Find which listing this investor currently owns
+                  const ownedListing = investorListings.find((l) => l.owner_id === investor.user_id);
+
+                  // Per-investor local state key = user_id (string uuid)
+                  const ikey = investor.user_id;
+                  const iEdit: IEdit = investorEdits[ikey] ?? {};
+
+                  const selectedListingId = iEdit.listing_id !== undefined
+                    ? iEdit.listing_id
+                    : (ownedListing?.id ?? null);
+
+                  const selectedListing = investorListings.find((l) => l.id === selectedListingId) ?? ownedListing ?? null;
+
+                  const currentMgmt = iEdit.mgmt_fee_pct !== undefined
+                    ? iEdit.mgmt_fee_pct
+                    : (selectedListing?.mgmt_fee_pct ?? 15);
+
+                  const currentHost = iEdit.host_pct !== undefined
+                    ? iEdit.host_pct
+                    : (selectedListing?.host_pct ?? 45);
+
+                  const currentKauf = iEdit.kaufvertrag_url !== undefined
+                    ? iEdit.kaufvertrag_url
+                    : (selectedListing?.kaufvertrag_url ?? "");
+
+                  const isDirty = Object.keys(iEdit).length > 0;
+
+                  const setIEdit = (patch: IEdit) =>
+                    setInvestorEdits((prev) => ({ ...prev, [ikey]: { ...prev[ikey], ...patch } }));
+
+                  const saveAssignment = async () => {
+                    if (!selectedListingId) return;
+                    setAssignSaving(selectedListingId);
+
+                    // If investor previously owned a different listing, remove owner from old listing
+                    if (ownedListing && ownedListing.id !== selectedListingId) {
+                      await fetch("/api/admin/listings", {
+                        method: "PATCH",
+                        headers: { "Content-Type": "application/json", "x-admin-password": password },
+                        body: JSON.stringify({ id: ownedListing.id, owner_id: null }),
+                      });
+                      setInvestorListings((prev) => prev.map((l) => l.id === ownedListing.id ? { ...l, owner_id: null } : l));
+                    }
+
+                    // Set owner on the selected listing
+                    const res = await fetch("/api/admin/listings", {
+                      method: "PATCH",
+                      headers: { "Content-Type": "application/json", "x-admin-password": password },
+                      body: JSON.stringify({
+                        id: selectedListingId,
+                        owner_id: investor.user_id,
+                        mgmt_fee_pct: currentMgmt,
+                        host_pct: currentHost,
+                        kaufvertrag_url: currentKauf || null,
+                        escapes_escape_id: (iEdit.escapes_escape_id !== undefined ? iEdit.escapes_escape_id : (selectedListing?.escapes_escape_id ?? null)) || null,
+                      }),
+                    });
+
+                    if (res.ok) {
+                      const updated = await res.json();
+                      setInvestorListings((prev) => prev.map((l) => l.id === selectedListingId ? { ...l, ...updated } : l));
+                      setInvestorEdits((prev) => { const n = { ...prev }; delete (n as Record<string, IEdit>)[ikey]; return n; });
+                      setAssignSuccess(selectedListingId);
+                      setTimeout(() => setAssignSuccess(null), 2500);
+                    }
+                    setAssignSaving(null);
+                  };
+
+                  return (
+                    <div key={investor.id} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+                      {/* Investor header */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-amber-600/30 flex items-center justify-center text-amber-300 font-black text-sm">
+                            {(investor.full_name || investor.email)[0].toUpperCase()}
+                          </div>
+                          <div>
+                            <p className="text-white font-bold text-sm">{investor.full_name || investor.email}</p>
+                            <p className="text-gray-400 text-xs">{investor.email}</p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {ownedListing && (
+                            <span className="text-[10px] bg-green-600/20 text-green-400 border border-green-500/30 px-2.5 py-1 rounded-full font-bold">
+                              ✓ {ownedListing.asset_id} · {ownedListing.title}
+                            </span>
+                          )}
+                          {assignSuccess === selectedListingId && <span className="text-green-400 text-xs font-bold">✓ Gespeichert!</span>}
+                        </div>
+                      </div>
+
+                      {/* Asset dropdown */}
+                      <div>
+                        <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">🏡 Tiny House Asset zuweisen</label>
+                        <select
+                          value={selectedListingId ?? ""}
+                          onChange={(e) => setIEdit({ listing_id: e.target.value ? Number(e.target.value) : undefined })}
+                          className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        >
+                          <option value="">— Kein Asset ausgewählt —</option>
+                          {investorListings.map((l) => (
+                            <option key={l.id} value={l.id} disabled={!!l.owner_id && l.owner_id !== investor.user_id}>
+                              {l.asset_id} · {l.title} · {l.owner_id && l.owner_id !== investor.user_id ? "⚠️ vergeben" : l.owner_id === investor.user_id ? "✓ aktuell" : "verfügbar"}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* TinyEscapes link */}
+                      {selectedListingId && escapeOptions.length > 0 && (
+                        <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-4">
+                          <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1.5 font-semibold">🔗 TinyEscapes Objekt (live Buchungsdaten)</label>
+                          <select
+                            value={iEdit.escapes_escape_id !== undefined ? iEdit.escapes_escape_id : (selectedListing?.escapes_escape_id ?? "")}
+                            onChange={(e) => setIEdit({ escapes_escape_id: e.target.value || "" })}
+                            className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          >
+                            <option value="">— Kein TinyEscapes Objekt verknüpft —</option>
+                            {escapeOptions.map((esc) => (
+                              <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+
+                      {/* Fee + Kaufvertrag – only show when an asset is selected */}
+                      {selectedListingId && (
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                          <div>
+                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Management-Fee (%)</label>
+                            <input
+                              type="number" min={0} max={100} step={0.5}
+                              value={currentMgmt}
+                              onChange={(e) => setIEdit({ mgmt_fee_pct: Number(e.target.value) })}
+                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Host-Anteil (%)</label>
+                            <input
+                              type="number" min={0} max={100} step={0.5}
+                              value={currentHost}
+                              onChange={(e) => setIEdit({ host_pct: Number(e.target.value) })}
+                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Kaufvertrag URL (PDF)</label>
+                            <input
+                              type="text"
+                              value={currentKauf}
+                              onChange={(e) => setIEdit({ kaufvertrag_url: e.target.value })}
+                              placeholder="https://…/kaufvertrag.pdf"
+                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500 font-mono"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      <button
+                        onClick={saveAssignment}
+                        disabled={!selectedListingId || (!isDirty && !!ownedListing && ownedListing.id === selectedListingId) || assignSaving === selectedListingId}
+                        className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                          selectedListingId && (isDirty || !ownedListing || ownedListing.id !== selectedListingId)
+                            ? "bg-green-600 hover:bg-green-700 text-white"
+                            : "bg-gray-700 text-gray-500 cursor-not-allowed"
+                        }`}
+                      >
+                        {assignSaving === selectedListingId ? "⏳ Speichert…" : "💾 Asset zuweisen & speichern"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         )}
 
         {/* ════ SETTINGS TAB ════ */}

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/app/lib/supabase";
+import { getAdminClient } from "@/app/lib/supabase";
 
 export async function GET(req: NextRequest) {
   const pw = req.headers.get("x-admin-password");
@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await getAdminClient()
     .from("leads")
     .select("*")
     .order("created_at", { ascending: false });
@@ -27,7 +27,7 @@ export async function PATCH(req: NextRequest) {
 
   const { id, status } = await req.json();
 
-  const { error } = await supabaseAdmin
+  const { error } = await getAdminClient()
     .from("leads")
     .update({ status })
     .eq("id", id);
@@ -52,7 +52,7 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ error: "ID fehlt" }, { status: 400 });
   }
 
-  const { error } = await supabaseAdmin
+  const { error } = await getAdminClient()
     .from("leads")
     .delete()
     .eq("id", id);
