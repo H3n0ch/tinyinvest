@@ -17,7 +17,23 @@ export async function POST(req: NextRequest) {
       investmentVolumen,
       kontaktZeit,
       nachricht,
+      // Host-Bewerbung fields
+      hostRegion,
+      hostFlaeche,
+      hostEigentum,
+      hostBebauung,
+      hostVersorgung,
+      hostAnzahl,
     } = body;
+
+    const isHost = interesse === "Host-Bewerbung (Standort / Grundstück)";
+
+    // Build host summary for DB (appended to nachricht field)
+    const hostSummary = isHost
+      ? `📍 Region: ${hostRegion || "–"} | 📐 Größe: ${hostFlaeche || "–"} | 📜 Eigentum: ${hostEigentum || "–"} | 🗺️ Bebauung: ${hostBebauung || "–"} | ⚡ Versorgung: ${hostVersorgung || "–"} | 🏠 Anzahl THs: ${hostAnzahl || "–"}`
+      : null;
+
+    const finalNachricht = [nachricht, hostSummary].filter(Boolean).join("\n\n") || null;
 
     // 1. Save to Supabase
     const { error: dbError } = await supabaseAdmin.from("leads").insert([
@@ -27,10 +43,10 @@ export async function POST(req: NextRequest) {
         email,
         telefon: telefon || null,
         interesse,
-        budget,
-        investment_volumen: investmentVolumen || null,
+        budget: isHost ? null : budget,
+        investment_volumen: isHost ? null : (investmentVolumen || null),
         kontakt_zeit: kontaktZeit || null,
-        nachricht: nachricht || null,
+        nachricht: finalNachricht,
         status: "neu",
       },
     ]);
@@ -73,6 +89,35 @@ export async function POST(req: NextRequest) {
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Interesse</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${interesse}</td>
                 </tr>
+                ${isHost ? `
+                <tr>
+                  <td colspan="2" style="padding: 12px 0 4px 0; font-size: 13px; font-weight: bold; color: #15803d;">🏡 Angaben zum Grundstück / Standort</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">📍 Region / Standort</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostRegion || "–"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">📐 Grundstücksgröße</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostFlaeche || "–"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">📜 Eigentumsverhältnis</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostEigentum || "–"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">🗺️ Bebauungsplan</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostBebauung || "–"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">⚡ Versorgung</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostVersorgung || "–"}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">🏠 Anzahl Tiny Houses</td>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${hostAnzahl || "–"}</td>
+                </tr>
+                ` : `
                 <tr>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Asset-Interesse</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${budget}</td>
@@ -81,6 +126,7 @@ export async function POST(req: NextRequest) {
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-size: 14px; font-weight: bold;">Investitionsvolumen</td>
                   <td style="padding: 10px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #111827;">${investmentVolumen || "–"}</td>
                 </tr>
+                `}
                 ${nachricht ? `
                 <tr>
                   <td style="padding: 10px 0; color: #6b7280; font-size: 14px; font-weight: bold; vertical-align: top;">Nachricht</td>

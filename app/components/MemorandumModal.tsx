@@ -15,7 +15,16 @@ export default function MemorandumModal() {
     investmentVolumen: "60.000 – 80.000 € (1 Asset)",
     kontaktZeit: "Jederzeit / flexibel",
     nachricht: "",
+    // Host-Bewerbung fields
+    hostRegion: "",
+    hostFlaeche: "500–1.000 m²",
+    hostEigentum: "Eigentümer",
+    hostBebauung: "Keine Infos vorhanden",
+    hostVersorgung: "Ja – Strom & Wasser",
+    hostAnzahl: "2–3",
   });
+
+  const isHost = form.interesse === "Host-Bewerbung (Standort / Grundstück)";
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -188,38 +197,144 @@ export default function MemorandumModal() {
                 </select>
               </div>
 
-              {/* Asset + Volumen */}
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Asset-Interesse
-                  </label>
-                  <select
-                    name="budget" value={form.budget} onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                  >
-                    <option>Asset #TE-2026-01 · Comfort (60.000 €)</option>
-                    <option>Asset #TE-2026-02 · Escape (79.000 €)</option>
-                    <option>Asset #TE-2026-03 · Elite (95.000 €)</option>
-                    <option>Individuell – bitte beraten</option>
-                  </select>
+              {/* Host-Bewerbung: Grundstücks-Felder */}
+              {isHost && (
+                <div className="rounded-2xl border border-green-200 bg-green-50/60 p-4 space-y-3">
+                  <p className="text-[11px] font-bold text-green-700 uppercase tracking-widest flex items-center gap-1.5">
+                    <span>🏡</span> Angaben zum Grundstück / Standort
+                  </p>
+
+                  {/* Region */}
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Region / Standort *
+                    </label>
+                    <input
+                      type="text"
+                      name="hostRegion"
+                      value={form.hostRegion}
+                      onChange={handleChange}
+                      placeholder="z.B. Bayern, Nähe München"
+                      required={isHost}
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300 bg-white"
+                    />
+                  </div>
+
+                  {/* Fläche + Eigentum */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                        Grundstücksgröße
+                      </label>
+                      <select
+                        name="hostFlaeche" value={form.hostFlaeche} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                      >
+                        <option>{"< 500 m²"}</option>
+                        <option>500–1.000 m²</option>
+                        <option>1.000–3.000 m²</option>
+                        <option>{"> 3.000 m²"}</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                        Eigentumsverhältnis
+                      </label>
+                      <select
+                        name="hostEigentum" value={form.hostEigentum} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                      >
+                        <option>Eigentümer</option>
+                        <option>Pächter / Mieter</option>
+                        <option>Noch in Planung</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Bebauung + Versorgung */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                        Bebauungsplan / Zonung
+                      </label>
+                      <select
+                        name="hostBebauung" value={form.hostBebauung} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                      >
+                        <option>Touristisch / Freizeitfläche</option>
+                        <option>Landwirtschaftlich</option>
+                        <option>Wohngebiet</option>
+                        <option>Keine Infos vorhanden</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                        Strom & Wasser vorhanden?
+                      </label>
+                      <select
+                        name="hostVersorgung" value={form.hostVersorgung} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                      >
+                        <option>Ja – Strom & Wasser</option>
+                        <option>Nur Strom</option>
+                        <option>Nur Wasser</option>
+                        <option>Noch keine Versorgung</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Anzahl */}
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Wie viele Tiny Houses vorstellbar?
+                    </label>
+                    <select
+                      name="hostAnzahl" value={form.hostAnzahl} onChange={handleChange}
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                    >
+                      <option>1</option>
+                      <option>2–3</option>
+                      <option>4–6</option>
+                      <option>Mehr als 6</option>
+                    </select>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Investitionsvolumen
-                  </label>
-                  <select
-                    name="investmentVolumen" value={form.investmentVolumen} onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                  >
-                    <option>60.000 – 80.000 € (1 Asset)</option>
-                    <option>80.000 – 100.000 € (1 Premium)</option>
-                    <option>120.000 – 160.000 € (2 Assets)</option>
-                    <option>200.000 € + (Portfolio)</option>
-                    <option>Noch unklar</option>
-                  </select>
+              )}
+
+              {/* Asset + Volumen (nur bei Nicht-Host) */}
+              {!isHost && (
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Asset-Interesse
+                    </label>
+                    <select
+                      name="budget" value={form.budget} onChange={handleChange}
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                    >
+                      <option>Asset #TE-2026-01 · Comfort (60.000 €)</option>
+                      <option>Asset #TE-2026-02 · Escape (79.000 €)</option>
+                      <option>Asset #TE-2026-03 · Elite (95.000 €)</option>
+                      <option>Individuell – bitte beraten</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Investitionsvolumen
+                    </label>
+                    <select
+                      name="investmentVolumen" value={form.investmentVolumen} onChange={handleChange}
+                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                    >
+                      <option>60.000 – 80.000 € (1 Asset)</option>
+                      <option>80.000 – 100.000 € (1 Premium)</option>
+                      <option>120.000 – 160.000 € (2 Assets)</option>
+                      <option>200.000 € + (Portfolio)</option>
+                      <option>Noch unklar</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Kontaktzeit */}
               <div>
@@ -258,7 +373,11 @@ export default function MemorandumModal() {
                 disabled={loading}
                 className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-xl text-sm transition-all shadow-md"
               >
-                {loading ? "Wird übermittelt…" : "🔐 Investitionsunterlagen anfordern →"}
+                {loading
+                  ? "Wird übermittelt…"
+                  : isHost
+                  ? "🏡 Host-Bewerbung absenden →"
+                  : "🔐 Investitionsunterlagen anfordern →"}
               </button>
 
               {/* Trust footer */}

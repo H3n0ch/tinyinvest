@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description:
     "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
   icons: {
-    icon: "/logo (5).png",
-    shortcut: "/logo (5).png",
-    apple: "/logo (5).png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
