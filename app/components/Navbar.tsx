@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { navLinks } from "./data";
 import { useModal } from "./ModalContext";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" }) {
   const { openModal } = useModal();
@@ -27,13 +28,17 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 md:h-20">
-          {/* Logo + operator badge */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className={`text-xl font-black tracking-tight transition-colors duration-300 ${isIce ? "text-green-300" : "text-green-700"}`}>
-              Tiny<span className={isIce ? "text-white" : "text-gray-900"}>Invest</span>
-              <span className="ml-1 text-base">🏡</span>
-            </span>
+        <div className="flex items-center justify-between h-20 md:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo1.png"
+              alt="TinyInvest Logo"
+              width={500}
+              height={150}
+              className={`h-50 w-auto transition-all duration-500 ${isIce ? "brightness-0 invert" : "brightness-0"}`}
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
