@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           <div className="md:col-span-1">
             <Link href="/" className="inline-flex mb-4">
             <Image
@@ -35,6 +35,17 @@ export default function Footer() {
                   🤝 Vertriebspartner werden
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Investment</h4>
+            <ul className="space-y-2">
+              <li><Link href="/projekte" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏠 Projekte & Marktplatz</Link></li>
+              <li><Link href="/renditemodell" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Renditemodell</Link></li>
+              <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">💰 §7g Steuervorteil</Link></li>
+              <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">⚙️ So funktioniert es</Link></li>
+              <li><Link href="/galerie" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📸 Galerie</Link></li>
             </ul>
           </div>
 

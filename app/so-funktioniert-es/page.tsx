@@ -175,6 +175,9 @@ export default function SoFunktioniertEsPage() {
               <Link href="/#faq" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-6 py-3 rounded-full text-sm transition-all">
                 FAQ ansehen →
               </Link>
+              <Link href="/projekte" className="border border-green-600 text-green-700 hover:bg-green-50 font-semibold px-6 py-3 rounded-full text-sm transition-all">
+                Projekte ansehen →
+              </Link>
             </div>
           </div>
         </div>
