@@ -212,6 +212,18 @@ export async function GET(req: NextRequest) {
   );
 
   // ── 5. Portfolio totals ─────────────────────────────────
+  /** Parse German price string like "45.000 €" or "90.000 €" → 45000 */
+  function parsePreis(s: string): number {
+    // Remove currency symbol + whitespace, remove thousands separators (dots), replace comma decimal
+    const cleaned = s.replace(/[€\s]/g, "").replace(/\./g, "").replace(",", ".");
+    return parseFloat(cleaned) || 0;
+  }
+
+  /** Parse IRR string like "14,2 %" → 14.2 */
+  function parseIrr(s: string): number {
+    return parseFloat(s.replace(/[%\s]/g, "").replace(",", ".")) || 0;
+  }
+
   const portfolio = assets.reduce(
     (acc, a) => ({
       total_bookings:        acc.total_bookings        + (a.stats?.total_bookings        ?? 0),
@@ -219,9 +231,21 @@ export async function GET(req: NextRequest) {
       total_revenue:         acc.total_revenue         + (a.stats?.total_revenue         ?? 0),
       investor_revenue:      acc.investor_revenue      + (a.stats?.investor_revenue      ?? 0),
       current_month_revenue: acc.current_month_revenue + (a.stats?.current_month_revenue ?? 0),
+      total_invested:        acc.total_invested        + parsePreis(a.preis),
     }),
-    { total_bookings: 0, total_nights: 0, total_revenue: 0, investor_revenue: 0, current_month_revenue: 0 }
+    { total_bookings: 0, total_nights: 0, total_revenue: 0, investor_revenue: 0, current_month_revenue: 0, total_invested: 0 }
   );
+
+  // Weighted average IRR
+  const totalInvested = portfolio.total_invested;
+  const weightedIrr = totalInvested > 0
+    ? assets.reduce((sum, a) => sum + parseIrr(a.irr) * parsePreis(a.preis), 0) / totalInvested
+    : 0;
+
+  // ROI: investor_revenue / total_invested * 100
+  const roi = totalInvested > 0
+    ? Math.round((portfolio.investor_revenue / totalInvested) * 10000) / 100
+    : 0;
 
   return NextResponse.json({
     email:         pending.email,
@@ -229,9 +253,14 @@ export async function GET(req: NextRequest) {
     registered_at: pending.registered_at,
     assets,
     portfolio: {
-      ...portfolio,
+      total_bookings:        portfolio.total_bookings,
+      total_nights:          portfolio.total_nights,
+      total_revenue:         Math.round(portfolio.total_revenue         * 100) / 100,
       investor_revenue:      Math.round(portfolio.investor_revenue      * 100) / 100,
       current_month_revenue: Math.round(portfolio.current_month_revenue * 100) / 100,
+      total_invested:        Math.round(portfolio.total_invested),
+      weighted_irr:          Math.round(weightedIrr * 10) / 10,
+      roi,
     },
   });
 }

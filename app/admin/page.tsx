@@ -1172,21 +1172,36 @@ export default function AdminPage() {
                                 </div>
 
                                 {/* TinyEscapes link */}
-                                {escapeOptions.length > 0 && (
-                                  <div>
-                                    <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
-                                    <select
-                                      value={rowEdit.escapes_escape_id !== undefined ? rowEdit.escapes_escape_id : (ia.escapes_escape_id ?? "")}
-                                      onChange={(e) => setAssetRowEdits((prev) => ({ ...prev, [ia.id]: { ...prev[ia.id], escapes_escape_id: e.target.value } }))}
-                                      className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                    >
-                                      <option value="">— Kein TinyEscapes Objekt verknüpft —</option>
-                                      {escapeOptions.map((esc) => (
-                                        <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
-                                      ))}
-                                    </select>
-                                  </div>
-                                )}
+                                {escapeOptions.length > 0 && (() => {
+                                  // IDs already assigned to OTHER assets (not this row)
+                                  const usedEscapeIds = new Set(
+                                    allInvestorAssets
+                                      .filter((a) => a.id !== ia.id)
+                                      .map((a) => a.escapes_escape_id)
+                                      .filter(Boolean)
+                                  );
+                                  const currentVal = rowEdit.escapes_escape_id !== undefined ? rowEdit.escapes_escape_id : (ia.escapes_escape_id ?? "");
+                                  return (
+                                    <div>
+                                      <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
+                                      <select
+                                        value={currentVal}
+                                        onChange={(e) => setAssetRowEdits((prev) => ({ ...prev, [ia.id]: { ...prev[ia.id], escapes_escape_id: e.target.value } }))}
+                                        className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                      >
+                                        <option value="">— Kein TinyEscapes Objekt verknüpft —</option>
+                                        {escapeOptions.map((esc) => {
+                                          const taken = usedEscapeIds.has(esc.id);
+                                          return (
+                                            <option key={esc.id} value={esc.id} disabled={taken}>
+                                              {taken ? "⚠️ vergeben · " : ""}{esc.name} · {esc.location}
+                                            </option>
+                                          );
+                                        })}
+                                      </select>
+                                    </div>
+                                  );
+                                })()}
 
                                 {/* Save button */}
                                 <button
@@ -1244,21 +1259,32 @@ export default function AdminPage() {
                               />
                             </div>
                           </div>
-                          {escapeOptions.length > 0 && (
-                            <div>
-                              <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
-                              <select
-                                value={newForm.escapes_escape_id}
-                                onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, escapes_escape_id: e.target.value } }))}
-                                className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
-                              >
-                                <option value="">— Kein TinyEscapes Objekt —</option>
-                                {escapeOptions.map((esc) => (
-                                  <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
-                                ))}
-                              </select>
-                            </div>
-                          )}
+                          {escapeOptions.length > 0 && (() => {
+                            // All IDs already in use by any existing asset
+                            const allUsedEscapeIds = new Set(
+                              allInvestorAssets.map((a) => a.escapes_escape_id).filter(Boolean)
+                            );
+                            return (
+                              <div>
+                                <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
+                                <select
+                                  value={newForm.escapes_escape_id}
+                                  onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, escapes_escape_id: e.target.value } }))}
+                                  className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                >
+                                  <option value="">— Kein TinyEscapes Objekt —</option>
+                                  {escapeOptions.map((esc) => {
+                                    const taken = allUsedEscapeIds.has(esc.id);
+                                    return (
+                                      <option key={esc.id} value={esc.id} disabled={taken}>
+                                        {taken ? "⚠️ vergeben · " : ""}{esc.name} · {esc.location}
+                                      </option>
+                                    );
+                                  })}
+                                </select>
+                              </div>
+                            );
+                          })()}
                           <div className="flex gap-2">
                             <button
                               onClick={handleAddAsset}

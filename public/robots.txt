@@ -1,8 +1,9 @@
-# robots.txt – TinyInvest
-# https://tinyinvest.de/robots.txt
-
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://tinyinvest.de/sitemap.xml
+# Private areas – do not index
+Disallow: /admin
+Disallow: /investor
+Disallow: /api/
+
+Sitemap: https://tinyhouse.investments/sitemap.xml

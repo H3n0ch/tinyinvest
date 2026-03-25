@@ -11,6 +11,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tinyhouse.investments"),
   title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
   description:
     "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
@@ -23,11 +24,11 @@ export const metadata: Metadata = {
     title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
     description:
       "§7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
-    url: "https://tinyinvest.de",
+    url: "https://tinyhouse.investments",
     siteName: "TinyInvest",
     images: [
       {
-        url: "https://tinyinvest.de/images/Gemini_Generated_Image_e2327ae2327ae232.png",
+        url: "https://tinyhouse.investments/images/Gemini_Generated_Image_e2327ae2327ae232.png",
         width: 1200,
         height: 630,
         alt: "TinyInvest – Tiny House Investment Plattform",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "§7g-optimierte Tiny House Investments. Rendite 10–15 % p.a. EU-weit.",
     images: [
-      "https://tinyinvest.de/images/Gemini_Generated_Image_e2327ae2327ae232.png",
+      "https://tinyhouse.investments/images/Gemini_Generated_Image_e2327ae2327ae232.png",
     ],
   },
 };

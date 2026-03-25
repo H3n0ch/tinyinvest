@@ -48,6 +48,9 @@ type Portfolio = {
   total_revenue: number;
   investor_revenue: number;
   current_month_revenue: number;
+  total_invested?: number;
+  weighted_irr?: number;
+  roi?: number;
 };
 
 type InvestorData = {
@@ -265,8 +268,56 @@ function AssetView({ asset }: { asset: Asset }) {
 }
 
 function PortfolioView({ assets, portfolio }: { assets: Asset[]; portfolio: Portfolio }) {
+  const totalInvested = portfolio.total_invested ?? 0;
+  const roi           = portfolio.roi           ?? 0;
+  const weightedIrr   = portfolio.weighted_irr  ?? 0;
+
   return (
     <div className="space-y-5">
+      {/* ── Finanzkalkulation ── */}
+      <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <div className="px-5 py-3.5 border-b border-gray-100 flex items-center gap-2">
+          <span className="text-base">💰</span>
+          <p className="text-sm font-bold text-gray-700">Gesamtkalkulation</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-gray-100">
+          {[
+            {
+              label: "Gesamtinvestition",
+              value: totalInvested > 0 ? fmt(totalInvested) : "—",
+              sub:   `${assets.length} Asset${assets.length !== 1 ? "s" : ""}`,
+              icon:  "🏠",
+            },
+            {
+              label: "Gesamt verdient",
+              value: fmt(portfolio.investor_revenue),
+              sub:   "Dein Anteil kumuliert",
+              icon:  "📈",
+              green: true,
+            },
+            {
+              label: "ROI aktuell",
+              value: roi > 0 ? `${roi.toLocaleString("de-DE", { maximumFractionDigits: 2 })} %` : "—",
+              sub:   "Einnahmen ÷ Investition",
+              icon:  "📊",
+            },
+            {
+              label: "Ø IRR erwartet",
+              value: weightedIrr > 0 ? `${weightedIrr.toLocaleString("de-DE", { maximumFractionDigits: 1 })} %` : "—",
+              sub:   "Gewichteter Durchschnitt",
+              icon:  "🎯",
+            },
+          ].map((item) => (
+            <div key={item.label} className={`p-5 ${item.green ? "bg-green-50" : ""}`}>
+              <div className="text-lg mb-1">{item.icon}</div>
+              <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-1">{item.label}</p>
+              <p className={`text-xl font-black ${item.green ? "text-green-700" : "text-gray-900"}`}>{item.value}</p>
+              <p className="text-[10px] text-gray-400 mt-0.5">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Portfolio KPIs */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <StatCard label="Gesamt verdient" value={fmt(portfolio.investor_revenue)} sub="über alle Häuser" highlight />
@@ -278,7 +329,7 @@ function PortfolioView({ assets, portfolio }: { assets: Asset[]; portfolio: Port
       {/* Asset summary cards */}
       <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
         <div className="px-5 py-3.5 border-b border-gray-100">
-          <p className="text-sm font-bold text-gray-700">Dein Portfolio</p>
+          <p className="text-sm font-bold text-gray-700">Deine Assets im Überblick</p>
         </div>
         <div className="divide-y divide-gray-50">
           {assets.map((a, i) => (
@@ -288,20 +339,38 @@ function PortfolioView({ assets, portfolio }: { assets: Asset[]; portfolio: Port
               )}
               <div className="flex-grow min-w-0">
                 <p className="text-sm font-bold text-gray-800 truncate">{a.title}</p>
-                <p className="text-xs text-gray-400">📍 {a.location} · {a.investor_pct.toFixed(0)} % Anteil</p>
+                <div className="flex flex-wrap gap-3 text-xs text-gray-400 mt-0.5">
+                  <span>📍 {a.location}</span>
+                  <span>💰 {a.preis}</span>
+                  <span>📈 IRR {a.irr}</span>
+                  <span>🔑 {a.investor_pct.toFixed(0)} % Anteil</span>
+                </div>
               </div>
-              <div className="text-right flex-shrink-0">
-                <p className="text-green-700 font-black text-sm">
-                  {fmt(a.stats?.investor_revenue ?? 0)}
-                </p>
+              <div className="text-right flex-shrink-0 space-y-1">
+                <p className="text-green-700 font-black text-sm">{fmt(a.stats?.investor_revenue ?? 0)}</p>
                 <p className="text-[10px] text-gray-400">{a.stats?.total_bookings ?? 0} Buchungen</p>
+                {a.kaufvertrag_url && (
+                  <a
+                    href={a.kaufvertrag_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-[10px] text-green-600 hover:text-green-700 hover:underline font-semibold"
+                  >
+                    📑 Kaufvertrag
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
         {/* Total row */}
         <div className="px-5 py-4 bg-green-50 border-t border-green-100 flex items-center justify-between">
-          <p className="text-sm font-bold text-green-800">Gesamt Portfolio</p>
+          <div>
+            <p className="text-sm font-bold text-green-800">Gesamt Portfolio</p>
+            {totalInvested > 0 && (
+              <p className="text-[10px] text-green-600">Investiert: {fmt(totalInvested)}</p>
+            )}
+          </div>
           <p className="text-green-700 font-black text-lg">{fmt(portfolio.investor_revenue)}</p>
         </div>
       </div>
