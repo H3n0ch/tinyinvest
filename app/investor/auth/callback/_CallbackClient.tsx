@@ -40,7 +40,12 @@ export default function CallbackClient() {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center">
         <div className="text-center">
-          <div className="text-5xl mb-4 animate-pulse">🔑</div>
+          <img src="/logo1.png" alt="TinyInvest" className="h-10 w-auto mx-auto mb-8 brightness-0 invert animate-pulse" />
+          <div className="flex gap-1.5 justify-center mb-4">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: "300ms" }} />
+          </div>
           <p className="text-white font-semibold">Anmeldung wird verarbeitet…</p>
           <p className="text-gray-400 text-sm mt-2">Bitte warte einen Moment.</p>
         </div>

@@ -50,9 +50,7 @@ export default function InvestorLoginPage() {
         <div className="bg-gray-900 border border-white/10 rounded-3xl p-10 shadow-2xl">
           {/* Logo / icon */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-green-700/20 border border-green-500/30 mb-4">
-              <span className="text-3xl">🏡</span>
-            </div>
+            <img src="/logo1.png" alt="TinyInvest" className="h-45 w-auto mx-auto mb-6 brightness-0 invert" />
             <h1 className="text-2xl font-black text-white">Investor-Portal</h1>
             <p className="text-gray-400 text-sm mt-2">Melde dich an um dein Dashboard zu sehen.</p>
           </div>

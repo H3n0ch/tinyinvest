@@ -423,7 +423,12 @@ export default function InvestorDashboard() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-14 h-14 border-4 border-green-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <img src="/logo1.png" alt="TinyInvest" className="h-9 w-auto mx-auto mb-8 opacity-80 animate-pulse" />
+          <div className="flex gap-1.5 justify-center mb-4">
+            <div className="w-2 h-2 rounded-full bg-green-600 animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-2 h-2 rounded-full bg-green-600 animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-2 h-2 rounded-full bg-green-600 animate-bounce" style={{ animationDelay: "300ms" }} />
+          </div>
           <p className="text-gray-600 font-semibold">Lade dein Dashboard…</p>
         </div>
       </div>
@@ -478,12 +483,7 @@ export default function InvestorDashboard() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-green-600 flex items-center justify-center">
-                <span className="text-white text-sm font-black">T</span>
-              </div>
-              <span className="font-black text-gray-900 text-sm hidden sm:block">TinyInvest</span>
-            </div>
+            <img src="/logo1.png" alt="TinyInvest" className="h-7 w-auto" />
             <div className="w-px h-5 bg-gray-200 hidden sm:block" />
             <span className="text-xs text-gray-400 hidden sm:block">Investor-Portal</span>
           </div>
