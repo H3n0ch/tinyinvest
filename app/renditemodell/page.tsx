@@ -7,8 +7,14 @@ import Link from "next/link";
 import { winWinModel } from "../components/data";
 
 export const metadata = {
-  title: "Renditemodell – TinyInvest",
-  description: "Das Win-Win-Win Prinzip: Wie Investor, Host und Plattform profitieren. Vollständige Renditerechnung und IRR-Analyse.",
+  title: "14 % IRR p.a. – Tiny House Renditemodell erklärt | TinyInvest",
+  description: "Wie aus 45.000 € Investment ein §7g-optimiertes Tiny House Asset mit 14 % IRR p.a. wird. NPV, Cashflow und Steuereffekt verständlich erklärt.",
+  keywords: "Tiny House Rendite, IRR Berechnung, passive Einnahmen Ferienhaus, §7g Rendite, Ferienhausrendite Deutschland",
+  openGraph: {
+    title: "14 % IRR p.a. – Tiny House Renditemodell | TinyInvest",
+    description: "Renditemodell für §7g-optimierte Tiny House Investments. NPV, Cashflow, Steuereffekt.",
+    url: "https://tinyhouse.investments/renditemodell",
+  },
 };
 
 export default function RenditeModellPage() {

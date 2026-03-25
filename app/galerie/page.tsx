@@ -5,8 +5,14 @@ import { galleryImages } from "../components/data";
 import ModalButton from "../components/ModalButton";
 
 export const metadata = {
-  title: "Galerie – TinyInvest Tiny Houses",
-  description: "Einblicke in unsere hochwertigen, modernen und nachhaltigen Tiny Houses. Modern. Hochwertig. Nachhaltig.",
+  title: "Tiny House Galerie – Innen & Außen Fotos | TinyInvest",
+  description: "Hochwertige Fotos der TinyInvest Tiny Houses. Innenausstattung, Außenansichten und Standorte der Ferienimmobilien. Jetzt Galerie ansehen.",
+  keywords: "Tiny House Fotos, Ferienhaus Galerie, Tiny House Innenausstattung, Tiny Escape Bilder",
+  openGraph: {
+    title: "Tiny House Galerie – Fotos der TinyInvest Assets",
+    description: "Innen & Außen: Hochwertige Fotogalerie unserer Tiny House Investments.",
+    url: "https://tinyhouse.investments/galerie",
+  },
 };
 
 const outsideImages = [

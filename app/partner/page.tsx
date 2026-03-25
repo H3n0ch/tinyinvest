@@ -3,8 +3,14 @@ import Vertriebspartner from "../components/Vertriebspartner";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Vertriebspartner werden – TinyInvest",
-  description: "Werde TinyInvest-Vertriebspartner und verdiene attraktive Provisionen, ohne Vorwissen oder Vorleistung.",
+  title: "Vertriebspartner werden – Provisionsprogramm | TinyInvest",
+  description: "Werde TinyInvest Vertriebspartner. Empfehle Tiny House Investments und verdiene attraktive Provisionen. Für Finanzberater, Makler und Netzwerker.",
+  keywords: "Vertriebspartner Investment, Provision Ferienimmobilien, Affiliate Tiny House, Partner werden TinyInvest",
+  openGraph: {
+    title: "Vertriebspartner werden – Provision & Kooperation | TinyInvest",
+    description: "Attraktives Provisionsprogramm für Finanzberater, Makler und Netzwerker.",
+    url: "https://tinyhouse.investments/partner",
+  },
 };
 
 export default function PartnerPage() {

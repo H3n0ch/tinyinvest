@@ -7,8 +7,14 @@ import Link from "next/link";
 import { steuerCards, vergleichRows } from "../components/data";
 
 export const metadata = {
-  title: "§7g Steuervorteil – TinyInvest",
-  description: "IAB, Sonder-AfA und degressive AfA: Der vollständige §7g EStG Leitfaden für Tiny House Investoren 2026.",
+  title: "§7g Steuervorteil: Bis zu 40 % Steuererstattung mit Tiny House | TinyInvest",
+  description: "Nutze §7g EStG (IAB), Sonder-AfA und lineare AfA für dein Tiny House Investment. Im Jahr 1 bis zu 40 % des Kaufpreises als Steuererstattung. §7g Rechner inklusive.",
+  keywords: "§7g EStG, Investitionsabzugsbetrag, Sonder-AfA Tiny House, Steuervorteile Ferienimmobilie, §7g Rechner",
+  openGraph: {
+    title: "§7g Steuervorteil – Bis zu 40 % Erstattung | TinyInvest",
+    description: "IAB, Sonder-AfA, lineare AfA. Im Jahr 1 bis zu 40 % des Kaufpreises zurück.",
+    url: "https://tinyhouse.investments/steuervorteil",
+  },
 };
 
 export default function SteuerVorteilPage() {
