@@ -20,18 +20,27 @@ export async function GET(req: NextRequest) {
 
   const admin = getAdmin();
 
-  const [pendingRes, listingsRes, escapesRes] = await Promise.all([
+  const [pendingRes, listingsRes, escapesRes, assetsRes] = await Promise.all([
     admin.from("investor_pending").select("*").order("registered_at", { ascending: false }),
-    admin.from("listings").select("id, asset_id, title, owner_id, mgmt_fee_pct, host_pct, kaufvertrag_url, escapes_escape_id").order("sort_order", { ascending: true }),
+    admin
+      .from("listings")
+      .select("id, asset_id, title, location, img, owner_id, mgmt_fee_pct, host_pct, kaufvertrag_url, escapes_escape_id")
+      .order("sort_order", { ascending: true }),
     admin.from("escapes").select("id, name, location").order("name", { ascending: true }),
+    // All investor_assets rows (for the multi-asset UI)
+    admin
+      .from("investor_assets")
+      .select("id, user_id, listing_id, mgmt_fee_pct, host_pct, kaufvertrag_url, escapes_escape_id")
+      .order("created_at", { ascending: true }),
   ]);
 
-  if (pendingRes.error) return NextResponse.json({ error: pendingRes.error.message }, { status: 500 });
-  if (listingsRes.error) return NextResponse.json({ error: listingsRes.error.message }, { status: 500 });
+  if (pendingRes.error)   return NextResponse.json({ error: pendingRes.error.message },   { status: 500 });
+  if (listingsRes.error)  return NextResponse.json({ error: listingsRes.error.message },  { status: 500 });
 
   return NextResponse.json({
-    pending:  pendingRes.data  ?? [],
-    listings: listingsRes.data ?? [],
-    escapes:  escapesRes.data  ?? [],
+    pending:         pendingRes.data  ?? [],
+    listings:        listingsRes.data ?? [],
+    escapes:         escapesRes.data  ?? [],
+    investor_assets: assetsRes.data   ?? [],
   });
 }

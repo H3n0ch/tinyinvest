@@ -361,17 +361,27 @@ export default function AdminPage() {
 
   // Investors
   type InvestorPending = { id: string; user_id: string; email: string; full_name: string | null; registered_at: string };
-  type InvestorListing = { id: number; asset_id: string; title: string; owner_id: string | null; mgmt_fee_pct: number; host_pct: number; kaufvertrag_url: string | null; escapes_escape_id: string | null };
+  type InvestorListing = { id: number; asset_id: string; title: string; location: string; img: string | null; owner_id: string | null; mgmt_fee_pct: number; host_pct: number; kaufvertrag_url: string | null; escapes_escape_id: string | null };
+  type InvestorAsset   = { id: string; user_id: string; listing_id: number; mgmt_fee_pct: number; host_pct: number; kaufvertrag_url: string | null; escapes_escape_id: string | null };
   type EscapeOption    = { id: string; name: string; location: string };
-  const [investorPending, setInvestorPending]   = useState<InvestorPending[]>([]);
-  const [investorListings, setInvestorListings] = useState<InvestorListing[]>([]);
-  const [escapeOptions, setEscapeOptions]       = useState<EscapeOption[]>([]);
-  const [loadingInvestors, setLoadingInvestors] = useState(false);
-  const [assignSaving, setAssignSaving]         = useState<number | null>(null);
-  const [assignSuccess, setAssignSuccess]       = useState<number | null>(null);
-  // key = investor.user_id (string uuid)
-  type IEdit = { listing_id?: number; mgmt_fee_pct?: number; host_pct?: number; kaufvertrag_url?: string; escapes_escape_id?: string };
-  const [investorEdits, setInvestorEdits]       = useState<Record<string, IEdit>>({});
+  const [investorPending, setInvestorPending]       = useState<InvestorPending[]>([]);
+  const [investorListings, setInvestorListings]     = useState<InvestorListing[]>([]);
+  const [allInvestorAssets, setAllInvestorAssets]   = useState<InvestorAsset[]>([]);
+  const [escapeOptions, setEscapeOptions]           = useState<EscapeOption[]>([]);
+  const [loadingInvestors, setLoadingInvestors]     = useState(false);
+  const [investorSearch, setInvestorSearch]         = useState("");
+  const [expandedInvestors, setExpandedInvestors]   = useState<Set<string>>(new Set());
+  // per-asset-row edits (keyed by investor_asset.id)
+  type AssetRowEdit = { mgmt_fee_pct?: number; host_pct?: number; kaufvertrag_url?: string; escapes_escape_id?: string };
+  const [assetRowEdits, setAssetRowEdits]           = useState<Record<string, AssetRowEdit>>({});
+  const [assetRowSaving, setAssetRowSaving]         = useState<string | null>(null);
+  const [assetRowSuccess, setAssetRowSuccess]       = useState<string | null>(null);
+  const [confirmRemoveAsset, setConfirmRemoveAsset] = useState<string | null>(null);
+  // new-asset form per investor (keyed by user_id)
+  type NewAssetForm = { open: boolean; listing_id: number | null; mgmt_fee_pct: number; host_pct: number; kaufvertrag_url: string; escapes_escape_id: string; saving: boolean };
+  const [newAssetForms, setNewAssetForms]           = useState<Record<string, NewAssetForm>>({});
+  const [migrationResult, setMigrationResult]       = useState<{ ok: boolean; message: string; sql?: string } | null>(null);
+  const [runningMigration, setRunningMigration]     = useState(false);
 
   // Settings
   const [heroImage, setHeroImage]           = useState("/images/outside/ESCAPE3.webp");
@@ -410,6 +420,7 @@ export default function AdminPage() {
     setInvestorPending(data.pending ?? []);
     setInvestorListings(data.listings ?? []);
     setEscapeOptions(data.escapes ?? []);
+    setAllInvestorAssets(data.investor_assets ?? []);
     setLoadingInvestors(false);
   }, []);
 
@@ -573,6 +584,15 @@ export default function AdminPage() {
     }
     setSavingHero(false);
   };
+
+  // ── Filtered + sorted investors ──
+  const visibleInvestors = [...investorPending]
+    .sort((a, b) => new Date(b.registered_at).getTime() - new Date(a.registered_at).getTime())
+    .filter((inv) => {
+      if (!investorSearch.trim()) return true;
+      const q = investorSearch.toLowerCase();
+      return inv.email.toLowerCase().includes(q) || (inv.full_name ?? "").toLowerCase().includes(q);
+    });
 
   // ──────────── Login screen ────────────
   if (!authed) {
@@ -920,11 +940,70 @@ export default function AdminPage() {
 
         {/* ════ INVESTORS TAB ════ */}
         {tab === "investors" && (
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-lg font-black text-white mb-0.5">Investor-Verwaltung</h2>
-              <p className="text-gray-400 text-sm">Wähle für jeden Investor sein Tiny House Asset und passe Gebühren an.</p>
+          <div className="space-y-5">
+
+            {/* ── Header + Search ── */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-grow">
+                <h2 className="text-lg font-black text-white mb-0.5">Investor-Verwaltung</h2>
+                <p className="text-gray-400 text-sm">
+                  {investorPending.length} Investor{investorPending.length !== 1 ? "en" : ""} · neueste zuerst
+                </p>
+              </div>
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm pointer-events-none">🔍</span>
+                <input
+                  type="text"
+                  placeholder="Name oder E-Mail…"
+                  value={investorSearch}
+                  onChange={(e) => setInvestorSearch(e.target.value)}
+                  className="bg-gray-800 border border-white/20 rounded-xl pl-9 pr-8 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500 w-full sm:w-72"
+                />
+                {investorSearch && (
+                  <button onClick={() => setInvestorSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white text-xs">✕</button>
+                )}
+              </div>
             </div>
+
+            {/* ── DB Migration button ── */}
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={async () => {
+                  setRunningMigration(true);
+                  const res = await fetch("/api/admin/migrate-db", {
+                    method: "POST",
+                    headers: { "x-admin-password": password },
+                  });
+                  const data = await res.json();
+                  setMigrationResult({ ok: !!data.ok, message: data.message ?? (data.ok ? "Tabelle OK ✅" : "Fehler"), sql: data.sql });
+                  if (data.ok) fetchInvestors(password);
+                  setRunningMigration(false);
+                }}
+                disabled={runningMigration}
+                className="text-xs bg-indigo-800/30 hover:bg-indigo-700/40 border border-indigo-500/30 text-indigo-300 font-bold px-4 py-2 rounded-xl transition-all disabled:opacity-50 flex items-center gap-2"
+              >
+                {runningMigration ? "⏳ Prüfe…" : "🔧 investor_assets Tabelle prüfen"}
+              </button>
+              {migrationResult && (
+                <span className={`text-xs font-semibold ${migrationResult.ok ? "text-green-400" : "text-amber-400"}`}>
+                  {migrationResult.ok ? "✅" : "⚠️"} {migrationResult.message.slice(0, 100)}
+                </span>
+              )}
+            </div>
+
+            {/* SQL box when table missing */}
+            {migrationResult && !migrationResult.ok && migrationResult.sql && (
+              <div className="bg-gray-900 border border-amber-500/30 rounded-xl p-4">
+                <p className="text-amber-400 text-xs font-bold mb-2">⚠️ Tabelle fehlt – SQL in Supabase Dashboard → SQL-Editor ausführen:</p>
+                <pre className="text-green-300 text-[10px] font-mono overflow-x-auto whitespace-pre-wrap leading-5 max-h-60 overflow-y-auto">{migrationResult.sql}</pre>
+                <button
+                  onClick={() => { if (migrationResult.sql) navigator.clipboard.writeText(migrationResult.sql); }}
+                  className="mt-2 text-xs bg-gray-700 hover:bg-gray-600 text-white px-3 py-1.5 rounded-lg transition-all"
+                >
+                  📋 SQL kopieren
+                </button>
+              </div>
+            )}
 
             {loadingInvestors ? (
               <div className="text-center py-20 text-gray-400">⏳ Lade Investor-Daten...</div>
@@ -934,79 +1013,87 @@ export default function AdminPage() {
                 <p className="text-sm">Noch keine Investoren. Führe zuerst <strong>„🏠 Zu Investor machen"</strong> bei einem Lead aus.</p>
               </div>
             ) : (
-              <div className="space-y-4">
-                {investorPending.map((investor) => {
-                  // Find which listing this investor currently owns
-                  const ownedListing = investorListings.find((l) => l.owner_id === investor.user_id);
+              <div className="space-y-3">
+                {visibleInvestors.length === 0 && (
+                  <div className="text-center py-10 text-gray-500 text-sm">Kein Investor für „{investorSearch}" gefunden.</div>
+                )}
+                {visibleInvestors.map((investor) => {
+                  const userId   = investor.user_id;
+                  const myAssets = allInvestorAssets.filter((a) => a.user_id === userId);
+                  const newForm: NewAssetForm = newAssetForms[userId] ?? {
+                    open: false, listing_id: null, mgmt_fee_pct: 15, host_pct: 45,
+                    kaufvertrag_url: "", escapes_escape_id: "", saving: false,
+                  };
 
-                  // Per-investor local state key = user_id (string uuid)
-                  const ikey = investor.user_id;
-                  const iEdit: IEdit = investorEdits[ikey] ?? {};
-
-                  const selectedListingId = iEdit.listing_id !== undefined
-                    ? iEdit.listing_id
-                    : (ownedListing?.id ?? null);
-
-                  const selectedListing = investorListings.find((l) => l.id === selectedListingId) ?? ownedListing ?? null;
-
-                  const currentMgmt = iEdit.mgmt_fee_pct !== undefined
-                    ? iEdit.mgmt_fee_pct
-                    : (selectedListing?.mgmt_fee_pct ?? 15);
-
-                  const currentHost = iEdit.host_pct !== undefined
-                    ? iEdit.host_pct
-                    : (selectedListing?.host_pct ?? 45);
-
-                  const currentKauf = iEdit.kaufvertrag_url !== undefined
-                    ? iEdit.kaufvertrag_url
-                    : (selectedListing?.kaufvertrag_url ?? "");
-
-                  const isDirty = Object.keys(iEdit).length > 0;
-
-                  const setIEdit = (patch: IEdit) =>
-                    setInvestorEdits((prev) => ({ ...prev, [ikey]: { ...prev[ikey], ...patch } }));
-
-                  const saveAssignment = async () => {
-                    if (!selectedListingId) return;
-                    setAssignSaving(selectedListingId);
-
-                    // If investor previously owned a different listing, remove owner from old listing
-                    if (ownedListing && ownedListing.id !== selectedListingId) {
-                      await fetch("/api/admin/listings", {
-                        method: "PATCH",
-                        headers: { "Content-Type": "application/json", "x-admin-password": password },
-                        body: JSON.stringify({ id: ownedListing.id, owner_id: null }),
-                      });
-                      setInvestorListings((prev) => prev.map((l) => l.id === ownedListing.id ? { ...l, owner_id: null } : l));
-                    }
-
-                    // Set owner on the selected listing
-                    const res = await fetch("/api/admin/listings", {
-                      method: "PATCH",
+                  // Helper – save a new investor_asset
+                  const handleAddAsset = async () => {
+                    if (!newForm.listing_id) return;
+                    setNewAssetForms((prev) => ({
+                      ...prev,
+                      [userId]: { ...prev[userId] ?? newForm, saving: true },
+                    }));
+                    const res = await fetch("/api/admin/investor-assets", {
+                      method: "POST",
                       headers: { "Content-Type": "application/json", "x-admin-password": password },
                       body: JSON.stringify({
-                        id: selectedListingId,
-                        owner_id: investor.user_id,
-                        mgmt_fee_pct: currentMgmt,
-                        host_pct: currentHost,
-                        kaufvertrag_url: currentKauf || null,
-                        escapes_escape_id: (iEdit.escapes_escape_id !== undefined ? iEdit.escapes_escape_id : (selectedListing?.escapes_escape_id ?? null)) || null,
+                        user_id:           userId,
+                        listing_id:        newForm.listing_id,
+                        mgmt_fee_pct:      newForm.mgmt_fee_pct,
+                        host_pct:          newForm.host_pct,
+                        kaufvertrag_url:   newForm.kaufvertrag_url || null,
+                        escapes_escape_id: newForm.escapes_escape_id || null,
                       }),
                     });
+                    if (res.ok) {
+                      const created = await res.json();
+                      setAllInvestorAssets((prev) => [...prev, created]);
+                      setNewAssetForms((prev) => ({
+                        ...prev,
+                        [userId]: { open: false, listing_id: null, mgmt_fee_pct: 15, host_pct: 45, kaufvertrag_url: "", escapes_escape_id: "", saving: false },
+                      }));
+                    } else {
+                      setNewAssetForms((prev) => ({
+                        ...prev,
+                        [userId]: { ...prev[userId] ?? newForm, saving: false },
+                      }));
+                    }
+                  };
 
+                  // Helper – save edits to an existing investor_asset row
+                  const handleSaveAsset = async (assetId: string) => {
+                    const edit = assetRowEdits[assetId];
+                    if (!edit || Object.keys(edit).length === 0) return;
+                    setAssetRowSaving(assetId);
+                    const res = await fetch("/api/admin/investor-assets", {
+                      method: "PATCH",
+                      headers: { "Content-Type": "application/json", "x-admin-password": password },
+                      body: JSON.stringify({ id: assetId, ...edit }),
+                    });
                     if (res.ok) {
                       const updated = await res.json();
-                      setInvestorListings((prev) => prev.map((l) => l.id === selectedListingId ? { ...l, ...updated } : l));
-                      setInvestorEdits((prev) => { const n = { ...prev }; delete (n as Record<string, IEdit>)[ikey]; return n; });
-                      setAssignSuccess(selectedListingId);
-                      setTimeout(() => setAssignSuccess(null), 2500);
+                      setAllInvestorAssets((prev) => prev.map((a) => a.id === assetId ? { ...a, ...updated } : a));
+                      setAssetRowEdits((prev) => { const n = { ...prev }; delete n[assetId]; return n; });
+                      setAssetRowSuccess(assetId);
+                      setTimeout(() => setAssetRowSuccess(null), 2500);
                     }
-                    setAssignSaving(null);
+                    setAssetRowSaving(null);
+                  };
+
+                  // Helper – remove an investor_asset row
+                  const handleRemoveAsset = async (assetId: string) => {
+                    const res = await fetch(`/api/admin/investor-assets?id=${assetId}`, {
+                      method: "DELETE",
+                      headers: { "x-admin-password": password },
+                    });
+                    if (res.ok) {
+                      setAllInvestorAssets((prev) => prev.filter((a) => a.id !== assetId));
+                      setConfirmRemoveAsset(null);
+                    }
                   };
 
                   return (
-                    <div key={investor.id} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
-                      {/* Investor header */}
+                    <div key={investor.id} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-5">
+                      {/* ── Investor header ── */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-full bg-amber-600/30 flex items-center justify-center text-amber-300 font-black text-sm">
@@ -1017,95 +1104,188 @@ export default function AdminPage() {
                             <p className="text-gray-400 text-xs">{investor.email}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          {ownedListing && (
-                            <span className="text-[10px] bg-green-600/20 text-green-400 border border-green-500/30 px-2.5 py-1 rounded-full font-bold">
-                              ✓ {ownedListing.asset_id} · {ownedListing.title}
-                            </span>
+                        <span className="text-[10px] bg-white/5 text-gray-400 border border-white/10 px-2.5 py-1 rounded-full font-semibold">
+                          {myAssets.length} Asset{myAssets.length !== 1 ? "s" : ""}
+                        </span>
+                      </div>
+
+                      {/* ── Current assets list ── */}
+                      {myAssets.length > 0 && (
+                        <div className="space-y-3">
+                          <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Zugewiesene Assets</p>
+                          {myAssets.map((ia) => {
+                            const listing  = investorListings.find((l) => l.id === ia.listing_id);
+                            const rowEdit  = assetRowEdits[ia.id] ?? {};
+                            const isEdited = Object.keys(rowEdit).length > 0;
+                            return (
+                              <div key={ia.id} className="bg-black/20 border border-white/10 rounded-xl p-4 space-y-3">
+                                {/* Asset title row */}
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-2">
+                                    {listing?.img && (
+                                      <img src={listing.img} alt={listing.title} className="w-10 h-7 rounded object-cover flex-shrink-0" />
+                                    )}
+                                    <div>
+                                      <p className="text-white text-sm font-bold">{listing?.title ?? `Listing #${ia.listing_id}`}</p>
+                                      <p className="text-gray-400 text-xs">{listing?.location} · {listing?.asset_id}</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    {assetRowSuccess === ia.id && <span className="text-green-400 text-xs font-bold">✓ Gespeichert!</span>}
+                                    {confirmRemoveAsset === ia.id ? (
+                                      <>
+                                        <button onClick={() => handleRemoveAsset(ia.id)} className="text-xs bg-red-600 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded-lg transition-all">✓ Entfernen</button>
+                                        <button onClick={() => setConfirmRemoveAsset(null)} className="text-xs bg-gray-700 text-gray-300 px-3 py-1.5 rounded-lg">Abbrechen</button>
+                                      </>
+                                    ) : (
+                                      <button onClick={() => setConfirmRemoveAsset(ia.id)} className="text-xs border border-red-500/30 text-red-400 hover:bg-red-900/20 px-3 py-1.5 rounded-lg transition-all">🗑️</button>
+                                    )}
+                                  </div>
+                                </div>
+
+                                {/* Fees row */}
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                  {[
+                                    { label: "Management-Fee (%)", key: "mgmt_fee_pct" as const, defaultVal: ia.mgmt_fee_pct },
+                                    { label: "Host-Anteil (%)",     key: "host_pct" as const,      defaultVal: ia.host_pct },
+                                  ].map(({ label, key, defaultVal }) => (
+                                    <div key={key}>
+                                      <label className="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">{label}</label>
+                                      <input
+                                        type="number" min={0} max={100} step={0.5}
+                                        value={rowEdit[key] !== undefined ? rowEdit[key] : defaultVal}
+                                        onChange={(e) => setAssetRowEdits((prev) => ({ ...prev, [ia.id]: { ...prev[ia.id], [key]: Number(e.target.value) } }))}
+                                        className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                                      />
+                                    </div>
+                                  ))}
+                                  <div>
+                                    <label className="text-[10px] text-gray-500 uppercase tracking-wider block mb-1">Kaufvertrag URL</label>
+                                    <input
+                                      type="text"
+                                      placeholder="https://…/kaufvertrag.pdf"
+                                      value={rowEdit.kaufvertrag_url !== undefined ? rowEdit.kaufvertrag_url : (ia.kaufvertrag_url ?? "")}
+                                      onChange={(e) => setAssetRowEdits((prev) => ({ ...prev, [ia.id]: { ...prev[ia.id], kaufvertrag_url: e.target.value } }))}
+                                      className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-green-500 font-mono"
+                                    />
+                                  </div>
+                                </div>
+
+                                {/* TinyEscapes link */}
+                                {escapeOptions.length > 0 && (
+                                  <div>
+                                    <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
+                                    <select
+                                      value={rowEdit.escapes_escape_id !== undefined ? rowEdit.escapes_escape_id : (ia.escapes_escape_id ?? "")}
+                                      onChange={(e) => setAssetRowEdits((prev) => ({ ...prev, [ia.id]: { ...prev[ia.id], escapes_escape_id: e.target.value } }))}
+                                      className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    >
+                                      <option value="">— Kein TinyEscapes Objekt verknüpft —</option>
+                                      {escapeOptions.map((esc) => (
+                                        <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
+                                      ))}
+                                    </select>
+                                  </div>
+                                )}
+
+                                {/* Save button */}
+                                <button
+                                  onClick={() => handleSaveAsset(ia.id)}
+                                  disabled={!isEdited || assetRowSaving === ia.id}
+                                  className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${isEdited && assetRowSaving !== ia.id ? "bg-green-600 hover:bg-green-700 text-white" : "bg-gray-700 text-gray-500 cursor-not-allowed"}`}
+                                >
+                                  {assetRowSaving === ia.id ? "⏳ Speichert…" : "💾 Änderungen speichern"}
+                                </button>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+
+                      {/* ── Add asset form ── */}
+                      {newForm.open ? (
+                        <div className="bg-green-900/10 border border-green-500/20 rounded-xl p-4 space-y-3">
+                          <p className="text-[10px] text-green-300 uppercase tracking-wider font-semibold">+ Asset hinzufügen</p>
+                          <div>
+                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">Projekt auswählen</label>
+                            <select
+                              value={newForm.listing_id ?? ""}
+                              onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, listing_id: e.target.value ? Number(e.target.value) : null } }))}
+                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                            >
+                              <option value="">— Projekt wählen —</option>
+                              {investorListings
+                                .filter((l) => !myAssets.some((a) => a.listing_id === l.id))
+                                .map((l) => (
+                                  <option key={l.id} value={l.id}>{l.asset_id} · {l.title} · {l.location}</option>
+                                ))}
+                            </select>
+                          </div>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <div>
+                              <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">Management-Fee (%)</label>
+                              <input type="number" min={0} max={100} step={0.5} value={newForm.mgmt_fee_pct}
+                                onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, mgmt_fee_pct: Number(e.target.value) } }))}
+                                className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">Host-Anteil (%)</label>
+                              <input type="number" min={0} max={100} step={0.5} value={newForm.host_pct}
+                                onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, host_pct: Number(e.target.value) } }))}
+                                className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-green-500"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">Kaufvertrag URL</label>
+                              <input type="text" placeholder="https://…" value={newForm.kaufvertrag_url}
+                                onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, kaufvertrag_url: e.target.value } }))}
+                                className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-green-500 font-mono"
+                              />
+                            </div>
+                          </div>
+                          {escapeOptions.length > 0 && (
+                            <div>
+                              <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1 font-semibold">🔗 TinyEscapes Objekt</label>
+                              <select
+                                value={newForm.escapes_escape_id}
+                                onChange={(e) => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, escapes_escape_id: e.target.value } }))}
+                                className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                              >
+                                <option value="">— Kein TinyEscapes Objekt —</option>
+                                {escapeOptions.map((esc) => (
+                                  <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
+                                ))}
+                              </select>
+                            </div>
                           )}
-                          {assignSuccess === selectedListingId && <span className="text-green-400 text-xs font-bold">✓ Gespeichert!</span>}
+                          <div className="flex gap-2">
+                            <button
+                              onClick={handleAddAsset}
+                              disabled={!newForm.listing_id || newForm.saving}
+                              className={`px-5 py-2 rounded-xl text-sm font-bold transition-all ${newForm.listing_id && !newForm.saving ? "bg-green-600 hover:bg-green-700 text-white" : "bg-gray-700 text-gray-500 cursor-not-allowed"}`}
+                            >
+                              {newForm.saving ? "⏳ Speichert…" : "🏠 Asset zuweisen"}
+                            </button>
+                            <button
+                              onClick={() => setNewAssetForms((prev) => ({ ...prev, [userId]: { ...prev[userId] ?? newForm, open: false } }))}
+                              className="px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-gray-200 border border-white/10 hover:border-white/30 transition-all"
+                            >
+                              Abbrechen
+                            </button>
+                          </div>
                         </div>
-                      </div>
-
-                      {/* Asset dropdown */}
-                      <div>
-                        <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">🏡 Tiny House Asset zuweisen</label>
-                        <select
-                          value={selectedListingId ?? ""}
-                          onChange={(e) => setIEdit({ listing_id: e.target.value ? Number(e.target.value) : undefined })}
-                          className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      ) : (
+                        <button
+                          onClick={() => setNewAssetForms((prev) => ({
+                            ...prev,
+                            [userId]: { open: true, listing_id: null, mgmt_fee_pct: 15, host_pct: 45, kaufvertrag_url: "", escapes_escape_id: "", saving: false },
+                          }))}
+                          className="w-full py-2.5 rounded-xl text-sm font-bold border border-dashed border-white/20 text-gray-400 hover:border-green-500/50 hover:text-green-400 hover:bg-green-900/10 transition-all"
                         >
-                          <option value="">— Kein Asset ausgewählt —</option>
-                          {investorListings.map((l) => (
-                            <option key={l.id} value={l.id} disabled={!!l.owner_id && l.owner_id !== investor.user_id}>
-                              {l.asset_id} · {l.title} · {l.owner_id && l.owner_id !== investor.user_id ? "⚠️ vergeben" : l.owner_id === investor.user_id ? "✓ aktuell" : "verfügbar"}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      {/* TinyEscapes link */}
-                      {selectedListingId && escapeOptions.length > 0 && (
-                        <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-4">
-                          <label className="text-[10px] text-blue-300 uppercase tracking-wider block mb-1.5 font-semibold">🔗 TinyEscapes Objekt (live Buchungsdaten)</label>
-                          <select
-                            value={iEdit.escapes_escape_id !== undefined ? iEdit.escapes_escape_id : (selectedListing?.escapes_escape_id ?? "")}
-                            onChange={(e) => setIEdit({ escapes_escape_id: e.target.value || "" })}
-                            className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          >
-                            <option value="">— Kein TinyEscapes Objekt verknüpft —</option>
-                            {escapeOptions.map((esc) => (
-                              <option key={esc.id} value={esc.id}>{esc.name} · {esc.location}</option>
-                            ))}
-                          </select>
-                        </div>
+                          + Asset hinzufügen
+                        </button>
                       )}
-
-                      {/* Fee + Kaufvertrag – only show when an asset is selected */}
-                      {selectedListingId && (
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          <div>
-                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Management-Fee (%)</label>
-                            <input
-                              type="number" min={0} max={100} step={0.5}
-                              value={currentMgmt}
-                              onChange={(e) => setIEdit({ mgmt_fee_pct: Number(e.target.value) })}
-                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Host-Anteil (%)</label>
-                            <input
-                              type="number" min={0} max={100} step={0.5}
-                              value={currentHost}
-                              onChange={(e) => setIEdit({ host_pct: Number(e.target.value) })}
-                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1.5">Kaufvertrag URL (PDF)</label>
-                            <input
-                              type="text"
-                              value={currentKauf}
-                              onChange={(e) => setIEdit({ kaufvertrag_url: e.target.value })}
-                              placeholder="https://…/kaufvertrag.pdf"
-                              className="w-full bg-gray-800 border border-white/20 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500 font-mono"
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      <button
-                        onClick={saveAssignment}
-                        disabled={!selectedListingId || (!isDirty && !!ownedListing && ownedListing.id === selectedListingId) || assignSaving === selectedListingId}
-                        className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all ${
-                          selectedListingId && (isDirty || !ownedListing || ownedListing.id !== selectedListingId)
-                            ? "bg-green-600 hover:bg-green-700 text-white"
-                            : "bg-gray-700 text-gray-500 cursor-not-allowed"
-                        }`}
-                      >
-                        {assignSaving === selectedListingId ? "⏳ Speichert…" : "💾 Asset zuweisen & speichern"}
-                      </button>
                     </div>
                   );
                 })}
