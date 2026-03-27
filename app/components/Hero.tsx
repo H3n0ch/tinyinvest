@@ -85,11 +85,11 @@ export default function Hero({ heroImage }: { heroImage: string }) {
               <br />
               zur klassischen PV-Anlage.
               <br />
-              <span className="text-green-400">§7g-optimiert. Renditegesichert.</span>
+              <span className="text-green-400">IAB-optimiert. Volle Kontrolle. Echtes Eigentum.</span>
             </h1>
 
             <p className="text-white/75 text-base leading-relaxed mb-7 max-w-lg">
-              TinyInvest strukturiert den Kauf &amp; die §7g-Steueroptimierung.{" "}
+              TinyInvest strukturiert Kauf &amp; Steueroptimierung (IAB, Sonder-AfA, deg. AfA).{" "}
               <a
                 href="https://www.tiny.rentals"
                 target="_blank"
@@ -98,7 +98,9 @@ export default function Hero({ heroImage }: { heroImage: string }) {
               >
                 tiny Escapes
               </a>{" "}
-              bewirtschaftet das Asset professionell – Standort, Gäste, Abrechnung. Vollautomatisch.
+              bewirtschaftet dein Eigentum professionell – Standort, Gäste, Abrechnung.{" "}
+              <br className="hidden sm:block" />
+              Du besitzt die Immobilie. Wir übernehmen den Rest.
             </p>
 
             {/* Platform stats grid */}
