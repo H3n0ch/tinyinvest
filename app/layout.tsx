@@ -4,6 +4,7 @@ import "./globals.css";
 import CookieBanner from "./components/CookieBanner";
 import { ModalProvider } from "./components/ModalContext";
 import MemorandumModal from "./components/MemorandumModal";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-4K5B8T1ERL"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4K5B8T1ERL');
+        `}
+      </Script>
       <body className={`${geistSans.variable} antialiased`}>
         <ModalProvider>
           {children}

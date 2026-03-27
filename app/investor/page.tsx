@@ -483,9 +483,9 @@ export default function InvestorDashboard() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Logo */}
-            <img src="/logo1.png" alt="TinyInvest" className="h-7 w-auto" />
-            <div className="w-px h-5 bg-gray-200 hidden sm:block" />
-            <span className="text-xs text-gray-400 hidden sm:block">Investor-Portal</span>
+            <img src="/logo8.png" alt="TinyInvest" className="h-16 w-auto bg-blue-950" />
+            <div className="w-px  sm:block" />
+            <span className="text-s text-gray-400 hidden sm:block">Investor-Portal</span>
           </div>
 
           <div className="flex items-center gap-3">
