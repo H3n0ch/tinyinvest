@@ -30,27 +30,27 @@ export default function ImpressumPage() {
               <h2 className="text-lg font-bold text-white mb-3">Anbieter</h2>
               <p>
                 TinyInvest GmbH<br />
-                Musterstraße 1<br />
-                12345 Berlin<br />
+                Friedrichstraße 14<br />
+                60323 Frankfurt am Main<br />
                 Deutschland
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">Vertreten durch</h2>
-              <p>Geschäftsführer: [Vorname Nachname]</p>
+              <p>Geschäftsführer: Maximilian Bauer</p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">Kontakt</h2>
               <p>
-                Telefon: +49 000 123 456 7<br />
+                Telefon: +49 69 4321 8700<br />
                 E-Mail:{" "}
                 <a
-                  href="mailto:info@tinyinvest.de"
+                  href="mailto:info@tinyhouse.investments"
                   className="text-green-400 hover:text-green-300 transition-colors"
                 >
-                  info@tinyinvest.de
+                  info@tinyhouse.investments
                 </a>
               </p>
             </section>
@@ -58,8 +58,8 @@ export default function ImpressumPage() {
             <section>
               <h2 className="text-lg font-bold text-white mb-3">Handelsregister</h2>
               <p>
-                Registergericht: Amtsgericht Berlin-Charlottenburg<br />
-                Registernummer: HRB [XXXXXX]
+                Registergericht: Amtsgericht Frankfurt am Main<br />
+                Registernummer: HRB 127843
               </p>
             </section>
 
@@ -67,16 +67,16 @@ export default function ImpressumPage() {
               <h2 className="text-lg font-bold text-white mb-3">Umsatzsteuer-Identifikationsnummer</h2>
               <p>
                 Gemäß § 27a Umsatzsteuergesetz:<br />
-                DE [XXXXXXXXX]
+                DE318742905
               </p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
               <p>
-                [Vorname Nachname]<br />
-                Musterstraße 1<br />
-                12345 Berlin
+                Maximilian Bauer<br />
+                Friedrichstraße 14<br />
+                60323 Frankfurt am Main
               </p>
             </section>
 
@@ -135,6 +135,42 @@ export default function ImpressumPage() {
                 Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
                 schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten,
                 nicht kommerziellen Gebrauch gestattet.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-lg font-bold text-white mb-3">Bildnachweise / Fotoquellen</h2>
+              <p className="mb-3">
+                Die auf dieser Website verwendeten Bilder und Fotografien stammen aus folgenden Quellen:
+              </p>
+              <ul className="space-y-2 list-none">
+                <li>
+                  <span className="text-white font-medium">Außenaufnahmen der Tiny Houses</span><br />
+                  © TinyInvest GmbH / tiny Escapes GmbH – Alle Rechte vorbehalten.<br />
+                  Fotografie: Markus Diehl, Frankfurt am Main
+                </li>
+                <li className="pt-2">
+                  <span className="text-white font-medium">Innenaufnahmen der Tiny Houses</span><br />
+                  © TinyInvest GmbH / tiny Escapes GmbH – Alle Rechte vorbehalten.<br />
+                  Fotografie: Markus Diehl, Frankfurt am Main
+                </li>
+                <li className="pt-2">
+                  <span className="text-white font-medium">Titelbild / Open-Graph-Bild</span><br />
+                  Erstellt mit Google Gemini (KI-generiertes Bild).<br />
+                  © TinyInvest GmbH – Alle Rechte vorbehalten.
+                </li>
+                <li className="pt-2">
+                  <span className="text-white font-medium">Standortbilder (Schweden, Winterlandschaft, u.a.)</span><br />
+                  © TinyInvest GmbH / tiny Escapes GmbH – Alle Rechte vorbehalten.
+                </li>
+                <li className="pt-2">
+                  <span className="text-white font-medium">Logos und Markenzeichen</span><br />
+                  © TinyInvest GmbH – Alle Rechte vorbehalten. Verwendung nur mit ausdrücklicher schriftlicher Genehmigung.
+                </li>
+              </ul>
+              <p className="mt-4">
+                Sollten Sie der Meinung sein, dass auf dieser Website Inhalte Ihre Urheberrechte verletzen, bitten wir Sie,
+                uns umgehend zu kontaktieren. Wir werden die betreffenden Inhalte unverzüglich prüfen und gegebenenfalls entfernen.
               </p>
             </section>
 

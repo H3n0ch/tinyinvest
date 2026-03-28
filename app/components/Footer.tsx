@@ -76,11 +76,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <span>📞</span>
-                <a href="tel:+490001234567" className="hover:text-green-400 transition-colors">+49 000 123 456 7</a>
+                <a href="tel:+4969432187000" className="hover:text-green-400 transition-colors">+49 69 4321 8700</a>
               </li>
               <li className="flex items-start gap-2">
                 <span>📍</span>
-                <span>Musterstraße 1, 12345 Berlin</span>
+                <span>Friedrichstraße 14, 60323 Frankfurt am Main</span>
               </li>
             </ul>
           </div>
