@@ -44,8 +44,15 @@ export default function InvestorLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div
+      className="min-h-screen flex items-center justify-center px-4 relative"
+      style={{ backgroundImage: "url('/images/outside/ESCAPE3.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      {/* dark overlay */}
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+
+      {/* content */}
+      <div className="relative z-10 w-full max-w-md">
         {/* Card */}
         <div className="bg-gray-900 border border-white/10 rounded-3xl p-10 shadow-2xl">
           {/* Logo / icon */}
