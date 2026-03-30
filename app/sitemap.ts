@@ -64,5 +64,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
+    {
+      url: `${BASE_URL}/wissen`,
+      lastModified: "2026-03-30",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/wissen/kapitalanlage`,
+      lastModified: "2026-03-30",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/afa-abschreibung`,
+      lastModified: "2026-03-30",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }
