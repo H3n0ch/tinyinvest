@@ -58,7 +58,7 @@ export const models = [
     tag: "On-Grid · Einstieg",
     title: "TinyInvest Comfort",
     desc: "Vollwertiges Tiny House mit modernem Design und allen Annehmlichkeiten. Netzgebunden für maximalen Komfort auf Ferienparks und Campingplätzen.",
-    preis: "60.000 €",
+    preis: "65.000 €",
     renditeMin: "10",
     renditeMax: "12",
     highlights: ["Netzanschluss (Strom/Wasser)", "Vlemmix Trailer · VIN", "Kompakt & effizient"],

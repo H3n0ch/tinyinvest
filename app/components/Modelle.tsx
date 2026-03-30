@@ -40,13 +40,13 @@ export default async function Modelle() {
 
         <div className="text-center mb-12">
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">
-            Asset-Listings 2026
+            Aktuelle Verfügbarkeiten 2026
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
-            Projekte
+            Aktuelle Projekte
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-            Jedes Asset ist §7g-fähig, auf Vlemmix Trailer zertifiziert und wird durch{" "}
+            Konkrete Investment-Objekte – mit Status, verfügbaren Einheiten und IRR. Jedes Asset ist §7g-fähig und wird durch{" "}
             <a
               href="https://www.tiny.rentals"
               target="_blank"
@@ -55,7 +55,7 @@ export default async function Modelle() {
             >
               tiny Escapes
             </a>{" "}
-            bewirtschaftet. Direktkauf beim Hersteller — kein Kapital an TinyInvest.
+            bewirtschaftet.
           </p>
         </div>
 

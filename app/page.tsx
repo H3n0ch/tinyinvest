@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { supabase } from "./lib/supabase";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import HausTypen from "./components/HausTypen";
 import Modelle from "./components/Modelle";
 import Oekosystem from "./components/Oekosystem";
 import Prozess from "./components/Prozess";
@@ -40,6 +41,7 @@ export default async function Home() {
     <main className="font-sans antialiased text-gray-800 bg-white">
       <Navbar />
       <Hero heroImage={heroImage} />
+      <HausTypen />
       <Modelle />
       <Oekosystem />
       <Prozess />
