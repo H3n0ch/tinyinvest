@@ -77,7 +77,7 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
 
             {/* Hosts link */}
             <a
-              href="#rendite"
+              href="/hosts"
               className={`text-[13px] font-medium transition-colors duration-300 ${
                 isIce ? "text-amber-300/90 hover:text-amber-200" : "text-amber-600 hover:text-amber-700"
               }`}
@@ -164,7 +164,7 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
             </a>
           ))}
           <a
-            href="#rendite"
+            href="/hosts"
             onClick={() => setMenuOpen(false)}
             className={`text-sm font-medium py-2 transition-colors ${
               isIce ? "text-amber-300 hover:text-amber-200" : "text-amber-600 hover:text-amber-700"

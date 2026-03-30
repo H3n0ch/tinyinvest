@@ -99,6 +99,13 @@ export default function KapitalanlagePage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House als Kapitalanlage: Rendite, Risiken & Chancen 2026
           </h1>
+          {/* Trust sentence */}
+          <div className="bg-green-700 rounded-2xl px-6 py-4 mb-5">
+            <p className="text-white font-bold text-[14px] leading-relaxed">
+              🏠 Du kaufst ein physisches Asset – nicht einen Fondsanteil. TinyInvest-Investoren halten die Übereignungsurkunde für ein reales Tiny House auf ihren Namen.
+            </p>
+          </div>
+
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
             Warum immer mehr Investoren auf mobile Assets setzen – statt auf überteuerte Eigentumswohnungen.
             Dieser Guide zeigt dir, wie das Modell funktioniert, was es wirklich einbringt und wo die Risiken liegen.

@@ -7,6 +7,7 @@ import Oekosystem from "./components/Oekosystem";
 import Prozess from "./components/Prozess";
 import Ueber from "./components/Ueber";
 import GalerieTeaser from "./components/GalerieTeaser";
+import Testimonials from "./components/Testimonials";
 import Presse from "./components/Presse";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -44,6 +45,7 @@ export default async function Home() {
       <Prozess />
       <Ueber />
       <GalerieTeaser />
+      <Testimonials />
       <Presse />
       <FAQ />
       <Footer />

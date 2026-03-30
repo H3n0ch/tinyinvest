@@ -37,6 +37,42 @@ const articles = [
     tags: ["§7g EStG", "IAB", "Sonder-AfA", "Steuer"],
     img: "/images/outside/ESCAPE2.webp",
   },
+  {
+    href: "/wissen/direktinvestment",
+    badge: "Sachwert & Eigentum",
+    badgeColor: "bg-blue-100 text-blue-700",
+    title: "Tiny House als Direktinvestment",
+    desc: "Kein Fonds, kein Token: Du wirst echter Eigentümer. Vergleich Direktinvestment vs. Crowdinvesting, Kaufprozess und 3 Sachwert-USPs.",
+    tags: ["Eigentum", "Sachwert", "Drittverwendung", "Insolvenzschutz"],
+    img: "/images/outside/DSC08946.webp",
+  },
+  {
+    href: "/wissen/tiny-house-als-rendite",
+    badge: "Cashflow-Guide",
+    badgeColor: "bg-green-100 text-green-700",
+    title: "Tiny House als Renditeobjekt: Cashflow erklärt",
+    desc: "3-Wege-Aufteilung, Belegungsquoten, monatlicher Cashflow und vollständiges 5-Jahres-Modell.",
+    tags: ["Cashflow", "40 % Anteil", "Belegung", "IRR"],
+    img: "/images/outside/fog.jpg",
+  },
+  {
+    href: "/wissen/steuerberater-finden",
+    badge: "Praxis-Guide",
+    badgeColor: "bg-purple-100 text-purple-700",
+    title: "Den richtigen §7g-Steuerberater finden",
+    desc: "Checkliste, 7 kritische Erstgespräch-Fragen und was du mitbringen musst – damit kein Steuervorteil verloren geht.",
+    tags: ["Steuerberater", "§7g", "Checkliste", "Erstgespräch"],
+    img: "/images/outside/DSC08835.webp",
+  },
+  {
+    href: "/wissen/host-werden",
+    badge: "Für Hosts",
+    badgeColor: "bg-amber-100 text-amber-700",
+    title: "Host werden: Tiny House auf deinem Grundstück",
+    desc: "Kein Eigenkapital nötig: Standort-Voraussetzungen, Verdienst bis 45 % und der komplette Bewerbungsprozess.",
+    tags: ["Host", "Grundstück", "bis 45 %", "Bewerbung"],
+    img: "/images/outside/green.webp",
+  },
 ];
 
 const glossarItems = [
@@ -64,6 +100,11 @@ const glossarItems = [
   { term: "Win-Win-Win", def: "Das TinyInvest-Prinzip: Investor (40 % Einnahmen), Host (bis 45 %), Plattform (15 %) – alle drei Parteien haben einen klaren finanziellen Anreiz." },
   { term: "§7g EStG", def: "Paragraph im Einkommensteuergesetz, der den Investitionsabzugsbetrag (IAB) und die Sonder-AfA für bewegliche Wirtschaftsgüter regelt. Kernstück des TinyInvest-Steuermodells." },
   { term: "§34 BauGB", def: "Regelung im Baugesetzbuch über die Zulässigkeit von Bauvorhaben im unbeplanten Innenbereich. Relevant für Stellplatzgenehmigungen von Tiny Houses." },
+  { term: "Direktinvestment", def: "Investitionsform, bei der der Anleger das Wirtschaftsgut direkt ins Eigentum übernimmt – ohne Intermediär, ohne Fonds, ohne Darlehen. Bei TinyInvest erhältst du Kaufvertrag und Fahrzeugbrief auf deinen Namen." },
+  { term: "Drittverwendungsfähigkeit", def: "Eigenschaft eines mobilen Assets, an einem anderen Standort oder von einem anderen Betreiber eingesetzt werden zu können. Tiny Houses auf Vlemmix Trailern können legal abgekoppelt und neu positioniert werden." },
+  { term: "Sachwert", def: "Physisches Wirtschaftsgut mit inhärentem Substanzwert – unabhängig von Marktsentiment. Im Gegensatz zu Aktien, Fonds oder Token besitzt ein Sachwert einen Mindestrealisierungswert (Wiederverkauf, Selbstnutzung)." },
+  { term: "Substanzwert", def: "Der Wert eines Wirtschaftsguts, der auf seiner physischen Substanz basiert – unabhängig von Ertragserwartungen. Bei gebrauchten TinyInvest-Häusern: ca. 60–75 % des Neuwerts." },
+  { term: "Übereignung", def: "Rechtlicher Vorgang der Eigentumsübertragung eines beweglichen Wirtschaftsguts. Bei TinyInvest: Übergabe des Fahrzeugbriefs (Vlemmix Trailer) an den Investor als Nachweis des vollständigen Eigentumsübergangs." },
 ];
 
 export default function WissenPage() {

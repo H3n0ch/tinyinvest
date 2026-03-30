@@ -7,6 +7,7 @@ export const navLinks = [
   { label: "Steuer-Vorteile", href: "/steuervorteil" },
   { label: "Rendite-Modell", href: "/renditemodell" },
   { label: "So funktioniert's", href: "/so-funktioniert-es" },
+  { label: "Wissen", href: "/wissen" },
   { label: "Referenzen", href: "#referenzen" },
   { label: "FAQ", href: "#faq" },
 ];

@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-12">
           <div className="md:col-span-1">
             <Link href="/" className="inline-flex mb-4">
             <Image
@@ -46,6 +46,19 @@ export default function Footer() {
               <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">💰 §7g Steuervorteil</Link></li>
               <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">⚙️ So funktioniert es</Link></li>
               <li><Link href="/galerie" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📸 Galerie</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Wissen & Hosts</h4>
+            <ul className="space-y-2">
+              <li><Link href="/wissen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📚 Wissens-Hub & Glossar</Link></li>
+              <li><Link href="/wissen/kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📖 Kapitalanlage-Guide</Link></li>
+              <li><Link href="/wissen/afa-abschreibung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🧾 §7g AfA erklärt</Link></li>
+              <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Rendite & Cashflow</Link></li>
+              <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🔍 Steuerberater finden</Link></li>
+              <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">🏡 Für Hosts</Link></li>
+              <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📋 Host werden Guide</Link></li>
             </ul>
           </div>
 
