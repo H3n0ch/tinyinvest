@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tinyhouse.investments"),
   title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
   description:
-    "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
+    "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset. Rendite 10–15 % p.a. EU-weit.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
     description:
-      "§7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet vollautomatisch. Rendite 10–15 % p.a. EU-weit.",
+      "§7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset. Rendite 10–15 % p.a. EU-weit.",
     url: "https://tinyhouse.investments",
     siteName: "TinyInvest",
     images: [

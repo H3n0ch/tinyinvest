@@ -28,6 +28,9 @@ export const metadata = {
   title: "Tiny House Projekte kaufen – ab 45.000 € investieren | TinyInvest",
   description: "Entdecke verfügbare Tiny House Assets in Deutschland, Thailand und Europa. Ab 45.000 € investieren, 14 % IRR p.a., §7g-steueroptimiert, vollautomatisch bewirtschaftet von tiny Escapes.",
   keywords: "Tiny House investieren, Ferienimmobilie kaufen, passive Einnahmen, §7g Investment, Tiny House Rendite",
+  alternates: {
+    canonical: "https://tinyhouse.investments/projekte",
+  },
   openGraph: {
     title: "Tiny House Projekte – ab 45.000 € investieren | TinyInvest",
     description: "Verfügbare Tiny House Assets mit 14 % IRR p.a. Steueroptimiert nach §7g, vollautomatisch bewirtschaftet.",

@@ -6,6 +6,9 @@ export const metadata = {
   title: "Vertriebspartner werden – Provisionsprogramm | TinyInvest",
   description: "Werde TinyInvest Vertriebspartner. Empfehle Tiny House Investments und verdiene attraktive Provisionen. Für Finanzberater, Makler und Netzwerker.",
   keywords: "Vertriebspartner Investment, Provision Ferienimmobilien, Affiliate Tiny House, Partner werden TinyInvest",
+  alternates: {
+    canonical: "https://tinyhouse.investments/partner",
+  },
   openGraph: {
     title: "Vertriebspartner werden – Provision & Kooperation | TinyInvest",
     description: "Attraktives Provisionsprogramm für Finanzberater, Makler und Netzwerker.",

@@ -10,6 +10,9 @@ export const metadata = {
   title: "14 % IRR p.a. – Tiny House Renditemodell erklärt | TinyInvest",
   description: "Wie aus 45.000 € Investment ein §7g-optimiertes Tiny House Asset mit 14 % IRR p.a. wird. NPV, Cashflow und Steuereffekt verständlich erklärt.",
   keywords: "Tiny House Rendite, IRR Berechnung, passive Einnahmen Ferienhaus, §7g Rendite, Ferienhausrendite Deutschland",
+  alternates: {
+    canonical: "https://tinyhouse.investments/renditemodell",
+  },
   openGraph: {
     title: "14 % IRR p.a. – Tiny House Renditemodell | TinyInvest",
     description: "Renditemodell für §7g-optimierte Tiny House Investments. NPV, Cashflow, Steuereffekt.",

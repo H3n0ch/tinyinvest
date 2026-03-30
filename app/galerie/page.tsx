@@ -6,8 +6,11 @@ import ModalButton from "../components/ModalButton";
 
 export const metadata = {
   title: "Tiny House Galerie – Innen & Außen Fotos | TinyInvest",
-  description: "Hochwertige Fotos der TinyInvest Tiny Houses. Innenausstattung, Außenansichten und Standorte der Ferienimmobilien. Jetzt Galerie ansehen.",
+  description: "Hochwertige Fotos der TinyInvest Tiny Houses. Innenausstattung, Außenansichten und Standorte der Ferienimmobilien in Deutschland, Österreich und Europa. Jetzt Galerie ansehen.",
   keywords: "Tiny House Fotos, Ferienhaus Galerie, Tiny House Innenausstattung, Tiny Escape Bilder",
+  alternates: {
+    canonical: "https://tinyhouse.investments/galerie",
+  },
   openGraph: {
     title: "Tiny House Galerie – Fotos der TinyInvest Assets",
     description: "Innen & Außen: Hochwertige Fotogalerie unserer Tiny House Investments.",
@@ -45,9 +48,20 @@ export default function GaleriePage() {
           </div>
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Visuelle Einblicke</span>
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
-            Einblicke in unsere Häuser
+            Einblicke in unsere Tiny Houses
           </h1>
-          <p className="text-gray-500 text-sm max-w-lg">Modern. Hochwertig. Nachhaltig. — Jedes TinyInvest-Haus ist ein vollwertiges, bewegliches Wirtschaftsgut auf Vlemmix Trailer.</p>
+          <p className="text-gray-500 text-sm max-w-2xl mb-6">
+            Modern. Hochwertig. Nachhaltig. — Jedes TinyInvest-Haus ist ein vollwertiges, bewegliches Wirtschaftsgut auf Vlemmix Trailer.
+            Unsere Tiny Houses verbinden skandinavisches Design mit smarter Investitionsstruktur: voll möbliert, schlüsselfertig
+            übergeben und sofort durch tiny Escapes bewirtschaftet. Hier findest du aktuelle Innen- und Außenaufnahmen
+            von echten TinyInvest Assets an verschiedenen Standorten in Deutschland, Österreich und Schweden.
+          </p>
+          <div className="flex flex-wrap gap-4 text-[12px] text-gray-500">
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-600 inline-block"/>Vollmöbliert & schlüsselfertig</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-600 inline-block"/>Vlemmix Trailer · Zertifiziert & zugelassen</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-600 inline-block"/>§7g-fähiges bewegliches Wirtschaftsgut</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-600 inline-block"/>Standorte in Deutschland, Österreich & EU</span>
+          </div>
         </div>
       </section>
 

@@ -5,6 +5,9 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "AGB – TinyInvest",
   description: "Allgemeine Geschäftsbedingungen der TinyInvest GmbH.",
+  alternates: {
+    canonical: "https://tinyhouse.investments/agb",
+  },
 };
 
 export default function AGBPage() {
