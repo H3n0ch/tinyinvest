@@ -9,7 +9,7 @@ export default function FAQ() {
         <div className="text-center mb-16">
           <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">FAQ</span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-4 tracking-tight">Häufige Fragen</h2>
-          <p className="text-gray-500 text-sm">Alles, was du wissen musst – bevor du anfragst.</p>
+          <p className="text-gray-500 text-sm">Alles, was Sie wissen möchten – bevor Sie anfragen.</p>
         </div>
 
         <div className="space-y-3">
@@ -19,7 +19,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-10 bg-green-50 border border-green-200 rounded-2xl p-6 text-center">
-          <p className="text-green-800 font-medium mb-3">Noch eine Frage? Wir beraten dich kostenlos und unverbindlich.</p>
+          <p className="text-green-800 font-medium mb-3">Noch eine Frage? Wir beraten Sie kostenlos und unverbindlich.</p>
           <ModalButton className="inline-block bg-green-700 text-white font-bold px-6 py-3 rounded-full hover:bg-green-800 transition-colors">
             Jetzt Frage stellen →
           </ModalButton>

@@ -59,17 +59,17 @@ export default function InvestorLoginPage() {
           <div className="text-center mb-8">
             <img src="/logo1.png" alt="TinyInvest" className="h-45 w-auto mx-auto mb-6 brightness-0 invert" />
             <h1 className="text-2xl font-black text-white">Investor-Portal</h1>
-            <p className="text-gray-400 text-sm mt-2">Melde dich an um dein Dashboard zu sehen.</p>
+            <p className="text-gray-400 text-sm mt-2">Melden Sie sich an, um Ihr Dashboard zu sehen.</p>
           </div>
 
           {sent ? (
             /* Success state */
             <div className="text-center py-4">
               <div className="text-5xl mb-4">✉️</div>
-              <h2 className="text-white font-bold text-lg mb-2">Check deine E-Mails!</h2>
+              <h2 className="text-white font-bold text-lg mb-2">Bitte prüfen Sie Ihre E-Mails!</h2>
               <p className="text-gray-400 text-sm">
                 Wir haben einen Anmelde-Link an <strong className="text-white">{email}</strong> gesendet.
-                Klicke den Link um dein Dashboard zu öffnen.
+                Klicken Sie den Link, um Ihr Dashboard zu öffnen.
               </p>
               <button
                 onClick={() => { setSent(false); setEmail(""); }}
@@ -107,7 +107,7 @@ export default function InvestorLoginPage() {
                 <input
                   type="email"
                   required
-                  placeholder="deine@email.de"
+                  placeholder="ihre@email.de"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-800 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
@@ -123,7 +123,7 @@ export default function InvestorLoginPage() {
               </form>
 
               <p className="text-center text-gray-600 text-xs mt-6">
-                Du erhältst einen einmaligen Anmelde-Link per E-Mail.
+                Sie erhalten einen einmaligen Anmelde-Link per E-Mail.
               </p>
             </>
           )}

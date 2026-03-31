@@ -5,9 +5,12 @@ import { useModal } from "./ModalContext";
 export default function MemorandumModal() {
   const { isOpen, closeModal } = useModal();
 
+  // Step 1 = minimal (Name, Email, Telefon)
+  // Step 2 = optional details
+  const [step, setStep] = useState<1 | 2>(1);
+
   const [form, setForm] = useState({
     vorname: "",
-    nachname: "",
     email: "",
     telefon: "",
     interesse: "Investitionsunterlagen + §7g-Steueranalyse anfordern",
@@ -43,6 +46,7 @@ export default function MemorandumModal() {
     if (!isOpen) {
       setTimeout(() => {
         setSubmitted(false);
+        setStep(1);
         setError("");
       }, 300);
     }
@@ -52,10 +56,11 @@ export default function MemorandumModal() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Step 1: Quick capture – submit immediately with minimal data
+  const handleStep1 = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.vorname || !form.nachname || !form.email) {
-      setError("Bitte fülle alle Pflichtfelder aus.");
+    if (!form.vorname || !form.email) {
+      setError("Bitte Vorname und E-Mail ausfüllen.");
       return;
     }
     setLoading(true);
@@ -64,12 +69,32 @@ export default function MemorandumModal() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, nachname: "", schritt: "Schnell-Anfrage (Schritt 1)" }),
+      });
+      if (!res.ok) throw new Error();
+      setStep(2);
+    } catch {
+      setError("Fehler beim Senden. Bitte direkt per E-Mail kontaktieren.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Step 2: Optional details – submit full form
+  const handleStep2 = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, nachname: "", schritt: "Details (Schritt 2)" }),
       });
       if (!res.ok) throw new Error();
       setSubmitted(true);
     } catch {
-      setError("Fehler beim Senden. Bitte direkt per E-Mail kontaktieren.");
+      setError("Fehler beim Senden.");
     } finally {
       setLoading(false);
     }
@@ -87,7 +112,7 @@ export default function MemorandumModal() {
       {/* Modal panel */}
       <div
         ref={panelRef}
-        className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl
+        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white rounded-3xl shadow-2xl
                    animate-in zoom-in-95 duration-200"
       >
         {/* Close button */}
@@ -100,27 +125,21 @@ export default function MemorandumModal() {
         </button>
 
         <div className="p-8">
-          {/* Header */}
-          <div className="mb-6 pr-8">
-            <span className="inline-block font-data text-[11px] text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full uppercase tracking-widest mb-3">
-              investitionsunterlagen/request
-            </span>
-            <h2 className="text-xl font-black text-gray-900 tracking-tight mb-1">
-              Investitionsunterlagen anfordern
-            </h2>
-            <p className="text-[13px] text-gray-500 leading-relaxed">
-              §7g-Steueranalyse · tiny Escapes Betreiberkonzept · Asset-Kennzahlen · Persönliche Beratung
-            </p>
-          </div>
 
+          {/* ── SUCCESS STATE ──────────────────────────── */}
           {submitted ? (
-            <div className="text-center py-12">
+            <div className="text-center py-10">
               <div className="text-5xl mb-4">✅</div>
-              <h3 className="text-lg font-black text-gray-900 mb-2">Unterlagen angefordert</h3>
+              <h3 className="text-lg font-black text-gray-900 mb-2">Alles klar!</h3>
               <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed mb-6">
-                Ihre Anfrage ist eingegangen. Wir senden Ihnen das Investor-Paket innerhalb von
-                24&nbsp;Stunden persönlich zu.
+                Wir melden uns innerhalb von <strong>24 Stunden</strong> persönlich bei Ihnen –
+                mit dem Investor-Paket und Ihrer individuellen Steueranalyse.
               </p>
+              <div className="flex items-center justify-center gap-6 mb-6 text-[11px] text-gray-400">
+                <span className="flex items-center gap-1"><span>🔒</span> DSGVO-konform</span>
+                <span className="flex items-center gap-1"><span>⏱</span> Antwort in 24h</span>
+                <span className="flex items-center gap-1"><span>📋</span> Keine Anlageberatung</span>
+              </div>
               <button
                 onClick={closeModal}
                 className="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3 rounded-full text-sm transition-all"
@@ -128,278 +147,256 @@ export default function MemorandumModal() {
                 Schließen
               </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
 
-              {/* Name */}
-              <div className="grid grid-cols-2 gap-3">
+          /* ── STEP 1: MINIMAL FORM ────────────────────── */
+          ) : step === 1 ? (
+            <>
+              {/* Header */}
+              <div className="mb-6 pr-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block text-[11px] text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full uppercase tracking-widest font-semibold">
+                    Kostenlose Erstberatung
+                  </span>
+                  <span className="text-[10px] text-gray-400">Schritt 1 von 2</span>
+                </div>
+                <h2 className="text-xl font-black text-gray-900 tracking-tight mb-1">
+                  Jetzt Unterlagen anfordern
+                </h2>
+                <p className="text-[13px] text-gray-500 leading-relaxed">
+                  §7g-Steueranalyse · Betreiberkonzept · Asset-Kennzahlen · Persönliche Beratung
+                </p>
+              </div>
+
+              <form onSubmit={handleStep1} className="space-y-4">
+                {/* Name */}
                 <div>
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Vorname *
+                    Ihr Vorname *
                   </label>
                   <input
                     type="text" name="vorname" value={form.vorname} onChange={handleChange}
-                    placeholder="Max" required
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    placeholder="z.B. Michael" required autoFocus
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
                   />
                 </div>
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Nachname *
-                  </label>
-                  <input
-                    type="text" name="nachname" value={form.nachname} onChange={handleChange}
-                    placeholder="Mustermann" required
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
-                  />
-                </div>
-              </div>
 
-              {/* Email + Phone */}
-              <div className="grid grid-cols-2 gap-3">
+                {/* Email */}
                 <div>
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    E-Mail *
+                    E-Mail-Adresse *
                   </label>
                   <input
                     type="email" name="email" value={form.email} onChange={handleChange}
-                    placeholder="max@beispiel.de" required
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    placeholder="ihre@email.de" required
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
                   />
                 </div>
+
+                {/* Phone (optional) */}
                 <div>
                   <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                    Telefon <span className="text-gray-300 font-normal normal-case">(optional)</span>
+                    Telefon <span className="text-gray-300 font-normal normal-case">(optional – für Rückruf)</span>
                   </label>
                   <input
                     type="tel" name="telefon" value={form.telefon} onChange={handleChange}
                     placeholder="+49 ..."
-                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300"
                   />
                 </div>
-              </div>
 
-              {/* Anfrage-Typ */}
-              <div>
-                <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Anfrage-Typ
-                </label>
-                <select
-                  name="interesse" value={form.interesse} onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-4 rounded-xl text-sm transition-all shadow-md shadow-green-900/20"
                 >
-                  <option>Investitionsunterlagen + §7g-Steueranalyse anfordern</option>
-                  <option>Projektunterlagen zu einem spezifischen Asset</option>
-                  <option>Rendite-Beratung (passives Einkommen)</option>
-                  <option>Kauf auf Raten / Finanzierungsberatung</option>
-                  <option>Host-Bewerbung (Standort / Grundstück)</option>
-                  <option>Allgemeine Erstinformation</option>
-                </select>
-              </div>
+                  {loading ? "Wird gesendet…" : "Unterlagen jetzt anfordern →"}
+                </button>
 
-              {/* Host-Bewerbung: Grundstücks-Felder */}
-              {isHost && (
-                <div className="rounded-2xl border border-green-200 bg-green-50/60 p-4 space-y-3">
-                  <p className="text-[11px] font-bold text-green-700 uppercase tracking-widest flex items-center gap-1.5">
-                    <span>🏡</span> Angaben zum Grundstück / Standort
+                <p className="text-center text-[11px] text-gray-400 leading-relaxed">
+                  🔒 Unverbindlich · Keine Anlageberatung · DSGVO-konform · Antwort in 24h
+                </p>
+
+                {/* Social proof */}
+                <div className="flex items-center gap-3 bg-gray-50 rounded-2xl px-4 py-3">
+                  <div className="flex -space-x-2">
+                    {["MK","SR","TH"].map((i) => (
+                      <div key={i} className="w-7 h-7 rounded-full bg-green-700 border-2 border-white flex items-center justify-center text-white text-[9px] font-black">{i}</div>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-gray-500">
+                    <strong className="text-gray-700">200+ Investoren</strong> haben bereits angefragt
                   </p>
-
-                  {/* Region */}
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                      Region / Standort *
-                    </label>
-                    <input
-                      type="text"
-                      name="hostRegion"
-                      value={form.hostRegion}
-                      onChange={handleChange}
-                      placeholder="z.B. Bayern, Nähe München"
-                      required={isHost}
-                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300 bg-white"
-                    />
-                  </div>
-
-                  {/* Fläche + Eigentum */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                        Grundstücksgröße
-                      </label>
-                      <select
-                        name="hostFlaeche" value={form.hostFlaeche} onChange={handleChange}
-                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                      >
-                        <option>{"< 500 m²"}</option>
-                        <option>500–1.000 m²</option>
-                        <option>1.000–3.000 m²</option>
-                        <option>{"> 3.000 m²"}</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                        Eigentumsverhältnis
-                      </label>
-                      <select
-                        name="hostEigentum" value={form.hostEigentum} onChange={handleChange}
-                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                      >
-                        <option>Eigentümer</option>
-                        <option>Pächter / Mieter</option>
-                        <option>Noch in Planung</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Bebauung + Versorgung */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                        Bebauungsplan / Zonung
-                      </label>
-                      <select
-                        name="hostBebauung" value={form.hostBebauung} onChange={handleChange}
-                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                      >
-                        <option>Touristisch / Freizeitfläche</option>
-                        <option>Landwirtschaftlich</option>
-                        <option>Wohngebiet</option>
-                        <option>Keine Infos vorhanden</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                        Strom & Wasser vorhanden?
-                      </label>
-                      <select
-                        name="hostVersorgung" value={form.hostVersorgung} onChange={handleChange}
-                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                      >
-                        <option>Ja – Strom & Wasser</option>
-                        <option>Nur Strom</option>
-                        <option>Nur Wasser</option>
-                        <option>Noch keine Versorgung</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Anzahl */}
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                      Wie viele Tiny Houses vorstellbar?
-                    </label>
-                    <select
-                      name="hostAnzahl" value={form.hostAnzahl} onChange={handleChange}
-                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                    >
-                      <option>1</option>
-                      <option>2–3</option>
-                      <option>4–6</option>
-                      <option>Mehr als 6</option>
-                    </select>
-                  </div>
                 </div>
-              )}
+              </form>
+            </>
 
-              {/* Asset + Volumen (nur bei Nicht-Host) */}
-              {!isHost && (
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                      Asset-Interesse
-                    </label>
-                    <select
-                      name="budget" value={form.budget} onChange={handleChange}
-                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                    >
-                      <option>Asset #TE-2026-01 · Comfort (60.000 €)</option>
-                      <option>Asset #TE-2026-02 · Escape (79.000 €)</option>
-                      <option>Asset #TE-2026-03 · Elite (95.000 €)</option>
-                      <option>Individuell – bitte beraten</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                      Investitionsvolumen
-                    </label>
-                    <select
-                      name="investmentVolumen" value={form.investmentVolumen} onChange={handleChange}
-                      className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                    >
-                      <option>60.000 – 80.000 € (1 Asset)</option>
-                      <option>80.000 – 100.000 € (1 Premium)</option>
-                      <option>120.000 – 160.000 € (2 Assets)</option>
-                      <option>200.000 € + (Portfolio)</option>
-                      <option>Noch unklar</option>
-                    </select>
-                  </div>
+          /* ── STEP 2: OPTIONAL DETAILS ──────────────── */
+          ) : (
+            <>
+              {/* Header */}
+              <div className="mb-5 pr-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="inline-block text-[11px] text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full uppercase tracking-widest font-semibold">
+                    ✅ Anfrage eingegangen
+                  </span>
+                  <span className="text-[10px] text-gray-400">Schritt 2 von 2</span>
                 </div>
-              )}
-
-              {/* Kontaktzeit */}
-              <div>
-                <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Wann am besten erreichbar?
-                </label>
-                <select
-                  name="kontaktZeit" value={form.kontaktZeit} onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
-                >
-                  <option>Morgens (8–12 Uhr)</option>
-                  <option>Mittags (12–15 Uhr)</option>
-                  <option>Abends (17–20 Uhr)</option>
-                  <option>Jederzeit / flexibel</option>
-                </select>
+                <h2 className="text-xl font-black text-gray-900 tracking-tight mb-1">
+                  Fast fertig, {form.vorname}!
+                </h2>
+                <p className="text-[13px] text-gray-500 leading-relaxed">
+                  Optional: Helfen Sie uns, Ihre Anfrage besser vorzubereiten.
+                  Sie können diesen Schritt auch <button type="button" onClick={() => setSubmitted(true)} className="text-green-700 font-semibold hover:underline">überspringen</button>.
+                </p>
               </div>
 
-              {/* Message */}
-              <div>
-                <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                  Nachricht <span className="text-gray-300 font-normal normal-case">(optional)</span>
-                </label>
-                <textarea
-                  name="nachricht" value={form.nachricht} onChange={handleChange}
-                  rows={3}
-                  placeholder="z.B. Ich habe bereits einen IAB gebildet und möchte 2026 kaufen…"
-                  className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300"
-                />
-              </div>
-
-              {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-green-700 hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-xl text-sm transition-all shadow-md"
-              >
-                {loading
-                  ? "Wird übermittelt…"
-                  : isHost
-                  ? "🏡 Host-Bewerbung absenden →"
-                  : "🔐 Investitionsunterlagen anfordern →"}
-              </button>
-
-              {/* Trust footer */}
-              <div className="border-t border-gray-100 pt-4">
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { icon: "🔒", text: "DSGVO-konform" },
-                    { icon: "⏱", text: "Antwort in 24h" },
-                    { icon: "📋", text: "Keine Anlageberatung" },
-                  ].map((t) => (
-                    <div key={t.text} className="flex items-center gap-1.5 text-[10px] text-gray-400">
-                      <span>{t.icon}</span>
-                      <span>{t.text}</span>
-                    </div>
-                  ))}
+              <form onSubmit={handleStep2} className="space-y-4">
+                {/* Anfrage-Typ */}
+                <div>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Worum geht es?
+                  </label>
+                  <select
+                    name="interesse" value={form.interesse} onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
+                  >
+                    <option>Investitionsunterlagen + §7g-Steueranalyse anfordern</option>
+                    <option>Projektunterlagen zu einem spezifischen Asset</option>
+                    <option>Rendite-Beratung (passives Einkommen)</option>
+                    <option>Kauf auf Raten / Finanzierungsberatung</option>
+                    <option>Host-Bewerbung (Standort / Grundstück)</option>
+                    <option>Allgemeine Erstinformation</option>
+                  </select>
                 </div>
-                <p className="text-[10px] text-gray-400 mt-2.5 leading-relaxed">
+
+                {/* Host-Bewerbung: Grundstücks-Felder */}
+                {isHost && (
+                  <div className="rounded-2xl border border-green-200 bg-green-50/60 p-4 space-y-3">
+                    <p className="text-[11px] font-bold text-green-700 uppercase tracking-widest flex items-center gap-1.5">
+                      <span>🏡</span> Angaben zum Grundstück / Standort
+                    </p>
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Region / Standort *</label>
+                      <input
+                        type="text" name="hostRegion" value={form.hostRegion} onChange={handleChange}
+                        placeholder="z.B. Bayern, Nähe München" required={isHost}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all placeholder:text-gray-300 bg-white"
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Grundstücksgröße</label>
+                        <select name="hostFlaeche" value={form.hostFlaeche} onChange={handleChange}
+                          className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                          <option>{"< 500 m²"}</option>
+                          <option>500–1.000 m²</option>
+                          <option>1.000–3.000 m²</option>
+                          <option>{"> 3.000 m²"}</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Eigentum</label>
+                        <select name="hostEigentum" value={form.hostEigentum} onChange={handleChange}
+                          className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                          <option>Eigentümer</option>
+                          <option>Pächter / Mieter</option>
+                          <option>Noch in Planung</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Wie viele Tiny Houses?</label>
+                      <select name="hostAnzahl" value={form.hostAnzahl} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                        <option>1</option>
+                        <option>2–3</option>
+                        <option>4–6</option>
+                        <option>Mehr als 6</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {/* Asset + Volumen (nur bei Nicht-Host) */}
+                {!isHost && (
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Asset-Interesse</label>
+                      <select name="budget" value={form.budget} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                        <option>Asset #TE-2026-01 · Comfort (60.000 €)</option>
+                        <option>Asset #TE-2026-02 · Escape (79.000 €)</option>
+                        <option>Asset #TE-2026-03 · Elite (95.000 €)</option>
+                        <option>Individuell – bitte beraten</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Investitionsvolumen</label>
+                      <select name="investmentVolumen" value={form.investmentVolumen} onChange={handleChange}
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                        <option>60.000 – 80.000 € (1 Asset)</option>
+                        <option>80.000 – 100.000 € (1 Premium)</option>
+                        <option>120.000 – 160.000 € (2 Assets)</option>
+                        <option>200.000 € + (Portfolio)</option>
+                        <option>Noch unklar</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {/* Kontaktzeit */}
+                <div>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">Wann am besten erreichbar?</label>
+                  <select name="kontaktZeit" value={form.kontaktZeit} onChange={handleChange}
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 bg-white">
+                    <option>Morgens (8–12 Uhr)</option>
+                    <option>Mittags (12–15 Uhr)</option>
+                    <option>Abends (17–20 Uhr)</option>
+                    <option>Jederzeit / flexibel</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                    Nachricht <span className="text-gray-300 font-normal normal-case">(optional)</span>
+                  </label>
+                  <textarea
+                    name="nachricht" value={form.nachricht} onChange={handleChange}
+                    rows={2}
+                    placeholder="z.B. Ich habe bereits einen IAB gebildet…"
+                    className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none placeholder:text-gray-300"
+                  />
+                </div>
+
+                {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(true)}
+                    className="flex-1 border border-gray-200 text-gray-500 hover:bg-gray-50 font-semibold py-3 rounded-xl text-sm transition-all"
+                  >
+                    Überspringen
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="flex-[2] bg-green-700 hover:bg-green-800 disabled:opacity-60 text-white font-black py-3 rounded-xl text-sm transition-all shadow-md"
+                  >
+                    {loading ? "Wird gesendet…" : isHost ? "🏡 Host-Bewerbung senden →" : "✅ Abschließen →"}
+                  </button>
+                </div>
+
+                <p className="text-[10px] text-gray-400 leading-relaxed">
                   TinyInvest hält zu keinem Zeitpunkt Investorengelder. Der Investor kauft das Wirtschaftsgut
                   direkt beim Hersteller. Dies ist kein Finanzprodukt i.S.d. KAGB.
                 </p>
-              </div>
-            </form>
+              </form>
+            </>
           )}
         </div>
       </div>

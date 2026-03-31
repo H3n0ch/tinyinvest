@@ -81,15 +81,16 @@ export default function Hero({ heroImage }: { heroImage: string }) {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-5">
-              Die smarte Alternative
+              Steuern sparen &amp;
               <br />
-              zur klassischen PV-Anlage.
+              Rente aufbessern –
               <br />
-              <span className="text-green-400">IAB-optimiert. Volle Kontrolle. Echtes Eigentum.</span>
+              <span className="text-green-400">mit echtem Eigentum. Bewährt &amp; IAB-optimiert.</span>
             </h1>
 
             <p className="text-white/75 text-base leading-relaxed mb-7 max-w-lg">
-              TinyInvest strukturiert Kauf &amp; Steueroptimierung (IAB, Sonder-AfA, deg. AfA).{" "}
+              TinyInvest strukturiert Kauf &amp; Steueroptimierung (IAB, Sonder-AfA, deg. AfA) – ein
+              bewährter Sachwert, der sich selbst bewirtschaftet.{" "}
               <a
                 href="https://www.tiny.rentals"
                 target="_blank"
@@ -98,9 +99,9 @@ export default function Hero({ heroImage }: { heroImage: string }) {
               >
                 tiny Escapes
               </a>{" "}
-              bewirtschaftet dein Eigentum professionell – Standort, Gäste, Abrechnung.{" "}
+              übernimmt Standort, Gäste &amp; Abrechnung vollständig.{" "}
               <br className="hidden sm:block" />
-              Du besitzt die Immobilie. Wir übernehmen den Rest.
+              Sie besitzen das Haus. Wir kümmern uns um alles.
             </p>
 
             {/* Platform stats grid */}
@@ -121,25 +122,41 @@ export default function Hero({ heroImage }: { heroImage: string }) {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">
-              <a
-                href="#modelle"
-                className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-full text-sm transition-all shadow-lg"
-              >
-                Marktplatz ansehen →
-              </a>
               <button
                 type="button"
                 onClick={openModal}
-                className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all backdrop-blur-sm"
+                className="bg-green-500 hover:bg-green-400 text-white font-black px-7 py-3.5 rounded-full text-sm transition-all shadow-lg shadow-green-900/40"
               >
-                🔐 Investitionsunterlagen
+                Kostenlose Erstberatung anfragen →
               </button>
+              <a
+              href="#marktplatz"
+                className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-all backdrop-blur-sm"
+              >
+                Marktplatz ansehen
+              </a>
             </div>
 
-            {/* Trust line */}
-            <p className="mt-5 text-[11px] text-white/45 font-data">
-              IAB + Sonder-AfA + deg. AfA · 70 % im Kaufjahr absetzbar · EU-weit · 100 % Full-Service
+            {/* Trust micro-line */}
+            <p className="mt-3 text-[11px] text-white/45">
+              Unverbindlich · Keine Anlageberatung · DSGVO-konform
             </p>
+
+            {/* Mini-Testimonial */}
+            <div className="mt-6 flex items-start gap-3 bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl px-4 py-3 max-w-md">
+              <div className="w-9 h-9 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-sm flex-shrink-0">
+                MK
+              </div>
+              <div>
+                <div className="flex gap-0.5 mb-1">
+                  {[...Array(5)].map((_, i) => <span key={i} className="text-amber-400 text-xs">★</span>)}
+                </div>
+                <p className="text-white/80 text-[12px] leading-snug italic">
+              „Im ersten Jahr 22.000 € Steuern gespart – und monatlich passiven Cashflow." 
+                </p>
+                <p className="text-white/45 text-[10px] mt-1">Michael K. · Unternehmer, München</p>
+              </div>
+            </div>
           </div>
 
           {/* ── RIGHT: Calculator ──────────────────────── */}

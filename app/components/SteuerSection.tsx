@@ -35,8 +35,8 @@ export default function SteuerSection() {
 
         {/* Rechner */}
         <div className="text-center mb-10">
-          <h3 className="text-2xl font-black text-white mb-3">Berechne deinen persönlichen Steuer-Vorteil</h3>
-          <p className="text-white/60">Schiebe die Regler und sieh sofort, wie viel du vom Finanzamt zurückbekommst.</p>
+          <h3 className="text-2xl font-black text-white mb-3">Berechnen Sie Ihren persönlichen Steuer-Vorteil</h3>
+          <p className="text-white/60">Schieben Sie die Regler und sehen Sie sofort, wie viel Sie vom Finanzamt zurückbekommen.</p>
         </div>
         <SteuerRechner />
 
@@ -199,11 +199,11 @@ export default function SteuerSection() {
                   Eine durchschnittliche 70 m² Wohnung in Berlin kostet{" "}
                   <strong className="text-white">~440.000 €</strong> – davon gehen{" "}
                   <strong className="text-white">~44.000 € direkt an Notar, Makler und Finanzamt</strong>,
-                  noch bevor du auch nur einen Euro Kredit tilgst. Das ist mehr als der halbe Kaufpreis eines{" "}
+                  noch bevor Sie auch nur einen Euro Kredit tilgen. Das ist mehr als der halbe Kaufpreis eines{" "}
                   <strong className="text-white">vollwertigen TinyInvest Comfort (60.000 €)</strong>.
                 </p>
                 <p className="text-green-200 text-sm mt-3 font-semibold">
-                  → Mit TinyInvest kaufst du ein vollständiges Haus zum Preis der bloßen Kaufnebenkosten einer Berliner Wohnung.
+                  → Mit TinyInvest kaufen Sie ein vollständiges Haus zum Preis der bloßen Kaufnebenkosten einer Berliner Wohnung.
                 </p>
               </div>
             </div>

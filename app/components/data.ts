@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Projekte", href: "/projekte" },
+  { label: "Marktplatz", href: "/projekte" },
   { label: "Steuer-Vorteile", href: "/steuervorteil" },
   { label: "Rendite-Modell", href: "/renditemodell" },
   { label: "So funktioniert's", href: "/so-funktioniert-es" },
@@ -24,7 +24,7 @@ export const investorPaths = [
     icon: "📋",
     tag: "Steuer-Investor",
     title: "Steuern sparen & Vermögen aufbauen",
-    desc: "Du verdienst gut und zahlst hohe Steuern? Mit unserem beweglichen Wirtschaftsgut nutzt du IAB, Sonder-AfA und lineare Abschreibung – und holst dir bis zu 25.000 € direkt vom Finanzamt zurück.",
+    desc: "Sie verdienen gut und zahlen hohe Steuern? Mit unserem beweglichen Wirtschaftsgut nutzen Sie IAB, Sonder-AfA und lineare Abschreibung – und holen sich bis zu 25.000 € direkt vom Finanzamt zurück.",
     highlights: ["IAB: 50 % vorab absetzbar", "Sonder-AfA: 40 % + degr. AfA 30 % (ab 2025)", "70 % im Kaufjahr absetzbar"],
     cta: "Steuer-Hebel berechnen",
     href: "#steuer",
@@ -34,7 +34,7 @@ export const investorPaths = [
     icon: "📈",
     tag: "Rendite-Investor",
     title: "Passives Einkommen ohne Arbeit",
-    desc: "Du kaufst ein TinyInvest-Haus und lehnst dich zurück. Unser Host-Netzwerk vermietet es für dich, du erhältst 40 % der Einnahmen monatlich – ohne einen Finger zu rühren.",
+    desc: "Sie kaufen ein TinyInvest-Haus und lehnen sich zurück. Unser Host-Netzwerk vermietet es für Sie, Sie erhalten 40 % der Einnahmen monatlich – ohne einen Finger zu rühren.",
     highlights: ["40 % der Mieteinnahmen", "Full-Service Management", "Motivierter Host vor Ort"],
     cta: "Rendite berechnen",
     href: "#rendite",
@@ -44,7 +44,7 @@ export const investorPaths = [
     icon: "🏡",
     tag: "Finanzierungs-Käufer",
     title: "Das Haus finanziert sich selbst",
-    desc: "Du kaufst auf Raten oder Kredit – und die monatlichen Mieteinnahmen (deine 40 %) decken die Bankrate vollständig ab. Das Finanzamt übernimmt quasi die Anzahlung.",
+    desc: "Sie kaufen auf Raten oder Kredit – und die monatlichen Mieteinnahmen (Ihre 40 %) decken die Bankrate vollständig ab. Das Finanzamt übernimmt quasi die Anzahlung.",
     highlights: ["Kreditrate aus Mieteinnahmen", "IAB als Eigenkapital-Ersatz", "Haus refinanziert sich selbst"],
     cta: "Finanzierung anfragen",
     href: "#kontakt",
@@ -128,11 +128,11 @@ export const faqs = [
   },
   {
     q: "Kann das Tiny House auch im EU-Ausland stehen?",
-    a: "Ja, das funktioniert hervorragend! Da das Haus als bewegliches Wirtschaftsgut (vergleichbar mit Fracht/Ladung) gilt, laufen die deutschen Steuervorteile (IAB, Sonder-AfA) über dein deutsches Gewerbe weiter – unabhängig vom Standort in der EU. Doppelbesteuerungsabkommen (DBA) sorgen dafür, dass du nicht doppelt zahlst.",
+    a: "Ja, das funktioniert hervorragend! Da das Haus als bewegliches Wirtschaftsgut (vergleichbar mit Fracht/Ladung) gilt, laufen die deutschen Steuervorteile (IAB, Sonder-AfA) über Ihr deutsches Gewerbe weiter – unabhängig vom Standort in der EU. Doppelbesteuerungsabkommen (DBA) sorgen dafür, dass Sie nicht doppelt zahlen.",
   },
   {
     q: "Brauche ich für den Kauf eine GmbH oder UG?",
-    a: "Für den maximalen Steuer-Hebel empfehlen wir ein Einzelunternehmen (Nebengewerbe). Nur hier können die steuerlichen 'Verluste' durch Abschreibungen direkt mit deinem privaten Gehalt verrechnet werden. Bei einer UG bleibt der Verlust im Unternehmen und kann nicht direkt gegen dein privates Einkommen aufgerechnet werden.",
+    a: "Für den maximalen Steuer-Hebel empfehlen wir ein Einzelunternehmen (Nebengewerbe). Nur hier können die steuerlichen 'Verluste' durch Abschreibungen direkt mit Ihrem privaten Gehalt verrechnet werden. Bei einer UG bleibt der Verlust im Unternehmen und kann nicht direkt gegen Ihr privates Einkommen aufgerechnet werden.",
   },
   {
     q: "Wie schnell bekomme ich das Geld vom Finanzamt zurück?",
@@ -140,11 +140,11 @@ export const faqs = [
   },
   {
     q: "Was passiert, wenn der Standort nicht funktioniert?",
-    a: "Das ist der entscheidende Vorteil unseres Modells: Da das Haus rechtlich als mobile Ladung (Fracht) auf einem Trailer gilt, kann es jederzeit an einen anderen Standort transportiert werden. Dein Investment ist nicht ortsgebunden – das Risiko durch schlechte Lage ist faktisch Null.",
+    a: "Das ist der entscheidende Vorteil unseres Modells: Da das Haus rechtlich als mobile Ladung (Fracht) auf einem Trailer gilt, kann es jederzeit an einen anderen Standort transportiert werden. Ihr Investment ist nicht ortsgebunden – das Risiko durch schlechte Lage ist faktisch Null.",
   },
   {
     q: "Wie funktioniert die Finanzierung über den IAB?",
-    a: "In der Praxis nutzt der Investor die Steuererstattung aus dem IAB (ca. 16.000–17.000 € bei 42% Steuersatz) als Eigenkapital bei der Bank. Der Restkredit (ca. 55.000 €) wird dann durch die monatlichen Mieteinnahmen (deine 40%) gedeckt – in den meisten Fällen mit positivem Cashflow.",
+    a: "In der Praxis nutzt der Investor die Steuererstattung aus dem IAB (ca. 16.000–17.000 € bei 42% Steuersatz) als Eigenkapital bei der Bank. Der Restkredit (ca. 55.000 €) wird dann durch die monatlichen Mieteinnahmen (Ihre 40 %) gedeckt – in den meisten Fällen mit positivem Cashflow.",
   },
   {
     q: "Muss die Vermietung gewerblich sein?",
@@ -161,7 +161,7 @@ export const steuerCards = [
     icon: "⏰",
     label: "IAB · §7g Abs.1",
     title: "Bis zu 3 Jahre vor dem Kauf",
-    desc: "Bilde den Investitionsabzugsbetrag und ziehe 50 % des geplanten Kaufpreises sofort von deinem Gewinn ab – noch bevor du das Haus überhaupt bestellt hast.",
+    desc: "Bilden Sie den Investitionsabzugsbetrag und ziehen Sie 50 % des geplanten Kaufpreises sofort von Ihrem Gewinn ab – noch bevor Sie das Haus überhaupt bestellt haben.",
     tag: "50 % vorab",
     tagColor: "bg-green-100 text-green-700",
   },
@@ -169,7 +169,7 @@ export const steuerCards = [
     icon: "🚀",
     label: "Sonder-AfA · §7g Abs.5",
     title: "Turbo-Abschreibung im Kaufjahr",
-    desc: "Im Jahr der Anschaffung darfst du zusätzlich zur normalen AfA bis zu 40 % (Wachstumschancengesetz 2024) als Sonderabschreibung geltend machen.",
+    desc: "Im Jahr der Anschaffung dürfen Sie zusätzlich zur normalen AfA bis zu 40 % (Wachstumschancengesetz 2024) als Sonderabschreibung geltend machen.",
     tag: "40 % extra",
     tagColor: "bg-blue-100 text-blue-700",
   },
@@ -187,7 +187,7 @@ export const vergleichRows = [
   ["Durchschnittlicher Kaufpreis (70 m²)", "~308.000 € (DE-Schnitt)", "60.000 – 95.000 € 💚"],
   ["Kaufnebenkosten (Notar, Steuer, Makler)", "~30.000–48.000 € extra (10–12 %)", "Keine – Direktkauf ohne Notar"],
   ["Grunderwerbsteuer", "3,5–6,5 % des Kaufpreises", "❌ Keine (kein Grundstückskauf)"],
-  ["Eigenkapital-Bedarf Real", "~50.000–70.000 € nur für Nebenkosten", "IAB-Erstattung = dein Eigenkapital ✅"],
+  ["Eigenkapital-Bedarf Real", "~50.000–70.000 € nur für Nebenkosten", "IAB-Erstattung = Ihr Eigenkapital ✅"],
   ["Monatliche Kreditrate", "~1.800–2.200 €/Monat", "Durch Mieteinnahmen gedeckt 🟢"],
   ["Hausgeld + Instandhaltungsrücklage", "+100–300 €/Monat extra", "Im Management-Fee enthalten ✅"],
   ["Sanierungsrisiko", "Hoch (+20.000–40.000 € Sonderumlage)", "Keins – Neubau & mobil 🏗️"],
@@ -228,7 +228,7 @@ export const oekosystemItems = [
   {
     icon: "📣",
     title: "Maximale Reichweite",
-    desc: "Dein Haus wird gleichzeitig auf Airbnb UND auf unserer eigenen Buchungsplattform Tiny Escapes (tiny.rentals) gelistet – doppelte Sichtbarkeit, maximale Auslastung.",
+    desc: "Ihr Haus wird gleichzeitig auf Airbnb UND auf unserer eigenen Buchungsplattform Tiny Escapes (tiny.rentals) gelistet – doppelte Sichtbarkeit, maximale Auslastung.",
     highlight: "tiny Escapes",
     link: "https://www.tiny.rentals",
     linkLabel: "→ tiny Escapes besuchen",
@@ -236,31 +236,31 @@ export const oekosystemItems = [
   {
     icon: "🗺️",
     title: "Standort & Placement",
-    desc: "Wir suchen und organisieren den optimalen Standort für dein Tiny House – ob Ferienpark, Naturgrundstück oder Campingplatz. Du musst dich um nichts kümmern.",
+    desc: "Wir suchen und organisieren den optimalen Standort für Ihr Tiny House – ob Ferienpark, Naturgrundstück oder Campingplatz. Sie müssen sich um nichts kümmern.",
     highlight: "Komplettvermittlung",
   },
   {
     icon: "🛎️",
     title: "Full-Service wie ein Hotelkonzern",
-    desc: "Ein motivierter Host vor Ort übernimmt Reinigung, Check-in, Gäste-Kommunikation und Pflege. Du lehnst dich zurück – wir liefern den passiven Cashflow.",
+    desc: "Ein motivierter Host vor Ort übernimmt Reinigung, Check-in, Gäste-Kommunikation und Pflege. Sie lehnen sich zurück – wir liefern den passiven Cashflow.",
     highlight: "100 % passiv",
   },
   {
     icon: "§",
     title: "Steuerberater-Netzwerk",
-    desc: "Auf Wunsch vermitteln wir dich direkt an spezialisierte Steuerberater, die IAB & Sonder-AfA kennen – für eine reibungslose, maximale Steueroptimierung.",
+    desc: "Auf Wunsch vermitteln wir Sie direkt an spezialisierte Steuerberater, die IAB & Sonder-AfA kennen – für eine reibungslose, maximale Steueroptimierung.",
     highlight: "Auf Wunsch verfügbar",
   },
   {
     icon: "🏦",
     title: "Bankfinanzierung",
-    desc: "Wir arbeiten mit Finanzierungspartnern zusammen, die IAB-gestützte Kreditfinanzierungen kennen – damit du mit minimalem Eigenkapital einsteigen kannst.",
+    desc: "Wir arbeiten mit Finanzierungspartnern zusammen, die IAB-gestützte Kreditfinanzierungen kennen – damit Sie mit minimalem Eigenkapital einsteigen können.",
     highlight: "Finanzierungspartner",
   },
   {
     icon: "🛡️",
     title: "Versicherung inklusive",
-    desc: "Dein Tiny House wird als bewegliches Wirtschaftsgut vollständig versichert – Feuer, Sturm, Diebstahl. Auf Wunsch vermitteln wir direkt an unsere Versicherungspartner.",
+    desc: "Ihr Tiny House wird als bewegliches Wirtschaftsgut vollständig versichert – Feuer, Sturm, Diebstahl. Auf Wunsch vermitteln wir direkt an unsere Versicherungspartner.",
     highlight: "Vollversicherung",
   },
 ];
@@ -269,7 +269,7 @@ export const partnerBenefits = [
   {
     icon: "🌿",
     title: "Nachhaltige Produkte",
-    desc: "Du vermittelst Produkte mit echtem Mehrwert – mobile Tiny Houses als ökologisch sinnvolle Sachwerte, die sich praktisch von selbst verkaufen.",
+    desc: "Sie vermitteln Produkte mit echtem Mehrwert – mobile Tiny Houses als ökologisch sinnvolle Sachwerte, die sich praktisch von selbst verkaufen.",
   },
   {
     icon: "💰",
@@ -288,8 +288,8 @@ export const sicherheitItems = [
   { icon: "🚛", text: "Mobil – Standortwechsel innerhalb der EU jederzeit möglich" },
   { icon: "🛡️", text: "Vollversicherung als mobiles Wirtschaftsgut (Feuer, Sturm, Diebstahl)" },
   { icon: "⚖️", text: "Vertrag nach deutschem Recht – transparent und rechtssicher" },
-  { icon: "📊", text: "Monatliche Abrechnung über dein Investor-Dashboard" },
-  { icon: "🤝", text: "Motivierter Host vor Ort – sein Einkommen hängt von deiner Bewertung ab" },
+  { icon: "📊", text: "Monatliche Abrechnung über Ihr Investor-Dashboard" },
+  { icon: "🤝", text: "Motivierter Host vor Ort – sein Einkommen hängt von Ihrer Bewertung ab" },
 ];
 
 export const galleryImages = [

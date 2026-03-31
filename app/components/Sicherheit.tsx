@@ -23,11 +23,11 @@ export default function Sicherheit() {
           <div>
             <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">Sicherheit & Vertrauen</span>
             <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-6">
-              Dein Investment ist<br />
+              Ihr Investment ist<br />
               <span className="text-green-700">real & flexibel abgesichert</span>
             </h2>
             <p className="text-gray-500 leading-relaxed mb-8 text-lg">
-              Im Gegensatz zu einer klassischen Immobilie im Ausland bist du nicht an einen Standort gebunden. Dein TinyInvest-Haus kann jederzeit transportiert werden – dein Kapital bleibt immer mobil.
+              Im Gegensatz zu einer klassischen Immobilie im Ausland sind Sie nicht an einen Standort gebunden. Ihr TinyInvest-Haus kann jederzeit transportiert werden – Ihr Kapital bleibt immer mobil.
             </p>
 
             <div className="space-y-4">

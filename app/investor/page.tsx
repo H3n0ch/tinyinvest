@@ -147,7 +147,7 @@ function BookingsTable({ bookings }: { bookings: BookingEntry[] }) {
             </div>
             <div className="text-right flex-shrink-0">
               <p className="text-green-700 font-black text-sm">+{fmtDec(b.your_cut)}</p>
-              <p className="text-[10px] text-gray-400">Dein Anteil</p>
+              <p className="text-[10px] text-gray-400">Ihr Anteil</p>
             </div>
           </div>
         ))}
@@ -188,19 +188,19 @@ function AssetView({ asset }: { asset: Asset }) {
           <div className="flex flex-wrap gap-4 text-sm mb-5 pb-5 border-b border-gray-100">
             <div><span className="text-gray-400">Kaufpreis </span><strong className="text-gray-900">{asset.preis}</strong></div>
             <div><span className="text-gray-400">IRR p.a. </span><strong className="text-green-700">{asset.irr}</strong></div>
-            <div><span className="text-gray-400">Dein Anteil </span><strong className="text-amber-600">{asset.investor_pct.toFixed(0)} %</strong></div>
+            <div><span className="text-gray-400">Ihr Anteil </span><strong className="text-amber-600">{asset.investor_pct.toFixed(0)} %</strong></div>
           </div>
 
           {/* Revenue split bar */}
           <div>
             <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mb-2">Umsatzverteilung</p>
             <div className="h-2 rounded-full flex overflow-hidden gap-0.5">
-              <div className="bg-green-500 rounded-l-full" style={{ width: `${asset.investor_pct}%` }} title={`Dein Anteil: ${asset.investor_pct.toFixed(0)} %`} />
+              <div className="bg-green-500 rounded-l-full" style={{ width: `${asset.investor_pct}%` }} title={`Ihr Anteil: ${asset.investor_pct.toFixed(0)} %`} />
               <div className="bg-amber-400" style={{ width: `${asset.host_pct}%` }} title={`Host: ${asset.host_pct} %`} />
               <div className="bg-gray-200 rounded-r-full flex-1" title={`Management: ${asset.mgmt_fee_pct} %`} />
             </div>
             <div className="flex gap-4 mt-2 text-[10px]">
-              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Dein Anteil {asset.investor_pct.toFixed(0)} %</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> Ihr Anteil {asset.investor_pct.toFixed(0)} %</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400 inline-block" /> Host {asset.host_pct} %</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-gray-200 inline-block" /> Management {asset.mgmt_fee_pct} %</span>
             </div>
@@ -211,14 +211,14 @@ function AssetView({ asset }: { asset: Asset }) {
       {/* KPI cards */}
       {s ? (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <StatCard label="Gesamt verdient" value={fmt(s.investor_revenue)} sub="dein Anteil" highlight />
-          <StatCard label="Dieser Monat" value={fmt(s.current_month_revenue)} sub="dein Anteil" />
+          <StatCard label="Gesamt verdient" value={fmt(s.investor_revenue)} sub="Ihr Anteil" highlight />
+          <StatCard label="Dieser Monat" value={fmt(s.current_month_revenue)} sub="Ihr Anteil" />
           <StatCard label="Gebuchte Nächte" value={String(s.total_nights)} />
           <StatCard label="Buchungen" value={String(s.total_bookings)} />
         </div>
       ) : (
         <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 text-sm text-amber-800">
-          💡 <strong>Performance-Daten</strong> erscheinen sobald dein Asset mit TinyEscapes verknüpft ist und erste Buchungen vorliegen.
+          💡 <strong>Performance-Daten</strong> erscheinen sobald Ihr Asset mit TinyEscapes verknüpft ist und erste Buchungen vorliegen.
         </div>
       )}
 
@@ -228,7 +228,7 @@ function AssetView({ asset }: { asset: Asset }) {
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-sm font-bold text-gray-800">Performance der letzten 6 Monate</p>
-              <p className="text-xs text-gray-400 mt-0.5">Dein monatlicher Anteil am Buchungsumsatz</p>
+              <p className="text-xs text-gray-400 mt-0.5">Ihr monatlicher Anteil am Buchungsumsatz</p>
             </div>
             <span className="text-xs bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded-full font-semibold">
               Investor-Anteil
@@ -429,7 +429,7 @@ export default function InvestorDashboard() {
             <div className="w-2 h-2 rounded-full bg-green-600 animate-bounce" style={{ animationDelay: "150ms" }} />
             <div className="w-2 h-2 rounded-full bg-green-600 animate-bounce" style={{ animationDelay: "300ms" }} />
           </div>
-          <p className="text-gray-600 font-semibold">Lade dein Dashboard…</p>
+          <p className="text-gray-600 font-semibold">Lade Ihr Dashboard…</p>
         </div>
       </div>
     );
@@ -457,7 +457,7 @@ export default function InvestorDashboard() {
           <div className="text-5xl mb-4">⏳</div>
           <h2 className="text-gray-900 font-bold text-xl mb-2">Noch nicht freigeschaltet</h2>
           <p className="text-gray-500 text-sm">
-            Die E-Mail <strong className="text-gray-700">{userEmail}</strong> ist noch nicht mit einem Investment verknüpft. Das Team richtet deinen Zugang bald ein.
+            Die E-Mail <strong className="text-gray-700">{userEmail}</strong> ist noch nicht mit einem Investment verknüpft. Das Team richtet Ihren Zugang bald ein.
           </p>
           <p className="text-gray-400 text-xs mt-4">
             Fragen? <a href="mailto:info@tinyhouse.investments" className="text-green-600 hover:underline">info@tinyhouse.investments</a>

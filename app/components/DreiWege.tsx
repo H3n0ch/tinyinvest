@@ -5,12 +5,12 @@ export default function DreiWege() {
     <section id="drei-wege" className="py-24 bg-[#f8f4ee]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">Dein Weg</span>
+          <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">Ihr Weg</span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mt-3 mb-5">
-            Drei Wege zu deinem TinyInvest
+            Drei Wege zu Ihrem TinyInvest
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Ob Steuern sparen, passiv Geld verdienen oder Wunschhaus finanzieren – TinyInvest hat das passende Modell für dich.
+            Ob Steuern sparen, passiv Geld verdienen oder Wunschhaus finanzieren – TinyInvest hat das passende Modell für Sie.
           </p>
         </div>
 

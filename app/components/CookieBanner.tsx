@@ -39,7 +39,7 @@ export default function CookieBanner() {
               Diese Website verwendet ausschließlich{" "}
               <strong className="text-gray-300">technisch notwendige Cookies</strong>, um den sicheren Betrieb zu gewährleisten.
               Für die interaktiven Rechner werden keine personenbezogenen Daten gespeichert.
-              Weitere Informationen findest du in unserer{" "}
+              Weitere Informationen finden Sie in unserer{" "}
               <Link
                 href="/datenschutz"
                 className="text-green-400 hover:text-green-300 underline transition-colors"

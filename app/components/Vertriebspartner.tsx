@@ -2,9 +2,9 @@ import { partnerBenefits } from "./data";
 
 export default function Vertriebspartner() {
   const checklist = [
-    "Du begeisterst Menschen für echte, zukunftssichere Investments",
-    "Wir unterstützen dich bei Beratung & Produktvorstellung",
-    "Du erhältst eine attraktive Provision ohne Deckel",
+    "Sie begeistern Menschen für echte, zukunftssichere Investments",
+    "Wir unterstützen Sie bei Beratung & Produktvorstellung",
+    "Sie erhalten eine attraktive Provision ohne Deckel",
     "Keine Lizenz und keine Vorleistung nötig",
     "Kostenloses Schulungskonzept inklusive",
   ];
@@ -22,7 +22,7 @@ export default function Vertriebspartner() {
             <span className="text-green-700">ganz ohne Vorwissen</span>
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Werde Experte für nachhaltige Sachwerte und baue dir ein passives Einkommen auf –
+            Werden Sie Experte für nachhaltige Sachwerte und bauen Sie sich ein passives Einkommen auf –
             mit einem Produkt, das sich dank IAB &amp; Sonder-AfA quasi selbst erklärt.
           </p>
         </div>
@@ -31,7 +31,7 @@ export default function Vertriebspartner() {
           {/* Left: Checklist + CTA */}
           <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
             <h3 className="text-xl font-black text-gray-900 mb-6">
-              🤝 Das bekommst du als Vertriebspartner
+              🤝 Das erhalten Sie als Vertriebspartner
             </h3>
             <ul className="space-y-4 mb-8">
               {checklist.map((item) => (
@@ -56,7 +56,7 @@ export default function Vertriebspartner() {
               <p className="text-green-800 text-sm font-medium">
                 💡 <strong>Für wen ist das ideal?</strong> Finanzberater, Steuerberater, Immobilienmakler,
                 Netzwerker oder einfach jemand mit einem starken Bekanntenkreis aus Unternehmern und
-                Gutverdiener – du brauchst kein Vorwissen, nur Kommunikationsfreude.
+                Gutverdiener – Sie brauchen kein Vorwissen, nur Kommunikationsfreude.
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export default function Vertriebspartner() {
               <p className="text-2xl font-black mb-2">Echtes Win-Win-Win</p>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Der Investor spart Steuern &amp; baut Vermögen auf. Der Endkunde bekommt ein
-                hochwertiges Tiny House. Du verdienst eine faire Provision.
+                hochwertiges Tiny House. Sie verdienen eine faire Provision.
                 <strong className="text-white"> Alle gewinnen.</strong>
               </p>
             </div>

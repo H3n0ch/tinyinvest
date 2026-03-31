@@ -2,7 +2,7 @@ export default function PainPoints() {
   const pains = [
     {
       icon: "💸",
-      text: "Du hast ein gutes Einkommen – aber fast die Hälfte davon fließt direkt ans Finanzamt.",
+      text: "Sie haben ein gutes Einkommen – aber fast die Hälfte davon fließt direkt ans Finanzamt.",
     },
     {
       icon: "😰",
@@ -10,7 +10,7 @@ export default function PainPoints() {
     },
     {
       icon: "🔁",
-      text: "Dir fehlt eine klare, umsetzbare Strategie zum echten Vermögensaufbau.",
+      text: "Ihnen fehlt eine klare, umsetzbare Strategie zum echten Vermögensaufbau.",
     },
     {
       icon: "⏳",
@@ -22,12 +22,12 @@ export default function PainPoints() {
     <section className="py-16 bg-white border-b border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <span className="text-red-500 font-semibold text-sm uppercase tracking-widest">Kommt dir das bekannt vor?</span>
+          <span className="text-red-500 font-semibold text-sm uppercase tracking-widest">Kennen Sie das?</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mt-3 mb-4">
             100 % unserer Kunden berichten uns <span className="text-red-500">vorher</span> davon…
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
-            Du bist damit nicht allein. Und es gibt eine legale, staatlich geförderte Lösung.
+            Sie sind damit nicht allein. Und es gibt eine legale, staatlich geförderte Lösung.
           </p>
         </div>
 
@@ -48,8 +48,8 @@ export default function PainPoints() {
             Die gute Nachricht: 💡 Das Finanzamt <span className="text-green-300">fördert</span> die Lösung aktiv!
           </p>
           <p className="text-green-100 text-base max-w-2xl mx-auto mb-6">
-            Mit einem Tiny House als beweglichem Wirtschaftsgut kannst du IAB, Sonder-AfA und lineare Abschreibung kombinieren –
-            und dir bis zu <strong className="text-white">25.000 € direkt vom Finanzamt zurückholen</strong>, noch im selben Jahr.
+            Mit einem Tiny House als beweglichem Wirtschaftsgut können Sie IAB, Sonder-AfA und lineare Abschreibung kombinieren –
+            und sich bis zu <strong className="text-white">25.000 € direkt vom Finanzamt zurückholen</strong>, noch im selben Jahr.
           </p>
           <a
             href="#steuer"

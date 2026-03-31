@@ -35,18 +35,18 @@ export default async function Modelle() {
   }
 
   return (
-    <section id="modelle" className="py-20 bg-platform border-b border-gray-100">
+    <section id="marktplatz" className="py-20 bg-platform border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-12">
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">
-            Aktuelle Verfügbarkeiten 2026
+            Projekte 2026 – Jetzt investieren
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
-            Aktuelle Projekte
+            Marktplatz
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-            Konkrete Investment-Objekte – mit Status, verfügbaren Einheiten und IRR. Jedes Asset ist §7g-fähig und wird durch{" "}
+            Projekte, in die du investieren kannst – mit Status, verfügbaren Einheiten und IRR. Jedes Asset ist §7g-fähig und wird durch{" "}
             <a
               href="https://www.tiny.rentals"
               target="_blank"

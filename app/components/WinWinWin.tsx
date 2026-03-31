@@ -89,8 +89,8 @@ export default function WinWinWin() {
         <div className="mt-16 rounded-3xl overflow-hidden bg-gradient-to-br from-gray-950 via-green-950 to-gray-900">
           <div className="py-16 px-4">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-black text-white mb-3">Dein persönlicher Rendite-Rechner</h3>
-              <p className="text-white/60">Berechne deinen monatlichen Cashflow und deine effektive Rendite.</p>
+              <h3 className="text-2xl font-black text-white mb-3">Ihr persönlicher Rendite-Rechner</h3>
+              <p className="text-white/60">Berechnen Sie Ihren monatlichen Cashflow und Ihre effektive Rendite.</p>
             </div>
             <RenditeRechner />
           </div>

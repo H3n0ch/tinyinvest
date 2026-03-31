@@ -35,7 +35,7 @@ export default function RenditeRechner() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
         <div>
           <label className="block text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            Kaufpreis deines Hauses
+            Kaufpreis Ihres Hauses
           </label>
           <div className="text-3xl font-black text-green-700 mb-3">{fmt(kaufpreis)} €</div>
           <input
@@ -80,7 +80,7 @@ export default function RenditeRechner() {
 
         <div>
           <label className="block text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            Dein Grenzsteuersatz
+            Ihr Grenzsteuersatz
           </label>
           <div className="text-3xl font-black text-green-700 mb-3">{steuersatz} %</div>
           <input
@@ -98,7 +98,7 @@ export default function RenditeRechner() {
       <div className="grid grid-cols-1 gap-3 mb-5">
         <div className="flex justify-between items-center bg-gray-50 rounded-2xl px-5 py-4">
           <div>
-            <p className="text-xs text-gray-400 font-semibold uppercase">Monatlich (deine 40 %)</p>
+            <p className="text-xs text-gray-400 font-semibold uppercase">Monatlich (Ihre 40 %)</p>
             <p className="text-xs text-gray-400 mt-0.5">{naechteJahr} Nächte × {preisNacht} € × 40 %</p>
           </div>
           <p className="text-2xl font-black text-green-700">{fmt(investorMonatlich)} €</p>
