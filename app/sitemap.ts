@@ -11,8 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/projekte`,
-      lastModified: "2026-03-28",
+      url: `${BASE_URL}/marktplatz`,
+      lastModified: "2026-03-31",
       changeFrequency: "weekly",
       priority: 0.9,
     },

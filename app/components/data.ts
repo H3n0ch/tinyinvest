@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Marktplatz", href: "/projekte" },
+  { label: "Marktplatz", href: "/marktplatz" },
   { label: "Steuer-Vorteile", href: "/steuervorteil" },
   { label: "Rendite-Modell", href: "/renditemodell" },
   { label: "So funktioniert's", href: "/so-funktioniert-es" },

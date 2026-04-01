@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Investment</h4>
             <ul className="space-y-2">
-              <li><Link href="/projekte" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏠 Projekte & Marktplatz</Link></li>
+              <li><Link href="/marktplatz" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏠 Marktplatz</Link></li>
               <li><Link href="/renditemodell" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Renditemodell</Link></li>
               <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">💰 §7g Steuervorteil</Link></li>
               <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">⚙️ So funktioniert es</Link></li>
@@ -109,7 +109,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-gray-600 text-xs text-center sm:text-left">
-            ⚠️ Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtige unsere Risikohinweise.
+            ⚠️ Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtigen Sie unsere Risikohinweise.
           </p>
         </div>
       </div>

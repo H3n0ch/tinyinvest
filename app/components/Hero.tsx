@@ -81,27 +81,21 @@ export default function Hero({ heroImage }: { heroImage: string }) {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-5">
-              Steuern sparen &amp;
+              Die schlaue Alternative zur klassischen PV-Anlage.
               <br />
-              Rente aufbessern –
-              <br />
-              <span className="text-green-400">mit echtem Eigentum. Bewährt &amp; IAB-optimiert.</span>
+              <span className="text-green-400">Ihr Marktplatz für Tiny häuser.</span>
             </h1>
 
             <p className="text-white/75 text-base leading-relaxed mb-7 max-w-lg">
-              TinyInvest strukturiert Kauf &amp; Steueroptimierung (IAB, Sonder-AfA, deg. AfA) – ein
-              bewährter Sachwert, der sich selbst bewirtschaftet.{" "}
+              TinyInvest begleitet unternehmerische Investoren bei der Auswahl, Strukturierung und Umsetzung von Investitionen in hochwertige Tiny-House-Projekte. Wir konzentrieren uns auf das Wesentliche: Maximale Flächeneffizienz, langfristige Werthaltigkeit und rechtliche Sicherheit.{" "}
               <a
                 href="https://www.tiny.rentals"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-400 font-semibold hover:text-green-300 transition-colors"
               >
-                tiny Escapes
-              </a>{" "}
-              übernimmt Standort, Gäste &amp; Abrechnung vollständig.{" "}
-              <br className="hidden sm:block" />
-              Sie besitzen das Haus. Wir kümmern uns um alles.
+                TinyInvest-Ökosystem
+              </a>.
             </p>
 
             {/* Platform stats grid */}
@@ -127,13 +121,15 @@ export default function Hero({ heroImage }: { heroImage: string }) {
                 onClick={openModal}
                 className="bg-green-500 hover:bg-green-400 text-white font-black px-7 py-3.5 rounded-full text-sm transition-all shadow-lg shadow-green-900/40"
               >
-                Kostenlose Erstberatung anfragen →
+                Kostenlose Beratung anfragen →
               </button>
               <a
-              href="#marktplatz"
+                href="https://www.tiny.rentals"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-all backdrop-blur-sm"
               >
-                Marktplatz ansehen
+                🏡 Tiny Escapes besuchen
               </a>
             </div>
 

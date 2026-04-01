@@ -3,7 +3,7 @@ import { supabase } from "./lib/supabase";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
-import Modelle from "./components/Modelle";
+import MarktplatzTeaser from "./components/MarktplatzTeaser";
 import Oekosystem from "./components/Oekosystem";
 import Prozess from "./components/Prozess";
 import Ueber from "./components/Ueber";
@@ -12,6 +12,7 @@ import Testimonials from "./components/Testimonials";
 import Presse from "./components/Presse";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
+import type { Listing } from "./components/ModelleCarousel";
 
 export const metadata: Metadata = {
   alternates: {
@@ -34,15 +35,48 @@ async function getHeroImage(): Promise<string> {
   }
 }
 
+async function getListings(): Promise<Listing[]> {
+  try {
+    const { data } = await supabase
+      .from("listings")
+      .select("*")
+      .order("sort_order", { ascending: true });
+    if (!data) return [];
+    return data.map((row) => ({
+      id:           row.id,
+      asset_id:     row.asset_id,
+      img:          row.img,
+      category:     row.category,
+      title:        row.title,
+      location:     row.location,
+      description:  row.description,
+      preis:        row.preis,
+      irr:          row.irr,
+      npv:          row.npv,
+      occ:          row.occ,
+      occ_note:     row.occ_note,
+      reserved:     row.reserved,
+      total:        row.total,
+      status:       row.status,
+      status_label: row.status_label,
+      badge:        row.badge,
+      badge_color:  row.badge_color,
+      sort_order:   row.sort_order,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 export default async function Home() {
-  const heroImage = await getHeroImage();
+  const [heroImage, listings] = await Promise.all([getHeroImage(), getListings()]);
 
   return (
     <main className="font-sans antialiased text-gray-800 bg-white">
       <Navbar />
       <Hero heroImage={heroImage} />
       <TrustBar />
-      <Modelle />
+      <MarktplatzTeaser listings={listings} />
       <Oekosystem />
       <Prozess />
       <Ueber />
