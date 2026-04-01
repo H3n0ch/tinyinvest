@@ -85,7 +85,27 @@ export default function Prozess() {
             {finanzSteps.map((s) => <StepCard key={s.num} {...s} />)}
           </div>
         )}
+
+        {/* ── YouTube Video ──────────────────────────── */}
+        <div className="mt-16">
+          <div className="text-center mb-6">
+            <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">Das Konzept im Video</span>
+            <h3 className="text-xl sm:text-2xl font-black text-gray-900 mt-2 tracking-tight">
+              Sehen Sie selbst, wie TinyInvest funktioniert
+            </h3>
+          </div>
+          <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/CTZJA2tUlZg?start=20&rel=0&modestbranding=1"
+              title="TinyInvest – Das Konzept"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+        </div>
       </div>
+
     </section>
   );
 }

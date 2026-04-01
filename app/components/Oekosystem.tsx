@@ -10,13 +10,13 @@ export default function Oekosystem() {
             Was uns einzigartig macht
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mt-3 mb-5">
-            Alles, was dich bisher aufgehalten hat –{" "}
+            Alles, was Sie bisher aufgehalten hat –{" "}
             <span className="text-green-400">haben wir gelöst.</span>
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
             TinyInvest ist das einzige Angebot am Markt mit einem <strong className="text-white">vollständigen Ökosystem</strong> –
             vom Kauf über Standort, Vermietung und Buchungsplattform bis zur Steueroptimierung und Finanzierung.
-            Du investierst. Wir machen den Rest.
+            Sie investieren. Wir machen den Rest.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function Oekosystem() {
           <div className="relative">
             <p className="text-4xl mb-4">🚀</p>
             <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">
-              Du investierst. Wir machen den Rest.
+              Sie investieren. Wir machen den Rest.
             </h3>
             <p className="text-green-100 text-lg max-w-2xl mx-auto mb-8">
               Kein Aufwand. Keine versteckten Probleme. Nur monatlicher passiver Cashflow –
