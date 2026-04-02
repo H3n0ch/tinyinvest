@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* ─── Mobile SEO: enforce 12px minimum font size ───────────────────────────── */
+/* Google flags text < 12px as illegible on mobile (Lighthouse SEO check).     */
+/* This fixes all 295 sub-12px Tailwind classes site-wide without touching JSX. */
+@media screen and (max-width: 768px) {
+  [class*="text-[9px]"],
+  [class*="text-[10px]"],
+  [class*="text-[11px]"] {
+    font-size: 0.75rem !important; /* 12px */
+    line-height: 1.5 !important;
+  }
+}
+
 /* ─── Custom Utilities ─────────────────────────────────────────────────────── */
 
 @layer utilities {

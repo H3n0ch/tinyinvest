@@ -21,8 +21,8 @@ export default function Hero({ heroImage }: { heroImage: string }) {
           fill
           className="object-cover object-center"
           priority
-          quality={85}
-          sizes="100vw"
+          quality={70}
+          sizes="(max-width: 768px) 100vw, 100vw"
         />
       </div>
 
