@@ -1,16 +1,6 @@
-"use client";
-// Ueber.tsx — "Über TinyInvest" platform stats + world deployment map
-import dynamic from "next/dynamic";
+// Ueber.tsx — "Über TinyInvest" platform stats + world deployment map (server component)
 import ModalButton from "./ModalButton";
-
-const StandortMapWidget = dynamic(() => import("./StandortMapWidget"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-64 bg-gray-100 rounded-2xl animate-pulse flex items-center justify-center text-gray-400 text-sm">
-      Karte wird geladen…
-    </div>
-  ),
-});
+import StandortMapLazy from "./StandortMapLazy";
 
 const platformMetrics = [
   {
@@ -103,9 +93,9 @@ export default function Ueber() {
             </div>
           </div>
 
-          {/* RIGHT: Interactive World Map */}
+          {/* RIGHT: Interactive World Map (lazy-loaded client component) */}
           <div>
-            <StandortMapWidget />
+            <StandortMapLazy />
 
             {/* CTA */}
             <div className="mt-4 flex flex-col sm:flex-row gap-3">
