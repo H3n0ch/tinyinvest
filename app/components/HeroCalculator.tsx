@@ -46,17 +46,23 @@ export default function HeroCalculator() {
       {/* Kaufpreis slider */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
-          <label className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider">
+          <label htmlFor="kaufpreis-range" className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider">
             <span>💰</span> Kaufpreis (Asset)
           </label>
           <span className="font-data text-sm font-black text-gray-900">{fmt(kaufpreis)}</span>
         </div>
         <input
+          id="kaufpreis-range"
           type="range"
           min={60000}
           max={95000}
           step={1000}
           value={kaufpreis}
+          aria-label="Kaufpreis des Assets"
+          aria-valuemin={60000}
+          aria-valuemax={95000}
+          aria-valuenow={kaufpreis}
+          aria-valuetext={fmt(kaufpreis)}
           onChange={(e) => setKaufpreis(Number(e.target.value))}
           className="w-full"
         />
@@ -68,9 +74,9 @@ export default function HeroCalculator() {
 
       {/* Steuersatz */}
       <div className="mb-6">
-        <label className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider mb-2">
+        <p className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider mb-2">
           <span>📊</span> Grenzsteuersatz
-        </label>
+        </p>
         <div className="flex gap-2">
           {steuersatzOptions.map((opt, idx) => (
             <button

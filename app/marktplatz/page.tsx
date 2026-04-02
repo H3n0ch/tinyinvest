@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SubPageHeader from "../components/SubPageHeader";
 import ProjekteGrid from "../components/ProjekteGrid";
-import ProjekteGoogleMap from "../components/ProjekteGoogleMap";
+import MarktplatzMap from "../components/MarktplatzMap";
 import type { MapListing } from "../components/ProjekteGoogleMap";
 import type { Listing } from "../components/ModelleCarousel";
 
@@ -156,7 +156,7 @@ export default async function MarktplatzPage() {
               </span>
             </div>
           </div>
-          <ProjekteGoogleMap listings={mapListings} />
+          <MarktplatzMap listings={mapListings} />
           <p className="text-[10px] text-gray-400 mt-3 text-center">
             Klicken Sie auf einen Pin für Projektdetails · Karte zeigt Näherungsstandorte
           </p>
