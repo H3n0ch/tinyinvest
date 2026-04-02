@@ -14,15 +14,17 @@ export default function Hero({ heroImage }: { heroImage: string }) {
     <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-20 pb-10 overflow-hidden">
 
       {/* ── Full-bleed background image ────────────────── */}
-      <Image
-        src={heroImage}
-        alt="TinyInvest Escape – tiny Escapes Netzwerk"
-        fill
-        className="object-cover object-center"
-        priority
-        quality={85}
-        sizes="100vw"
-      />
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={heroImage}
+          alt="TinyInvest Escape – tiny Escapes Netzwerk"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={85}
+          sizes="100vw"
+        />
+      </div>
 
       {/* ── Gradient overlay ───────────────────────────── */}
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-black/80 via-black/55 to-black/30" />
