@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { galleryImages } from "./data";
 
 export default function GalerieTeaser() {
@@ -24,10 +25,13 @@ export default function GalerieTeaser() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {preview.map((src, i) => (
             <Link key={i} href="/galerie" className="group relative overflow-hidden rounded-xl aspect-[4/3] block">
-              <img
+              <Image
                 src={src}
                 alt={`TinyInvest Tiny House ${i + 1}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 50vw, 25vw"
+                loading="lazy"
               />
               {i === 3 && (
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">

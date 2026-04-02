@@ -1,52 +1,27 @@
-"use client";
-import { useState } from "react";
-import { useModal } from "./ModalContext";
+import Image from "next/image";
+import HeroCTAButton from "./HeroCTAButton";
+import HeroCalculator from "./HeroCalculator";
 
 const platformStats = [
   { value: "200+", label: "Registrierte Investoren", icon: "💼" },
   { value: "50+",  label: "Kooperierende Hosts",     icon: "🤝" },
-  { value: "10",    label: "Aktive Länder",       icon: "🌍" },
+  { value: "10",   label: "Aktive Länder",            icon: "🌍" },
   { value: "2,2 Mio. €", label: "Vermittlungsvolumen", icon: "📊" },
 ];
 
-const steuersatzOptions = [
-  { label: "32 %", value: 0.32 },
-  { label: "42 %", value: 0.42 },
-  { label: "45 %", value: 0.45 },
-];
-
-function calcResults(kaufpreis: number, steuersatz: number) {
-  const iab       = kaufpreis * 0.5 * steuersatz;
-  const sonderAfa = kaufpreis * 0.4 * steuersatz;
-  const degAfa    = kaufpreis * 0.3 * steuersatz;
-  const total     = iab + sonderAfa + degAfa * 0.5;
-  return { iab, sonderAfa, total };
-}
-
-function fmt(n: number) {
-  return new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(n);
-}
-
 export default function Hero({ heroImage }: { heroImage: string }) {
-  const { openModal } = useModal();
-  const [kaufpreis, setKaufpreis]         = useState(79000);
-  const [steuersatzIdx, setSteuersatzIdx] = useState(1); // 42 %
-
-  const steuersatz = steuersatzOptions[steuersatzIdx].value;
-  const { iab, sonderAfa, total } = calcResults(kaufpreis, steuersatz);
-
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-20 pb-10 overflow-hidden">
 
       {/* ── Full-bleed background image ────────────────── */}
-      <img
+      <Image
         src={heroImage}
         alt="TinyInvest Escape – tiny Escapes Netzwerk"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        fill
+        className="object-cover object-center"
+        priority
+        quality={85}
+        sizes="100vw"
       />
 
       {/* ── Gradient overlay ───────────────────────────── */}
@@ -114,24 +89,8 @@ export default function Hero({ heroImage }: { heroImage: string }) {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={openModal}
-                className="bg-green-500 hover:bg-green-400 text-white font-black px-7 py-3.5 rounded-full text-sm transition-all shadow-lg shadow-green-900/40"
-              >
-                Kostenlose Beratung anfragen →
-              </button>
-              <a
-                href="https://www.tiny.rentals"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-all backdrop-blur-sm"
-              >
-                🏡 Tiny Escapes besuchen
-              </a>
-            </div>
+            {/* CTAs — client component for modal interaction */}
+            <HeroCTAButton />
 
             {/* Trust micro-line */}
             <p className="mt-3 text-[11px] text-white/45">
@@ -148,109 +107,15 @@ export default function Hero({ heroImage }: { heroImage: string }) {
                   {[...Array(5)].map((_, i) => <span key={i} className="text-amber-400 text-xs">★</span>)}
                 </div>
                 <p className="text-white/80 text-[12px] leading-snug italic">
-              „Im ersten Jahr 22.000 € Steuern gespart – und monatlich passiven Cashflow." 
+                  „Im ersten Jahr 22.000 € Steuern gespart – und monatlich passiven Cashflow."
                 </p>
                 <p className="text-white/45 text-[10px] mt-1">Michael K. · Unternehmer, München</p>
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT: Calculator ──────────────────────── */}
-          <div className="bg-white rounded-3xl shadow-2xl p-8">
-
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <p className="font-black text-gray-900 text-base">Steuer-Vorteil berechnen</p>
-                <p className="text-[12px] text-gray-400 mt-0.5">Sofortige Schätzung auf Basis §7g EStG</p>
-              </div>
-              <span className="text-2xl"></span>
-            </div>
-
-            {/* Kaufpreis slider */}
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
-                <label className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider">
-                  <span>💰</span> Kaufpreis (Asset)
-                </label>
-                <span className="font-data text-sm font-black text-gray-900">{fmt(kaufpreis)}</span>
-              </div>
-              <input
-                type="range"
-                min={60000}
-                max={95000}
-                step={1000}
-                value={kaufpreis}
-                onChange={(e) => setKaufpreis(Number(e.target.value))}
-                className="w-full"
-              />
-              <div className="flex justify-between text-[10px] text-gray-400 mt-1 font-data">
-                <span>60.000 € (Comfort)</span>
-                <span>95.000 € (Elite)</span>
-              </div>
-            </div>
-
-            {/* Steuersatz */}
-            <div className="mb-6">
-              <label className="flex items-center gap-2 text-[12px] font-semibold text-gray-600 uppercase tracking-wider mb-2">
-                <span>📊</span> Grenzsteuersatz
-              </label>
-              <div className="flex gap-2">
-                {steuersatzOptions.map((opt, idx) => (
-                  <button
-                    key={opt.label}
-                    onClick={() => setSteuersatzIdx(idx)}
-                    className={`flex-1 py-2 rounded-xl text-sm font-bold border transition-all ${
-                      steuersatzIdx === idx
-                        ? "bg-green-700 text-white border-green-700"
-                        : "bg-white text-gray-600 border-gray-200 hover:border-green-300"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="border-t border-gray-100 mb-5" />
-
-            {/* Results */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
-                <div>
-                  <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider">IAB-Erstattung</p>
-                  <p className="text-[10px] text-gray-400">50 % vorab · §7g Abs. 1</p>
-                </div>
-                <span className="font-data text-base font-black text-gray-800">{fmt(iab)}</span>
-              </div>
-              <div className="flex items-center justify-between bg-gray-50 rounded-xl px-4 py-3">
-                <div>
-                  <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider">Sonder-AfA</p>
-                  <p className="text-[10px] text-gray-400">40 % · §7g Abs. 5</p>
-                </div>
-                <span className="font-data text-base font-black text-gray-800">{fmt(sonderAfa)}</span>
-              </div>
-              <div className="flex items-center justify-between bg-green-600 rounded-xl px-4 py-4">
-                <div>
-                  <p className="text-[11px] text-green-200 font-semibold uppercase tracking-wider flex items-center gap-1">
-                    <span>🎯</span> Steuer-Vorteil Jahr 1
-                  </p>
-                  <p className="text-[10px] text-green-300">Konservative Schätzung</p>
-                </div>
-                <span className="font-data text-xl font-black text-white">{fmt(total)}</span>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={openModal}
-              className="block w-full text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-2xl text-sm transition-all cursor-pointer"
-            >
-              Persönliche Berechnung anfordern →
-            </button>
-            <p className="text-center text-[10px] text-gray-400 mt-2.5">
-              * Schätzung · Abhängig von Steuersituation · Steuerberater konsultieren
-            </p>
-          </div>
+          {/* ── RIGHT: Calculator (client component) ───── */}
+          <HeroCalculator />
         </div>
 
         {/* Bottom trust bar */}
