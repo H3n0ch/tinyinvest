@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "Impressum – TinyInvest",
   description: "Impressum der TinyInvest GmbH gemäß § 5 TMG.",
+  robots: "noindex, nofollow",
   alternates: {
     canonical: "https://tinyhouse.investments/impressum",
   },

@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "Datenschutzerklärung – TinyInvest",
   description: "Datenschutzerklärung der TinyInvest GmbH gemäß DSGVO.",
+  robots: "noindex, nofollow",
   alternates: {
     canonical: "https://tinyhouse.investments/datenschutz",
   },
@@ -36,14 +37,14 @@ export default function DatenschutzPage() {
               </p>
               <p className="mt-3">
                 TinyInvest GmbH<br />
-                Musterstraße 1<br />
-                12345 Berlin<br />
+                Friedrichstraße 14<br />
+                60323 Frankfurt am Main<br />
                 Deutschland<br />
                 E-Mail:{" "}
-                <a href="mailto:info@tinyinvest.de" className="text-green-400 hover:text-green-300 transition-colors">
-                  info@tinyinvest.de
+                <a href="mailto:info@tinyhouse.investments" className="text-green-400 hover:text-green-300 transition-colors">
+                  info@tinyhouse.investments
                 </a><br />
-                Telefon: +49 000 123 456 7
+                Telefon: +49 69 4321 8700
               </p>
             </section>
 
@@ -171,9 +172,9 @@ export default function DatenschutzPage() {
                 <li><strong className="text-gray-300">Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
               </ul>
               <p className="mt-3">
-                Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
-                <a href="mailto:info@tinyinvest.de" className="text-green-400 hover:text-green-300 transition-colors">
-                  info@tinyinvest.de
+              Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
+                <a href="mailto:info@tinyhouse.investments" className="text-green-400 hover:text-green-300 transition-colors">
+                  info@tinyhouse.investments
                 </a>
               </p>
             </section>
@@ -181,20 +182,20 @@ export default function DatenschutzPage() {
             <section>
               <h2 className="text-lg font-bold text-white mb-3">12. Beschwerderecht bei der Aufsichtsbehörde</h2>
               <p>
-                Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer
-                personenbezogenen Daten zu beschweren. Die zuständige Behörde für Berlin ist:
+              Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer
+                personenbezogenen Daten zu beschweren. Die zuständige Behörde für Hessen ist:
               </p>
               <p className="mt-3">
-                Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
-                Friedrichstr. 219<br />
-                10969 Berlin<br />
+                Der Hessische Beauftragte für Datenschutz und Informationsfreiheit<br />
+                Postfach 3163<br />
+                65021 Wiesbaden<br />
                 <a
-                  href="https://www.datenschutz-berlin.de"
+                  href="https://www.datenschutz.hessen.de"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 transition-colors"
                 >
-                  www.datenschutz-berlin.de
+                  www.datenschutz.hessen.de
                 </a>
               </p>
             </section>

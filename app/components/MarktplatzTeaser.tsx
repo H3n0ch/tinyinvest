@@ -1,8 +1,31 @@
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import ModelleCarousel from "./ModelleCarousel";
 import type { Listing } from "./ModelleCarousel";
 
-export default function MarktplatzTeaser({ listings }: { listings: Listing[] }) {
+// Skeleton while waiting for the API response
+function CarouselSkeleton() {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="rounded-2xl bg-gray-200 animate-pulse h-64" />
+      ))}
+    </div>
+  );
+}
+
+export default function MarktplatzTeaser() {
+  const [listings, setListings] = useState<Listing[] | null>(null);
+
+  useEffect(() => {
+    // Lazy-fetch after page paint — doesn't block FCP/LCP
+    fetch("/api/listings")
+      .then((r) => r.json())
+      .then((data: Listing[]) => setListings(data))
+      .catch(() => setListings([]));
+  }, []);
+
   return (
     <section id="marktplatz" className="py-20 bg-[#f8fafc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,8 +56,10 @@ export default function MarktplatzTeaser({ listings }: { listings: Listing[] }) 
           </Link>
         </div>
 
-        {/* Carousel */}
-        {listings.length > 0 ? (
+        {/* Carousel — lazy loaded */}
+        {listings === null ? (
+          <CarouselSkeleton />
+        ) : listings.length > 0 ? (
           <ModelleCarousel listings={listings} />
         ) : (
           <div className="text-center py-16 text-gray-400">

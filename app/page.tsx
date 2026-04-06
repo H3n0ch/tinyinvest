@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { unstable_cache } from "next/cache";
-import { supabase } from "./lib/supabase";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
@@ -13,7 +11,6 @@ import Testimonials from "./components/Testimonials";
 import Presse from "./components/Presse";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
-import type { Listing } from "./components/ModelleCarousel";
 
 export const metadata: Metadata = {
   alternates: {
@@ -21,76 +18,20 @@ export const metadata: Metadata = {
   },
 };
 
-const FALLBACK_HERO = "/images/outside/ESCAPE3.webp";
+// Force fully static pre-rendering — served as a plain CDN file.
+// No server round-trips on page load. Listings are fetched client-side by MarktplatzTeaser.
+export const dynamic = "force-static";
 
-// Cache the hero image setting for 1 hour — avoids a DB round-trip on every request
-const getCachedHeroImage = unstable_cache(
-  async (): Promise<string> => {
-    try {
-      const { data } = await supabase
-        .from("settings")
-        .select("value")
-        .eq("key", "hero_image")
-        .single();
-      return data?.value ?? FALLBACK_HERO;
-    } catch {
-      return FALLBACK_HERO;
-    }
-  },
-  ["hero-image"],
-  { revalidate: 3600 } // re-fetch from Supabase at most once per hour
-);
+// Static hero background — no DB lookup needed
+const HERO_IMAGE = "/images/outside/ESCAPE3.webp";
 
-// Cache listings for 5 minutes — fresh enough, but not fetched on every page load
-const getCachedListings = unstable_cache(
-  async (): Promise<Listing[]> => {
-    try {
-      const { data } = await supabase
-        .from("listings")
-        .select("*")
-        .order("sort_order", { ascending: true });
-      if (!data) return [];
-      return data.map((row) => ({
-        id:           row.id,
-        asset_id:     row.asset_id,
-        img:          row.img,
-        category:     row.category,
-        title:        row.title,
-        location:     row.location,
-        description:  row.description,
-        preis:        row.preis,
-        irr:          row.irr,
-        npv:          row.npv,
-        occ:          row.occ,
-        occ_note:     row.occ_note,
-        reserved:     row.reserved,
-        total:        row.total,
-        status:       row.status,
-        status_label: row.status_label,
-        badge:        row.badge,
-        badge_color:  row.badge_color,
-        sort_order:   row.sort_order,
-      }));
-    } catch {
-      return [];
-    }
-  },
-  ["homepage-listings"],
-  { revalidate: 300 } // re-fetch from Supabase at most every 5 minutes
-);
-
-export default async function Home() {
-  const [heroImage, listings] = await Promise.all([
-    getCachedHeroImage(),
-    getCachedListings(),
-  ]);
-
+export default function Home() {
   return (
     <main className="font-sans antialiased text-gray-800 bg-white">
       <Navbar />
-      <Hero heroImage={heroImage} />
+      <Hero heroImage={HERO_IMAGE} />
       <TrustBar />
-      <MarktplatzTeaser listings={listings} />
+      <MarktplatzTeaser />
       <Oekosystem />
       <Prozess />
       <Ueber />

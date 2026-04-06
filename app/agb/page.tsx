@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "AGB – TinyInvest",
   description: "Allgemeine Geschäftsbedingungen der TinyInvest GmbH.",
+  robots: "noindex, nofollow",
   alternates: {
     canonical: "https://tinyhouse.investments/agb",
   },
@@ -33,7 +34,7 @@ export default function AGBPage() {
               <h2 className="text-lg font-bold text-white mb-3">§ 1 Geltungsbereich</h2>
               <p>
                 Diese Allgemeinen Geschäftsbedingungen (nachfolgend &bdquo;AGB&rdquo;) gelten für alle Verträge, die zwischen der
-                TinyInvest GmbH, Musterstraße 1, 12345 Berlin (nachfolgend &bdquo;TinyInvest&rdquo;) und dem Kunden (nachfolgend
+                TinyInvest GmbH, Friedrichstraße 14, 60323 Frankfurt am Main (nachfolgend &bdquo;TinyInvest&rdquo;) und dem Kunden (nachfolgend
                 &bdquo;Investor&rdquo;) über die Beteiligung an Tiny-House-Investitionsmodellen geschlossen werden. Abweichende
                 Bedingungen des Investors werden nicht anerkannt, es sei denn, TinyInvest stimmt ihrer Geltung
                 ausdrücklich schriftlich zu.
@@ -183,7 +184,7 @@ export default function AGBPage() {
               <p>
                 Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand
                 für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist, soweit gesetzlich zulässig,
-                Berlin. Für Verbraucher gilt der gesetzliche Gerichtsstand.
+                Frankfurt am Main. Für Verbraucher gilt der gesetzliche Gerichtsstand.
               </p>
             </section>
 
