@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "Datenschutzerklärung – TinyInvest",
   description: "Datenschutzerklärung der TinyInvest GmbH gemäß DSGVO.",
-  robots: "noindex, nofollow",
   alternates: {
     canonical: "https://tinyhouse.investments/datenschutz",
   },
