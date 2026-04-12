@@ -6,7 +6,7 @@ const platformStats = [
   { value: "200+", label: "Registrierte Investoren", icon: "💼" },
   { value: "50+",  label: "Kooperierende Hosts",     icon: "🤝" },
   { value: "10",   label: "Aktive Länder",            icon: "🌍" },
-  { value: "2,2 Mio. €", label: "Vermittlungsvolumen", icon: "📊" },
+  
 ];
 
 export default function Hero({ heroImage }: { heroImage: string }) {
