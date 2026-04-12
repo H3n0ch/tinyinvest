@@ -53,10 +53,10 @@ export default function Testimonials() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "200+", label: "Investoren vertrauen uns" },
-              { value: "12 Mio. €", label: "Steuergelder zurückgeholt" },
-              { value: "~18 %", label: "Effektive Rendite p.a." },
-              { value: "100 %", label: "Legalität & Transparenz" },
+              { value: "50+", label: "Geprüfte Projekte / Assets" },
+              { value: "15", label: "Jahre Erfahrung" },
+              { value: "~15 %", label: "Effektive Rendite p.a." },
+              { value: "100 %", label: "Transparenz" },
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-3xl md:text-4xl font-black text-green-400 mb-1">{item.value}</p>

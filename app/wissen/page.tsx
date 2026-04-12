@@ -222,7 +222,7 @@ export default function WissenPage() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
-              href="/projekte"
+              href="/marktplatz"
               className="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm"
             >
               Aktuelle Projekte ansehen →

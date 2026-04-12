@@ -461,7 +461,7 @@ export default function AfaAbschreibungPage() {
                 🔐 Steuer-Factsheet anfordern →
               </ModalButton>
               <Link
-                href="/projekte"
+                href="/marktplatz"
                 className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all"
               >
                 Aktuelle Projekte ansehen →
