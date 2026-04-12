@@ -29,11 +29,7 @@ export default function TrustBar() {
         </a>
       ),
     },
-    {
-      icon: "📊",
-      title: "2,2 Mio. € vermittelt",
-      sub: "Geprüftes Vermittlungsvolumen",
-    },
+    
   ];
 
   return (

@@ -4,6 +4,7 @@
 
 export const navLinks = [
   { label: "Marktplatz", href: "/marktplatz" },
+  { label: "Konfigurator", href: "/konfigurator" },
   { label: "Steuer-Vorteile", href: "/steuervorteil" },
   { label: "Rendite-Modell", href: "/renditemodell" },
   { label: "So funktioniert's", href: "/so-funktioniert-es" },

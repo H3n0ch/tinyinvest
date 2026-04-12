@@ -42,6 +42,7 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Investment</h4>
             <ul className="space-y-2">
               <li><Link href="/marktplatz" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏠 Marktplatz</Link></li>
+              <li><Link href="/konfigurator" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏗️ Konfigurator</Link></li>
               <li><Link href="/renditemodell" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Renditemodell</Link></li>
               <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">💰 §7g Steuervorteil</Link></li>
               <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">⚙️ So funktioniert es</Link></li>

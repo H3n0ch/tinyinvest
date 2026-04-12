@@ -24,6 +24,8 @@ async function geocodeLocation(location: string): Promise<{ lat: number; lng: nu
   return null;
 }
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Marktplatz – Projekte in die Sie investieren können | TinyInvest",
   description:
@@ -45,6 +47,7 @@ export default async function MarktplatzPage() {
   const { data, error } = await supabase
     .from("listings")
     .select("*")
+    .eq("active", true)
     .order("sort_order", { ascending: true });
 
   if (error) console.error("[Marktplatz] Supabase error:", error.message);
