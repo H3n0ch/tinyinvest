@@ -132,8 +132,8 @@ export default function MemorandumModal() {
               <div className="text-5xl mb-4">✅</div>
               <h3 className="text-lg font-black text-gray-900 mb-2">Alles klar!</h3>
               <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed mb-6">
-                Wir melden uns innerhalb von <strong>24 Stunden</strong> persönlich bei Ihnen –
-                mit dem Investor-Paket und Ihrer individuellen Steueranalyse.
+                  Wir melden uns innerhalb von <strong>24 Stunden</strong> persönlich bei Ihnen –
+                  mit dem Investor-Paket und allen relevanten Unterlagen.
               </p>
               <div className="flex items-center justify-center gap-6 mb-6 text-[11px] text-gray-400">
                 <span className="flex items-center gap-1"><span>🔒</span> DSGVO-konform</span>
@@ -163,7 +163,7 @@ export default function MemorandumModal() {
                   Jetzt Unterlagen anfordern
                 </h2>
                 <p className="text-[13px] text-gray-500 leading-relaxed">
-                  §7g-Steueranalyse · Betreiberkonzept · Asset-Kennzahlen · Persönliche Beratung
+                 Betreiberkonzept · Asset-Kennzahlen · Persönliche Beratung
                 </p>
               </div>
 
@@ -263,7 +263,7 @@ export default function MemorandumModal() {
                     name="interesse" value={form.interesse} onChange={handleChange}
                     className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all bg-white"
                   >
-                    <option>Investitionsunterlagen + §7g-Steueranalyse anfordern</option>
+                    <option>Investitionsunterlagen anfordern</option>
                     <option>Projektunterlagen zu einem spezifischen Asset</option>
                     <option>Rendite-Beratung (passives Einkommen)</option>
                     <option>Kauf auf Raten / Finanzierungsberatung</option>
