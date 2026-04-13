@@ -12,9 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/marktplatz`,
-      lastModified: "2026-03-31",
+      lastModified: "2026-04-13",
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/projekte`,
+      lastModified: "2026-04-13",
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/so-funktioniert-es`,
@@ -24,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/renditemodell`,
-      lastModified: "2026-03-01",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -69,6 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-03-30",
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/tiny-house-als-kapitalanlage`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 1.0,
     },
     {
       url: `${BASE_URL}/wissen/kapitalanlage`,

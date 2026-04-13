@@ -29,7 +29,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Marktplatz – Projekte in die Sie investieren können | TinyInvest",
   description:
-    "Entdecken Sie verfügbare Tiny House Investment-Projekte in Deutschland und Europa. Ab 45.000 € investieren, bis zu 18 % IRR p.a., §7g-steueroptimiert, vollautomatisch bewirtschaftet von tiny Escapes.",
+    "Entdecken Sie verfügbare Tiny House Investment-Projekte in Deutschland und Europa. Ab 65.000 € investieren, 12–14 % IRR p.a., §7g-steueroptimiert, vollautomatisch bewirtschaftet von tiny Escapes.",
   keywords:
     "Tiny House investieren, Ferienimmobilie kaufen, passive Einnahmen, §7g Investment, Tiny House Rendite, Marktplatz",
   alternates: {
@@ -181,6 +181,18 @@ export default async function MarktplatzPage() {
             </p>
           </div>
           <ProjekteGrid listings={listings} />
+        </div>
+      </section>
+
+      {/* §7g International Disclaimer */}
+      <section className="py-6 bg-amber-50 border-t border-amber-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-[11px] text-amber-800 leading-relaxed text-center">
+            <span className="font-bold">⚠ Steuerlicher Hinweis zu internationalen Standorten:</span> §7g EStG (IAB & Sonder-AfA) gilt
+            ausschließlich für deutsche Steuerpflichtige mit deutschen Betriebsstätten. Bei Projekten im EU-Ausland
+            (z.B. Kroatien, Rumänien, Thailand) ist §7g <strong>nicht automatisch</strong> anwendbar – bitte konsultieren Sie einen
+            auf §7g spezialisierten Steuerberater.
+          </p>
         </div>
       </section>
 

@@ -35,7 +35,7 @@ const faqItems = [
   {
     question: "Ab welchem Budget kann ich in ein Tiny House investieren?",
     answer:
-      "Die Einstiegsschwelle beginnt bei 45.000 € für das Comfort-Modell. Das entspricht weniger als 10 % des durchschnittlichen Kaufpreises einer Eigentumswohnung in einer deutschen Großstadt. Mit dem IAB-Effekt (Steuererstattung von ca. 16.000–17.000 € im ersten Jahr) reduziert sich die effektive Liquiditätsbelastung auf ca. 28.000–30.000 €.",
+      "Die Einstiegsschwelle beginnt bei 65.000 € für das Comfort-Modell. Das entspricht weniger als 15 % des durchschnittlichen Kaufpreises einer Eigentumswohnung in einer deutschen Großstadt. Mit dem IAB-Effekt (Steuererstattung von ca. 13.000–14.000 € im ersten Jahr bei 42 % Steuersatz) reduziert sich die effektive Liquiditätsbelastung auf ca. 51.000–52.000 €.",
   },
   {
     question: "Brauche ich ein Grundstück für das Investment?",
@@ -50,14 +50,19 @@ const faqItems = [
 ];
 
 const vergleichRows = [
-  ["Einstiegspreis", "~300.000–500.000 €", "ab 45.000 €"],
+  ["Einstiegspreis", "~300.000–500.000 €", "ab 65.000 €"],
   ["Kaufnebenkosten", "10–15 % (Notar, Makler, GrESt)", "~0 % (kein Grundstück, keine GrESt)"],
-  ["Jährliche Mietrendite (brutto)", "3–5 % p.a.", "12–18 % p.a. (inkl. Steuer)"],
+  ["Jährliche Mietrendite (brutto)", "3–5 % p.a.", "12–14 % IRR p.a."],
   ["Abschreibung", "2 % lineare Gebäude-AfA / 50 J.", "§7g: bis 70 % im Kaufjahr"],
   ["Flexibilität", "Keine – ortsgebunden", "Hoch – Standort wechselbar"],
   ["Instandhaltungsaufwand", "Mittel–Hoch", "Gering (Trailer, wartungsarm)"],
   ["Bewirtschaftung", "Selbst oder Hausverwaltung", "Vollautomatisch (tiny Escapes)"],
   ["Liquidierbarkeit", "Schwer (Monate–Jahre)", "Leichter (Wiederverkauf oder Standortwechsel)"],
+  ["Netto-Kapitaleinsatz", "60.000–100.000 € EK + Kredit nötig", "ab ~51.000 € (nach IAB-Erstattung)"],
+  ["Zeitaufwand für Investor", "20–50 Std./Jahr (Mieter, Verwaltung)", "~0 Std. – vollautomatisch"],
+  ["Diversifikation", "Eine konzentrierte Investition", "Mehrere Assets ab 65.000 € möglich"],
+  ["Mietrecht", "Volles Mieterschutzrecht (Kündigungsschutz)", "Kein Mietrecht – Kurzzeitvermietung"],
+  ["Break-even", "~12–15 Jahre", "~3–5 Jahre (inkl. Steuereffekte)"],
 ];
 
 export default function KapitalanlagePage() {
@@ -111,7 +116,7 @@ export default function KapitalanlagePage() {
             Dieser Guide zeigt dir, wie das Modell funktioniert, was es wirklich einbringt und wo die Risiken liegen.
           </p>
           <div className="flex flex-wrap gap-2 text-[11px]">
-            {["§7g-optimiert", "Vollvermietet durch tiny Escapes", "Ab 45.000 €", "12–15 % IRR p.a."].map((tag) => (
+            {["§7g-optimiert", "Vollvermietet durch tiny Escapes", "Ab 65.000 €", "12–14 % IRR p.a."].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">
                 {tag}
               </span>
@@ -156,7 +161,7 @@ export default function KapitalanlagePage() {
             Die größte Einstiegshürde bei Immobilien ist nicht der Kaufpreis – es sind die Kaufnebenkosten.
             Eine 70 m² Wohnung in München kostet 500.000 €. Allein Notar, Makler und Grunderwerbsteuer
             verschlingen 50.000–75.000 € – bevor du einen einzigen Euro tilgst. Ein Tiny House startet
-            bei 45.000 € – inklusive allem.
+            ab 65.000 € – inklusive allem.
           </p>
 
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
@@ -183,11 +188,12 @@ export default function KapitalanlagePage() {
           </div>
 
           <div className="bg-green-700 rounded-2xl p-6 text-white">
-            <p className="text-base font-black mb-2">💡 Die härteste Wahrheit des deutschen Immobilienmarkts:</p>
-            <p className="text-green-100 text-[13px] leading-relaxed">
-              Mit dem Kapital, das bei einer Berliner ETW allein als Kaufnebenkosten anfällt (~50.000 €),
-              kannst du bei TinyInvest ein komplettes Tiny House kaufen – das sofort Rendite wirft.
-              Bei der ETW hast du nach Zahlung der Nebenkosten noch nichts besessen außer einer Unterschrift.
+            <p className="text-base font-black mb-3">💡 Die härteste Immobilienwahrheit Deutschlands:</p>
+            <p className="text-green-100 text-[14px] leading-relaxed mb-4">
+              Eine 70 m² Wohnung in Berlin kostet ~440.000 €. Davon gehen <strong className="text-white">~44.000 € direkt an Notar, Makler und Finanzamt</strong> — noch bevor du einen Euro tilgst. Das ist mehr als der halbe Kaufpreis eines vollwertigen TinyInvest Comfort (65.000 €).
+            </p>
+            <p className="text-white font-bold text-[14px]">
+              → Mit TinyInvest kaufst du ein vollständiges Haus zum Preis der Kaufnebenkosten einer Berliner Wohnung.
             </p>
           </div>
         </div>
@@ -226,11 +232,11 @@ export default function KapitalanlagePage() {
                 icon: "📊",
                 color: "border-blue-100 bg-white",
                 content: [
-                  "Bei einem 45.000 € Haus und 720 €/Monat Auszahlung ergibt sich eine Cash-on-Cash-Rendite von ~19 % p.a.",
+                  "Bei einem 65.000 € Haus (Comfort) und 720 €/Monat Auszahlung ergibt sich eine Cash-on-Cash-Rendite von ~13 % p.a.",
                   "Zum Vergleich: Eine ETW mit 4 % Mietrendite brutto benötigt 500.000 € Kapital – und gibt dir nur 20.000 € p.a. zurück.",
                   "Wer 3 Tiny Houses statt einer ETW kauft, verteilt Risiko UND verdient mehr.",
                 ],
-                kpi: { label: "Effektive Rendite", value: "~19 % p.a." },
+                kpi: { label: "Cash-on-Cash Rendite", value: "~13 % p.a." },
               },
               {
                 num: "03",

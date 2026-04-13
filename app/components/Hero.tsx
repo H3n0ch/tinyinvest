@@ -4,8 +4,8 @@ import HeroCalculator from "./HeroCalculator";
 
 const platformStats = [
   { value: "200+", label: "Registrierte Investoren", icon: "💼" },
-  { value: "50+",  label: "Kooperierende Hosts",     icon: "🤝" },
-  { value: "10",   label: "Aktive Länder",            icon: "🌍" },
+  { value: "12+",  label: "Kooperierende Hosts",     icon: "🤝" },
+  { value: "4",   label: "Aktive Länder",            icon: "🌍" },
   
 ];
 

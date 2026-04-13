@@ -131,8 +131,8 @@ export default function RenditeModellPage() {
                 <p className="font-data text-2xl font-black text-green-400">≈ 55.500 €</p>
               </div>
               <div className="bg-green-600 rounded-2xl p-5">
-                <p className="text-green-200 text-[10px] mb-1">Effektive Rendite</p>
-                <p className="font-data text-2xl font-black text-white">~18 % p.a.</p>
+                <p className="text-green-200 text-[10px] mb-1">IRR p.a. (projiziert)</p>
+                <p className="font-data text-2xl font-black text-white">12–15 %</p>
               </div>
             </div>
           </div>

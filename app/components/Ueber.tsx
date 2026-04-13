@@ -38,7 +38,7 @@ export default function Ueber() {
         <div className="text-center mb-14">
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Über TinyInvest</span>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
-            Die Nr. 1 Plattform für Mobile Asset Investments
+            Deutschlands führender Marktplatz für §7g-Investments in mobile Assets
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
             TinyInvest verbindet Investoren mit §7g-optimierten, mobilen Sachwerten —
