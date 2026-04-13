@@ -110,12 +110,12 @@ export default function ChecklistePage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-checkliste" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-green-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-green-700 font-semibold">Checkliste</span>
           </div>
@@ -123,21 +123,36 @@ export default function ChecklistePage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House kaufen: Die vollständige Checkliste für Investoren
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Von der §7g-Steuervorbereitung bis zum ersten Cashflow — alle 20 Punkte, die
-            Investoren vor, während und nach dem Tiny House Kauf kennen müssen.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Von der §7g-Steuervorbereitung bis zum ersten Cashflow – alle 20 Punkte, die Investoren vor, während und nach dem Tiny House Kauf kennen müssen.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/DSC08974.webp" alt="Tiny House Kaufprozess – Investor-Checkliste" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
-            {["4 Phasen", "20 Checkpunkte", "§7g-Vorbereitung", "Cashflow-Start", "Bottom-of-Funnel"].map((tag) => (
+            {["4 Phasen", "20 Checkpunkte", "§7g-Vorbereitung", "Cashflow-Start", "4–8 Wochen"].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Wer schon einmal eine Eigentumswohnung gekauft hat, kennt das Prozedere: Monate vergehen mit Besichtigungen, Finanzierungsanfragen, Notarterminen und Grundbucheintragungen. Ein Tiny House als Investment funktioniert anders. Der Prozess ist schlanker, digitaler und deutlich schneller – von der ersten Anfrage bis zum ersten Cashflow vergehen typisch vier bis acht Wochen.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das bedeutet nicht, dass Sorgfalt keine Rolle spielt. Im Gegenteil: Die richtigen Schritte in der richtigen Reihenfolge machen den Unterschied zwischen einem steuerlich optimierten Investment und einer verpassten Gelegenheit. Besonders der §7g-Investitionsabzugsbetrag hat strikte Fristen – wer ihn verpasst, verliert den wertvollsten Steuereffekt des ersten Jahres.
+            </p>
+          </div>
+
+          <div className="space-y-8 mb-12">
             {checklistItems.map((phase) => (
               <div key={phase.phase} className={`rounded-2xl border-2 ${phase.color} p-7`}>
                 <div className="flex items-center gap-3 mb-5">
@@ -147,7 +162,7 @@ export default function ChecklistePage() {
                 <div className="space-y-3">
                   {phase.items.map((item) => (
                     <div key={item.check} className="flex items-start gap-3 bg-white/60 rounded-xl px-4 py-3">
-                      <div className={`w-5 h-5 rounded border-2 flex-shrink-0 mt-0.5 ${item.important ? "border-green-500 bg-green-50" : "border-gray-200"}`} />
+                      <div className={`w-5 h-5 rounded border-2 shrink-0 mt-0.5 ${item.important ? "border-green-500 bg-green-50" : "border-gray-200"}`} />
                       <p className={`text-[13px] leading-relaxed ${item.important ? "text-gray-900 font-semibold" : "text-gray-600"}`}>
                         {item.check}
                         {item.important && <span className="ml-2 text-[10px] text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded-full">Wichtig</span>}
@@ -159,7 +174,11 @@ export default function ChecklistePage() {
             ))}
           </div>
 
-          <div className="mt-10 bg-gray-900 rounded-2xl p-8 text-white">
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08893.webp" alt="Tiny House Innenraum modern" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               {[
                 { value: "4–8 Wo.", label: "Kauf bis erster Cashflow" },
@@ -174,17 +193,20 @@ export default function ChecklistePage() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/green.webp" alt="Tiny House im Grünen" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/rechner/rendite" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Rendite berechnen →</Link>
             <Link href="/wissen/tiny-house-finanzierung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Finanzierungs-Guide →</Link>
             <Link href="/wissen/steuerberater-finden" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Steuerberater finden →</Link>
-            <Link href="/wissen/tiny-house-genehmigung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Genehmigungs-Guide →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
-      <section id="faq" className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Tiny House kaufen</h2>
           <div className="space-y-4 mb-10">

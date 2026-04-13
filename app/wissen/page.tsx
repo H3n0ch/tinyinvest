@@ -209,7 +209,7 @@ export default function WissenPage() {
       <section className="py-16 bg-gray-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Investor-Guides</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {articles.map((art) => (
               <Link key={art.href} href={art.href} className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-44 overflow-hidden">

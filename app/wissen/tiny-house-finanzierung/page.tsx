@@ -58,20 +58,14 @@ export default function TinyHouseFinanzierungPage() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
+      <Script id="faq-schema-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <Script
-        id="faq-schema-finanzierung"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      {/* Hero */}
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-green-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-green-700 font-semibold">Finanzierung</span>
           </div>
@@ -79,103 +73,66 @@ export default function TinyHouseFinanzierungPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House finanzieren 2026: Kredit, Leasing oder Cash?
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Welche Finanzierungsform ist die klügste für ein Tiny House Investment? Warum §7g die
-            Rechnung komplett verändert – und warum Barzahlung in den meisten Fällen gewinnt.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Welche Finanzierungsform ist die klügste für ein Tiny House Investment? Warum §7g die Rechnung komplett verändert – und warum Barzahlung in den meisten Fällen gewinnt.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/ESCAPE2.webp" alt="Tiny House im Wald – Kapitalanlage mit §7g" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Kredit vs. Cash", "§7g Effekt", "Leasing", "Steuererstattung", "65.000 € Einstieg"].map((tag) => (
-              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">
-                {tag}
-              </span>
+              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TOC */}
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-3">Inhalt</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              { anchor: "#optionen", label: "1. Die 3 Finanzierungsoptionen" },
-              { anchor: "#steuereffekt", label: "2. Der §7g-Effekt" },
-              { anchor: "#vergleich", label: "3. Direktvergleich" },
-              { anchor: "#empfehlung", label: "4. Empfehlung" },
-              { anchor: "#faq", label: "5. FAQ" },
-            ].map((item) => (
-              <a key={item.anchor} href={item.anchor} className="text-[13px] text-green-700 hover:text-green-900 font-semibold transition-colors">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Wer ein Tiny House als Kapitalanlage kauft, steht vor einer ungewohnten Entscheidung: Eigenkapital oder Kredit? Die Antwort überrascht viele Investoren – und läuft gegen die klassische Immobilienlogik. Bei einem Haus, das 300.000 € oder mehr kostet, macht Fremdkapitalhebel oft Sinn. Bei einem Tiny House mit 65.000 € Einstiegspreis verändert §7g EStG die Rechnung fundamental.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Die Erklärung: Im Kaufjahr bekommst du durch Investitionsabzugsbetrag, Sonder-AfA und degressive AfA bis zu 40 % des Kaufpreises als Steuervorteil zurück – das entspricht einer sofortigen Nettorendite auf das eingesetzte Kapital, die jeden Kreditzins übertrifft. Wer mit 6 % Zinsen auf 80.000 € finanziert, zahlt 4.800 € Zinsen im ersten Jahr – bekommt aber mit §7g rund 33.600 € zurück. Cash schlägt Kredit deutlich.
+            </p>
+          </div>
 
-      {/* Section 1 */}
-      <section id="optionen" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Optionen</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">
-            Die 3 Finanzierungsoptionen im Überblick
-          </h2>
-
-          <div className="space-y-5">
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Die 3 Finanzierungsoptionen im Überblick</h2>
+          <div className="space-y-5 mb-12">
             {[
               {
                 icon: "💶",
                 title: "Option 1: Barzahlung (Cash)",
                 badge: "Empfohlen",
                 badgeColor: "bg-green-100 text-green-700",
-                pros: [
-                  "Kein Zinsaufwand (spart 5–8 % p.a.)",
-                  "Maximaler §7g-Steuereffekt im Kaufjahr",
-                  "Sofortiger Eigentumsübergang",
-                  "Keine Bank-Abhängigkeit",
-                ],
-                cons: [
-                  "Kapital gebunden (keine Hebelwirkung)",
-                  "Liquiditätsbedarf ab 65.000 €",
-                ],
+                pros: ["Kein Zinsaufwand (spart 5–8 % p.a.)", "Maximaler §7g-Steuereffekt im Kaufjahr", "Sofortiger Eigentumsübergang", "Keine Bank-Abhängigkeit"],
+                cons: ["Kapital gebunden (keine Hebelwirkung)", "Liquiditätsbedarf ab 65.000 €"],
               },
               {
                 icon: "🏦",
                 title: "Option 2: Kredit / Gewerbedarlehen",
                 badge: "Möglich",
                 badgeColor: "bg-amber-100 text-amber-700",
-                pros: [
-                  "Kapital für weitere Investments verfügbar",
-                  "Zinsen als Betriebsausgabe absetzbar",
-                  "Hebelwirkung auf Eigenkapitalrendite",
-                ],
-                cons: [
-                  "5–8 % Kreditzinsen reduzieren Nettorendite",
-                  "Kein klassisches Immobilien-Darlehen möglich",
-                  "Bonität und Sicherheiten erforderlich",
-                  "Komplexere Steueroptimierung",
-                ],
+                pros: ["Kapital für weitere Investments verfügbar", "Zinsen als Betriebsausgabe absetzbar", "Hebelwirkung auf Eigenkapitalrendite"],
+                cons: ["5–8 % Kreditzinsen reduzieren Nettorendite", "Kein klassisches Immobilien-Darlehen möglich", "Bonität und Sicherheiten erforderlich"],
               },
               {
                 icon: "📋",
                 title: "Option 3: Leasing",
                 badge: "Nicht empfohlen",
                 badgeColor: "bg-red-100 text-red-700",
-                pros: [
-                  "Niedrige monatliche Rate",
-                  "Leasingrate als Betriebsausgabe",
-                ],
-                cons: [
-                  "Kein Eigentumsübergang → kein IAB möglich",
-                  "Kein §7g-Effekt (Leasinggeber ist Eigentümer)",
-                  "Gesamtkosten meist höher als Kauf",
-                  "Keine Möglichkeit zur Sonder-AfA",
-                ],
+                pros: ["Niedrige monatliche Rate", "Leasingrate als Betriebsausgabe"],
+                cons: ["Kein Eigentumsübergang → kein IAB möglich", "Kein §7g-Effekt (Leasinggeber ist Eigentümer)", "Gesamtkosten meist höher als Kauf"],
               },
             ].map((opt) => (
               <div key={opt.title} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
                 <div className="flex items-start gap-4">
-                  <span className="text-3xl flex-shrink-0">{opt.icon}</span>
+                  <span className="text-3xl shrink-0">{opt.icon}</span>
                   <div className="flex-grow">
                     <div className="flex items-center gap-3 mb-3">
                       <h3 className="font-black text-gray-900 text-base">{opt.title}</h3>
@@ -187,7 +144,7 @@ export default function TinyHouseFinanzierungPage() {
                         <ul className="space-y-1">
                           {opt.pros.map((p) => (
                             <li key={p} className="flex gap-2 text-[13px] text-gray-600">
-                              <span className="text-green-500 flex-shrink-0">✓</span>{p}
+                              <span className="text-green-500 shrink-0">✓</span>{p}
                             </li>
                           ))}
                         </ul>
@@ -197,7 +154,7 @@ export default function TinyHouseFinanzierungPage() {
                         <ul className="space-y-1">
                           {opt.cons.map((c) => (
                             <li key={c} className="flex gap-2 text-[13px] text-gray-500">
-                              <span className="text-red-400 flex-shrink-0">✗</span>{c}
+                              <span className="text-red-400 shrink-0">✗</span>{c}
                             </li>
                           ))}
                         </ul>
@@ -208,19 +165,14 @@ export default function TinyHouseFinanzierungPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 2: Steuereffekt */}
-      <section id="steuereffekt" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Der entscheidende Faktor</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Warum §7g die Finanzierungsentscheidung dominiert
-          </h2>
-          <p className="text-gray-500 text-sm leading-relaxed mb-8">
-            Bei klassischen Immobilien macht Fremdkapital oft Sinn — wegen der Zinsen, der Inflation
-            und der langen AfA-Laufzeit. Bei Tiny Houses dreht §7g die Logik um.
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/DSC08969.webp" alt="Tiny House Standort Natur" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Warum §7g die Finanzierungsentscheidung dominiert</h2>
+          <p className="text-gray-700 text-base leading-relaxed mb-8">
+            Bei klassischen Immobilien macht Fremdkapital oft Sinn — wegen der Zinsen, der Inflation und der langen AfA-Laufzeit. Bei Tiny Houses dreht §7g die Logik um. Der Steuereffekt im Kaufjahr ist so groß, dass er jeden Zinsaufwand übertrifft.
           </p>
 
           <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
@@ -231,15 +183,13 @@ export default function TinyHouseFinanzierungPage() {
                 <div className="space-y-2 text-[13px]">
                   {[
                     { label: "Kaufpreis", value: "80.000 €" },
-                    { label: "Kredit (5 Jahre)", value: "80.000 €" },
-                    { label: "Zinslast gesamt", value: "– 12.800 €" },
+                    { label: "Zinslast gesamt (5 J.)", value: "– 12.800 €" },
                     { label: "§7g Steuereffekt", value: "+ 33.600 €" },
                     { label: "Mieteinnahmen (5 J.)", value: "+ 43.200 €" },
                     { label: "Netto-Ergebnis", value: "≈ + 64.000 €", bold: true },
                   ].map((r) => (
                     <div key={r.label} className={`flex justify-between border-b border-white/10 pb-1.5 ${r.bold ? "text-green-400 font-bold text-base" : "text-gray-300"}`}>
-                      <span>{r.label}</span>
-                      <span className="font-data">{r.value}</span>
+                      <span>{r.label}</span><span className="font-data">{r.value}</span>
                     </div>
                   ))}
                 </div>
@@ -255,8 +205,7 @@ export default function TinyHouseFinanzierungPage() {
                     { label: "Netto-Ergebnis", value: "≈ + 76.800 €", bold: true },
                   ].map((r) => (
                     <div key={r.label} className={`flex justify-between border-b border-white/10 pb-1.5 ${r.bold ? "text-green-400 font-bold text-base" : "text-gray-300"}`}>
-                      <span>{r.label}</span>
-                      <span className="font-data">{r.value}</span>
+                      <span>{r.label}</span><span className="font-data">{r.value}</span>
                     </div>
                   ))}
                 </div>
@@ -266,15 +215,13 @@ export default function TinyHouseFinanzierungPage() {
               <p className="text-green-300 font-bold text-[13px]">→ Cash-Vorteil: ~12.800 € mehr Netto-Ergebnis über 5 Jahre</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 3: Vergleich */}
-      <section id="vergleich" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Direktvergleich</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">Cash vs. Kredit vs. Leasing</h2>
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08930.webp" alt="Tiny House Innenraum" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Cash vs. Kredit vs. Leasing – Direktvergleich</h2>
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-10">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -290,9 +237,8 @@ export default function TinyHouseFinanzierungPage() {
                     ["§7g IAB nutzbar", "✅ Ja", "✅ Ja", "❌ Nein"],
                     ["Eigentumsübergang", "✅ Sofort", "✅ Sofort", "❌ Nein"],
                     ["Zinslast", "✅ 0 €", "⚠ 5–8 % p.a.", "⚠ 4–7 % p.a."],
-                    ["Kapitaleffizienz", "⚠ Hoch gebunden", "✅ Hebel möglich", "⚠ Mittel"],
                     ["Steueroptimierung", "✅ Maximum", "⚠ Reduziert", "❌ Minimal"],
-                    ["Empfohlen für", "✅ Die meisten Investoren", "⚠ Sehr hohe Liquidität", "❌ Nicht empfohlen"],
+                    ["Empfohlen für", "✅ Die meisten Investoren", "⚠ Nur mit hohem Alt-Kapital", "❌ Nicht empfohlen"],
                   ].map(([k, a, b, c]) => (
                     <tr key={k} className="hover:bg-gray-50/50">
                       <td className="p-4 font-medium text-gray-700">{k}</td>
@@ -305,90 +251,37 @@ export default function TinyHouseFinanzierungPage() {
               </table>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 4: Empfehlung */}
-      <section id="empfehlung" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Fazit</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">Empfehlung: Für welchen Typ welche Option?</h2>
-          <div className="space-y-4 mb-8">
-            {[
-              {
-                icon: "💶",
-                title: "Cash — die richtige Wahl für 80 % der Investoren",
-                desc: "Du hast 65.000–100.000 € freie Liquidität, einen Grenzsteuersatz von 35–45 % und willst das Investment einfach und steueroptimiert abwickeln. §7g macht Cash zum klaren Sieger.",
-              },
-              {
-                icon: "🏦",
-                title: "Kredit — sinnvoll nur in einem Fall",
-                desc: "Du hast zwar Liquidität, aber noch höhere Renditemöglichkeiten mit dem Kapital (z.B. laufendes Unternehmenskapital mit 15 %+ Rendite). Dann lohnt ein Kredit als Hebel. Achtung: Komplexere Steuerplanung nötig.",
-              },
-              {
-                icon: "📋",
-                title: "Leasing — fast nie sinnvoll für Investments",
-                desc: "Leasing macht Sinn für Betriebsmittel die man nutzen will, nicht für Investments. Da du als Leasingnehmer nicht Eigentümer wirst, entfallen IAB und Sonder-AfA vollständig.",
-              },
-            ].map((r) => (
-              <div key={r.title} className="bg-white border border-gray-100 rounded-2xl p-5 flex gap-4">
-                <span className="text-2xl flex-shrink-0">{r.icon}</span>
-                <div>
-                  <h3 className="font-black text-gray-900 text-[14px] mb-1">{r.title}</h3>
-                  <p className="text-gray-500 text-[13px] leading-relaxed">{r.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            <Link href="/rechner/iab" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              IAB-Rechner →
-            </Link>
-            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              §7g AfA-Guide →
-            </Link>
-            <Link href="/wissen/tiny-house-kaufen-checkliste" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Kauf-Checkliste →
-            </Link>
-            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              ← Zurück zum Wissens-Hub
-            </Link>
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+            <Link href="/rechner/iab" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">IAB-Rechner →</Link>
+            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA-Guide →</Link>
+            <Link href="/wissen/tiny-house-kaufen-checkliste" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kauf-Checkliste →</Link>
+            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
-      {/* FAQ */}
-      <section id="faq" className="py-20 bg-white border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Tiny House finanzieren</h2>
           <div className="space-y-4 mb-10">
             {faqItems.map((item, i) => (
-              <div key={i} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
                 <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
-
           <div className="bg-gray-900 rounded-2xl p-8 text-white text-center">
-            <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-3">Bereit zum nächsten Schritt?</p>
             <h3 className="text-xl font-black mb-3">Investor-Paket & persönliche Beratung</h3>
-            <p className="text-gray-400 text-sm mb-6 max-w-md mx-auto">
-              §7g-Analyse, Finanzierungsvergleich und unverbindliches Erstgespräch – kostenlos.
-            </p>
+            <p className="text-gray-400 text-sm mb-6 max-w-md mx-auto">§7g-Analyse, Finanzierungsvergleich und unverbindliches Erstgespräch – kostenlos.</p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
-                🔐 Unterlagen anfordern →
-              </ModalButton>
-              <Link href="/marktplatz" className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
-                Projekte ansehen →
-              </Link>
+              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">🔐 Unterlagen anfordern →</ModalButton>
+              <Link href="/marktplatz" className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">Projekte ansehen →</Link>
             </div>
           </div>
         </div>
       </section>
-
       <Footer />
     </main>
   );

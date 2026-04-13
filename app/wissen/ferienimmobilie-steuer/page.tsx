@@ -53,7 +53,7 @@ export default function FerienimmobilieSteuerPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-ferienimmobilie" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
             <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
@@ -66,11 +66,16 @@ export default function FerienimmobilieSteuerPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Ferienimmobilie als Kapitalanlage 2026: Steuern & Rendite
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Ferienimmobilien klingen attraktiv – hohe Nächtigungspreise, schöne Lage,
-            steuerliche Absetzbarkeit. Doch was bleibt netto? Und warum Tiny Houses das
-            steuerlich überlegene Modell sind.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Ferienimmobilien klingen attraktiv – hohe Nächtigungspreise, schöne Lage, steuerliche Absetzbarkeit. Doch was bleibt netto? Und warum Tiny Houses das steuerlich überlegene Modell sind.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/DSC08980.webp" alt="Ferienimmobilie vs Tiny House – Steuervergleich" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Ferienimmobilie", "§21 EStG", "AfA 2 %", "Spekulationsfrist", "vs. Tiny House"].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
@@ -79,10 +84,19 @@ export default function FerienimmobilieSteuerPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Ferienimmobilie: Die steuerliche Realität</h2>
-          <div className="space-y-4 mb-10">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ferienimmobilien klingen nach dem perfekten Investment: hohe Nächtigungspreise in touristischen Lagen, steuerliche Absetzbarkeit, ein Objekt das man selbst nutzen kann. Die Realität sieht für viele Investoren ernüchternder aus. Der Schlüsselpunkt: Der Steuervorteil einer klassischen Ferienimmobilie ist ein Bruchteil dessen, was ein bewegliches Wirtschaftsgut wie ein Tiny House bietet.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Die 2 %-Regelung der linearen AfA bedeutet: Wer ein Ferienhaus für 300.000 € kauft (Gebäudeanteil 200.000 €), darf 4.000 € pro Jahr abschreiben – über 50 Jahre. Ein Tiny House für 80.000 € schreibt im Kaufjahr durch IAB und Sonder-AfA bis zu 70 % ab. Das sind bis zu 56.000 € steuerlich anrechenbare Kosten in zwölf Monaten. Der Unterschied ist nicht marginal – er ist strukturell.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Ferienimmobilie: Die steuerliche Realität</h2>
+          <div className="space-y-4 mb-12">
             {[
               { icon: "🏗️", title: "AfA: 2 % über 50 Jahre", desc: "Bei einer 300.000 € Ferienimmobilie (Gebäudeanteil ~200.000 €) sind das 4.000 € AfA pro Jahr. Klingt viel, ist aber über 50 Jahre verteilt – kein Vergleich zu §7g mit 70 % Sofortabschreibung." },
               { icon: "💸", title: "Kaufnebenkosten: 10–15 %", desc: "Grunderwerbsteuer (3,5–6,5 %), Notar (~1,5 %), Makler (~3,5 %) – bei 300.000 € sind das 30.000–45.000 € Kaufnebenkosten, die nicht sofort absetzbar sind." },
@@ -90,13 +104,17 @@ export default function FerienimmobilieSteuerPage() {
               { icon: "📋", title: "Liebhaberei-Risiko", desc: "Das Finanzamt kann die Verlustverrechnung verweigern, wenn die Vermietungsquote zu niedrig ist. Selbstnutzung reduziert die abzugsfähigen Kosten anteilig." },
             ].map((item) => (
               <div key={item.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-5 flex gap-4">
-                <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                <span className="text-2xl shrink-0">{item.icon}</span>
                 <div>
                   <h3 className="font-black text-gray-900 text-[14px] mb-1">{item.title}</h3>
                   <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/ESCAPE3.webp" alt="Tiny House Ferienunterkunft" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Ferienimmobilie vs. Tiny House: Steuervergleich</h2>
@@ -136,7 +154,11 @@ export default function FerienimmobilieSteuerPage() {
             <p className="text-[12px] text-amber-800 leading-relaxed">Alle Steuerangaben sind allgemeiner Natur und keine Steuerberatung. Individuelle Steuereffekte hängen von der persönlichen Situation ab. Bitte konsultiere einen Steuerberater.</p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08922.webp" alt="Tiny House Wohnbereich modern" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/rechner/iab" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">IAB-Rechner →</Link>
             <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA-Guide →</Link>
             <Link href="/wissen/kapitalanlage" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kapitalanlage-Guide →</Link>
@@ -144,7 +166,7 @@ export default function FerienimmobilieSteuerPage() {
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

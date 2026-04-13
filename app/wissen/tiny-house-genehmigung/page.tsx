@@ -59,12 +59,12 @@ export default function GenehmigungPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-green-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-green-700 font-semibold">Genehmigung</span>
           </div>
@@ -72,11 +72,16 @@ export default function GenehmigungPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House Genehmigung 2026: Was du wirklich brauchst
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Baurecht, Stellplatz, Bebauungsplan – das Genehmigungsthema ist der häufigste
-            Stolperstein. Hier bekommst du klare Antworten, was bei einem Tiny House
-            Investment tatsächlich notwendig ist – und was nicht.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Baurecht, Stellplatz, Bebauungsplan – das Genehmigungsthema ist der häufigste Stolperstein. Hier bekommst du klare Antworten, was bei einem Tiny House Investment tatsächlich notwendig ist – und was nicht.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/DSC08835.webp" alt="Tiny House Standort – Genehmigung und Stellplatz" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Baurecht", "Stellplatz", "Kurzzeitvermietung", "Bebauungsplan", "Deutschland 2026"].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
@@ -85,31 +90,18 @@ export default function GenehmigungPage() {
         </div>
       </section>
 
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-3">Inhalt</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              { anchor: "#fahrzeug", label: "1. Fahrzeug vs. Gebäude" },
-              { anchor: "#stellplatz", label: "2. Stellplatz-Genehmigung" },
-              { anchor: "#nutzung", label: "3. Feriennutzung vs. Dauerwohnen" },
-              { anchor: "#tinyinvest", label: "4. Wie TinyInvest das löst" },
-              { anchor: "#faq", label: "5. FAQ" },
-            ].map((item) => (
-              <a key={item.anchor} href={item.anchor} className="text-[13px] text-green-700 hover:text-green-900 font-semibold transition-colors">{item.label}</a>
-            ))}
-          </nav>
-        </div>
-      </section>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Sobald das Wort "Tiny House" fällt, folgt fast immer die gleiche Frage: Braucht das eine Baugenehmigung? Die Antwort ist klarer als die meisten erwarten – und gleichzeitig differenzierter, als ein einfaches Ja oder Nein es wäre. Die entscheidende Frage ist nicht "Wie groß ist das Haus?" sondern: "Wie ist es rechtlich klassifiziert?"
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ein Tiny House auf einem zugelassenen Vlemmix Trailer ist kein Gebäude im Sinne der deutschen Landesbauordnungen. Es ist ein Fahrzeug. Das ändert alles: kein Grundstückskauf, keine Grunderwerbsteuer, keine klassische Baugenehmigung für das Haus selbst. Was genehmigt werden muss, ist der Stellplatz – und das ist deutlich einfacher als ein vollständiges Baugenehmigungsverfahren.
+            </p>
+          </div>
 
-      <section id="fahrzeug" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Grundlage</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">Fahrzeug oder Gebäude? Die entscheidende Frage</h2>
-          <p className="text-gray-500 text-sm leading-relaxed mb-8">
-            Die Antwort auf fast alle Genehmigungsfragen hängt davon ab, wie ein Tiny House
-            rechtlich klassifiziert wird. Und die Antwort ist eindeutiger als viele denken.
-          </p>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Fahrzeug oder Gebäude? Die entscheidende Frage</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
               <h3 className="font-black text-gray-900 mb-4 text-base">🏢 Wenn es ein Gebäude wäre…</h3>
@@ -117,7 +109,7 @@ export default function GenehmigungPage() {
                 <li className="flex gap-2"><span className="text-red-400">→</span>Baugenehmigung erforderlich</li>
                 <li className="flex gap-2"><span className="text-red-400">→</span>Eintragung ins Grundbuch</li>
                 <li className="flex gap-2"><span className="text-red-400">→</span>Grundstückskauf notwendig</li>
-                <li className="flex gap-2"><span className="text-red-400">→</span>Grunderwerbsteuer</li>
+                <li className="flex gap-2"><span className="text-red-400">→</span>Grunderwerbsteuer (3,5–6,5 %)</li>
                 <li className="flex gap-2"><span className="text-red-400">→</span>Landesbauordnung anwendbar</li>
               </ul>
             </div>
@@ -132,22 +124,20 @@ export default function GenehmigungPage() {
               </ul>
             </div>
           </div>
-          <div className="bg-green-700 rounded-2xl p-6 text-white">
+
+          <div className="bg-green-700 rounded-2xl p-6 text-white mb-12">
             <p className="font-black text-base mb-2">💡 Die rechtliche Realität 2026:</p>
             <p className="text-green-100 text-[13px] leading-relaxed">
-              Ein Tiny House auf einem <strong className="text-white">Vlemmix Trailer mit gültiger Straßenzulassung</strong> ist
-              kein Gebäude im Sinne der Landesbauordnungen. Es braucht keine Baugenehmigung für
-              das Haus selbst. Was genehmigt werden muss: der <strong className="text-white">Stellplatz und dessen Nutzung</strong>.
+              Ein Tiny House auf einem <strong className="text-white">Vlemmix Trailer mit gültiger Straßenzulassung</strong> ist kein Gebäude im Sinne der Landesbauordnungen. Was genehmigt werden muss: der <strong className="text-white">Stellplatz und dessen Nutzung</strong>.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section id="stellplatz" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Stellplatz</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">Was der Stellplatz braucht</h2>
-          <div className="space-y-4">
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/DSC08828.webp" alt="Tiny House Außenbereich Standort" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was der Stellplatz braucht</h2>
+          <div className="space-y-4 mb-12">
             {[
               {
                 step: "01",
@@ -161,12 +151,12 @@ export default function GenehmigungPage() {
               },
               {
                 step: "03",
-                title: "Ver- und Entsorgung",
+                title: "Ver- und Entsorgung sicherstellen",
                 desc: "Strom, Wasser und Abwasser müssen am Stellplatz vorhanden sein oder über Off-Grid-Systeme (Solar, Sammeltank) realisiert werden. Off-Grid-Setups vereinfachen die Genehmigung erheblich.",
               },
             ].map((s) => (
               <div key={s.step} className="bg-white border border-gray-100 rounded-2xl p-5 flex gap-5">
-                <div className="font-data text-2xl font-black text-green-700 flex-shrink-0">{s.step}</div>
+                <div className="font-data text-2xl font-black text-green-700 shrink-0">{s.step}</div>
                 <div>
                   <h3 className="font-black text-gray-900 text-[14px] mb-1">{s.title}</h3>
                   <p className="text-gray-500 text-[13px] leading-relaxed">{s.desc}</p>
@@ -174,14 +164,9 @@ export default function GenehmigungPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section id="nutzung" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Nutzungsarten</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">Feriennutzung vs. Dauerwohnen</h2>
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-6">
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Feriennutzung vs. Dauerwohnen</h2>
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -209,41 +194,41 @@ export default function GenehmigungPage() {
               </table>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="tinyinvest" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">So funktioniert es bei TinyInvest</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">Du kümmerst dich um nichts</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08915.webp" alt="Tiny House Innenausstattung" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">So löst TinyInvest das Genehmigungsthema</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
             {[
               { icon: "🔍", title: "Standort-Due-Diligence", desc: "Tiny Escapes prüft jeden Stellplatz vor Aufstellung auf Baurecht, Nutzungsart und Infrastruktur." },
               { icon: "📋", title: "Genehmigungsmanagement", desc: "Notwendige Anmeldungen und Gewerbezulassungen werden durch den Host bzw. tiny Escapes abgewickelt." },
               { icon: "🔄", title: "Standortwechsel möglich", desc: "Falls ein Standort rechtliche Probleme bekommt: Das Tiny House wird auf den Trailer gesetzt und zieht um." },
             ].map((c) => (
-              <div key={c.title} className="bg-white border border-gray-100 rounded-2xl p-5">
+              <div key={c.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-5">
                 <div className="text-2xl mb-3">{c.icon}</div>
                 <h3 className="font-black text-gray-900 text-[14px] mb-2">{c.title}</h3>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{c.desc}</p>
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-3">
+
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/hosts" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Für Hosts: Stellplatz anbieten →</Link>
-            <Link href="/wissen/tiny-house-standorte" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Beste Standorte ansehen →</Link>
+            <Link href="/wissen/tiny-house-standorte" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Beste Standorte →</Link>
             <Link href="/wissen/tiny-house-kaufen-checkliste" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kauf-Checkliste →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
-      <section id="faq" className="py-20 bg-white border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Tiny House Genehmigung</h2>
           <div className="space-y-4 mb-10">
             {faqItems.map((item, i) => (
-              <div key={i} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
                 <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
               </div>
