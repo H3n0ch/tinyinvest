@@ -7,9 +7,9 @@ import Link from "next/link";
 import { winWinModel } from "../components/data";
 
 export const metadata = {
-  title: "14 % IRR p.a. – Tiny House Renditemodell erklärt | TinyInvest",
-  description: "Wie aus 45.000 € Investment ein §7g-optimiertes Tiny House Asset mit 14 % IRR p.a. wird. NPV, Cashflow und Steuereffekt verständlich erklärt.",
-  keywords: "Tiny House Rendite, IRR Berechnung, passive Einnahmen Ferienhaus, §7g Rendite, Ferienhausrendite Deutschland",
+  title: "Tiny House Rendite 2026: 12–14 % IRR erklärt | TinyInvest",
+  description: "Wie funktioniert die Tiny House Rendite? 40 % Mietauszahlung + §7g Steuereffekt = 12–14 % IRR p.a. Rechner & 5-Jahres-Cashflow-Modell.",
+  keywords: "tiny house rendite, tiny house IRR, §7g rendite berechnen, passive einnahmen tiny house, ferienhausrendite 2026",
   alternates: {
     canonical: "https://tinyhouse.investments/renditemodell",
   },

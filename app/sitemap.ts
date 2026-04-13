@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: BASE_URL,
-      lastModified: "2026-03-28",
+      lastModified: "2026-04-13",
       changeFrequency: "weekly",
       priority: 1.0,
     },
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/steuervorteil`,
-      lastModified: "2026-03-01",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -84,13 +84,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/kapitalanlage`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/wissen/afa-abschreibung`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -120,13 +120,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/hosts`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/konfigurator`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-13",
       changeFrequency: "monthly",
       priority: 0.7,
     },

@@ -5,11 +5,11 @@ import Link from "next/link";
 import Script from "next/script";
 
 export const metadata = {
-  title: "§7g AfA & Sonder-Abschreibung Tiny House: Steuer-Guide 2026 | TinyInvest",
+  title: "Tiny House §7g IAB & AfA: So sparst du Steuern 2026 | TinyInvest",
   description:
-    "Wie funktioniert die Abschreibung (AfA) eines Tiny Houses? IAB, Sonder-AfA (40 %), degressive AfA (30 %) und lineare AfA erklärt. Mit Rechenbeispielen und §7g EStG Anleitung.",
+    "IAB (50 %), Sonder-AfA (40 %), degressive AfA (30 %) für Tiny Houses erklärt. Rechenbeispiele für 42 % Steuersatz. §7g EStG Guide 2026.",
   keywords:
-    "tiny house abschreibung, afa tiny house, §7g estg, sonder-afa tiny house, investitionsabzugsbetrag, tiny house steuer 2026",
+    "tiny house IAB abschreibung, §7g afa tiny house, sonder-afa tiny house 2026, investitionsabzugsbetrag berechnen, tiny house steuer sparen",
   alternates: {
     canonical: "https://tinyhouse.investments/wissen/afa-abschreibung",
   },

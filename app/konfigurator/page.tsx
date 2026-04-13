@@ -4,11 +4,19 @@ import Footer from "@/app/components/Footer";
 import KonfiguratorApp from "./KonfiguratorApp";
 
 export const metadata: Metadata = {
-  title: "Tiny House Konfigurator – Preisangebot erstellen | TinyInvest",
+  title: "Tiny House Konfigurator | Preis & Angebot 2026 | TinyInvest",
   description:
-    "Konfigurieren Sie Ihr Tiny House nach Ihren Wünschen – On-Grid oder Off-Grid, mit allen Optionen aus Sanitär, Küche, Möbel, Solar & Heizung. Laden Sie direkt ein professionelles PDF-Angebot herunter.",
+    "Konfiguriere dein Tiny House Investment. Comfort ab 65.000 €, Premium ab 80.000 €. On-Grid oder Off-Grid. Kostenlose Kalkulation & PDF-Angebot in 3 Minuten.",
+  keywords:
+    "tiny house konfigurator, tiny house preis berechnen, tiny house angebot, tiny house kaufen preis 2026",
   alternates: {
     canonical: "https://tinyhouse.investments/konfigurator",
+  },
+  openGraph: {
+    title: "Tiny House Konfigurator | Preis & Angebot 2026 | TinyInvest",
+    description:
+      "Comfort ab 65.000 €, Premium ab 80.000 €. Kostenlose Kalkulation & PDF in 3 Minuten.",
+    url: "https://tinyhouse.investments/konfigurator",
   },
 };
 

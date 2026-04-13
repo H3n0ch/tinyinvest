@@ -3,11 +3,11 @@ import Hosts from "../components/Hosts";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Für Hosts – Dein Grundstück, unser Tiny House | TinyInvest",
+  title: "Tiny House Stellplatz vermieten: Host werden | TinyInvest",
   description:
-    "Du hast ein Grundstück? Werde TinyInvest Host und verdiene bis zu 45 % der Mieteinnahmen – ohne eigenes Kapital. Kostenlose Standortprüfung.",
+    "Du hast einen Stellplatz? Werde TinyInvest Host und verdiene bis zu 45 % der Mieteinnahmen – ohne eigenes Kapital. Kostenlose Standortprüfung in 24h.",
   keywords:
-    "tiny house host werden, grundstück vermieten tiny house, tiny house betreiben, airbnb tiny house host, tiny escapes host",
+    "tiny house host werden, stellplatz vermieten tiny house, grundstück tiny house vermieten, tiny escapes host, airbnb tiny house host",
   alternates: {
     canonical: "https://tinyhouse.investments/hosts",
   },

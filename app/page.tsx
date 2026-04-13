@@ -13,8 +13,19 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
+  title: "Tiny House als Investment kaufen | TinyInvest",
+  description:
+    "Tiny House Investment ab 65.000 €. §7g-steueroptimiert, 12–14 % IRR p.a., vollautomatisch verwaltet. Jetzt Marktplatz ansehen.",
+  keywords:
+    "tiny house investment, tiny house kaufen kapitalanlage, §7g tiny house, tiny house rendite 2026, tiny house als kapitalanlage",
   alternates: {
     canonical: "https://tinyhouse.investments",
+  },
+  openGraph: {
+    title: "Tiny House als Investment kaufen | TinyInvest",
+    description:
+      "Tiny House Investment ab 65.000 €. §7g-steueroptimiert, 12–14 % IRR p.a., vollautomatisch verwaltet.",
+    url: "https://tinyhouse.investments",
   },
 };
 
