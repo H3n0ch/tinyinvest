@@ -53,7 +53,7 @@ export default function Testimonials() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "3+", label: "Aktive Assets (tiny Escapes)" },
+              { value: "33+", label: "Aktive Assets (tiny Escapes)" },
               { value: "2021", label: "Gegründet · 1,2 Mio. € Volumen" },
               { value: "12–14 %", label: "IRR p.a. (projiziert)" },
               { value: "100 %", label: "Eigentumsübertragung" },

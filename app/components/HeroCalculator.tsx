@@ -128,7 +128,7 @@ export default function HeroCalculator() {
         onClick={openModal}
         className="block w-full text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-2xl text-sm transition-all cursor-pointer"
       >
-        Persönliche Berechnung anfordern →
+        Investment-Details & Beispielrechnung anfordern →
       </button>
       <p className="text-center text-[10px] text-gray-400 mt-2.5">
         * Schätzung · Abhängig von Steuersituation · Steuerberater konsultieren
