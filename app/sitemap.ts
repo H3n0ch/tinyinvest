@@ -130,5 +130,59 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/rechner/iab`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/rechner/rendite`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-finanzierung`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-genehmigung`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/ferienimmobilie-steuer`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-airbnb`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-standorte`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/passive-einnahmen-immobilien`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-kaufen-checkliste`,
+      lastModified: "2026-04-13",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }

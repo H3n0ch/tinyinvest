@@ -96,16 +96,10 @@ export default function AfaAbschreibungPage() {
             im Kaufjahr von der Steuer absetzen kannst.
           </p>
 
-          {/* Photo strip */}
-          <div className="grid grid-cols-3 gap-2 rounded-2xl overflow-hidden mb-6 h-36">
+          {/* Photo */}
+          <div className="">
             <div className="overflow-hidden">
-              <img src="/images/outside/ESCAPE1.webp" alt="Tiny House Außenansicht" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/outside/ESCAPE2.webp" alt="Tiny House auf Vlemmix Trailer" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/outside/winter.webp" alt="Tiny House im Winter" className="w-full h-full object-cover" />
+              <img src="/images/articles\7g AfA & Sonder-Abschreibung Tiny House Steuer-Guide 2026.png" alt="Tiny House Außenansicht" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -424,6 +418,12 @@ export default function AfaAbschreibungPage() {
               className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
             >
               Tiny House als Kapitalanlage →
+            </Link>
+            <Link
+              href="/wissen/steuerberater-finden"
+              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
+            >
+              §7g Steuerberater finden →
             </Link>
             <Link
               href="/wissen"

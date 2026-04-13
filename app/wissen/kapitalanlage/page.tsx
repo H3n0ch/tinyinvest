@@ -459,6 +459,18 @@ export default function KapitalanlagePage() {
               Vollständiges Renditemodell →
             </Link>
             <Link
+              href="/wissen/passive-einnahmen-immobilien"
+              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
+            >
+              Passive Einnahmen im Vergleich →
+            </Link>
+            <Link
+              href="/wissen/ferienimmobilie-steuer"
+              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
+            >
+              Ferienimmobilien vs. Tiny House →
+            </Link>
+            <Link
               href="/wissen"
               className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
             >
