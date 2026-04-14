@@ -38,6 +38,19 @@ const faqItems = [
 ];
 
 export default function TinyHouseAirbnbPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House auf Airbnb vermieten: Wirklich profitabel? 2026",
+    "description": "Lohnt sich ein Tiny House auf Airbnb? Belegungsquoten, Preise, Steuereffekte – die echten Zahlen 2026.",
+    "url": "https://tinyhouse.investments/wissen/tiny-house-airbnb",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/inside/DSC08912.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -52,6 +65,7 @@ export default function TinyHouseAirbnbPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-airbnb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-airbnb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

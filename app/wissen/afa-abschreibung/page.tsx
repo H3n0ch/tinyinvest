@@ -25,6 +25,19 @@ const faqItems = [
 ];
 
 export default function AfaAbschreibungPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House §7g IAB & AfA: So sparst du Steuern 2026",
+    "description": "IAB (50 %), Sonder-AfA (40 %), degressive AfA (30 %) für Tiny Houses erklärt. Rechenbeispiele für 42 % Steuersatz. §7g EStG Guide 2026.",
+    "url": "https://tinyhouse.investments/wissen/afa-abschreibung",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/articles/7g%20AfA%20%26%20Sonder-Abschreibung%20Tiny%20House%20Steuer-Guide%202026.png" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -39,6 +52,7 @@ export default function AfaAbschreibungPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-afa" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-afa" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-10 bg-white">

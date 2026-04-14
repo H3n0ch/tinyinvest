@@ -83,6 +83,19 @@ const faqItems = [
 ];
 
 export default function PassiveEinnahmenPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Passive Einnahmen Immobilien: 5 Modelle im Vergleich 2026",
+    "description": "Welches Immobilien-Modell liefert wirklich passive Einnahmen? ETW, REITs, Ferienimmobilien, Crowdinvesting und Tiny House im direkten Vergleich 2026.",
+    "url": "https://tinyhouse.investments/wissen/passive-einnahmen-immobilien",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/fog.jpg" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -97,6 +110,7 @@ export default function PassiveEinnahmenPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-passive" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-passive" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-10 bg-white">

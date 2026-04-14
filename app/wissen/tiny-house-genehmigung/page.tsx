@@ -44,6 +44,19 @@ const faqItems = [
 ];
 
 export default function GenehmigungPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House Genehmigung 2026: Was du wirklich brauchst",
+    "description": "Braucht ein Tiny House eine Baugenehmigung? Alles über Stellplatz, Baurecht, Bebauungsplan und Dauerwohnen. Klare Antworten für Deutschland 2026.",
+    "url": "https://tinyhouse.investments/wissen/tiny-house-genehmigung",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/DSC08835.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -58,6 +71,7 @@ export default function GenehmigungPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

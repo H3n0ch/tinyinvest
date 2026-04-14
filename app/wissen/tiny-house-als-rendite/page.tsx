@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ModalButton from "../../components/ModalButton";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata = {
   title: "Tiny House als Renditeobjekt: Cashflow & Ertragsmodell 2026 | TinyInvest",
@@ -21,9 +22,23 @@ export const metadata = {
 };
 
 export default function TinyHouseAlsRenditePage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House als Renditeobjekt: Cashflow & Ertragsmodell 2026",
+    "description": "Wie funktioniert die Rendite eines Tiny Houses? Mieteinnahmen, Cashflow-Analyse, 40 % Investor-Anteil, Belegungsquote und vollständiges 5-Jahres-Modell erklärt.",
+    "url": "https://tinyhouse.investments/wissen/tiny-house-als-rendite",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/DSC08946.webp" },
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
+      <Script id="article-schema-rendite" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

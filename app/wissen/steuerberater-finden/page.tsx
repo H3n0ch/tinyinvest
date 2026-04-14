@@ -40,6 +40,19 @@ const faqItems = [
 ];
 
 export default function SteuerberaterFindenPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "§7g-Steuerberater finden: Tiny House Investment 2026",
+    "description": "Wie findest du einen Steuerberater, der IAB und Sonder-AfA bei Tiny Houses kennt? Checkliste, Fragen für das Erstgespräch und was du mitbringen musst.",
+    "url": "https://tinyhouse.investments/wissen/steuerberater-finden",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/inside/DSC08930.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -54,6 +67,7 @@ export default function SteuerberaterFindenPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-steuerberater" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-steuerberater" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

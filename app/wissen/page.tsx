@@ -178,9 +178,19 @@ const sortedGlossar = [...glossarItems].sort((a, b) => a.term.localeCompare(b.te
 const glossarLetters = [...new Set(sortedGlossar.map((item) => item.term.charAt(0).toUpperCase()))];
 
 export default function WissenPage() {
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Wissen & Glossar: Tiny House Investment erklärt",
+    "description": "Alles über Tiny House Investments: Kapitalanlage, §7g AfA, Abschreibung, IRR und mehr. Glossar mit 25+ Fachbegriffen für Investoren.",
+    "url": "https://tinyhouse.investments/wissen",
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
+      <Script id="collection-schema-wissen" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-12 bg-white border-b border-gray-100">

@@ -45,6 +45,19 @@ const faqItems = [
 ];
 
 export default function TinyHouseFinanzierungPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House finanzieren 2026: Kredit, Leasing oder Cash?",
+    "description": "Wie finanziert man ein Tiny House als Kapitalanlage? Kredit, Leasing oder Barzahlung – Vergleich mit Steuereffekt. §7g macht Cash zur klügsten Option.",
+    "url": "https://tinyhouse.investments/wissen/tiny-house-finanzierung",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/ESCAPE2.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -59,6 +72,7 @@ export default function TinyHouseFinanzierungPage() {
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="faq-schema-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="article-schema-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
