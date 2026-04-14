@@ -18,16 +18,17 @@ export const metadata = {
   },
 };
 
+const featured = {
+  href: "/wissen/kapitalanlage",
+  badge: "Flagship-Guide",
+  badgeColor: "bg-green-100 text-green-700",
+  title: "Tiny House als Kapitalanlage 2026",
+  desc: "Vergleich Tiny House vs. Eigentumswohnung, die 3 Renditesäulen, Risiken, steuerliche Vorteile und ein vollständiges 5-Jahres-Modell – der komplette Einstiegsguide für Investoren.",
+  tags: ["Rendite", "ETW-Vergleich", "Risiken", "Cashflow", "§7g"],
+  img: "/images/outside/ESCAPE3.webp",
+};
+
 const articles = [
-  {
-    href: "/wissen/kapitalanlage",
-    badge: "Flagship-Guide",
-    badgeColor: "bg-green-100 text-green-700",
-    title: "Tiny House als Kapitalanlage 2026",
-    desc: "Vergleich Tiny House vs. ETW, die 3 Renditesäulen, Risiken und ein vollständiges 5-Jahres-Modell.",
-    tags: ["Rendite", "Vergleich", "Risiken", "Cashflow"],
-    img: "/images/outside/ESCAPE3.webp",
-  },
   {
     href: "/wissen/afa-abschreibung",
     badge: "Steuer-Deep-Dive",
@@ -116,16 +117,16 @@ const articles = [
     title: "Beste Standorte in Deutschland",
     desc: "Bayern, Schwarzwald, Ostsee, Allgäu – Belegungsquoten und Rendite im Vergleich.",
     tags: ["Standort", "Belegung", "Regionen"],
-    img: "/images/outside/green.webp",
+    img: "/images/outside/Esy-sur-eur-SWEDEN-16.webp",
   },
   {
     href: "/wissen/passive-einnahmen-immobilien",
     badge: "Vergleich",
     badgeColor: "bg-blue-100 text-blue-700",
-    title: "Passive Einnahmen: 5 Modelle",
+    title: "Passive Einnahmen: 5 Modelle im Vergleich",
     desc: "ETW, REITs, Ferienimmobilien, Crowdinvesting und Tiny House im direkten Vergleich.",
     tags: ["Passiv", "REIT", "Crowdinvesting"],
-    img: "/images/outside/fog.jpg",
+    img: "/images/outside/ESCAPE2.webp",
   },
   {
     href: "/wissen/tiny-house-airbnb",
@@ -145,6 +146,8 @@ const glossarItems = [
   { term: "Cashflow", def: "Tatsächlicher Geldzufluss aus dem Investment. Bei TinyInvest: 40 % der Mieteinnahmen monatlich an den Investor." },
   { term: "Chassis", def: "Das Fahrgestell des Vlemmix Trailers, auf dem das Tiny House aufgebaut ist. Straßenzugelassen, mit eigener VIN/FIN." },
   { term: "Degressive AfA", def: "Abschreibungsmethode, bei der ein fester Prozentsatz (30 %) vom jeweiligen Restbuchwert abgeschrieben wird. Besonders hoch im ersten Jahr." },
+  { term: "Direktinvestment", def: "Investitionsform, bei der der Anleger das Wirtschaftsgut direkt ins Eigentum übernimmt – ohne Intermediär, ohne Fonds, ohne Darlehen. Bei TinyInvest erhältst du Kaufvertrag und Fahrzeugbrief auf deinen Namen." },
+  { term: "Drittverwendungsfähigkeit", def: "Eigenschaft eines mobilen Assets, an einem anderen Standort oder von einem anderen Betreiber eingesetzt werden zu können. Tiny Houses auf Vlemmix Trailern können legal abgekoppelt und neu positioniert werden." },
   { term: "FIN", def: "Fahrzeug-Identifikationsnummer. Individueller Code, der den Vlemmix Trailer als straßenzugelassenes Fahrzeug kennzeichnet und dem Tiny House seinen Status als bewegliches Wirtschaftsgut sichert." },
   { term: "Grauwasser-Recycling", def: "System zur Wiederverwendung von Waschwasser (aus Dusche, Waschbecken) z.B. für Toilettenspülung. Erhöht die Autarkie des Tiny Houses." },
   { term: "Host", def: "Betreiber vor Ort, der Reinigung, Check-in, Gästebetreuung und Instandhaltung des Tiny Houses übernimmt. Wird über tiny Escapes vermittelt und erhält bis zu 45 % der Einnahmen." },
@@ -154,21 +157,24 @@ const glossarItems = [
   { term: "NPV", def: "Net Present Value (Kapitalwert). Barwert aller zukünftigen Cashflows minus Investitionskosten. Positiver NPV = Investment lohnt sich." },
   { term: "Nutzungsdauer", def: "Steuerlich anerkannte Basis für die Abschreibung. Für bewegliche Wirtschaftsgüter (Tiny Houses): üblicherweise 8 Jahre laut AfA-Tabelle." },
   { term: "Punktfundament", def: "Punktförmige Bodenverankerung für Tiny Houses, die keine feste Verbindung mit dem Boden herstellt. Erhält den Status als bewegliches Wirtschaftsgut." },
+  { term: "Sachwert", def: "Physisches Wirtschaftsgut mit inhärentem Substanzwert – unabhängig von Marktsentiment. Im Gegensatz zu Aktien, Fonds oder Token besitzt ein Sachwert einen Mindestrealisierungswert (Wiederverkauf, Selbstnutzung)." },
   { term: "Sonder-AfA (§7g)", def: "Sonderabschreibung von 40 % des Kaufpreises im Anschaffungsjahr, zusätzlich zur regulären AfA. Gilt für kleine und mittlere Unternehmen für bewegliche Wirtschaftsgüter." },
   { term: "Stellplatzverordnung", def: "Landesrechtliche Vorschriften, die regeln, wo und unter welchen Bedingungen Tiny Houses auf Trailern aufgestellt werden dürfen." },
+  { term: "Substanzwert", def: "Der Wert eines Wirtschaftsguts, der auf seiner physischen Substanz basiert – unabhängig von Ertragserwartungen. Bei gebrauchten TinyInvest-Häusern: ca. 60–75 % des Neuwerts." },
   { term: "tiny Escapes", def: "Betreibergesellschaft, die TinyInvest-Assets bewirtschaftet. Übernimmt Marketing, Buchungsmanagement, Hosting und Abrechnung. Erhält bis zu 45 % der Einnahmen." },
   { term: "TinyInvest", def: "Plattform für §7g-optimierte Tiny House Investments in Deutschland und der EU. Strukturiert den Kauf, vermittelt Hosts und Standorte, betreut Investoren." },
-  { term: "Vlemmix Trailer", def: "Niederländischer Fahrzeuganhänger, auf dem TinyInvest-Häuser aufgebaut werden. Straßenzugelassen, CE-zertifiziert, mit eigener VIN/FIN. Ermöglicht die steuerliche Klassifizierung als bewegliches Wirtschaftsgut." },
+  { term: "Übereignung", def: "Rechtlicher Vorgang der Eigentumsübertragung eines beweglichen Wirtschaftsguts. Bei TinyInvest: Übergabe des Fahrzeugbriefs (Vlemmix Trailer) an den Investor als Nachweis des vollständigen Eigentumsübergangs." },
   { term: "VIN", def: "Vehicle Identification Number. Einzelne Seriennummer jedes Vlemmix Trailers. Fundamental für die steuerrechtliche Einordnung als bewegliches Wirtschaftsgut (statt Immobilie)." },
+  { term: "Vlemmix Trailer", def: "Niederländischer Fahrzeuganhänger, auf dem TinyInvest-Häuser aufgebaut werden. Straßenzugelassen, CE-zertifiziert, mit eigener VIN/FIN. Ermöglicht die steuerliche Klassifizierung als bewegliches Wirtschaftsgut." },
   { term: "Win-Win-Win", def: "Das TinyInvest-Prinzip: Investor (40 % Einnahmen), Host (bis 45 %), Plattform (15 %) – alle drei Parteien haben einen klaren finanziellen Anreiz." },
   { term: "§7g EStG", def: "Paragraph im Einkommensteuergesetz, der den Investitionsabzugsbetrag (IAB) und die Sonder-AfA für bewegliche Wirtschaftsgüter regelt. Kernstück des TinyInvest-Steuermodells." },
   { term: "§34 BauGB", def: "Regelung im Baugesetzbuch über die Zulässigkeit von Bauvorhaben im unbeplanten Innenbereich. Relevant für Stellplatzgenehmigungen von Tiny Houses." },
-  { term: "Direktinvestment", def: "Investitionsform, bei der der Anleger das Wirtschaftsgut direkt ins Eigentum übernimmt – ohne Intermediär, ohne Fonds, ohne Darlehen. Bei TinyInvest erhältst du Kaufvertrag und Fahrzeugbrief auf deinen Namen." },
-  { term: "Drittverwendungsfähigkeit", def: "Eigenschaft eines mobilen Assets, an einem anderen Standort oder von einem anderen Betreiber eingesetzt werden zu können. Tiny Houses auf Vlemmix Trailern können legal abgekoppelt und neu positioniert werden." },
-  { term: "Sachwert", def: "Physisches Wirtschaftsgut mit inhärentem Substanzwert – unabhängig von Marktsentiment. Im Gegensatz zu Aktien, Fonds oder Token besitzt ein Sachwert einen Mindestrealisierungswert (Wiederverkauf, Selbstnutzung)." },
-  { term: "Substanzwert", def: "Der Wert eines Wirtschaftsguts, der auf seiner physischen Substanz basiert – unabhängig von Ertragserwartungen. Bei gebrauchten TinyInvest-Häusern: ca. 60–75 % des Neuwerts." },
-  { term: "Übereignung", def: "Rechtlicher Vorgang der Eigentumsübertragung eines beweglichen Wirtschaftsguts. Bei TinyInvest: Übergabe des Fahrzeugbriefs (Vlemmix Trailer) an den Investor als Nachweis des vollständigen Eigentumsübergangs." },
 ];
+
+const sortedGlossar = [...glossarItems].sort((a, b) => a.term.localeCompare(b.term, "de"));
+
+// Unique first letters for jump navigation
+const glossarLetters = [...new Set(sortedGlossar.map((item) => item.term.charAt(0).toUpperCase()))];
 
 export default function WissenPage() {
   return (
@@ -187,35 +193,67 @@ export default function WissenPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight">
             Wissen & Glossar: Tiny House Investment erklärt
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
             Von §7g AfA bis Vlemmix Trailer: Alles, was du als Investor über Tiny Houses wissen musst –
             in verständlichen Guides und einem vollständigen Fachbegriffs-Glossar.
           </p>
-          <div>
-          </div>
         </div>
       </section>
 
-      {/* Article Cards */}
-      <section className="py-16 bg-gray-50 border-b border-gray-100">
+      {/* Featured Article */}
+      <section className="pt-12 pb-4 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Investor-Guides</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Einstieg empfohlen</p>
+          <Link
+            href={featured.href}
+            className="group flex flex-col md:flex-row bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-6"
+          >
+            <div className="md:w-2/5 h-52 md:h-auto overflow-hidden shrink-0">
+              <img
+                src={featured.img}
+                alt={`${featured.title} – TinyInvest Investor-Guide`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="eager"
+              />
+            </div>
+            <div className="p-7 flex flex-col justify-center">
+              <div className="flex items-center gap-2 mb-3">
+                <span className={`text-[10px] font-bold px-3 py-1 rounded-full ${featured.badgeColor}`}>{featured.badge}</span>
+              </div>
+              <h2 className="font-black text-gray-900 text-xl mb-3 group-hover:text-green-700 transition-colors leading-tight">{featured.title}</h2>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">{featured.desc}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {featured.tags.map((tag) => (
+                  <span key={tag} className="text-[10px] bg-gray-50 border border-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{tag}</span>
+                ))}
+              </div>
+              <span className="mt-4 text-green-700 font-semibold text-sm group-hover:underline">Guide lesen →</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Article Grid */}
+      <section className="py-8 pb-16 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Alle Guides</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {articles.map((art) => (
               <Link key={art.href} href={art.href} className="group bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="h-44 overflow-hidden">
                   <img
                     src={art.img}
-                    alt={art.title}
+                    alt={`${art.title} – Tiny House Investment Guide`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <span className={`text-[10px] font-bold px-3 py-1 rounded-full ${art.badgeColor}`}>{art.badge}</span>
                   </div>
-                  <h2 className="font-black text-gray-900 text-base mb-2 group-hover:text-green-700 transition-colors">{art.title}</h2>
-                  <p className="text-gray-500 text-[13px] leading-relaxed mb-4">{art.desc}</p>
+                  <h2 className="font-black text-gray-900 text-[15px] mb-2 group-hover:text-green-700 transition-colors leading-snug">{art.title}</h2>
+                  <p className="text-gray-500 text-[12px] leading-relaxed mb-3">{art.desc}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {art.tags.map((tag) => (
                       <span key={tag} className="text-[10px] bg-gray-50 border border-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{tag}</span>
@@ -231,7 +269,7 @@ export default function WissenPage() {
       {/* Glossar */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+          <div className="mb-8">
             <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Fachbegriffs-Glossar</span>
             <h2 className="text-2xl font-black text-gray-900 mt-2 mb-3 tracking-tight">
               A–Z: Alle Begriffe erklärt
@@ -242,26 +280,51 @@ export default function WissenPage() {
             </p>
           </div>
 
+          {/* A-Z quick jump */}
+          <div className="flex flex-wrap gap-1.5 mb-8">
+            {glossarLetters.map((letter) => (
+              <a
+                key={letter}
+                href={`#glossar-${letter.toLowerCase()}`}
+                className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-50 border border-gray-100 text-[12px] font-bold text-gray-600 hover:bg-green-700 hover:text-white hover:border-green-700 transition-colors"
+              >
+                {letter}
+              </a>
+            ))}
+          </div>
+
           <div className="space-y-3">
-            {glossarItems
-              .sort((a, b) => a.term.localeCompare(b.term, "de"))
-              .map((item) => (
-                <div
-                  key={item.term}
-                  id={item.term.toLowerCase().replace(/[^a-z0-9]/g, "-")}
-                  className="bg-gray-50 border border-gray-100 rounded-xl p-5 scroll-mt-24"
-                >
-                  <div className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-green-700 flex items-center justify-center text-[10px] font-black text-white mt-0.5">
-                      {item.term.charAt(0).toUpperCase()}
+            {sortedGlossar.map((item, idx) => {
+              const letter = item.term.charAt(0).toUpperCase();
+              const prevLetter = idx > 0 ? sortedGlossar[idx - 1].term.charAt(0).toUpperCase() : null;
+              const isNewLetter = letter !== prevLetter;
+              return (
+                <div key={item.term}>
+                  {isNewLetter && (
+                    <div
+                      id={`glossar-${letter.toLowerCase()}`}
+                      className="scroll-mt-28 text-[11px] font-black text-gray-400 uppercase tracking-widest pt-4 pb-1"
+                    >
+                      {letter}
                     </div>
-                    <div>
-                      <h3 className="font-black text-gray-900 text-[14px] mb-1">{item.term}</h3>
-                      <p className="text-gray-500 text-[13px] leading-relaxed">{item.def}</p>
+                  )}
+                  <div
+                    id={item.term.toLowerCase().replace(/[^a-z0-9]/g, "-")}
+                    className="bg-gray-50 border border-gray-100 rounded-xl p-5 scroll-mt-24"
+                  >
+                    <div className="flex gap-4 items-start">
+                      <div className="shrink-0 w-8 h-8 rounded-lg bg-green-700 flex items-center justify-center text-[10px] font-black text-white mt-0.5">
+                        {item.term.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <h3 className="font-black text-gray-900 text-[14px] mb-1">{item.term}</h3>
+                        <p className="text-gray-500 text-[13px] leading-relaxed">{item.def}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              );
+            })}
           </div>
         </div>
       </section>

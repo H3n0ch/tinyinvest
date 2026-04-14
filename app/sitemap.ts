@@ -72,8 +72,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen`,
-      lastModified: "2026-03-30",
-      changeFrequency: "monthly",
+      lastModified: "2026-04-14",
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {
@@ -96,25 +96,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/direktinvestment`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-14",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/wissen/tiny-house-als-rendite`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-14",
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/wissen/steuerberater-finden`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-14",
       changeFrequency: "monthly",
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/wissen/host-werden`,
-      lastModified: "2026-03-30",
+      lastModified: "2026-04-14",
       changeFrequency: "monthly",
       priority: 0.85,
     },
