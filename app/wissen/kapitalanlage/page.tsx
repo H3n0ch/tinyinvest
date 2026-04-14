@@ -45,7 +45,7 @@ const faqItems = [
   {
     question: "Was passiert, wenn das Tiny House nicht vermietet ist?",
     answer:
-      "Leerstands-Risiko ist ein echter Faktor. tiny Escapes bewirtschaftet die Objekte aktiv über Airbnb, Booking.com und eigene Kanäle und erreicht historisch 60–70 % Belegung. Im Worst Case (0 % Belegung) generiert das Haus trotzdem Steuervorteile durch AfA. Das Haus bleibt dein Eigentum und kann verkauft oder an einem neuen Standort betrieben werden.",
+      "Leerstands-Risiko ist ein echter Faktor. tiny Escapes bewirtschaftet die Objekte aktiv über Airbnb, Booking.com und eigene Kanäle und erreicht historisch 60–70 % Belegung. Sollte die Belegung dauerhaft unter 50 % fallen, wird tiny Escapes das Objekt an einem besser frequentierten Standort neu aufstellen – auf Kosten des Betreibers, nicht des Investors. Das Haus bleibt jederzeit dein Eigentum.",
   },
 ];
 
@@ -361,50 +361,7 @@ export default function KapitalanlagePage() {
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Risiken – vollständig und ehrlich</h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">Kein Investment ist risikofrei. Wir nennen die echten Risiken – damit du eine fundierte Entscheidung treffen kannst.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-            {[
-              {
-                icon: "📉",
-                title: "Leerstandsrisiko",
-                desc: "Belegungsquoten können schwanken. Wirtschaftliche Abschwünge, schlechte Bewertungen oder Standortprobleme können die Einnahmen senken. Diversifikation auf mehrere Standorte reduziert dieses Risiko.",
-              },
-              {
-                icon: "⚖️",
-                title: "Steuerrechtsänderungen",
-                desc: "§7g EStG und die Sonder-AfA können vom Gesetzgeber geändert werden. Die aktuelle Förderung gilt bis auf Weiteres – eine langfristige Garantie gibt es nicht.",
-              },
-              {
-                icon: "🔧",
-                title: "Instandhaltung & Verschleiß",
-                desc: "Tiny Houses sind wartungsärmer als Immobilien, aber nicht wartungsfrei. Dach, Technik und Außenhülle unterliegen normalem Verschleiß. Im Modell sind Rücklagen einkalkuliert.",
-              },
-              {
-                icon: "🚛",
-                title: "Partnerrisiko tiny Escapes",
-                desc: "Die Rendite hängt vom Betrieb durch tiny Escapes ab. Ein Ausfall oder Qualitätsprobleme des Betreibers würden das Einnahmenmodell direkt beeinflussen.",
-              },
-              {
-                icon: "📋",
-                title: "Genehmigungsrisiko",
-                desc: "Stellplätze für Tiny Houses unterliegen Baurecht und Stellplatzverordnungen. Standorte im EU-Ausland haben andere Regelungen als Deutschland.",
-              },
-              {
-                icon: "💱",
-                title: "Marktpreis-Risiko",
-                desc: "Der Wiederverkaufswert eines gebrauchten Tiny Houses ist schwerer einzuschätzen als bei Immobilien. Es gibt noch keinen etablierten Sekundärmarkt.",
-              },
-            ].map((risk) => (
-              <div key={risk.title} className="bg-white border border-gray-100 rounded-2xl p-5">
-                <div className="flex gap-3 mb-2">
-                  <span className="text-2xl shrink-0">{risk.icon}</span>
-                  <h3 className="font-black text-gray-900 text-[14px] mt-1">{risk.title}</h3>
-                </div>
-                <p className="text-gray-500 text-[13px] leading-relaxed">{risk.desc}</p>
-              </div>
-            ))}
-          </div>
+          
 
           <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Nachhaltigkeit als Werttreiber</h2>
           <div className="max-w-3xl mb-12">
