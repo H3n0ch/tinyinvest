@@ -125,8 +125,18 @@ export default function KapitalanlagePage() {
             <p className="text-gray-700 text-base leading-relaxed mb-5">
               Was macht eine gute Kapitalanlage im Jahr 2026 aus? Sicherheit durch Sachwert, eine Rendite die über Inflation liegt, und möglichst wenig operativen Aufwand für den Investor. Klassische Eigentumswohnungen erfüllen im deutschen Markt kaum noch eines dieser Kriterien: Kaufpreise von 300.000 bis 500.000 € in Ballungsräumen, Kaufnebenkosten von 10 bis 15 %, Mietrenditen von 3 bis 5 % brutto – und danach ein Jahrzehnt bis zum Break-even. Das war kein attraktives Modell. Es wird nicht attraktiver.
             </p>
-            <p className="text-gray-700 text-base leading-relaxed">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
               Ein Tiny House auf einem Vlemmix Trailer löst strukturell mehrere dieser Probleme gleichzeitig. Kein Grundstückskauf, keine Grunderwerbsteuer, kein Notar. Ein Einstiegspreis ab 65.000 €. Und ein steuerlicher Hebel durch §7g EStG, den klassische Immobilien nicht bieten können – weil sie als unbewegliche Wirtschaftsgüter nicht unter diese Norm fallen. Das Ergebnis ist ein kombinierter Effekt aus laufenden Mieteinnahmen und einem einmaligen Liquiditätsvorteil im Kaufjahr, der die effektive Anfangsinvestition erheblich reduziert.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              In Zeiten volatiler Finanzmärkte und steigender Immobilienpreise suchen Investoren verstärkt nach alternativen Sachwerten, die sowohl Sicherheit als auch eine attraktive Verzinsung bieten. Das Tiny House hat sich hierbei als eine der spannendsten Anlageklassen etabliert: Es verbindet die Beständigkeit von Immobilienbesitz mit der Flexibilität mobiler Wirtschaftsgüter und nutzt dabei gezielt die steigende Nachfrage nach nachhaltigen und naturnahen Urlaubsformen.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Wirtschaftliche Attraktivität durch geringe Einstiegshürden</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Im Gegensatz zum klassischen Immobilienmarkt, der hohe Eigenkapitalanteile und lange Finanzierungslaufzeiten erfordert, bietet das Tiny House einen deutlich zugänglicheren Einstieg. Die vergleichsweise geringen Anschaffungskosten ermöglichen es Investoren, ihr Portfolio zu diversifizieren oder sogar mehrere Einheiten an verschiedenen Standorten zu erwerben, um das Risiko zu streuen. Die hohe Nachfrage im Tourismussektor führt dazu, dass die erzielbaren Preise bei der Kurzzeitvermietung oft weit über denen traditioneller Mietwohnungen liegen – mit einem Bruchteil des gebundenen Kapitals.
             </p>
           </div>
 
@@ -169,6 +179,16 @@ export default function KapitalanlagePage() {
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img src="/images/outside/green.webp" alt="Tiny House in Naturlage – Kapitalanlage mit Belegung" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Steuerliche Vorteile und staatliche Förderung</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ein entscheidender Hebel für die Rentabilität liegt in den spezifischen steuerlichen Rahmenbedingungen des deutschen Steuerrechts. Da Tiny Houses auf Vlemmix Trailern als bewegliche Wirtschaftsgüter eingestuft werden, profitieren Investoren von deutlich kürzeren Abschreibungszeiträumen im Vergleich zu herkömmlichen Gebäuden – statt 50 Jahren sind es je nach Methode 5 bis 7 Jahre.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Besonders attraktiv ist der Investitionsabzugsbetrag (IAB). Dieser erlaubt es Unternehmern und Freiberuflern, bereits bis zu drei Jahre vor der eigentlichen Anschaffung einen erheblichen Teil der voraussichtlichen Investitionskosten steuerlich geltend zu machen und so die aktuelle Steuerlast massiv zu senken. In Kombination mit der Sonder-AfA (40 %) und der degressiven AfA (30 %) im Kaufjahr entsteht ein hocheffizientes Instrument zur Steueroptimierung und zum schnellen Liquiditätsaufbau – der Netto-Kapitaleinsatz reduziert sich im ersten Jahr erheblich.
+            </p>
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Die 3 Säulen der Tiny House Rendite</h2>
@@ -316,6 +336,13 @@ export default function KapitalanlagePage() {
             <img src="/images/inside/DSC08922.webp" alt="Tiny House Wohnbereich – Kapitalanlage Innenausstattung" className="w-full h-full object-cover" />
           </div>
 
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Flexibilität und Risikominimierung</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ein wesentlicher Vorteil gegenüber der stationären Immobilie ist die Mobilität. Sollte sich ein Standort langfristig als weniger rentabel erweisen oder sich die rechtlichen Rahmenbedingungen vor Ort ändern, kann das Investitionsobjekt mit vergleichsweise geringem Aufwand an einen neuen, attraktiveren Standort versetzt werden. Dieses Exit-Szenario minimiert das Standortrisiko, das bei klassischen Immobilien oft die größte Unwägbarkeit darstellt. Zudem fungiert das Tiny House als Sachwert-Anker, der weitgehend entkoppelt von den Schwankungen der Aktienmärkte agiert – und im Gegensatz zu einem Crowdinvesting-Darlehen ein physisches Gut bleibt, das jederzeit herausverlangt, verkauft oder neu betrieben werden kann.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Risiken – vollständig und ehrlich</h2>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">Kein Investment ist risikofrei. Wir nennen die echten Risiken – damit du eine fundierte Entscheidung treffen kannst.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
@@ -361,6 +388,13 @@ export default function KapitalanlagePage() {
             ))}
           </div>
 
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Nachhaltigkeit als Werttreiber</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Der Markt für Eco-Tourism und minimalistisches Wohnen wächst stetig. Investoren, die heute in hochwertige, ökologisch gebaute Tiny Houses investieren, bedienen einen langfristigen gesellschaftlichen Trend. Hochwertige Materialien und eine energieeffiziente Bauweise sorgen nicht nur für eine lange Lebensdauer des Objekts, sondern auch für eine stabile Wertentwicklung. Das Tiny House ist somit nicht nur eine Antwort auf den Wunsch nach Rendite, sondern auch ein Investment in eine zukunftsorientierte Form des Eigentums – eines, das zu der Reisewelt passt, die Gäste heute nachfragen.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Lohnt sich ein Tiny House als Kapitalanlage 2026?</h2>
           <div className="max-w-3xl space-y-4 mb-10">
             <p className="text-gray-700 text-base leading-relaxed">
@@ -369,8 +403,11 @@ export default function KapitalanlagePage() {
             <p className="text-gray-700 text-base leading-relaxed">
               Der kombinierte Effekt aus 40 % Mietauszahlung, hoher AfA-Abschreibung und niedrigem Einstiegspreis macht das Modell gegenüber klassischen Ferienimmobilien strukturell überlegen – wenn der Betreiber tiny Escapes zuverlässig hohe Belegungsquoten liefert.
             </p>
-            <p className="text-gray-700 text-base leading-relaxed">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
               <strong className="text-gray-900">Nicht geeignet für:</strong> Anleger die maximale Sicherheit suchen, keine steuerliche Optimierungsmöglichkeit haben oder das Kapital kurzfristig benötigen.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das Tiny House als Kapitalanlage überzeugt durch die Kombination aus hoher Cashflow-Rendite, außergewöhnlichen steuerlichen Gestaltungsmöglichkeiten und einer Flexibilität, die im Immobiliensektor ihresgleichen sucht. Wer die rechtlichen Voraussetzungen und die Standortwahl professionell angeht, findet hier ein modernes Anlageprodukt, das perfekt in die heutige Zeit der Mobilität und Nachhaltigkeit passt.
             </p>
           </div>
 
