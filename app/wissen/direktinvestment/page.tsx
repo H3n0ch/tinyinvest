@@ -50,6 +50,19 @@ const faqItems = [
 ];
 
 export default function DirektinvestmentPage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House als Direktinvestment: Sachwert statt Finanzprodukt",
+    "description": "Du kaufst ein physisches Tiny House – kein Fondsanteil, kein Token, kein abstraktes Finanzprodukt. Wie Direktinvestment in bewegliche Wirtschaftsgüter funktioniert.",
+    "url": "https://tinyhouse.investments/wissen/direktinvestment",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/ESCAPE1.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

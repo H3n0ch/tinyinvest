@@ -66,6 +66,19 @@ const vergleichRows = [
 ];
 
 export default function KapitalanlagePage() {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tiny House als Kapitalanlage: Rendite, Risiken & Chancen 2026",
+    "description": "Lohnt sich ein Tiny House als Kapitalanlage? Vergleich Tiny House vs. Eigentumswohnung, 3 Renditesäulen, Risiken und Chancen. Kompletter Guide für Investoren 2026.",
+    "url": "https://tinyhouse.investments/wissen/kapitalanlage",
+    "datePublished": "2026-04-14",
+    "dateModified": "2026-04-14",
+    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/winter.webp" },
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

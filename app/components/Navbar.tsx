@@ -11,24 +11,24 @@ const NAV_GROUPS = [
   {
     label: "Investieren",
     items: [
-      { label: "⚙️ So funktioniert's", href: "/so-funktioniert-es", desc: "Der vollständige Investor-Prozess" },
-      { label: "🏗️ Konfigurator", href: "/konfigurator", desc: "Haus konfigurieren & Angebot erhalten" },
-      { label: "🏡 Für Hosts", href: "/hosts", desc: "Stellplatz vermieten & Einnahmen erzielen" },
+      { label: "So funktioniert's", href: "/so-funktioniert-es", desc: "Der vollständige Investor-Prozess" },
+      { label: "Konfigurator", href: "/konfigurator", desc: "Haus konfigurieren & Angebot erhalten" },
+      { label: "Für Hosts", href: "/hosts", desc: "Stellplatz vermieten & Einnahmen erzielen" },
     ],
   },
   {
     label: "Steuern & Rendite",
     items: [
-      { label: "💰 §7g Steuervorteile", href: "/steuervorteil", desc: "IAB, Sonder-AfA und degressive AfA" },
-      { label: "📈 Renditemodell", href: "/renditemodell", desc: "12–14 % IRR p.a. transparent erklärt" },
+      { label: "§7g Steuervorteile", href: "/steuervorteil", desc: "IAB, Sonder-AfA und degressive AfA" },
+      { label: "Renditemodell", href: "/renditemodell", desc: "12–14 % IRR p.a. transparent erklärt" },
     ],
   },
   {
     label: "Wissen",
     items: [
-      { label: "📚 Wissens-Hub", href: "/wissen", desc: "Alle Guides, Glossar & Artikel" },
-      { label: "🏠 Tiny House als Kapitalanlage", href: "/tiny-house-als-kapitalanlage", desc: "Der komplette SEO-Guide 2026" },
-      { label: "🤝 Partner werden", href: "/partner", desc: "Als Vertriebspartner provisionieren" },
+      { label: "Wissens-Hub", href: "/wissen", desc: "Alle Guides, Glossar & Artikel" },
+      { label: "Tiny House als Kapitalanlage", href: "/tiny-house-als-kapitalanlage", desc: "Der komplette SEO-Guide 2026" },
+      { label: "Partner werden", href: "/partner", desc: "Als Vertriebspartner provisionieren" },
     ],
   },
 ];
@@ -237,7 +237,7 @@ export default function Navbar({ variant = "hero" }: { variant?: "hero" | "sub" 
               isIce ? "text-green-300 hover:text-green-200" : "text-green-700 hover:text-green-800"
             }`}
           >
-            🛒 Marktplatz
+            Marktplatz
           </Link>
 
           <div className={`h-px my-1 ${isIce ? "bg-white/10" : "bg-gray-100"}`} />

@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata = {
   title: "Wissen & Glossar: Tiny House Investment erklärt | TinyInvest",
