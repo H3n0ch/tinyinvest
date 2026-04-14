@@ -191,16 +191,7 @@ export default function WissenPage() {
             Von §7g AfA bis Vlemmix Trailer: Alles, was du als Investor über Tiny Houses wissen musst –
             in verständlichen Guides und einem vollständigen Fachbegriffs-Glossar.
           </p>
-          <div className="grid grid-cols-3 gap-2 rounded-2xl overflow-hidden h-40">
-            <div className="overflow-hidden">
-              <img src="/images/outside/fog.jpg" alt="Tiny House im Nebel" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/inside/DSC08893.webp" alt="Tiny House Innenausbau" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/outside/green.webp" alt="Tiny House in der Natur" className="w-full h-full object-cover" />
-            </div>
+          <div>
           </div>
         </div>
       </section>
