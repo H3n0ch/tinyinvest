@@ -32,7 +32,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link href="/partner" className="text-green-400 hover:text-green-300 text-sm transition-colors font-semibold">
-                  🤝 Vertriebspartner werden
+                  Vertriebspartner werden
                 </Link>
               </li>
             </ul>
@@ -41,25 +41,25 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Investment</h4>
             <ul className="space-y-2">
-              <li><Link href="/marktplatz" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏠 Marktplatz</Link></li>
-              <li><Link href="/konfigurator" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🏗️ Konfigurator</Link></li>
-              <li><Link href="/renditemodell" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Renditemodell</Link></li>
-              <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">💰 §7g Steuervorteil</Link></li>
-              <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">⚙️ So funktioniert es</Link></li>
-              <li><Link href="/galerie" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📸 Galerie</Link></li>
+              <li><Link href="/marktplatz" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Marktplatz</Link></li>
+              <li><Link href="/konfigurator" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Konfigurator</Link></li>
+              <li><Link href="/renditemodell" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Renditemodell</Link></li>
+              <li><Link href="/steuervorteil" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g Steuervorteil</Link></li>
+              <li><Link href="/so-funktioniert-es" className="text-gray-400 hover:text-green-400 text-sm transition-colors">So funktioniert es</Link></li>
+              <li><Link href="/galerie" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Galerie</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Wissen & Hosts</h4>
             <ul className="space-y-2">
-              <li><Link href="/wissen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📚 Wissens-Hub & Glossar</Link></li>
-              <li><Link href="/wissen/kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📖 Kapitalanlage-Guide</Link></li>
-              <li><Link href="/wissen/afa-abschreibung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🧾 §7g AfA erklärt</Link></li>
-              <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📈 Rendite & Cashflow</Link></li>
-              <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">🔍 Steuerberater finden</Link></li>
-              <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">🏡 Für Hosts</Link></li>
-              <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">📋 Host werden Guide</Link></li>
+              <li><Link href="/wissen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Wissens-Hub & Glossar</Link></li>
+              <li><Link href="/wissen/kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Kapitalanlage-Guide</Link></li>
+              <li><Link href="/wissen/afa-abschreibung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g AfA erklärt</Link></li>
+              <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Rendite & Cashflow</Link></li>
+              <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuerberater finden</Link></li>
+              <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Für Hosts</Link></li>
+              <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Host werden Guide</Link></li>
             </ul>
           </div>
 
@@ -85,15 +85,12 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Kontakt</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li className="flex items-center gap-2">
-                <span>📧</span>
                 <a href="mailto:info@tinyhouse.investments" className="hover:text-green-400 transition-colors">info@tinyhouse.investments</a>
               </li>
               <li className="flex items-center gap-2">
-                <span>📞</span>
                 <a href="tel:+4969432187000" className="hover:text-green-400 transition-colors">+49 69 4321 8700</a>
               </li>
-              <li className="flex items-start gap-2">
-                <span>📍</span>
+              <li>
                 <span>Friedrichstraße 14, 60323 Frankfurt am Main</span>
               </li>
             </ul>
@@ -110,7 +107,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="text-gray-600 text-xs text-center sm:text-left">
-            ⚠️ Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtigen Sie unsere Risikohinweise.
+            Investitionen in Wirtschaftsgüter sind mit Risiken verbunden. Steuerliche Vorteile hängen von den individuellen Voraussetzungen ab. Bitte berücksichtigen Sie unsere Risikohinweise.
           </p>
         </div>
       </div>
