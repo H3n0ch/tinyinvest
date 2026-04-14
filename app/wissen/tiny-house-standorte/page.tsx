@@ -62,7 +62,7 @@ export default function TinyHouseStandortePage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-standorte" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
             <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
@@ -75,11 +75,16 @@ export default function TinyHouseStandortePage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Beste Tiny House Standorte Deutschland 2026
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Welche Region in Deutschland liefert die höchste Belegungsquote und damit die
-            beste Rendite? Ein Vergleich der 6 stärksten Tourismus-Regionen für Tiny House
-            Investments.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Welche Region in Deutschland liefert die höchste Belegungsquote und damit die beste Rendite? Ein Vergleich der 6 stärksten Tourismus-Regionen für Tiny House Investments.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/Esy-sur-eur-SWEDEN-16.webp" alt="Tiny House Standort Skandinavien – Naturlage" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Bayern", "Schwarzwald", "Ostsee", "Allgäu", "Ganzjahres-Standorte"].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
@@ -88,10 +93,19 @@ export default function TinyHouseStandortePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Top 6 Regionen im Vergleich</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              In einem touristischen Markt, in dem gefühlt jeder ein Tiny House betreiben will, entscheidet am Ende eine einzige Variable: der Standort. Nicht das Design, nicht die Ausstattung, nicht der Preis – die Lage bestimmt zu 60 bis 70 Prozent, ob ein Asset profitabel ist oder nicht. Die gute Nachricht: Wer in das richtige Netzwerk investiert, bekommt den Standort mitgeliefert.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das tiny Escapes Netzwerk betreibt Häuser an geprüften Standorten in Deutschland, Österreich und weiteren europäischen Ländern. Die Lageauswahl folgt einem klaren Kriterienkatalog: ganzjährige Nachfrage, Erreichbarkeit aus Ballungsräumen, natürliche Alleinlage, Infrastruktur. Für Investoren bedeutet das: kein Standort-Risiko durch eigene Fehlentscheidung.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Top 6 Regionen im Vergleich</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
             {standorte.map((s) => (
               <div key={s.region} className="bg-white border border-gray-100 rounded-2xl p-5 hover:border-green-200 transition-colors">
                 <div className="flex items-center gap-3 mb-4">
@@ -115,8 +129,12 @@ export default function TinyHouseStandortePage() {
             ))}
           </div>
 
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
-            <h3 className="font-black text-lg mb-4">Was macht einen Standort wirklich profitabel?</h3>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/winter.webp" alt="Tiny House im Winter – Ganzjahresbetrieb" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was einen Standort wirklich profitabel macht</h2>
+          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { icon: "📅", title: "Ganzjährige Nachfrage", desc: "Saisonunabhängige Standorte erzielen gleichmäßigen Cashflow über 12 Monate." },
@@ -125,7 +143,7 @@ export default function TinyHouseStandortePage() {
                 { icon: "🌐", title: "Professionelles Listing", desc: "Dynamisches Pricing und Mehrkanal-Buchung (Airbnb, Booking, Eigenwebsite) maximieren Belegung." },
               ].map((c) => (
                 <div key={c.title} className="flex gap-3">
-                  <span className="text-xl flex-shrink-0">{c.icon}</span>
+                  <span className="text-xl shrink-0">{c.icon}</span>
                   <div>
                     <p className="font-bold text-[13px] text-white mb-0.5">{c.title}</p>
                     <p className="text-[12px] text-gray-400 leading-relaxed">{c.desc}</p>
@@ -135,14 +153,18 @@ export default function TinyHouseStandortePage() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08900.webp" alt="Tiny House Innenausstattung Schlafbereich" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/marktplatz" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Aktuelle Standorte im Marktplatz →</Link>
             <Link href="/rechner/rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Rendite berechnen →</Link>
             <Link href="/wissen/tiny-house-genehmigung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Genehmigungs-Guide →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,7 +179,7 @@ export default function TinyHouseStandortePage() {
           </div>
           <div className="bg-gray-900 rounded-2xl p-8 text-white text-center">
             <h3 className="text-xl font-black mb-3">Aktuell verfügbare Standorte anfragen</h3>
-            <p className="text-gray-400 text-sm mb-6 max-w-md mx-auto">Welche Standorte sind gerade verfügbar? Investor-Paket mit Standort-Karte anfordern.</p>
+            <p className="text-gray-400 text-sm mb-6 max-w-md mx-auto">Investor-Paket mit Standort-Karte anfordern.</p>
             <div className="flex flex-wrap gap-3 justify-center">
               <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">🔐 Standortübersicht anfordern →</ModalButton>
               <Link href="/marktplatz" className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">Projekte ansehen →</Link>

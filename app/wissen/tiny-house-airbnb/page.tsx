@@ -53,7 +53,7 @@ export default function TinyHouseAirbnbPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-airbnb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
             <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
@@ -66,11 +66,16 @@ export default function TinyHouseAirbnbPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House auf Airbnb vermieten: Wirklich profitabel?
           </h1>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Die ehrliche Antwort auf die meistgestellte Frage: Wie viel verdient man wirklich mit
-            einem Tiny House auf Airbnb? Und warum ein professioneller Betreiber meist mehr Rendite
-            bringt als Selbstvermietung.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Die ehrliche Antwort auf die meistgestellte Frage: Wie viel verdient man wirklich mit einem Tiny House auf Airbnb? Und warum ein professioneller Betreiber meist mehr Rendite bringt als Selbstvermietung.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/inside/DSC08912.webp" alt="Tiny House Innenraum – Airbnb Vermietung" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Airbnb", "Kurzzeitvermietung", "Belegungsquote", "Betreibermodell", "Echte Zahlen"].map((tag) => (
               <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
@@ -79,13 +84,29 @@ export default function TinyHouseAirbnbPage() {
         </div>
       </section>
 
-      {/* Zahlen-Section */}
-      <section className="py-20 bg-white">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Echte Zahlen</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">Was ein Tiny House auf Airbnb wirklich einbringt</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Wer einen Urlaub auf Airbnb bucht, stößt immer häufiger auf Tiny Houses. Das Konzept funktioniert für Gäste: ungewöhnliche Architektur, Naturnähe, ein Erlebnis statt eines Hotelzimmers. Für Investoren stellt sich die Frage nüchterner: Wie viel bleibt am Ende des Monats wirklich übrig – nach Airbnb-Gebühren, Reinigung, Betreiberkosten und Steuern?
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die Antwort hängt weniger von der Plattform ab als vom Betriebsmodell. Wer selbst auf Airbnb vermietet, behält 70 bis 80 Prozent der Einnahmen – trägt aber auch selbst Zeitaufwand, Preisoptimierung, Gästebetreuung und das Leerstandsrisiko. Das tiny Escapes Betreibermodell gibt dem Investor nur 40 Prozent – holt durch professionelles Management aber in der Regel deutlich höhere Belegungsquoten heraus.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              In den letzten Jahren hat sich der Trend zum Tiny House von einer rein minimalistischen Lebensphilosophie zu einer der lukrativsten Nischen auf dem Ferienimmobilienmarkt entwickelt. Wer heute nach einer rentablen Investition sucht, die gleichzeitig nachhaltig und modern ist, kommt an diesem Konzept kaum noch vorbei. Doch was macht das Tiny House auf Airbnb so erfolgreich – und worauf müssen Investoren wirklich achten?
+            </p>
+          </div>
 
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Die Magie des Besonderen</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Der Erfolg von Tiny Houses auf Plattformen wie Airbnb liegt vor allem in dem begründet, was Reisende heute suchen: das Erlebnis. In einer Welt, in der Standardhotels oft austauschbar wirken, bietet ein Tiny House eine einzigartige Atmosphäre. Es geht nicht nur um ein Bett zum Schlafen, sondern um das Gefühl von Geborgenheit auf kleinem Raum, Architektur zum Anfassen und meist eine unmittelbare Nähe zur Natur. Diese Einzigartigkeit sorgt dafür, dass Tiny Houses oft deutlich höhere Auslastungsraten erzielen als klassische Ferienwohnungen in derselben Region. Gäste berichten, dass sie nicht das Haus buchen – sondern die Geschichte, die dahintersteckt.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was ein Tiny House auf Airbnb wirklich einbringt</h2>
+          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
             <p className="text-[11px] text-gray-400 uppercase tracking-widest mb-4">Szenario: 65.000 € Comfort · Waldlage · 100 €/Nacht</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               {[
@@ -103,7 +124,21 @@ export default function TinyHouseAirbnbPage() {
             <p className="text-[11px] text-gray-500">* Investor erhält 40 % der Netto-Einnahmen · Airbnb-Gebühren und Betriebskosten bereits abgezogen</p>
           </div>
 
-          <h2 className="text-xl font-black text-gray-900 mb-6 tracking-tight">Selbstvermietung vs. Betreibermodell</h2>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/ESCAPE1.webp" alt="Tiny House im Freien – Ferienvermietung" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Wirtschaftliche Vorteile und Renditechancen</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Aus Investorensicht ist das Tiny House ein hocheffizientes Wirtschaftsgut. Im Vergleich zum Bau oder Kauf eines massiven Ferienhauses sind die Einstiegskosten – selbst im High-End-Bereich – vergleichsweise gering. Da die Quadratmeterzahl begrenzt ist, fallen auch die laufenden Kosten für Reinigung, Instandhaltung und Energie deutlich moderater aus. Wer ein Tiny House auf einem Vlemmix Trailer kauft, zahlt keine Grunderwerbsteuer, keinen Notar und keine Maklerkosten. Das Kapital fließt direkt in das Asset.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ein entscheidender Faktor für die Rendite ist die Preisgestaltung. Gäste sind oft bereit, für die Einzigartigkeit eines Tiny Houses denselben Preis zu zahlen, den sie für eine doppelt so große Wohnung ausgeben würden. Dies führt zu einer schnelleren Amortisation des eingesetzten Kapitals. Zudem ermöglicht ein Tiny House on Wheels eine Standortflexibilität, die bei klassischen Ferienimmobilien schlicht nicht existiert: Wenn ein Standort nicht mehr rentabel ist, kann das Haus verlagert werden – ohne Grundbucheintrag, ohne Notar, ohne Verlust des Substanzwertes.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Selbstvermietung vs. Betreibermodell</h2>
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -135,7 +170,7 @@ export default function TinyHouseAirbnbPage() {
             </div>
           </div>
 
-          <div className="bg-green-700 rounded-2xl p-6 text-white mb-8">
+          <div className="bg-green-700 rounded-2xl p-6 text-white mb-12">
             <p className="font-black text-base mb-2">💡 Die Mathematik dahinter:</p>
             <p className="text-green-100 text-[13px] leading-relaxed">
               Bei Selbstvermietung mit 75 % Einnahmenanteil aber nur 50 % Belegung: <strong className="text-white">15 Nächte × 100 € × 75 % = 1.125 €/Monat</strong>.
@@ -144,14 +179,35 @@ export default function TinyHouseAirbnbPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08916.webp" alt="Tiny House Innenraum Detailaufnahme" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Rechtliche Grundlagen und strategische Planung</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Trotz der Attraktivität des Modells darf die rechtliche Komplexität nicht unterschätzt werden. In Deutschland ist ein Tiny House baurechtlich kein Wohnwagen, sondern in vielen Fällen ein Gebäude. Wer es gewerblich über Airbnb vermieten möchte, muss sicherstellen, dass das Grundstück für Feriennutzung zugelassen ist. Die Erschließung mit Wasser, Strom und Abwasser ist Voraussetzung, ebenso die Einhaltung von Brandschutz- und Stellplatzverordnungen. Tiny Houses auf einem Vlemmix Trailer mit eigener Fahrzeug-Identifikationsnummer werden jedoch steuerrechtlich als bewegliche Wirtschaftsgüter behandelt – was den entscheidenden steuerlichen Hebel durch §7g EStG ermöglicht.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Strategisch gesehen ist die Lage das wichtigste Kriterium. Ein Tiny House profitiert massiv von einer Alleinlage oder einem besonderen Ausblick. Investoren sollten zudem die Zielgruppe im Blick behalten: Soll das Haus ein Rückzugsort für Paare sein, ein funktionaler Stopp für Wanderer oder ein komfortabler Workspace für digitale Nomaden? Jede Zielgruppe stellt andere Anforderungen an die Ausstattung – von der Qualität der Kaffeemaschine bis zur Stabilität des WLANs. Im TinyInvest-Modell übernimmt tiny Escapes diese strategische Standort- und Positionierungsarbeit vollständig.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Ein Blick in die Zukunft</h2>
+          <div className="max-w-3xl mb-10">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das Tiny House als Airbnb-Investment ist weit mehr als ein kurzfristiger Hype. Es bedient die wachsende Sehnsucht nach Entschleunigung und ökologischem Bewusstsein. Wer erstklassiges Design mit professionellem Gastgebertum verbindet, schafft nicht nur eine Einnahmequelle, sondern einen Ort, der Menschen begeistert und nachhaltig in Erinnerung bleibt. In einem Markt, der nach Individualität verlangt, ist das Tiny House die konsequente Antwort auf die touristischen Fragen unserer Zeit – und für Investoren mit dem richtigen Betreiber im Rücken eines der effizientesten Modelle, die der alternative Investmentmarkt aktuell bietet.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/rechner/rendite" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Rendite selbst berechnen →</Link>
             <Link href="/wissen/kapitalanlage" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kapitalanlage-Guide →</Link>
             <Link href="/wissen/tiny-house-standorte" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Beste Standorte →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
       <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

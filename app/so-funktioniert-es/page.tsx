@@ -61,7 +61,7 @@ export default function SoFunktioniertEsPage() {
         badge="Der Prozess · So funktioniert es"
         title="Vom Erstkontakt zum laufenden Asset. In 3 Schritten."
         subtitle="Wähle deinen Weg — Steuer-Optimierung, passiver Cashflow oder Finanzierungs-Modell. Wir begleiten dich von der ersten Anfrage bis zur monatlichen Auszahlung."
-        img="/images/outside/winter.webp"
+        img="/images/investieren.png"
       />
 
       {/* Path selector */}

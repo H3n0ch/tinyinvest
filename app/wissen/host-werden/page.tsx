@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ModalButton from "../../components/ModalButton";
 import Link from "next/link";
+import Script from "next/script";
 
 export const metadata = {
   title: "Host werden: Tiny House auf deinem Grundstück betreiben 2026 | TinyInvest",
@@ -20,18 +21,58 @@ export const metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "Brauche ich eine Gewerbeanmeldung, um als Host tätig zu sein?",
+    answer:
+      "Das hängt vom Umfang der Tätigkeit ab. Wer regelmäßig und mit Gewinnerzielungsabsicht handelt, muss ein Gewerbe anmelden. TinyInvest unterstützt dich bei dieser Frage und klärt mit dir gemeinsam, ob eine Gewerbeanmeldung notwendig ist. In vielen Fällen lässt sich die Host-Tätigkeit als Nebenerwerb organisieren.",
+  },
+  {
+    question: "Was passiert, wenn ein Gast das Tiny House beschädigt?",
+    answer:
+      "Gäste hinterlegen über Airbnb und Booking.com eine Sicherheitsleistung. Darüber hinaus ist das Tiny House über eine Kaskoversicherung des Investors abgesichert. Als Host haftest du nicht für Schäden, die Gäste verursachen – solange du die vereinbarten Sorgfaltspflichten erfüllst.",
+  },
+  {
+    question: "Kann ich selbst entscheiden, welche Gäste ich aufnehme?",
+    answer:
+      "Die Buchungsverwaltung läuft zentral über tiny Escapes und die Plattformen. Du kannst einzelne Buchungsanfragen in Abstimmung mit tiny Escapes ablehnen, wenn es konkrete Gründe gibt. Der Prozess ist darauf ausgelegt, dir möglichst wenig Koordinationsaufwand zu geben – die Plattform übernimmt das Gäste-Screening.",
+  },
+  {
+    question: "Kann ich aufhören, Host zu sein, wenn es mir nicht mehr passt?",
+    answer:
+      "Es gibt einen Betreibervertrag mit einer vereinbarten Laufzeit. Nach Ablauf oder bei beidseitigem Einvernehmen kann der Vertrag beendet werden. Das Tiny House gehört dem Investor und wird dann entweder an einen neuen Standort verlegt oder verkauft. Ein kurzfristiger Exit ist möglich, aber vertraglich geregelt.",
+  },
+];
+
 export default function HostWerdenPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
+      <Script
+        id="faq-schema-host-werden"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
-      {/* Hero */}
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-amber-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-amber-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-amber-600 font-semibold">Host werden</span>
           </div>
@@ -39,57 +80,36 @@ export default function HostWerdenPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Host werden: Tiny House auf deinem Grundstück betreiben
           </h1>
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 mb-5">
-            <p className="text-amber-800 font-bold text-[14px] leading-relaxed">
-              🏡 Du brauchst kein Kapital – nur ein geeignetes Grundstück. Der Investor kauft das Tiny House, du betreibst es vor Ort und verdienst bis zu 45 % der Mieteinnahmen monatlich.
-            </p>
-          </div>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Als TinyInvest Host stellst du das Grundstück, übernimmst Check-in, Reinigung und Gästebetreuung –
-            und profitierst von einem leistungsbasierten Einkommensmodell ohne eigenes Kapitalrisiko.
-            Dieser Guide erklärt alles, was du wissen musst.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Als TinyInvest Host stellst du das Grundstück, übernimmst Check-in, Reinigung und Gästebetreuung – und profitierst von einem leistungsbasierten Einkommensmodell ohne eigenes Kapitalrisiko.
           </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/IMG-20240702-WA0022.webp" alt="Tiny House Host – Grundstück mit Tiny House" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
           <div className="flex flex-wrap gap-2 text-[11px]">
             {["Bis 45 % Einnahmenanteil", "Kein Eigenkapital", "EU-weit möglich", "Leistungsbasiert"].map((tag) => (
-              <span key={tag} className="bg-amber-50 border border-amber-100 text-amber-700 font-semibold px-3 py-1 rounded-full">
-                {tag}
-              </span>
+              <span key={tag} className="bg-amber-50 border border-amber-100 text-amber-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Inhaltsverzeichnis */}
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
+      <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-3">Inhalt</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              { anchor: "#modell", label: "1. Das Host-Modell erklärt" },
-              { anchor: "#voraussetzungen", label: "2. Standort-Voraussetzungen" },
-              { anchor: "#verdienst", label: "3. Verdienst & Einkommensrechner" },
-              { anchor: "#aufgaben", label: "4. Was du als Host machst" },
-              { anchor: "#bewerbung", label: "5. So bewirbst du dich" },
-            ].map((item) => (
-              <a key={item.anchor} href={item.anchor} className="text-[13px] text-amber-600 hover:text-amber-800 font-semibold transition-colors">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Das klassische Modell bei Ferienunterkünften: Wer verdienen will, muss erst investieren. Grundstück kaufen, Haus bauen oder kaufen, Gäste selbst verwalten. TinyInvest dreht dieses Prinzip um. Du brauchst kein Kapital – nur ein geeignetes Grundstück. Der Investor kauft das Tiny House, du betreibst es vor Ort und erhältst dafür bis zu 45 % der monatlichen Mieteinnahmen. Wer besser bewertet wird, verdient mehr. Die Plattform übernimmt Marketing, Buchungsverwaltung und Preisgestaltung.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das Modell funktioniert, weil es drei Interessen gleichzeitig bedient: Der Investor möchte sein Haus zuverlässig betrieben sehen. Der Gast möchte eine gepflegte, persönlich betreute Unterkunft. Du als Host möchtest ein faires Einkommen ohne Kapitalrisiko. In dieser Struktur hängt dein Verdienst direkt von deiner Leistung ab – nicht von Börsenkursen oder Baugenehmigungen. Wer gute Gäste-Bewertungen sammelt, bekommt mehr Buchungen und einen höheren Anteil.
+            </p>
+          </div>
 
-      {/* Section 1: Modell */}
-      <section id="modell" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-amber-600 font-semibold text-xs uppercase tracking-widest">Das Grundprinzip</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Das Host-Modell: Wie funktioniert es?
-          </h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            TinyInvest verbindet Investoren mit Grundstückseigentümern – das ist das Herzstück des Modells.
-            Du bringst den Standort, der Investor bringt das Geld, TinyInvest bringt die Buchungsplattform.
-          </p>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Das Host-Modell: Wie funktioniert es?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               { step: "01", icon: "🏡", title: "Du bringst das Grundstück", desc: "Du stellst einen geeigneten Stellplatz zur Verfügung – privat, landwirtschaftlich oder gewerblich. Mindestens 50–80 m² ebene Fläche mit Zufahrt.", color: "border-amber-200 bg-amber-50" },
@@ -104,7 +124,8 @@ export default function HostWerdenPage() {
               </div>
             ))}
           </div>
-          <div className="bg-gray-900 rounded-2xl p-6 text-white">
+
+          <div className="bg-gray-900 rounded-2xl p-6 text-white mb-12">
             <p className="font-black text-base mb-2">💡 Warum das Modell für Hosts attraktiv ist</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-gray-300">
               {[
@@ -116,22 +137,18 @@ export default function HostWerdenPage() {
                 "Exit nach vereinbarter Laufzeit ohne Verlust",
               ].map((point, i) => (
                 <div key={i} className="flex gap-2">
-                  <span className="text-amber-400 flex-shrink-0">✓</span>
+                  <span className="text-amber-400 shrink-0">✓</span>
                   <span>{point}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 2: Voraussetzungen */}
-      <section id="voraussetzungen" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-amber-600 font-semibold text-xs uppercase tracking-widest">Standortkriterien</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Welche Standort-Voraussetzungen gibt es?
-          </h2>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/DSC08835.webp" alt="Tiny House Standort – geeignetes Grundstück für Hosts" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Welche Standort-Voraussetzungen gibt es?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
             {[
               { icon: "📐", title: "Mindestfläche", items: ["50–80 m² ebene Grundfläche", "Ausreichend Platz für Terrasse (optional)", "Stabile Zufahrt für LKW/Tieflader", "Keine starke Hanglage"], good: true },
@@ -155,7 +172,8 @@ export default function HostWerdenPage() {
               </div>
             ))}
           </div>
-          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
+
+          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 mb-12">
             <p className="font-black text-amber-800 text-sm mb-2">🌿 Ideal geeignete Grundstückstypen</p>
             <div className="flex flex-wrap gap-2">
               {["Bauernhof/Landwirtschaft", "Privater Garten >800m²", "Campingplatz", "Ferienpark", "Naturgrundstück", "Seegrundstück", "Waldrand", "Weinberg"].map((type) => (
@@ -163,16 +181,8 @@ export default function HostWerdenPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 3: Verdienst */}
-      <section id="verdienst" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-amber-600 font-semibold text-xs uppercase tracking-widest">Einkommensmodell</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Was kannst du als Host verdienen?
-          </h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was kannst du als Host verdienen?</h2>
           <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
             <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-6">Beispielrechnung: TinyInvest Escape (79.000 €) · 60 % Belegung</p>
             <div className="space-y-3 mb-6">
@@ -200,25 +210,15 @@ export default function HostWerdenPage() {
               </div>
             </div>
           </div>
-          <div className="bg-green-50 border border-green-100 rounded-2xl p-5">
+
+          <div className="bg-green-50 border border-green-100 rounded-2xl p-5 mb-12">
             <p className="font-black text-green-800 text-sm mb-2">🏆 Leistungsbasierte Vergütung</p>
             <p className="text-green-700 text-[13px] leading-relaxed">
-              Dein Anteil ist nicht fest – er hängt von deiner Leistung ab. Exzellente Gäste-Bewertungen,
-              schnelle Reaktionszeiten und gepflegte Ausstattung werden belohnt. Hosts mit Top-Ratings
-              erhalten den vollen 45 %-Anteil. Das motiviert – und sichert dem Investor gleichzeitig
-              bestmögliche Belegungsquoten.
+              Dein Anteil ist nicht fest – er hängt von deiner Leistung ab. Exzellente Gäste-Bewertungen, schnelle Reaktionszeiten und gepflegte Ausstattung werden belohnt. Hosts mit Top-Ratings erhalten den vollen 45 %-Anteil. Das motiviert – und sichert dem Investor gleichzeitig bestmögliche Belegungsquoten.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Section 4: Aufgaben */}
-      <section id="aufgaben" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-amber-600 font-semibold text-xs uppercase tracking-widest">Deine Rolle</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Was machst du als TinyInvest Host?
-          </h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was machst du als TinyInvest Host?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {[
               { icon: "🔑", title: "Check-in & Check-out", desc: "Gäste empfangen, Schlüsselübergabe (oder Smart-Lock), kurze Einweisung ins Haus. Dauert 15–30 Minuten pro Buchung.", freq: "Pro Buchung" },
@@ -230,7 +230,7 @@ export default function HostWerdenPage() {
             ].map((task) => (
               <div key={task.title} className="bg-white border border-gray-100 rounded-2xl p-5">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl flex-shrink-0">{task.icon}</span>
+                  <span className="text-2xl shrink-0">{task.icon}</span>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-black text-gray-900 text-[13px]">{task.title}</h3>
@@ -242,7 +242,8 @@ export default function HostWerdenPage() {
               </div>
             ))}
           </div>
-          <div className="bg-white border border-gray-100 rounded-2xl p-6">
+
+          <div className="bg-white border border-gray-100 rounded-2xl p-6 mb-12">
             <p className="font-black text-gray-900 text-sm mb-3">⏱️ Realistischer Zeitaufwand</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
               {[
@@ -258,20 +259,14 @@ export default function HostWerdenPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 5: Bewerbung */}
-      <section id="bewerbung" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-amber-600 font-semibold text-xs uppercase tracking-widest">Bewerbungsprozess</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
-            So wirst du TinyInvest Host: Der Prozess
-          </h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Von der ersten Anfrage bis zur ersten Buchung – typisch 4–8 Wochen.
-          </p>
-          <div className="relative mb-10">
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08893.webp" alt="Tiny House Innenausstattung – Host-Qualität für Gäste" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">So wirst du TinyInvest Host: Der Prozess</h2>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">Von der ersten Anfrage bis zur ersten Buchung – typisch 4–8 Wochen.</p>
+          <div className="relative mb-12">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-amber-100 hidden md:block" />
             <div className="space-y-4">
               {[
@@ -283,10 +278,10 @@ export default function HostWerdenPage() {
                 { num: "6", title: "Erste Buchungen & Auszahlung", desc: "Das Haus wird auf tiny Escapes + Airbnb gelistet. Erste Buchungen kommen typisch nach 2–4 Wochen. Du bekommst monatlich deine Auszahlung.", badge: "Laufend" },
               ].map((step, i) => (
                 <div key={i} className="relative flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
+                  <div className="shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
                     {step.num}
                   </div>
-                  <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 flex-grow">
+                  <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 grow">
                     <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
                       <h4 className="font-black text-gray-900 text-[14px]">{step.title}</h4>
                       <span className="text-[9px] bg-amber-100 text-amber-700 font-bold px-2 py-0.5 rounded-full">{step.badge}</span>
@@ -298,6 +293,25 @@ export default function HostWerdenPage() {
             </div>
           </div>
 
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+            <Link href="/hosts" className="border border-amber-200 text-amber-700 hover:bg-amber-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Host-Seite →</Link>
+            <Link href="/wissen/tiny-house-als-rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Renditemodell für Investoren →</Link>
+            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
+          </div>
+        </div>
+      </article>
+
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Host werden bei TinyInvest</h2>
+          <div className="space-y-4 mb-10">
+            {faqItems.map((item, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
+                <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
+          </div>
           <div className="bg-gray-900 rounded-2xl p-8 text-white text-center">
             <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-3">Bereit, Host zu werden?</p>
             <h3 className="text-xl font-black mb-3">Jetzt Standort kostenlos prüfen lassen</h3>
@@ -305,30 +319,13 @@ export default function HostWerdenPage() {
               Schick uns eine kurze Beschreibung deines Grundstücks. Wir melden uns innerhalb von 24 Stunden.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <ModalButton className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
+              <ModalButton className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
                 🏡 Als Host bewerben →
               </ModalButton>
               <Link href="/hosts" className="border border-white/20 text-white hover:border-amber-400 hover:text-amber-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
                 Hosts-Übersicht ansehen →
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <section className="py-10 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex flex-wrap gap-4">
-            <Link href="/hosts" className="border border-amber-200 text-amber-700 hover:bg-amber-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Host-Seite →
-            </Link>
-            <Link href="/wissen/tiny-house-als-rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Renditemodell für Investoren →
-            </Link>
-            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              ← Zurück zum Wissens-Hub
-            </Link>
           </div>
         </div>
       </section>

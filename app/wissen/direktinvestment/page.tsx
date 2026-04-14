@@ -66,93 +66,55 @@ export default function DirektinvestmentPage() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
-
       <Script
         id="faq-schema-direktinvestment"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-green-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-green-700 font-semibold">Direktinvestment</span>
           </div>
-
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Sachwert-Investment · E-E-A-T · Eigentum</span>
+          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Sachwert-Investment · 2026</span>
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House als Direktinvestment: Sachwert statt Finanzprodukt
           </h1>
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Kein Token, kein Fonds, kein Crowdinvesting-Darlehen. Bei TinyInvest wird dir ein Tiny House auf Vlemmix Trailer direkt übereignet. Du bist Eigentümer – mit allen Rechten, die dazugehören.
+          </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/ESCAPE1.webp" alt="Tiny House Direktinvestment – physisches Sachwert-Asset" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {["Direktes Eigentumsrecht", "Keine Fonds-Konstruktion", "Drittverwendungsfähig", "Sachwert mit Substanzwert"].map((tag) => (
+              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Trust sentence */}
-          <div className="bg-green-700 rounded-2xl px-6 py-4 mb-6">
-            <p className="text-white font-bold text-[14px] leading-relaxed">
-              🏠 Du kaufst ein physisches Asset – nicht einen Fondsanteil. TinyInvest-Investoren halten die Übereignungsurkunde für ein reales Tiny House auf ihren Namen.
+      <article className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Bei TinyInvest kaufst du ein Tiny House – nicht einen Anteil, nicht ein Token, nicht eine Gewinnbeteiligung. Ein echtes, physisches Gebäude auf einem straßenzugelassenen Vlemmix Trailer, das auf deinen Namen übereignet wird. Du erhältst den Fahrzeugbrief, bist im Kaufvertrag namentlich eingetragen und hast volle Verfügungsgewalt über das Asset. Das ist der fundamentale Unterschied zu fast allen anderen alternativen Investments, die heute als "Sachwert-Investment" beworben werden.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Die Frage, die jeder Investor stellen sollte, lautet nicht: "Wie hoch ist die projizierte Rendite?" – sondern: "Was besitze ich, wenn der Betreiber morgen nicht mehr existiert?" Bei Crowdinvesting-Darlehen steht man auf der Gläubigerliste. Bei REIT-Anteilen ist die Aktie möglicherweise wertlos. Bei einem TinyInvest-Haus kann man das Objekt herausverlangen und eigenständig weiterführen. Diese Eigentumsstruktur ist kein Marketingargument – sie ist die entscheidende rechtliche Realität.
             </p>
           </div>
 
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Kein Token, kein Fonds, kein Crowdinvesting-Darlehen. Bei TinyInvest wird dir ein Tiny House
-            auf Vlemmix Trailer direkt übereignet. Du bist Eigentümer – mit allen Rechten, die dazugehören.
-          </p>
-
-          {/* Photo strip */}
-          <div className="grid grid-cols-3 gap-2 rounded-2xl overflow-hidden h-36 mb-6">
-            <div className="overflow-hidden">
-              <img src="/images/outside/DSC08946.webp" alt="Tiny House Außenansicht" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/inside/DSC08904.webp" alt="Tiny House Innenausbau" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden">
-              <img src="/images/outside/ESCAPE1.webp" alt="Tiny House fertig für Vermietung" className="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 text-[11px]">
-            {["Direktes Eigentumsrecht", "Keine Fonds-Konstruktion", "Drittverwendungsfähig", "Sachwert mit Substanzwert"].map((tag) => (
-              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Inhaltsverzeichnis */}
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-3">Inhalt</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              { anchor: "#vergleich", label: "1. Direkt vs. indirekt" },
-              { anchor: "#eigentum", label: "2. Was Eigentum bedeutet" },
-              { anchor: "#usps", label: "3. Die 3 Sachwert-USPs" },
-              { anchor: "#kaufprozess", label: "4. Kaufprozess erklärt" },
-              { anchor: "#faq", label: "5. FAQ" },
-            ].map((item) => (
-              <a key={item.anchor} href={item.anchor} className="text-[13px] text-green-700 hover:text-green-900 font-semibold transition-colors">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
-
-      {/* Section 1: Vergleich */}
-      <section id="vergleich" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Investmentarten im Vergleich</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Direkt vs. indirekt: Was ist der Unterschied?
-          </h2>
-
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Direkt vs. indirekt: Was ist der Unterschied?</h2>
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -175,7 +137,7 @@ export default function DirektinvestmentPage() {
                     ["Standort wechselbar", "Nein", "Nein", "Ja (Trailer)"],
                     ["Transparenz", "Mittel", "Gering", "Vollständig"],
                   ].map(([merkmal, crowd, reit, tiny]) => (
-                    <tr key={merkmal} className="hover:bg-gray-50/50 transition-colors">
+                    <tr key={merkmal} className="hover:bg-gray-50/50">
                       <td className="p-4 font-medium text-gray-700">{merkmal}</td>
                       <td className="p-4 text-center text-gray-400">{crowd}</td>
                       <td className="p-4 text-center text-gray-400">{reit}</td>
@@ -187,7 +149,7 @@ export default function DirektinvestmentPage() {
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-2xl p-6 text-white">
+          <div className="bg-gray-900 rounded-2xl p-6 text-white mb-12">
             <p className="font-black text-base mb-2">💡 Die Schlüsselfrage bei jedem Investment:</p>
             <p className="text-gray-300 text-[13px] leading-relaxed">
               <em>"Was besitze ich, wenn der Betreiber morgen nicht mehr existiert?"</em>
@@ -197,18 +159,13 @@ export default function DirektinvestmentPage() {
               <strong className="text-green-400">TinyInvest:</strong> Du kannst dein Haus herausverlangen und neu betreiben.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Section 2: Was Eigentum bedeutet */}
-      <section id="eigentum" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Eigentumsrecht</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Was bedeutet es, Eigentümer zu sein?
-          </h2>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08904.webp" alt="Tiny House Innenausbau – Eigentumsübergabe" className="w-full h-full object-cover" />
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was bedeutet es, Eigentümer zu sein?</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
             {[
               {
                 icon: "📄",
@@ -243,25 +200,16 @@ export default function DirektinvestmentPage() {
             ].map((item) => (
               <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-5">
                 <div className="flex gap-3 mb-2">
-                  <span className="text-2xl flex-shrink-0">{item.icon}</span>
+                  <span className="text-2xl shrink-0">{item.icon}</span>
                   <h3 className="font-black text-gray-900 text-[14px] mt-1">{item.title}</h3>
                 </div>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 3: Die 3 Sachwert-USPs */}
-      <section id="usps" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">USPs gegenüber alternativen Investments</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">
-            Die 3 entscheidenden Sachwert-Vorteile
-          </h2>
-
-          <div className="space-y-6">
+          <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Die 3 entscheidenden Sachwert-Vorteile</h2>
+          <div className="space-y-6 mb-12">
             {[
               {
                 num: "01",
@@ -289,11 +237,11 @@ export default function DirektinvestmentPage() {
               },
               {
                 num: "03",
-                title: "Google E-E-A-T konformes Investment",
+                title: "Sichtbar & anfassbar – Vertrauen durch Substanz",
                 icon: "⚖️",
                 content: [
-                  "YMYL (Your Money Your Life) gilt für alle Finanzinhalte. Google bewertet physische Sachwert-Investments als weniger spekulativ als reine Finanzprodukte.",
-                  "Für dich als Investor: Der physische Charakter schafft Vertrauen. Du kannst das Haus sehen, anfassen und besichtigen.",
+                  "Der physische Charakter schafft Vertrauen, das abstrakte Finanzprodukte nicht leisten können.",
+                  "Du kannst das Haus sehen, anfassen und besichtigen – vor dem Kauf, während der Laufzeit und beim Verkauf.",
                   "TinyInvest bietet Besichtigungstermine vor dem Kauf an – etwas, das bei Token oder Fondsbeteiligungen schlicht nicht existiert.",
                 ],
                 highlight: "Sichtbar & anfassbar",
@@ -302,12 +250,12 @@ export default function DirektinvestmentPage() {
               <div key={item.num} className="bg-gray-50 border border-gray-100 rounded-2xl p-7">
                 <div className="flex items-start gap-5">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-black text-white flex-shrink-0"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0"
                     style={{ background: "linear-gradient(135deg, #2d6a4f, #52b788)" }}
                   >
                     {item.num}
                   </div>
-                  <div className="flex-grow">
+                  <div className="grow">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-2xl">{item.icon}</span>
                       <h3 className="text-base font-black text-gray-900">{item.title}</h3>
@@ -315,7 +263,7 @@ export default function DirektinvestmentPage() {
                     <ul className="space-y-2 mb-4">
                       {item.content.map((point, i) => (
                         <li key={i} className="flex gap-2 text-[13px] text-gray-600">
-                          <span className="text-green-600 flex-shrink-0 mt-0.5">→</span>
+                          <span className="text-green-600 shrink-0 mt-0.5">→</span>
                           <span>{point}</span>
                         </li>
                       ))}
@@ -329,21 +277,14 @@ export default function DirektinvestmentPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 4: Kaufprozess */}
-      <section id="kaufprozess" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Eigentumsübertragung</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
-            Wie werde ich Eigentümer? Der Kaufprozess in 5 Schritten
-          </h2>
-          <p className="text-gray-500 text-sm mb-10 leading-relaxed">
-            Transparent, rechtssicher, nachvollziehbar. Von der Erstberatung bis zur Übergabe.
-          </p>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/DSC08980.webp" alt="Tiny House Außenansicht – Standort Deutschland" className="w-full h-full object-cover" />
+          </div>
 
-          <div className="relative">
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Wie werde ich Eigentümer? Der Kaufprozess in 5 Schritten</h2>
+          <p className="text-gray-500 text-sm mb-10 leading-relaxed">Transparent, rechtssicher, nachvollziehbar. Von der Erstberatung bis zur Übergabe.</p>
+          <div className="relative mb-12">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-green-100 hidden md:block" />
             <div className="space-y-4">
               {[
@@ -356,7 +297,7 @@ export default function DirektinvestmentPage() {
                 {
                   step: "2",
                   title: "Kaufvertrag & Zahlungsplan",
-                  desc: "Unterzeichnung des Kaufvertrags. Das Tiny House wird auf deinen Namen übereignet. Option: Ratenzahlung oder Einmalzahlung. Steuerberater-freundliche Dokumentation inklusive.",
+                  desc: "Unterzeichnung des Kaufvertrags. Das Tiny House wird auf deinen Namen übergeeignet. Option: Ratenzahlung oder Einmalzahlung. Steuerberater-freundliche Dokumentation inklusive.",
                   detail: "Notarielle Beglaubigung auf Wunsch",
                 },
                 {
@@ -379,10 +320,10 @@ export default function DirektinvestmentPage() {
                 },
               ].map((step, i) => (
                 <div key={i} className="relative flex gap-6 items-start">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-green-700 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
+                  <div className="shrink-0 w-16 h-16 rounded-full bg-green-700 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
                     {step.step}
                   </div>
-                  <div className="bg-white border border-gray-100 rounded-2xl p-5 flex-grow">
+                  <div className="bg-white border border-gray-100 rounded-2xl p-5 grow">
                     <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
                       <h3 className="font-black text-gray-900 text-[14px]">{step.title}</h3>
                       <span className="text-[10px] bg-green-50 text-green-700 font-bold px-2 py-0.5 rounded-full">{step.detail}</span>
@@ -394,54 +335,26 @@ export default function DirektinvestmentPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="/images/outside/DSC08828.webp" alt="Tiny House Standort" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="/images/inside/DSC08912.webp" alt="Innenausstattung" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="/images/outside/DSC08980.webp" alt="Außenbereich" className="w-full h-full object-cover" />
-            </div>
-            <div className="overflow-hidden rounded-xl aspect-[4/3]">
-              <img src="/images/inside/DSC08930.webp" alt="Wohnbereich" className="w-full h-full object-cover" />
-            </div>
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+            <Link href="/wissen/kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Tiny House als Kapitalanlage →</Link>
+            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA erklärt →</Link>
+            <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Passive Einnahmen vergleichen →</Link>
+            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
-      {/* FAQ */}
-      <section id="faq" className="py-20 bg-white border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Häufige Fragen</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">FAQ: Direktinvestment & Eigentumsrecht</h2>
-
-          <div className="space-y-4 mb-12">
+          <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Direktinvestment & Eigentumsrecht</h2>
+          <div className="space-y-4 mb-10">
             {faqItems.map((item, i) => (
-              <div key={i} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
-                <h3 className="font-black text-gray-900 text-[14px] mb-3">{item.question}</h3>
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
-
-          <div className="flex flex-wrap gap-4 mb-10">
-            <Link href="/wissen/kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Tiny House als Kapitalanlage →
-            </Link>
-            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              §7g AfA erklärt →
-            </Link>
-            <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Passive Einnahmen vergleichen →
-            </Link>
-            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              ← Zurück zum Wissens-Hub
-            </Link>
-          </div>
-
-          {/* CTA */}
           <div className="bg-gray-900 rounded-2xl p-8 text-white text-center">
             <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-3">Bereit, Eigentümer zu werden?</p>
             <h3 className="text-xl font-black mb-3">Jetzt Investor-Paket anfordern</h3>
@@ -449,13 +362,10 @@ export default function DirektinvestmentPage() {
               Kaufvertrag-Muster, §7g-Analyse und Besichtigungstermine – kostenlos und unverbindlich.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
+              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
                 🔐 Unterlagen anfordern →
               </ModalButton>
-              <Link
-                href="/marktplatz"
-                className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all"
-              >
+              <Link href="/marktplatz" className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
                 Aktuelle Projekte ansehen →
               </Link>
             </div>

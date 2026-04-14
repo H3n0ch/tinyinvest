@@ -82,21 +82,18 @@ export default function KapitalanlagePage() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
-
-      {/* JSON-LD FAQ Schema */}
       <Script
         id="faq-schema-kapitalanlage"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
-      <section className="pt-32 pb-12 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-5 text-[12px]">
-            <Link href="/" className="text-gray-400 hover:text-green-700 transition-colors">Startseite</Link>
+            <Link href="/" className="text-gray-400 hover:text-green-700">Startseite</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/wissen" className="text-gray-400 hover:text-green-700 transition-colors">Wissen</Link>
+            <Link href="/wissen" className="text-gray-400 hover:text-green-700">Wissen</Link>
             <span className="text-gray-300">/</span>
             <span className="text-green-700 font-semibold">Kapitalanlage</span>
           </div>
@@ -104,66 +101,39 @@ export default function KapitalanlagePage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House als Kapitalanlage: Rendite, Risiken & Chancen 2026
           </h1>
-          {/* Trust sentence */}
-          <div className="bg-green-700 rounded-2xl px-6 py-4 mb-5">
-            <p className="text-white font-bold text-[14px] leading-relaxed">
-              🏠 Du kaufst ein physisches Asset – nicht einen Fondsanteil. TinyInvest-Investoren halten die Übereignungsurkunde für ein reales Tiny House auf ihren Namen.
+          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+            Warum immer mehr Investoren auf mobile Assets setzen – statt auf überteuerte Eigentumswohnungen. Dieser Guide zeigt, wie das Modell funktioniert, was es wirklich einbringt und wo die Risiken liegen.
+          </p>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/winter.webp" alt="Tiny House als Kapitalanlage – Ganzjahresbetrieb im Winter" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+          <div className="flex flex-wrap gap-2 text-[11px]">
+            {["§7g-optimiert", "Vollvermietet durch tiny Escapes", "Ab 65.000 €", "12–14 % IRR p.a."].map((tag) => (
+              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <article className="py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Was macht eine gute Kapitalanlage im Jahr 2026 aus? Sicherheit durch Sachwert, eine Rendite die über Inflation liegt, und möglichst wenig operativen Aufwand für den Investor. Klassische Eigentumswohnungen erfüllen im deutschen Markt kaum noch eines dieser Kriterien: Kaufpreise von 300.000 bis 500.000 € in Ballungsräumen, Kaufnebenkosten von 10 bis 15 %, Mietrenditen von 3 bis 5 % brutto – und danach ein Jahrzehnt bis zum Break-even. Das war kein attraktives Modell. Es wird nicht attraktiver.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ein Tiny House auf einem Vlemmix Trailer löst strukturell mehrere dieser Probleme gleichzeitig. Kein Grundstückskauf, keine Grunderwerbsteuer, kein Notar. Ein Einstiegspreis ab 65.000 €. Und ein steuerlicher Hebel durch §7g EStG, den klassische Immobilien nicht bieten können – weil sie als unbewegliche Wirtschaftsgüter nicht unter diese Norm fallen. Das Ergebnis ist ein kombinierter Effekt aus laufenden Mieteinnahmen und einem einmaligen Liquiditätsvorteil im Kaufjahr, der die effektive Anfangsinvestition erheblich reduziert.
             </p>
           </div>
 
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-6">
-            Warum immer mehr Investoren auf mobile Assets setzen – statt auf überteuerte Eigentumswohnungen.
-            Dieser Guide zeigt dir, wie das Modell funktioniert, was es wirklich einbringt und wo die Risiken liegen.
-          </p>
-          <div className="flex flex-wrap gap-2 text-[11px]">
-            {["§7g-optimiert", "Vollvermietet durch tiny Escapes", "Ab 65.000 €", "12–14 % IRR p.a."].map((tag) => (
-              <span key={tag} className="bg-green-50 border border-green-100 text-green-700 font-semibold px-3 py-1 rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Inhaltsverzeichnis */}
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-3">Inhalt</p>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {[
-              { anchor: "#vergleich", label: "1. Tiny House vs. ETW" },
-              { anchor: "#rendite", label: "2. Die 3 Renditesäulen" },
-              { anchor: "#zahlen", label: "3. Zahlen & Beispiele" },
-              { anchor: "#risiken", label: "4. Risiken & Transparenz" },
-              { anchor: "#fazit", label: "5. Fazit" },
-              { anchor: "#faq", label: "6. FAQ" },
-            ].map((item) => (
-              <a
-                key={item.anchor}
-                href={item.anchor}
-                className="text-[13px] text-green-700 hover:text-green-900 font-semibold transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
-
-      {/* Section 1: Vergleich */}
-      <section id="vergleich" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Vergleich</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
-            Tiny House vs. Eigentumswohnung (ETW)
-          </h2>
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Tiny House vs. Eigentumswohnung (ETW)</h2>
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Die größte Einstiegshürde bei Immobilien ist nicht der Kaufpreis – es sind die Kaufnebenkosten.
-            Eine 70 m² Wohnung in München kostet 500.000 €. Allein Notar, Makler und Grunderwerbsteuer
-            verschlingen 50.000–75.000 € – bevor du einen einzigen Euro tilgst. Ein Tiny House startet
-            ab 65.000 € – inklusive allem.
+            Die größte Einstiegshürde bei Immobilien ist nicht der Kaufpreis – es sind die Kaufnebenkosten. Eine 70 m² Wohnung in München kostet 500.000 €. Allein Notar, Makler und Grunderwerbsteuer verschlingen 50.000–75.000 € – bevor du einen einzigen Euro tilgst.
           </p>
-
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -176,7 +146,7 @@ export default function KapitalanlagePage() {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {vergleichRows.map(([merkmal, etw, tiny]) => (
-                    <tr key={merkmal} className="hover:bg-gray-50/50 transition-colors">
+                    <tr key={merkmal} className="hover:bg-gray-50/50">
                       <td className="p-4 font-medium text-gray-700 text-[13px]">{merkmal}</td>
                       <td className="p-4 text-center text-[13px] text-gray-500">{etw}</td>
                       <td className="p-4 text-center text-[13px] font-bold text-green-700 bg-green-50/50">{tiny}</td>
@@ -187,7 +157,7 @@ export default function KapitalanlagePage() {
             </div>
           </div>
 
-          <div className="bg-green-700 rounded-2xl p-6 text-white">
+          <div className="bg-green-700 rounded-2xl p-6 text-white mb-12">
             <p className="text-base font-black mb-3">💡 Die härteste Immobilienwahrheit Deutschlands:</p>
             <p className="text-green-100 text-[14px] leading-relaxed mb-4">
               Eine 70 m² Wohnung in Berlin kostet ~440.000 €. Davon gehen <strong className="text-white">~44.000 € direkt an Notar, Makler und Finanzamt</strong> — noch bevor du einen Euro tilgst. Das ist mehr als der halbe Kaufpreis eines vollwertigen TinyInvest Comfort (65.000 €).
@@ -196,22 +166,16 @@ export default function KapitalanlagePage() {
               → Mit TinyInvest kaufst du ein vollständiges Haus zum Preis der Kaufnebenkosten einer Berliner Wohnung.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Section 2: Die 3 Renditesäulen */}
-      <section id="rendite" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Renditesäulen</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
-            Die 3 Säulen der Tiny House Rendite
-          </h2>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/green.webp" alt="Tiny House in Naturlage – Kapitalanlage mit Belegung" className="w-full h-full object-cover" />
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Die 3 Säulen der Tiny House Rendite</h2>
           <p className="text-gray-500 text-sm mb-10 leading-relaxed">
-            Was ein Tiny House zur überlegenen Kapitalanlage macht, ist nicht eine einzelne Eigenschaft –
-            sondern das Zusammenspiel von drei unabhängigen Renditequellen.
+            Was ein Tiny House zur überlegenen Kapitalanlage macht, ist nicht eine einzelne Eigenschaft – sondern das Zusammenspiel von drei unabhängigen Renditequellen.
           </p>
-
-          <div className="space-y-6">
+          <div className="space-y-6 mb-12">
             {[
               {
                 num: "01",
@@ -254,12 +218,12 @@ export default function KapitalanlagePage() {
               <div key={item.num} className={`rounded-2xl border-2 ${item.color} p-7`}>
                 <div className="flex items-start gap-5">
                   <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-black text-white flex-shrink-0"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0"
                     style={{ background: "linear-gradient(135deg, #2d6a4f, #52b788)" }}
                   >
                     {item.num}
                   </div>
-                  <div className="flex-grow">
+                  <div className="grow">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-2xl">{item.icon}</span>
                       <h3 className="text-base font-black text-gray-900">{item.title}</h3>
@@ -267,31 +231,22 @@ export default function KapitalanlagePage() {
                     <ul className="space-y-2 mb-4">
                       {item.content.map((point, i) => (
                         <li key={i} className="flex gap-2 text-[13px] text-gray-600">
-                          <span className="text-green-600 flex-shrink-0 mt-0.5">→</span>
+                          <span className="text-green-600 shrink-0 mt-0.5">→</span>
                           <span>{point}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-xl px-4 py-2">
                       <span className="text-[10px] text-gray-400 uppercase font-bold">{item.kpi.label}</span>
-                      <span className="font-data font-black text-green-700 text-lg">{item.kpi.value}</span>
+                      <span className="font-black text-green-700 text-lg">{item.kpi.value}</span>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 3: Zahlen & Beispiele */}
-      <section id="zahlen" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Rechenbeispiel</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">
-            Das 5-Jahres-Modell: 80.000 € Investment
-          </h2>
-
+          <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Das 5-Jahres-Modell: 80.000 € Investment</h2>
           <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
               <div>
@@ -331,10 +286,7 @@ export default function KapitalanlagePage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[11px] text-gray-500 mt-3">
-                  * Nach 5 Jahren ist das Haus ~60.000 € wert und weiterhin rentabel.
-                  Der effektive IRR liegt bei 12–15 % p.a.
-                </p>
+                <p className="text-[11px] text-gray-500 mt-3">* Nach 5 Jahren ist das Haus ~60.000 € wert und weiterhin rentabel. Der effektive IRR liegt bei 12–15 % p.a.</p>
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
@@ -353,29 +305,20 @@ export default function KapitalanlagePage() {
             </div>
           </div>
 
-          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
+          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 mb-12">
             <p className="text-[10px] text-amber-700 font-bold uppercase tracking-widest mb-2">⚠ Hinweis</p>
             <p className="text-[12px] text-amber-800 leading-relaxed">
-              Alle Zahlen sind Projektionen auf Basis historischer Belegungsdaten. Der IAB ist einmalig und
-              setzt voraus, dass dein Steuerberater ihn im Vorjahr bildet. Renditeangaben stellen keine
-              Garantie dar. Bitte konsultiere einen unabhängigen Steuerberater.
+              Alle Zahlen sind Projektionen auf Basis historischer Belegungsdaten. Der IAB ist einmalig und setzt voraus, dass dein Steuerberater ihn im Vorjahr bildet. Renditeangaben stellen keine Garantie dar. Bitte konsultiere einen unabhängigen Steuerberater.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Section 4: Risiken */}
-      <section id="risiken" className="py-20 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Transparenz</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-4 tracking-tight">
-            Risiken – vollständig und ehrlich
-          </h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-            Kein Investment ist risikofrei. Wir nennen die echten Risiken – damit du eine fundierte Entscheidung treffen kannst.
-          </p>
+          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/DSC08922.webp" alt="Tiny House Wohnbereich – Kapitalanlage Innenausstattung" className="w-full h-full object-cover" />
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Risiken – vollständig und ehrlich</h2>
+          <p className="text-gray-500 text-sm mb-8 leading-relaxed">Kein Investment ist risikofrei. Wir nennen die echten Risiken – damit du eine fundierte Entscheidung treffen kannst.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
             {[
               {
                 icon: "📉",
@@ -410,92 +353,47 @@ export default function KapitalanlagePage() {
             ].map((risk) => (
               <div key={risk.title} className="bg-white border border-gray-100 rounded-2xl p-5">
                 <div className="flex gap-3 mb-2">
-                  <span className="text-2xl flex-shrink-0">{risk.icon}</span>
+                  <span className="text-2xl shrink-0">{risk.icon}</span>
                   <h3 className="font-black text-gray-900 text-[14px] mt-1">{risk.title}</h3>
                 </div>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{risk.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 5: Fazit */}
-      <section id="fazit" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Fazit</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-6 tracking-tight">
-            Lohnt sich ein Tiny House als Kapitalanlage 2026?
-          </h2>
-
-          <div className="prose prose-sm max-w-none text-gray-600 space-y-4 mb-8">
-            <p className="text-[14px] leading-relaxed">
-              <strong className="text-gray-900">Ja – für den richtigen Investor-Typ.</strong> Ein Tiny House
-              als Kapitalanlage eignet sich besonders für Steuerpflichtige mit mittlerem bis hohem Einkommen,
-              die von §7g profitieren können, und die passives Einkommen ohne operativen Aufwand suchen.
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Lohnt sich ein Tiny House als Kapitalanlage 2026?</h2>
+          <div className="max-w-3xl space-y-4 mb-10">
+            <p className="text-gray-700 text-base leading-relaxed">
+              <strong className="text-gray-900">Ja – für den richtigen Investor-Typ.</strong> Ein Tiny House als Kapitalanlage eignet sich besonders für Steuerpflichtige mit mittlerem bis hohem Einkommen, die von §7g profitieren können, und die passives Einkommen ohne operativen Aufwand suchen.
             </p>
-            <p className="text-[14px] leading-relaxed">
-              Der kombinierte Effekt aus 40 % Mietauszahlung, hoher AfA-Abschreibung und niedrigem Einstiegspreis
-              macht das Modell gegenüber klassischen Ferienimmobilien strukturell überlegen – wenn der Betreiber
-              (tiny Escapes) zuverlässig hohe Belegungsquoten liefert.
+            <p className="text-gray-700 text-base leading-relaxed">
+              Der kombinierte Effekt aus 40 % Mietauszahlung, hoher AfA-Abschreibung und niedrigem Einstiegspreis macht das Modell gegenüber klassischen Ferienimmobilien strukturell überlegen – wenn der Betreiber tiny Escapes zuverlässig hohe Belegungsquoten liefert.
             </p>
-            <p className="text-[14px] leading-relaxed">
-              <strong className="text-gray-900">Nicht geeignet für:</strong> Anleger die maximale Sicherheit
-              suchen, keine steuerliche Optimierungsmöglichkeit haben oder das Kapital kurzfristig benötigen.
+            <p className="text-gray-700 text-base leading-relaxed">
+              <strong className="text-gray-900">Nicht geeignet für:</strong> Anleger die maximale Sicherheit suchen, keine steuerliche Optimierungsmöglichkeit haben oder das Kapital kurzfristig benötigen.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/wissen/afa-abschreibung"
-              className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
-            >
-              §7g AfA im Detail →
-            </Link>
-            <Link
-              href="/renditemodell"
-              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
-            >
-              Vollständiges Renditemodell →
-            </Link>
-            <Link
-              href="/wissen/passive-einnahmen-immobilien"
-              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
-            >
-              Passive Einnahmen im Vergleich →
-            </Link>
-            <Link
-              href="/wissen/ferienimmobilie-steuer"
-              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
-            >
-              Ferienimmobilien vs. Tiny House →
-            </Link>
-            <Link
-              href="/wissen"
-              className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all"
-            >
-              ← Zurück zum Wissens-Hub
-            </Link>
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+            <Link href="/wissen/afa-abschreibung" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA im Detail →</Link>
+            <Link href="/wissen/ferienimmobilie-steuer" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Ferienimmobilien vs. Tiny House →</Link>
+            <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Passive Einnahmen im Vergleich →</Link>
+            <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
-      </section>
+      </article>
 
-      {/* Section 6: FAQ */}
-      <section id="faq" className="py-20 bg-gray-50 border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Häufige Fragen</span>
-          <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">FAQ: Tiny House als Kapitalanlage</h2>
-
-          <div className="space-y-4 mb-12">
+          <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Tiny House als Kapitalanlage</h2>
+          <div className="space-y-4 mb-10">
             {faqItems.map((item, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
-                <h3 className="font-black text-gray-900 text-[14px] mb-3">{item.question}</h3>
+                <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
                 <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
               </div>
             ))}
           </div>
-
-          {/* CTA */}
           <div className="bg-gray-900 rounded-2xl p-8 text-white text-center">
             <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-3">Bereit für den nächsten Schritt?</p>
             <h3 className="text-xl font-black mb-3">Investor-Paket & persönliche Beratung</h3>
@@ -503,13 +401,10 @@ export default function KapitalanlagePage() {
               §7g-Analyse für deine Steuersituation, Asset-Kennzahlen und ein unverbindliches Erstgespräch.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
-              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-sm">
+              <ModalButton className="bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
                 🔐 Unterlagen anfordern →
               </ModalButton>
-              <Link
-                href="/marktplatz"
-                className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all"
-              >
+              <Link href="/marktplatz" className="border border-white/20 text-white hover:border-green-400 hover:text-green-400 font-semibold px-6 py-3.5 rounded-full text-sm transition-all">
                 Aktuelle Projekte ansehen →
               </Link>
             </div>
