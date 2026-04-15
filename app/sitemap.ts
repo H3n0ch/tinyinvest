@@ -190,5 +190,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1.0,
     },
+    {
+      url: `${BASE_URL}/wissen/iab-tiny-house`,
+      lastModified: "2026-04-15",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-steuern-sparen`,
+      lastModified: "2026-04-15",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-rendite-rechner`,
+      lastModified: "2026-04-15",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }

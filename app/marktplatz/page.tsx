@@ -6,6 +6,7 @@ import ProjekteGrid from "../components/ProjekteGrid";
 import MarktplatzMap from "../components/MarktplatzMap";
 import type { MapListing } from "../components/ProjekteGoogleMap";
 import type { Listing } from "../components/ModelleCarousel";
+import Script from "next/script";
 
 // ── Geocode a location string via Google Geocoding API ──────────────────────
 async function geocodeLocation(location: string): Promise<{ lat: number; lng: number } | null> {
@@ -107,8 +108,37 @@ export default async function MarktplatzPage() {
     })
   );
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Tiny House Investment",
+    "description": "Steueroptimierte Tiny House Kapitalanlage ab 65.000 €. Vollautomatisch verwaltet durch tiny Escapes. 12–14 % IRR p.a.",
+    "brand": { "@type": "Brand", "name": "TinyInvest" },
+    "url": "https://tinyhouse.investments/marktplatz",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "65000",
+      "highPrice": "95000",
+      "offerCount": String(listings.length),
+      "availability": available > 0 ? "https://schema.org/InStock" : "https://schema.org/SoldOut",
+      "url": "https://tinyhouse.investments/marktplatz",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Marktplatz", "item": "https://tinyhouse.investments/marktplatz" },
+    ],
+  };
+
   return (
     <main className="bg-white min-h-screen">
+      <Script id="product-schema-marktplatz" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <Script id="breadcrumb-schema-marktplatz" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar variant="sub" />
 
       <SubPageHeader
