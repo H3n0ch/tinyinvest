@@ -153,6 +153,32 @@ export default function DirektinvestmentPage() {
             </p>
           </div>
 
+          {/* Extended article body */}
+          <div className="max-w-3xl mb-14">
+            <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Die neue Architektur der Kapitalanlage</h2>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die globale Finanzlandschaft befindet sich in einem tiefgreifenden Umbruch, der klassische Sparmodelle zunehmend entwertet und Investoren dazu zwingt, radikal neu über den Begriff des Sachwerts nachzudenken. Während die Inflationsraten die Kaufkraft von Barvermögen schleichend aushöhlen und die Volatilität der Aktienmärkte selbst erfahrene Anleger vor Herausforderungen stellt, gewinnt eine Assetklasse an Bedeutung, die das Beste aus zwei Welten vereint: die Beständigkeit der Immobilie und die steuerliche Dynamik eines beweglichen Wirtschaftsguts. Das Direktinvestment in Tiny Houses stellt hierbei keine kurzfristige Modeerscheinung dar, sondern ist die logische Antwort auf eine sich wandelnde Gesellschaft, die Flexibilität, Nachhaltigkeit und Effizienz über schiere Größe und starre Strukturen stellt.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Bei einer konventionellen Eigentumswohnung ist das Kapital oft über Jahrzehnte in einem starren Konstrukt gebunden, das durch hohe Kaufnebenkosten, bürokratische Trägheit und langsame Abschreibungszyklen geprägt ist. Ein Tiny House hingegen wird rechtlich als bewegliches Wirtschaftsgut behandelt, was eine völlig neue Ebene der steuerlichen Gestaltung eröffnet. Der Investor erwirbt dabei nicht nur einen Anteil an einem Fonds oder ein abstraktes Papierversprechen, sondern wird zum vollwertigen Eigentümer eines physischen Objekts, das eine Seriennummer besitzt, versichert werden kann und einen realen Wiederverkaufswert aufweist. Diese Form der Asset-Protection ist in unsicheren Zeiten ein unschätzbarer psychologischer und ökonomischer Vorteil, da der Gegenwert des Investments jederzeit greifbar bleibt.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die steuerliche Attraktivität dieses Modells ist im deutschen Steuerrecht fast einzigartig und stellt für viele Anleger den eigentlichen Motor der Rendite dar. Durch den Investitionsabzugsbetrag gemäß §7g EStG können Investoren ihre Steuerlast proaktiv steuern: Unter bestimmten Voraussetzungen lassen sich bis zu 50 % der voraussichtlichen Anschaffungskosten bereits vor dem eigentlichen Kauf gewinnmindernd geltend machen. Für Gutverdiener mit hoher Steuerprogression resultiert daraus eine sofortige Steuerersparnis, die direkt als Eigenkapital in das Investment fließen kann. Ergänzt wird dieser Effekt durch die kurze Abschreibungsdauer von meist nur acht Jahren – während ein herkömmliches Gebäude über 50 Jahre abgeschrieben wird, erlaubt das Tiny House eine jährliche Abschreibung von ca. 12,5 %. Dieser steuerliche Aufwand reduziert das zu versteuernde Einkommen des Anlegers über Jahre hinweg massiv.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ein weiterer entscheidender Pfeiler des Modells ist die Loslösung des Investors von den operativen Lasten der Vermietung. In der Vergangenheit war der Besitz einer Ferienimmobilie oft mit erheblichem zeitlichem Aufwand verbunden – von der Korrespondenz mit Gästen über die Schlüsselübergabe bis hin zur Endreinigung. Das moderne Direktinvestment löst dieses Problem durch ein konsequentes Full-Service-Management: tiny Escapes übernimmt die gesamte Wertschöpfungskette und transformiert das Investment in ein echtes passives Einkommen. Die Häuser werden in strategisch erstklassigen Lagen platziert, die nach strengen Kriterien der Nachfrage und Infrastruktur ausgewählt werden, um eine ganzjährige Auslastung sicherzustellen.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die ökonomische Logik hinter der Vermietung von Tiny Houses folgt dem Trend des sogenannten Glamping – einer Mischung aus Glamour und Camping, die die Sehnsucht nach Natur mit dem Wunsch nach Luxus und Komfort verbindet. In einer Welt, die immer digitaler und hektischer wird, suchen Menschen nach Rückzugsorten, die reduziert aber dennoch hochwertig sind. Für den Investor bedeutet das, dass er Quadratmeterpreise erzielen kann, die weit über denen einer normalen Mietwohnung liegen. Da die Baukosten für ein Tiny House im Vergleich zu einem Massivbau deutlich geringer sind, verschiebt sich das Verhältnis von Investitionskosten zu Mieteinnahmen massiv zugunsten des Anlegers.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Betrachtet man die langfristige Perspektive, spielt auch der Aspekt der ökologischen Nachhaltigkeit eine zentrale Rolle für die Wertstabilität. Tiny Houses werden in modernen Manufakturen unter Verwendung nachhaltiger Rohstoffe wie Holz und hocheffizienter Dämmmaterialien gefertigt. Sie verbrauchen durch ihre kompakte Bauweise nur einen Bruchteil der Energie, die ein herkömmliches Haus benötigt, und versiegeln deutlich weniger Bodenfläche. In einer Zukunft, in der ökologische Kriterien immer stärker in die Bewertung von Kapitalanlagen einfließen, ist das Tiny House hervorragend positioniert.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Zusammenfassend ist das Direktinvestment in ein Tiny House weit mehr als nur der Kauf eines kleinen Hauses. Es ist eine hochgradig optimierte Anlagestrategie, die gezielt die Lücken im Steuersystem nutzt, die Chancen des boomenden Tourismussektors ergreift und das Risiko durch realen Sachwertbesitz minimiert. Die Kombination aus massiven steuerlichen Vorteilen in der Anfangsphase, einer hohen laufenden Rendite durch professionelle Kurzzeitvermietung und vollständiger Entlastung durch ein Rundum-Sorglos-Management macht dieses Modell zu einer der überzeugendsten Optionen für den modernen Vermögensaufbau.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Direkt vs. indirekt: Was ist der Unterschied?</h2>
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
             <div className="overflow-x-auto">
