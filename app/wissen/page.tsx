@@ -9,6 +9,7 @@ export const metadata = {
     "Alles über Tiny House Investments: Kapitalanlage, §7g AfA, Abschreibung, IRR und mehr. Glossar mit 25+ Fachbegriffen für Investoren.",
   keywords:
     "tiny house wissen, tiny house glossar, §7g erklärt, afa abschreibung, irr rendite, tiny house investment begriffe",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: {
     canonical: "https://tinyhouse.investments/wissen",
   },

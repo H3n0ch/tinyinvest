@@ -1,10 +1,26 @@
+import Script from "next/script";
 import { faqs } from "./data";
 import AccordionItem from "./AccordionItem";
 import ModalButton from "./ModalButton";
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 export default function FAQ() {
   return (
     <section id="faq" className="py-20 bg-white">
+      <Script id="faq-schema-homepage" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-green-700 font-semibold text-sm uppercase tracking-widest">FAQ</span>

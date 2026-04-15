@@ -30,12 +30,6 @@ const featuredArticle = {
   url: "https://medium.com/@robert_10241/warum-smarte-investoren-2026-keine-eigentumswohnungen-mehr-kaufen-cb36427305f3",
 };
 
-const comingSoon = [
-  { name: "Handelsblatt", placeholder: true },
-  { name: "Focus Money", placeholder: true },
-  { name: "Weitere Medien", placeholder: true },
-];
-
 export default function Presse() {
   return (
     <section id="presse" className="py-20 bg-gray-50 border-t border-gray-100">
@@ -50,24 +44,22 @@ export default function Presse() {
             TinyInvest in den Medien
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
-            Was Journalisten und Analysten über Tiny Invest schreiben.
+            Was Journalisten und Analysten über TinyInvest schreiben.
           </p>
         </div>
 
-        {/* Press grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 items-stretch">
-
-          {/* ── Featured article card ── */}
+        {/* Featured article — full width */}
+        <div className="max-w-2xl mx-auto">
           <a
             href={featuredArticle.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="lg:col-span-2 group bg-white rounded-2xl border border-gray-200 p-7 flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200"
+            className="group bg-white rounded-2xl border border-gray-200 p-7 flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200"
           >
             {/* Publication header */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-9 h-9 bg-black rounded-full flex items-center justify-center shrink-0">
                   <MediumLogo className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -84,7 +76,7 @@ export default function Presse() {
             <h3 className="font-black text-gray-900 text-base leading-snug mb-3 group-hover:text-green-700 transition-colors">
               {featuredArticle.title}
             </h3>
-            <p className="text-gray-500 text-[13px] leading-relaxed flex-grow mb-5">
+            <p className="text-gray-500 text-[13px] leading-relaxed grow mb-5">
               {featuredArticle.excerpt}
             </p>
 
@@ -94,20 +86,6 @@ export default function Presse() {
               <span>→</span>
             </div>
           </a>
-
-          {/* ── "Coming soon" placeholder cards ── */}
-          {comingSoon.map((item) => (
-            <div
-              key={item.name}
-              className="bg-white rounded-2xl border border-dashed border-gray-200 p-7 flex flex-col items-center justify-center text-center min-h-[180px] opacity-50"
-            >
-              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-3">
-                <span className="text-gray-400 text-lg">📰</span>
-              </div>
-              <p className="font-semibold text-gray-400 text-sm">{item.name}</p>
-              <p className="text-gray-300 text-[11px] mt-1">Bald verfügbar</p>
-            </div>
-          ))}
         </div>
 
         {/* Bottom CTA */}
@@ -116,7 +94,7 @@ export default function Presse() {
             Presseanfragen & Medienkooperationen
           </p>
           <ModalButton className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 text-sm font-semibold transition-all">
-            📩 Pressekontakt aufnehmen
+            Pressekontakt aufnehmen
           </ModalButton>
         </div>
 

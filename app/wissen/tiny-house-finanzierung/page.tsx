@@ -10,6 +10,7 @@ export const metadata = {
     "Wie finanziert man ein Tiny House als Kapitalanlage? Kredit, Leasing oder Barzahlung – Vergleich mit Steuereffekt. §7g macht Cash zur klügsten Option.",
   keywords:
     "tiny house finanzieren, tiny house kredit 2026, tiny house leasing, tiny house investment finanzierung, tiny house kaufen finanzierung",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: {
     canonical: "https://tinyhouse.investments/wissen/tiny-house-finanzierung",
   },
@@ -53,9 +54,19 @@ export default function TinyHouseFinanzierungPage() {
     "url": "https://tinyhouse.investments/wissen/tiny-house-finanzierung",
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14",
-    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "author": { "@type": "Person", "name": "Noah Stein", "url": "https://www.linkedin.com/in/noah-stein-a5b486182/" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
     "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-escape-wald.webp" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
+      { "@type": "ListItem", "position": 3, "name": "Finanzierung", "item": "https://tinyhouse.investments/wissen/tiny-house-finanzierung" }
+    ]
   };
 
   const faqSchema = {
@@ -73,6 +84,7 @@ export default function TinyHouseFinanzierungPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Script id="article-schema-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <Script id="breadcrumb-schema-tiny-house-finanzierung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,6 +99,16 @@ export default function TinyHouseFinanzierungPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House finanzieren 2026: Kredit, Leasing oder Cash?
           </h1>
+          <div className="flex items-center gap-3 mt-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xs shrink-0">NS</div>
+            <div className="text-[12px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <a href="https://www.linkedin.com/in/noah-stein-a5b486182/" target="_blank" rel="noopener noreferrer" className="text-gray-600 font-semibold hover:text-green-700 transition-colors">Noah Stein</a>
+              <span>·</span>
+              <span>TinyInvest Redaktion</span>
+              <span>·</span>
+              <time dateTime="2026-04-15">15. April 2026</time>
+            </div>
+          </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
             Welche Finanzierungsform ist die klügste für ein Tiny House Investment? Warum §7g die Rechnung komplett verändert – und warum Barzahlung in den meisten Fällen gewinnt.
           </p>
@@ -270,6 +292,7 @@ export default function TinyHouseFinanzierungPage() {
             <Link href="/rechner/iab" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">IAB-Rechner →</Link>
             <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA-Guide →</Link>
             <Link href="/wissen/tiny-house-kaufen-checkliste" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kauf-Checkliste →</Link>
+            <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>

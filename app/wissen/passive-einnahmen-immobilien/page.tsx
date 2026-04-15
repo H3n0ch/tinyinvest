@@ -10,6 +10,7 @@ export const metadata = {
     "Welches Immobilien-Modell liefert wirklich passive Einnahmen? ETW, REITs, Ferienimmobilien, Crowdinvesting und Tiny House im direkten Vergleich 2026.",
   keywords:
     "passive einnahmen immobilien, passive einnahmen durch immobilien 2026, immobilien rendite vergleich, tiny house vs etw rendite, ferienimmobilie passive einnahmen",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: { canonical: "https://tinyhouse.investments/wissen/passive-einnahmen-immobilien" },
   openGraph: {
     title: "Passive Einnahmen Immobilien: 5 Modelle im Vergleich 2026",
@@ -91,9 +92,19 @@ export default function PassiveEinnahmenPage() {
     "url": "https://tinyhouse.investments/wissen/passive-einnahmen-immobilien",
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14",
-    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "author": { "@type": "Person", "name": "Noah Stein", "url": "https://www.linkedin.com/in/noah-stein-a5b486182/" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
     "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-nebel-natur.jpg" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
+      { "@type": "ListItem", "position": 3, "name": "Passive Einnahmen", "item": "https://tinyhouse.investments/wissen/passive-einnahmen-immobilien" }
+    ]
   };
 
   const faqSchema = {
@@ -111,6 +122,7 @@ export default function PassiveEinnahmenPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-passive" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Script id="article-schema-passive" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <Script id="breadcrumb-schema-passive-einnahmen-immobilien" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-10 bg-white">
@@ -126,6 +138,16 @@ export default function PassiveEinnahmenPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Passive Einnahmen durch Immobilien: 5 Modelle im Vergleich 2026
           </h1>
+          <div className="flex items-center gap-3 mt-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xs shrink-0">NS</div>
+            <div className="text-[12px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <a href="https://www.linkedin.com/in/noah-stein-a5b486182/" target="_blank" rel="noopener noreferrer" className="text-gray-600 font-semibold hover:text-green-700 transition-colors">Noah Stein</a>
+              <span>·</span>
+              <span>TinyInvest Redaktion</span>
+              <span>·</span>
+              <time dateTime="2026-04-15">15. April 2026</time>
+            </div>
+          </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl mb-8">
             Welches Immobilien-Investment liefert 2026 wirklich passive Einnahmen – mit minimalem
             Aufwand, maximalem Steuereffekt und echtem Eigentumsrecht? Der direkte Vergleich.
@@ -314,6 +336,7 @@ export default function PassiveEinnahmenPage() {
             <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
               §7g AfA-Guide →
             </Link>
+            <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
               ← Wissens-Hub
             </Link>

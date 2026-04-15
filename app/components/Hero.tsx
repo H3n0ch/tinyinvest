@@ -38,7 +38,7 @@ export default function Hero({ heroImage }: { heroImage: string }) {
         <div className="mb-8">
           <span className="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-[11px] font-semibold px-4 py-1.5 rounded-full uppercase tracking-widest backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Mobile Asset Platform · Betrieben mit tiny Escapes · §7g EStG-fähig
+            Tiny House Investment · Betrieben mit tiny Escapes · Steuervorteil im Kaufjahr
           </span>
         </div>
 
@@ -60,11 +60,11 @@ export default function Hero({ heroImage }: { heroImage: string }) {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-5">
               Die schlaue Alternative zur klassischen PV-Anlage.
               <br />
-              <span className="text-green-400">Ihr Marktplatz für Tiny häuser.</span>
+              <span className="text-green-400">Steueroptimierte Investments in Tiny Houses.</span>
             </h1>
 
             <p className="text-white/75 text-base leading-relaxed mb-7 max-w-lg">
-              TinyInvest begleitet unternehmerische Investoren bei der Auswahl, Strukturierung und Umsetzung von Investitionen in hochwertige Tiny-House-Projekte. Wir konzentrieren uns auf das Wesentliche: Maximale Flächeneffizienz, langfristige Werthaltigkeit und rechtliche Sicherheit.{" "}
+              Wir vermitteln Tiny Houses als steueroptimierte Kapitalanlage – fertig aufgestellt, vollständig verwaltet durch tiny Escapes, mit monatlichem Cashflow ab dem ersten Monat. Ab 65.000 €, 12–14 % Rendite p.a. Alles aus einer Hand über das{" "}
               <a
                 href="https://www.tiny.rentals"
                 target="_blank"

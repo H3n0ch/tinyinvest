@@ -10,6 +10,7 @@ export const metadata = {
     "Lohnt sich ein Tiny House als Kapitalanlage? Vergleich Tiny House vs. Eigentumswohnung, 3 Renditesäulen, Risiken und Chancen. Kompletter Guide für Investoren 2026.",
   keywords:
     "tiny house als kapitalanlage, tiny house investieren, tiny house rendite, ferienhaus als kapitalanlage, tiny house investment 2026",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: {
     canonical: "https://tinyhouse.investments/wissen/kapitalanlage",
   },
@@ -74,9 +75,19 @@ export default function KapitalanlagePage() {
     "url": "https://tinyhouse.investments/wissen/kapitalanlage",
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14",
-    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "author": { "@type": "Person", "name": "Noah Stein", "url": "https://www.linkedin.com/in/noah-stein-a5b486182/" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
     "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-winter-ganzjahresbetrieb.webp" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
+      { "@type": "ListItem", "position": 3, "name": "Kapitalanlage", "item": "https://tinyhouse.investments/wissen/kapitalanlage" }
+    ]
   };
 
   const faqSchema = {
@@ -119,6 +130,16 @@ export default function KapitalanlagePage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House als Kapitalanlage: Rendite, Risiken & Chancen 2026
           </h1>
+          <div className="flex items-center gap-3 mt-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xs shrink-0">NS</div>
+            <div className="text-[12px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <a href="https://www.linkedin.com/in/noah-stein-a5b486182/" target="_blank" rel="noopener noreferrer" className="text-gray-600 font-semibold hover:text-green-700 transition-colors">Noah Stein</a>
+              <span>·</span>
+              <span>TinyInvest Redaktion</span>
+              <span>·</span>
+              <time dateTime="2026-04-15">15. April 2026</time>
+            </div>
+          </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
             Warum immer mehr Investoren auf mobile Assets setzen – statt auf überteuerte Eigentumswohnungen. Dieser Guide zeigt, wie das Modell funktioniert, was es wirklich einbringt und wo die Risiken liegen.
           </p>
@@ -390,6 +411,7 @@ export default function KapitalanlagePage() {
             <Link href="/wissen/afa-abschreibung" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA im Detail →</Link>
             <Link href="/wissen/ferienimmobilie-steuer" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Ferienimmobilien vs. Tiny House →</Link>
             <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Passive Einnahmen im Vergleich →</Link>
+            <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>

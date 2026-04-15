@@ -10,6 +10,7 @@ export const metadata = {
     "Wie wirst du TinyInvest Host? Voraussetzungen, Verdienst (bis 45 %), Standortanforderungen und der komplette Bewerbungsprozess erklärt.",
   keywords:
     "tiny house host werden, grundstück tiny house vermieten, airbnb host tiny house, tiny escapes host, tiny house betreiber werden",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: {
     canonical: "https://tinyhouse.investments/wissen/host-werden",
   },
@@ -53,9 +54,19 @@ export default function HostWerdenPage() {
     "url": "https://tinyhouse.investments/wissen/host-werden",
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14",
-    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "author": { "@type": "Person", "name": "Noah Stein", "url": "https://www.linkedin.com/in/noah-stein-a5b486182/" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
     "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-host-grundstueck.webp" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
+      { "@type": "ListItem", "position": 3, "name": "Host werden", "item": "https://tinyhouse.investments/wissen/host-werden" }
+    ]
   };
 
   const faqSchema = {
@@ -80,6 +91,7 @@ export default function HostWerdenPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Script id="article-schema-host-werden" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <Script id="breadcrumb-schema-host-werden" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,6 +106,16 @@ export default function HostWerdenPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Host werden: Tiny House auf deinem Grundstück betreiben
           </h1>
+          <div className="flex items-center gap-3 mt-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xs shrink-0">NS</div>
+            <div className="text-[12px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <a href="https://www.linkedin.com/in/noah-stein-a5b486182/" target="_blank" rel="noopener noreferrer" className="text-gray-600 font-semibold hover:text-green-700 transition-colors">Noah Stein</a>
+              <span>·</span>
+              <span>TinyInvest Redaktion</span>
+              <span>·</span>
+              <time dateTime="2026-04-15">15. April 2026</time>
+            </div>
+          </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
             Als TinyInvest Host stellst du das Grundstück, übernimmst Check-in, Reinigung und Gästebetreuung – und profitierst von einem leistungsbasierten Einkommensmodell ohne eigenes Kapitalrisiko.
           </p>
@@ -310,6 +332,7 @@ export default function HostWerdenPage() {
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
             <Link href="/hosts" className="border border-amber-200 text-amber-700 hover:bg-amber-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Host-Seite →</Link>
             <Link href="/wissen/tiny-house-als-rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Renditemodell für Investoren →</Link>
+            <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>

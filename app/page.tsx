@@ -14,18 +14,18 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
-  title: "Tiny House §7g Investment kaufen – 12–14 % IRR p.a. | TinyInvest",
+  title: "Tiny House kaufen & vermieten | 22.000 € Steuern sparen | TinyInvest",
   description:
-    "Tiny House als §7g-Kapitalanlage ab 65.000 €: bis zu 70 % Steuerabschreibung im Kaufjahr, 12–14 % IRR p.a., vollautomatisch verwaltet durch tiny Escapes.",
+    "Tiny House kaufen, vermieten und im ersten Jahr bis zu 33.000 € Steuern sparen. Ab 65.000 € · 12–14 % Rendite p.a. · vollautomatisch verwaltet durch tiny Escapes.",
   keywords:
-    "tiny house investment, tiny house kaufen kapitalanlage, §7g tiny house, tiny house rendite 2026, tiny house als kapitalanlage",
+    "tiny house kaufen vermieten, tiny house investment, tiny house steuern sparen, tiny house rendite 2026, tiny house als kapitalanlage",
   alternates: {
     canonical: "https://tinyhouse.investments",
   },
   openGraph: {
-    title: "Tiny House §7g Investment kaufen – 12–14 % IRR p.a. | TinyInvest",
+    title: "Tiny House kaufen & vermieten | 22.000 € Steuern sparen | TinyInvest",
     description:
-      "Tiny House als §7g-Kapitalanlage ab 65.000 €: bis zu 70 % Steuerabschreibung im Kaufjahr, 12–14 % IRR p.a., vollautomatisch verwaltet.",
+      "Tiny House kaufen, vermieten und im ersten Jahr bis zu 33.000 € Steuern sparen. Ab 65.000 € · 12–14 % Rendite p.a. · vollautomatisch verwaltet.",
     url: "https://tinyhouse.investments",
   },
 };
@@ -61,6 +61,23 @@ const organizationSchema = {
   "sameAs": [],
 };
 
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Tiny House §7g Investment",
+  "description": "Tiny House als bewegliches Wirtschaftsgut: §7g IAB (50 %), Sonder-AfA (40 %) und degressive AfA (30 %) kombinierbar. Ab 65.000 €, 12–14 % IRR p.a.",
+  "brand": { "@type": "Brand", "name": "TinyInvest" },
+  "url": "https://tinyhouse.investments/marktplatz",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "65000",
+    "highPrice": "95000",
+    "availability": "https://schema.org/InStock",
+    "url": "https://tinyhouse.investments/marktplatz",
+  },
+};
+
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -81,6 +98,7 @@ export default function Home() {
     <main className="font-sans antialiased text-gray-800 bg-white">
       <Script id="org-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <Script id="website-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <Script id="product-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <Navbar />
       <Hero heroImage={HERO_IMAGE} />
       <TrustBar />

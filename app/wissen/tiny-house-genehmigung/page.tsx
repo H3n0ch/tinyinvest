@@ -10,6 +10,7 @@ export const metadata = {
     "Braucht ein Tiny House eine Baugenehmigung? Alles über Stellplatz, Baurecht, Bebauungsplan und Dauerwohnen. Klare Antworten für Deutschland 2026.",
   keywords:
     "tiny house genehmigung, tiny house stellplatz genehmigung, tiny house baurecht deutschland, tiny house bebauungsplan, tiny house wohnrecht 2026",
+  authors: [{ name: "Noah Stein", url: "https://www.linkedin.com/in/noah-stein-a5b486182/" }],
   alternates: {
     canonical: "https://tinyhouse.investments/wissen/tiny-house-genehmigung",
   },
@@ -52,9 +53,19 @@ export default function GenehmigungPage() {
     "url": "https://tinyhouse.investments/wissen/tiny-house-genehmigung",
     "datePublished": "2026-04-14",
     "dateModified": "2026-04-14",
-    "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
+    "author": { "@type": "Person", "name": "Noah Stein", "url": "https://www.linkedin.com/in/noah-stein-a5b486182/" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
     "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-stellplatz-standort.webp" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
+      { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
+      { "@type": "ListItem", "position": 3, "name": "Genehmigung", "item": "https://tinyhouse.investments/wissen/tiny-house-genehmigung" }
+    ]
   };
 
   const faqSchema = {
@@ -72,6 +83,7 @@ export default function GenehmigungPage() {
       <Navbar variant="sub" />
       <Script id="faq-schema-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Script id="article-schema-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <Script id="breadcrumb-schema-tiny-house-genehmigung" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,6 +98,16 @@ export default function GenehmigungPage() {
           <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mt-3 mb-4 tracking-tight leading-tight">
             Tiny House Genehmigung 2026: Was du wirklich brauchst
           </h1>
+          <div className="flex items-center gap-3 mt-3 mb-6">
+            <div className="w-8 h-8 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xs shrink-0">NS</div>
+            <div className="text-[12px] text-gray-400 flex items-center gap-2 flex-wrap">
+              <a href="https://www.linkedin.com/in/noah-stein-a5b486182/" target="_blank" rel="noopener noreferrer" className="text-gray-600 font-semibold hover:text-green-700 transition-colors">Noah Stein</a>
+              <span>·</span>
+              <span>TinyInvest Redaktion</span>
+              <span>·</span>
+              <time dateTime="2026-04-15">15. April 2026</time>
+            </div>
+          </div>
           <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
             Baurecht, Stellplatz, Bebauungsplan – das Genehmigungsthema ist der häufigste Stolperstein. Hier bekommst du klare Antworten, was bei einem Tiny House Investment tatsächlich notwendig ist – und was nicht.
           </p>
@@ -232,6 +254,7 @@ export default function GenehmigungPage() {
             <Link href="/hosts" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Für Hosts: Stellplatz anbieten →</Link>
             <Link href="/wissen/tiny-house-standorte" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Beste Standorte →</Link>
             <Link href="/wissen/tiny-house-kaufen-checkliste" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kauf-Checkliste →</Link>
+            <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
         </div>
