@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tinyhouse.investments"),
   title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
   description:
-    "TinyInvest strukturiert §7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset. Rendite 10–15 % p.a. EU-weit.",
+    "Tiny House kaufen, vermieten und Steuern sparen. Steueroptimierte Investments ab 65.000 €. 12–14 % Rendite p.a., vollautomatisch verwaltet durch tiny Escapes.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TinyInvest – Die Nr. 1 Plattform für Mobile Asset Investments",
     description:
-      "§7g-optimierte Tiny House Investments. tiny Escapes bewirtschaftet das Asset. Rendite 10–15 % p.a. EU-weit.",
+      "Tiny House kaufen, vermieten und Steuern sparen. Steueroptimierte Investments ab 65.000 €. 12–14 % Rendite p.a.",
     url: "https://tinyhouse.investments",
     siteName: "TinyInvest",
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TinyInvest – Mobile Asset Investment",
     description:
-      "§7g-optimierte Tiny House Investments. Rendite 10–15 % p.a. EU-weit.",
+      "Tiny House kaufen, vermieten und Steuern sparen. Steueroptimierte Investments ab 65.000 €. 12–14 % Rendite p.a.",
     images: [
       "https://tinyhouse.investments/images/Gemini_Generated_Image_e2327ae2327ae232.png",
     ],

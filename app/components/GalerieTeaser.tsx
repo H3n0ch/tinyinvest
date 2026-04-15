@@ -27,7 +27,7 @@ export default function GalerieTeaser() {
             <Link key={i} href="/galerie" className="group relative overflow-hidden rounded-xl aspect-[4/3] block">
               <Image
                 src={src}
-                alt={`TinyInvest Tiny House ${i + 1}`}
+                alt={src.split('/').pop()?.replace(/\.(webp|jpg|png)$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? `Tiny House ${i + 1}`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                 sizes="(max-width: 640px) 50vw, 25vw"

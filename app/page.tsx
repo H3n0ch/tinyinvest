@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Tiny House kaufen, vermieten und im ersten Jahr bis zu 33.000 € Steuern sparen. Ab 65.000 € · 12–14 % Rendite p.a. · vollautomatisch verwaltet durch tiny Escapes.",
   keywords:
-    "tiny house kaufen vermieten, tiny house investment, tiny house steuern sparen, tiny house rendite 2026, tiny house als kapitalanlage",
+    "tiny house kaufen vermieten, tiny house investment, tiny house steuern sparen, tiny house rendite, tiny house als kapitalanlage",
   alternates: {
     canonical: "https://tinyhouse.investments",
   },
