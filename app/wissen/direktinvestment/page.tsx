@@ -26,7 +26,7 @@ const faqItems = [
   {
     question: "Wie werde ich Eigentümer des Tiny Houses?",
     answer:
-      "Der Kauf erfolgt über einen notariell beglaubigten Kaufvertrag. Das Tiny House wird auf deinen Namen übergeeignet, du erhältst die Fahrzeugbriefe (Übereignungsurkunde) und bist rechtlicher Eigentümer des Trailers samt Aufbauten. Der Kaufvertrag wird in deinen Unterlagen hinterlegt. Es gibt keinen Zwischenhändler, keinen Fonds und kein Token dazwischen.",
+      "Der Kauf erfolgt über einen Kaufvertrag. Das Tiny House wird auf deinen Namen übergeeignet, du erhältst die Fahrzeugbriefe (Übereignungsurkunde) und bist rechtlicher Eigentümer des Trailers samt Aufbauten. Der Kaufvertrag wird in deinen Unterlagen hinterlegt. Es gibt keinen Zwischenhändler, keinen Fonds und kein Token dazwischen.",
   },
   {
     question: "Was passiert mit meinem Eigentum, wenn tiny Escapes insolvent wird?",
@@ -144,43 +144,40 @@ export default function DirektinvestmentPage() {
 
       <article className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* ── 1. Die neue Kapitalanlage-Architektur ── */}
           <div className="max-w-3xl mb-12">
+            <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Die neue Architektur der Kapitalanlage</h2>
             <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Bei TinyInvest kaufst du ein Tiny House – nicht einen Anteil, nicht ein Token, nicht eine Gewinnbeteiligung. Ein echtes, physisches Gebäude auf einem straßenzugelassenen Vlemmix Trailer, das auf deinen Namen übereignet wird. Du erhältst den Fahrzeugbrief, bist im Kaufvertrag namentlich eingetragen und hast volle Verfügungsgewalt über das Asset. Das ist der fundamentale Unterschied zu fast allen anderen alternativen Investments, die heute als "Sachwert-Investment" beworben werden.
+              Die globale Finanzlandschaft befindet sich in einem tiefgreifenden Umbruch, der klassische Sparmodelle zunehmend entwertet. Während Inflation die Kaufkraft von Barvermögen aushöhlt und Aktienmärkte volatil bleiben, gewinnt eine Assetklasse an Bedeutung, die das Beste aus zwei Welten vereint: die Beständigkeit der Immobilie und die steuerliche Dynamik eines beweglichen Wirtschaftsguts.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Bei einer konventionellen Eigentumswohnung ist das Kapital oft über Jahrzehnte in einem starren Konstrukt gebunden – geprägt durch hohe Kaufnebenkosten und langsame Abschreibungszyklen von 50 Jahren. Ein Tiny House auf Vlemmix Trailer hingegen wird rechtlich als bewegliches Wirtschaftsgut behandelt und schreibt sich in acht Jahren ab. Das öffnet Steuerinstrumente, die bei klassischen Immobilien schlicht nicht existieren: IAB, Sonder-AfA und degressive AfA.
             </p>
             <p className="text-gray-700 text-base leading-relaxed">
-              Die Frage, die jeder Investor stellen sollte, lautet nicht: "Wie hoch ist die projizierte Rendite?" – sondern: "Was besitze ich, wenn der Betreiber morgen nicht mehr existiert?" Bei Crowdinvesting-Darlehen steht man auf der Gläubigerliste. Bei REIT-Anteilen ist die Aktie möglicherweise wertlos. Bei einem TinyInvest-Haus kann man das Objekt herausverlangen und eigenständig weiterführen. Diese Eigentumsstruktur ist kein Marketingargument – sie ist die entscheidende rechtliche Realität.
+              Der Investor erwirbt dabei kein abstraktes Papierversprechen, sondern wird zum vollwertigen Eigentümer eines physischen Objekts mit Seriennummer, Versicherbarkeit und realem Wiederverkaufswert. Diese Asset-Protection ist in unsicheren Zeiten ein unschätzbarer Vorteil: Der Gegenwert des Investments bleibt jederzeit greifbar.
             </p>
           </div>
 
-          {/* Extended article body */}
-          <div className="max-w-3xl mb-14">
-            <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Die neue Architektur der Kapitalanlage</h2>
+          {/* ── Image ── */}
+          <div className="rounded-2xl overflow-hidden mb-14" style={{ aspectRatio: "21/9" }}>
+            <img src="/images/outside/tiny-house-wald-naturstandort.webp" alt="Tiny House Standort Wald Natur" className="w-full h-full object-cover" />
+          </div>
+
+          {/* ── 2. Sachwert statt Papierversprechen ── */}
+          <div className="max-w-3xl mb-8">
+            <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Sachwert statt Papierversprechen</h2>
             <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Die globale Finanzlandschaft befindet sich in einem tiefgreifenden Umbruch, der klassische Sparmodelle zunehmend entwertet und Investoren dazu zwingt, radikal neu über den Begriff des Sachwerts nachzudenken. Während die Inflationsraten die Kaufkraft von Barvermögen schleichend aushöhlen und die Volatilität der Aktienmärkte selbst erfahrene Anleger vor Herausforderungen stellt, gewinnt eine Assetklasse an Bedeutung, die das Beste aus zwei Welten vereint: die Beständigkeit der Immobilie und die steuerliche Dynamik eines beweglichen Wirtschaftsguts. Das Direktinvestment in Tiny Houses stellt hierbei keine kurzfristige Modeerscheinung dar, sondern ist die logische Antwort auf eine sich wandelnde Gesellschaft, die Flexibilität, Nachhaltigkeit und Effizienz über schiere Größe und starre Strukturen stellt.
+              Bei TinyInvest kaufst du ein Tiny House – nicht einen Fondsanteil, nicht ein Token, nicht eine Gewinnbeteiligung. Du erhältst den Fahrzeugbrief, bist im Kaufvertrag namentlich eingetragen und hast volle Verfügungsgewalt. Das ist der fundamentale Unterschied zu fast allen alternativen Investments, die heute als "Sachwert-Investment" vermarktet werden.
             </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Bei einer konventionellen Eigentumswohnung ist das Kapital oft über Jahrzehnte in einem starren Konstrukt gebunden, das durch hohe Kaufnebenkosten, bürokratische Trägheit und langsame Abschreibungszyklen geprägt ist. Ein Tiny House hingegen wird rechtlich als bewegliches Wirtschaftsgut behandelt, was eine völlig neue Ebene der steuerlichen Gestaltung eröffnet. Der Investor erwirbt dabei nicht nur einen Anteil an einem Fonds oder ein abstraktes Papierversprechen, sondern wird zum vollwertigen Eigentümer eines physischen Objekts, das eine Seriennummer besitzt, versichert werden kann und einen realen Wiederverkaufswert aufweist. Diese Form der Asset-Protection ist in unsicheren Zeiten ein unschätzbarer psychologischer und ökonomischer Vorteil, da der Gegenwert des Investments jederzeit greifbar bleibt.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Die steuerliche Attraktivität dieses Modells ist im deutschen Steuerrecht fast einzigartig und stellt für viele Anleger den eigentlichen Motor der Rendite dar. Durch den Investitionsabzugsbetrag gemäß §7g EStG können Investoren ihre Steuerlast proaktiv steuern: Unter bestimmten Voraussetzungen lassen sich bis zu 50 % der voraussichtlichen Anschaffungskosten bereits vor dem eigentlichen Kauf gewinnmindernd geltend machen. Für Gutverdiener mit hoher Steuerprogression resultiert daraus eine sofortige Steuerersparnis, die direkt als Eigenkapital in das Investment fließen kann. Ergänzt wird dieser Effekt durch die kurze Abschreibungsdauer von meist nur acht Jahren – während ein herkömmliches Gebäude über 50 Jahre abgeschrieben wird, erlaubt das Tiny House eine jährliche Abschreibung von ca. 12,5 %. Dieser steuerliche Aufwand reduziert das zu versteuernde Einkommen des Anlegers über Jahre hinweg massiv.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Ein weiterer entscheidender Pfeiler des Modells ist die Loslösung des Investors von den operativen Lasten der Vermietung. In der Vergangenheit war der Besitz einer Ferienimmobilie oft mit erheblichem zeitlichem Aufwand verbunden – von der Korrespondenz mit Gästen über die Schlüsselübergabe bis hin zur Endreinigung. Das moderne Direktinvestment löst dieses Problem durch ein konsequentes Full-Service-Management: tiny Escapes übernimmt die gesamte Wertschöpfungskette und transformiert das Investment in ein echtes passives Einkommen. Die Häuser werden in strategisch erstklassigen Lagen platziert, die nach strengen Kriterien der Nachfrage und Infrastruktur ausgewählt werden, um eine ganzjährige Auslastung sicherzustellen.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Die ökonomische Logik hinter der Vermietung von Tiny Houses folgt dem Trend des sogenannten Glamping – einer Mischung aus Glamour und Camping, die die Sehnsucht nach Natur mit dem Wunsch nach Luxus und Komfort verbindet. In einer Welt, die immer digitaler und hektischer wird, suchen Menschen nach Rückzugsorten, die reduziert aber dennoch hochwertig sind. Für den Investor bedeutet das, dass er Quadratmeterpreise erzielen kann, die weit über denen einer normalen Mietwohnung liegen. Da die Baukosten für ein Tiny House im Vergleich zu einem Massivbau deutlich geringer sind, verschiebt sich das Verhältnis von Investitionskosten zu Mieteinnahmen massiv zugunsten des Anlegers.
-            </p>
-            <p className="text-gray-700 text-base leading-relaxed mb-5">
-              Betrachtet man die langfristige Perspektive, spielt auch der Aspekt der ökologischen Nachhaltigkeit eine zentrale Rolle für die Wertstabilität. Tiny Houses werden in modernen Manufakturen unter Verwendung nachhaltiger Rohstoffe wie Holz und hocheffizienter Dämmmaterialien gefertigt. Sie verbrauchen durch ihre kompakte Bauweise nur einen Bruchteil der Energie, die ein herkömmliches Haus benötigt, und versiegeln deutlich weniger Bodenfläche. In einer Zukunft, in der ökologische Kriterien immer stärker in die Bewertung von Kapitalanlagen einfließen, ist das Tiny House hervorragend positioniert.
-            </p>
+            <h3 className="text-lg font-black text-gray-900 mb-3 tracking-tight">Die Frage, die jeder Investor stellen sollte</h3>
             <p className="text-gray-700 text-base leading-relaxed">
-              Zusammenfassend ist das Direktinvestment in ein Tiny House weit mehr als nur der Kauf eines kleinen Hauses. Es ist eine hochgradig optimierte Anlagestrategie, die gezielt die Lücken im Steuersystem nutzt, die Chancen des boomenden Tourismussektors ergreift und das Risiko durch realen Sachwertbesitz minimiert. Die Kombination aus massiven steuerlichen Vorteilen in der Anfangsphase, einer hohen laufenden Rendite durch professionelle Kurzzeitvermietung und vollständiger Entlastung durch ein Rundum-Sorglos-Management macht dieses Modell zu einer der überzeugendsten Optionen für den modernen Vermögensaufbau.
+              Nicht: "Wie hoch ist die projizierte Rendite?" – sondern: <em>"Was besitze ich, wenn der Betreiber morgen nicht mehr existiert?"</em> Bei Crowdinvesting-Darlehen steht man auf der Gläubigerliste. Bei REIT-Anteilen ist die Aktie möglicherweise wertlos. Bei einem TinyInvest-Haus kann das Objekt herausverlangt und eigenständig weitergeführt werden. Das ist keine Marketingaussage – es ist die entscheidende rechtliche Realität.
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Direkt vs. indirekt: Was ist der Unterschied?</h2>
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-8">
+          {/* Vergleichstabelle */}
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-6">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -198,9 +195,7 @@ export default function DirektinvestmentPage() {
                     ["Insolvenzschutz", "Insolvenztabelle", "Aktien wertlos", "Asset herausverlangbar"],
                     ["Steuerliche AfA", "Nein", "Nein", "Ja – §7g EStG"],
                     ["Selbstnutzung möglich", "Nein", "Nein", "Ja"],
-                    ["Verkauf des Assets", "Nein", "Fondsanteile", "Direktverkauf Haus"],
                     ["Standort wechselbar", "Nein", "Nein", "Ja (Trailer)"],
-                    ["Transparenz", "Mittel", "Gering", "Vollständig"],
                   ].map(([merkmal, crowd, reit, tiny]) => (
                     <tr key={merkmal} className="hover:bg-gray-50/50">
                       <td className="p-4 font-medium text-gray-700">{merkmal}</td>
@@ -214,180 +209,82 @@ export default function DirektinvestmentPage() {
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-2xl p-6 text-white mb-12">
-            <p className="font-black text-base mb-2">💡 Die Schlüsselfrage bei jedem Investment:</p>
+          <div className="bg-gray-900 rounded-2xl p-6 text-white mb-14">
+            <p className="font-black text-sm text-green-400 uppercase tracking-widest mb-3">Schlüsselfrage</p>
             <p className="text-gray-300 text-[13px] leading-relaxed">
-              <em>"Was besitze ich, wenn der Betreiber morgen nicht mehr existiert?"</em>
-              <br /><br />
               <strong className="text-white">Crowdinvesting:</strong> Du stehst auf der Gläubigerliste.<br />
               <strong className="text-white">REIT/Aktie:</strong> Deine Anteile sind möglicherweise wertlos.<br />
               <strong className="text-green-400">TinyInvest:</strong> Du kannst dein Haus herausverlangen und neu betreiben.
             </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/tiny-house-innen-eigentumsuebergabe.webp" alt="Tiny House Innenausbau – Eigentumsübergabe" className="w-full h-full object-cover" />
-          </div>
-
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was bedeutet es, Eigentümer zu sein?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-            {[
-              {
-                icon: "📄",
-                title: "Kaufvertrag & Übereignungsurkunde",
-                desc: "Der Kauf wird vertraglich dokumentiert. Du erhältst einen Kaufvertrag, die Fahrzeugbriefe des Vlemmix Trailers und bist namentlich als Eigentümer eingetragen. Das ist ein rechtsverbindliches Eigentumsrecht – kein Anteilsschein.",
-              },
-              {
-                icon: "🏛️",
-                title: "Keine Insolvenzgefahr durch tiny Escapes",
-                desc: "Das Tiny House ist dein privates Vermögen. Es gehört nicht zu tiny Escapes. Bei einer Insolvenz des Betreibers kannst du das Haus herausverlangen. Es ist nicht pfändbar durch Gläubiger von tiny Escapes.",
-              },
-              {
-                icon: "🚛",
-                title: "Vollständige Verfügungsgewalt",
-                desc: "Du kannst das Haus verkaufen, verschenken, selbst nutzen oder an einem neuen Standort mit einem anderen Betreiber einsetzen. Die Betriebsvereinbarung mit tiny Escapes schränkt dein Eigentumsrecht nicht grundsätzlich ein.",
-              },
-              {
-                icon: "🔧",
-                title: "Instandhaltung & Investition",
-                desc: "Als Eigentümer kannst du das Haus nachrüsten, erweitern oder renovieren – z.B. Solaranlage, Smart-Lock oder neue Möblierung. Jede Investition in das Asset steigert direkt deinen Substanzwert.",
-              },
-              {
-                icon: "📊",
-                title: "Steuerliche Vorteile als Eigentümer",
-                desc: "Nur als wirtschaftlicher Eigentümer kannst du §7g AfA, IAB und Sonder-AfA in Anspruch nehmen. Fondsbeteiligungen oder Crowdinvesting-Darlehen sind keine Wirtschaftsgüter im steuerlichen Sinne.",
-              },
-              {
-                icon: "🌍",
-                title: "Internationale Einsetzbarkeit",
-                desc: "Als straßenzugelassenes Fahrzeug kann dein Tiny House legal in Deutschland, Österreich, Italien und anderen EU-Staaten betrieben werden. Du bekommst keine Immobilie, die an eine einzige Gemeinde gebunden ist.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="bg-white border border-gray-100 rounded-2xl p-5">
-                <div className="flex gap-3 mb-2">
-                  <span className="text-2xl shrink-0">{item.icon}</span>
-                  <h3 className="font-black text-gray-900 text-[14px] mt-1">{item.title}</h3>
+          {/* ── 3. Der Steuermotor ── */}
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Der Steuermotor hinter der Rendite</h2>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die steuerliche Attraktivität ist im deutschen Steuerrecht fast einzigartig und stellt für viele Anleger den eigentlichen Renditemotor dar. Durch den Investitionsabzugsbetrag (§7g EStG) können bis zu 50 % der Anschaffungskosten bereits vor dem Kauf gewinnmindernd geltend gemacht werden. Für Gutverdiener resultiert daraus eine sofortige Steuerersparnis, die direkt als Eigenkapital in das Investment fließt.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-6">
+              Ergänzt wird dieser Effekt durch die kurze Abschreibungsdauer von acht Jahren. Während ein herkömmliches Gebäude über 50 Jahre abgeschrieben wird, erlaubt das Tiny House 12,5 % jährliche Abschreibung – plus Sonder-AfA (40 %) und degressive AfA (30 %) im Kaufjahr. In der Summe: bis zu 70 % Sofortabschreibung im ersten Jahr.
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+              {[
+                { label: "IAB", value: "50 %", sub: "im Vorjahr" },
+                { label: "Sonder-AfA", value: "40 %", sub: "im Kaufjahr" },
+                { label: "Deg. AfA", value: "30 %", sub: "auf Buchwert" },
+              ].map((s) => (
+                <div key={s.label} className="bg-green-50 border border-green-100 rounded-2xl p-4 text-center">
+                  <p className="text-[10px] font-bold text-green-700 uppercase tracking-widest mb-1">{s.label}</p>
+                  <p className="text-2xl font-black text-green-800">{s.value}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5">{s.sub}</p>
                 </div>
-                <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            <p className="text-[12px] text-gray-400 mt-3">
+              Mehr dazu: <Link href="/wissen/afa-abschreibung" className="text-green-700 font-semibold hover:underline">Vollständiger AfA-Guide →</Link>
+            </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Die 3 entscheidenden Sachwert-Vorteile</h2>
-          <div className="space-y-6 mb-12">
-            {[
-              {
-                num: "01",
-                title: "Substanzwert – das Haus ist immer etwas wert",
-                icon: "🏗️",
-                content: [
-                  "Ein Tiny House ist ein physisches Objekt, das unabhängig von Marktsentiment einen Substanzwert hat.",
-                  "Selbst bei 0 % Belegung über 12 Monate: Das Haus steht, ist versichert und kann morgen wieder betrieben oder verkauft werden.",
-                  "Zum Vergleich: Eine Aktie kann auf 0 fallen. Ein Crowdinvesting-Darlehen kann vollständig ausfallen.",
-                  "Gebrauchte TinyInvest-Häuser erzielen bei Wiederverkauf 60–75 % des Neuwerts – je nach Zustand und Ausstattung.",
-                ],
-                highlight: "60–75 % Restwert",
-              },
-              {
-                num: "02",
-                title: "Drittverwendungsfähigkeit – maximale Flexibilität",
-                icon: "📍",
-                content: [
-                  "Eine Eigentumswohnung in Stuttgart ist für immer in Stuttgart. Dein Tiny House ist auf einem Trailer.",
-                  "Wenn ein Standort nicht mehr rentabel ist, kann das Haus an einen neuen Standort verlegt werden – z.B. von Deutschland nach Spanien.",
-                  "Das eliminiert das geographische Klumpenrisiko, das jeder Immobilieneigentümer kennt.",
-                  "Neue Standortnetzwerke über tiny Escapes in Deutschland, Österreich, Italien und Schweden.",
-                ],
-                highlight: "Standort wechselbar",
-              },
-              {
-                num: "03",
-                title: "Sichtbar & anfassbar – Vertrauen durch Substanz",
-                icon: "⚖️",
-                content: [
-                  "Der physische Charakter schafft Vertrauen, das abstrakte Finanzprodukte nicht leisten können.",
-                  "Du kannst das Haus sehen, anfassen und besichtigen – vor dem Kauf, während der Laufzeit und beim Verkauf.",
-                  "TinyInvest bietet Besichtigungstermine vor dem Kauf an – etwas, das bei Token oder Fondsbeteiligungen schlicht nicht existiert.",
-                ],
-                highlight: "Sichtbar & anfassbar",
-              },
-            ].map((item) => (
-              <div key={item.num} className="bg-gray-50 border border-gray-100 rounded-2xl p-7">
-                <div className="flex items-start gap-5">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-black text-white shrink-0"
-                    style={{ background: "linear-gradient(135deg, #2d6a4f, #52b788)" }}
-                  >
-                    {item.num}
-                  </div>
-                  <div className="grow">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{item.icon}</span>
-                      <h3 className="text-base font-black text-gray-900">{item.title}</h3>
-                    </div>
-                    <ul className="space-y-2 mb-4">
-                      {item.content.map((point, i) => (
-                        <li key={i} className="flex gap-2 text-[13px] text-gray-600">
-                          <span className="text-green-600 shrink-0 mt-0.5">→</span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-xl px-4 py-2">
-                      <span className="text-[10px] text-gray-400 uppercase font-bold">Vorteil</span>
-                      <span className="font-black text-green-700 text-sm">{item.highlight}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* ── Image ── */}
+          <div className="rounded-2xl overflow-hidden mb-14" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/inside/tiny-house-innen-eigentumsuebergabe.webp" alt="Tiny House Eigentumsübergabe" className="w-full h-full object-cover" />
           </div>
 
-          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/tiny-house-ferienimmobilie-aussen.webp" alt="Tiny House Außenansicht – Standort Deutschland" className="w-full h-full object-cover" />
+          {/* ── 4. Vollautomatisch verwaltet ── */}
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Vollautomatisch verwaltet: Glamping als Renditemotor</h2>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              In der Vergangenheit war der Besitz einer Ferienimmobilie mit erheblichem Aufwand verbunden – von der Gästekommunikation bis zur Endreinigung. Das moderne Direktinvestment löst dieses Problem durch ein konsequentes Full-Service-Management: tiny Escapes übernimmt die gesamte Wertschöpfungskette und transformiert das Investment in echtes passives Einkommen. Die Häuser werden in strategisch erstklassigen Lagen platziert und über globale Buchungsplattformen vermarktet.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die ökonomische Logik folgt dem Glamping-Trend: einer Mischung aus Glamour und Camping, die die Sehnsucht nach Natur mit dem Wunsch nach Komfort verbindet. In einer immer digitaleren Welt suchen Menschen nach Rückzugsorten, die reduziert aber hochwertig sind. Für den Investor bedeutet das Quadratmeterpreise, die weit über normalen Mietwohnungen liegen – bei deutlich geringeren Baukosten.
+            </p>
+            <h3 className="text-lg font-black text-gray-900 mb-3 tracking-tight">Ökologie als Wertfaktor</h3>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Tiny Houses werden aus nachhaltigen Rohstoffen gefertigt, verbrauchen durch ihre kompakte Bauweise nur einen Bruchteil der Energie eines herkömmlichen Hauses und versiegeln deutlich weniger Bodenfläche. In einer Zukunft, in der ökologische Kriterien zunehmend in die Bewertung von Kapitalanlagen einfließen, ist das Tiny House hervorragend positioniert. Investoren, die heute einsteigen, investieren nicht nur in ein Gebäude – sondern in ein zukunftsfähiges Lebenskonzept.
+            </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Wie werde ich Eigentümer? Der Kaufprozess in 5 Schritten</h2>
-          <p className="text-gray-500 text-sm mb-10 leading-relaxed">Transparent, rechtssicher, nachvollziehbar. Von der Erstberatung bis zur Übergabe.</p>
+          {/* ── Image ── */}
+          <div className="rounded-2xl overflow-hidden mb-14" style={{ aspectRatio: "16/7" }}>
+            <img src="/images/outside/tiny-house-ferienimmobilie-aussen.webp" alt="Tiny House Ferienimmobilie Außenansicht" className="w-full h-full object-cover" />
+          </div>
+
+          {/* ── 5. Kaufprozess ── */}
+          <h2 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Wie werde ich Eigentümer?</h2>
+          <p className="text-gray-500 text-sm mb-10 leading-relaxed">Von der Erstberatung bis zur ersten Auszahlung – transparent und rechtssicher.</p>
           <div className="relative mb-12">
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-green-100 hidden md:block" />
             <div className="space-y-4">
               {[
-                {
-                  step: "1",
-                  title: "Erstgespräch & Auswahl",
-                  desc: "Du wählst ein Modell (Comfort, Premium, Suite) und besichtigst optional einen bestehenden Standort. Wir erstellen deine persönliche §7g-Analyse auf Basis deiner Steuersituation.",
-                  detail: "Timeline: 1–2 Wochen",
-                },
-                {
-                  step: "2",
-                  title: "Kaufvertrag & Zahlungsplan",
-                  desc: "Unterzeichnung des Kaufvertrags. Das Tiny House wird auf deinen Namen übergeeignet. Option: Ratenzahlung oder Einmalzahlung. Steuerberater-freundliche Dokumentation inklusive.",
-                  detail: "Notarielle Beglaubigung auf Wunsch",
-                },
-                {
-                  step: "3",
-                  title: "Übergabe & Dokumentation",
-                  desc: "Du erhältst: Kaufvertrag, Fahrzeugbrief (Vlemmix Trailer), CE-Zertifikat, Versicherungsunterlagen und die vollständige §7g-Dokumentation für deinen Steuerberater.",
-                  detail: "Komplett-Paket für Tax-Compliance",
-                },
-                {
-                  step: "4",
-                  title: "Standortvermittlung durch tiny Escapes",
-                  desc: "tiny Escapes vermittelt einen verifizierten Host und Stellplatz. Das Haus wird aufgebaut, angeschlossen und buchungsbereit gemacht. Du musst nichts selbst organisieren.",
-                  detail: "Full-Service ab Übergabe",
-                },
-                {
-                  step: "5",
-                  title: "Laufende Auszahlung & Reporting",
-                  desc: "Ab dem ersten Buchungsmonat erhältst du monatlich 40 % der Netto-Einnahmen. Quartalsweise erhältst du ein Belegungs- und Umsatzreporting für deine Unterlagen.",
-                  detail: "Transparentes Investor-Dashboard",
-                },
+                { step: "1", title: "Erstgespräch & Auswahl", desc: "Du wählst ein Modell und besichtigst optional einen bestehenden Standort. Wir erstellen deine persönliche Steueranalyse.", detail: "1–2 Wochen" },
+                { step: "2", title: "Kaufvertrag & Zahlungsplan", desc: "Unterzeichnung des Kaufvertrags. Das Tiny House wird auf deinen Namen übergeeignet. Einmalzahlung oder Ratenzahlung möglich.", detail: "Rechtssicher & dokumentiert" },
+                { step: "3", title: "Übergabe & Dokumentation", desc: "Du erhältst: Kaufvertrag, Fahrzeugbrief, CE-Zertifikat, Versicherungsunterlagen und die vollständige §7g-Dokumentation für deinen Steuerberater.", detail: "Tax-Compliance-Paket" },
+                { step: "4", title: "Aufstellung durch tiny Escapes", desc: "tiny Escapes vermittelt Host und Stellplatz. Das Haus wird aufgebaut, angeschlossen und buchungsbereit gemacht.", detail: "Full-Service ab Übergabe" },
+                { step: "5", title: "Monatliche Auszahlung", desc: "Ab dem ersten Buchungsmonat erhältst du 40 % der Netto-Einnahmen. Quartalsweises Belegungs- und Umsatzreporting inklusive.", detail: "Investor-Dashboard" },
               ].map((step, i) => (
                 <div key={i} className="relative flex gap-6 items-start">
-                  <div className="shrink-0 w-16 h-16 rounded-full bg-green-700 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
-                    {step.step}
-                  </div>
+                  <div className="shrink-0 w-14 h-14 rounded-full bg-green-700 flex items-center justify-center text-lg font-black text-white shadow-sm z-10">{step.step}</div>
                   <div className="bg-white border border-gray-100 rounded-2xl p-5 grow">
                     <div className="flex items-center justify-between mb-1 flex-wrap gap-2">
                       <h3 className="font-black text-gray-900 text-[14px]">{step.title}</h3>
@@ -400,10 +297,11 @@ export default function DirektinvestmentPage() {
             </div>
           </div>
 
+          {/* Nav */}
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
-            <Link href="/wissen/kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Tiny House als Kapitalanlage →</Link>
-            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g AfA erklärt →</Link>
-            <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Passive Einnahmen vergleichen →</Link>
+            <Link href="/wissen/kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Kapitalanlage →</Link>
+            <Link href="/wissen/afa-abschreibung" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">AfA & Abschreibung →</Link>
+            <Link href="/wissen/passive-einnahmen-immobilien" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">Passive Einnahmen →</Link>
             <Link href="/wissen/7g-tiny-house-investment" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">§7g Leitfaden →</Link>
             <Link href="/wissen" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">← Wissens-Hub</Link>
           </div>
