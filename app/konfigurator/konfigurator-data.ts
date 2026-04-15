@@ -66,7 +66,7 @@ export const MODELS: ModelConfig[] = [
     trailerDimensions: "660 × 244 cm",
     trailer: "TH660 – 2 Achsen × 1.800 kg",
     basePrice: { offgrid: 65289, ongrid: 59000 },
-    image: "/images/outside/ESCAPE1.webp",
+    image: "/images/outside/tiny-house-escape-sachwert.webp",
     loft: true,
     tag: "Bestseller",
   },

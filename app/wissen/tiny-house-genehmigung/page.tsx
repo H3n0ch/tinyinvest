@@ -54,7 +54,7 @@ export default function GenehmigungPage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/DSC08835.webp" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-stellplatz-standort.webp" },
   };
 
   const faqSchema = {
@@ -92,7 +92,7 @@ export default function GenehmigungPage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src="/images/outside/DSC08835.webp" alt="Tiny House Standort – Genehmigung und Stellplatz" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-stellplatz-standort.webp" alt="Tiny House Standort – Genehmigung und Stellplatz" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -147,7 +147,7 @@ export default function GenehmigungPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/DSC08828.webp" alt="Tiny House Außenbereich Standort" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-aussenbereich-natur.webp" alt="Tiny House Außenbereich Standort" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was der Stellplatz braucht</h2>
@@ -210,7 +210,7 @@ export default function GenehmigungPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08915.webp" alt="Tiny House Innenausstattung" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-genehmigung.webp" alt="Tiny House Innenausstattung" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">So löst TinyInvest das Genehmigungsthema</h2>

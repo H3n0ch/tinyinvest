@@ -26,7 +26,7 @@ const featured = {
   title: "Tiny House als Kapitalanlage 2026",
   desc: "Vergleich Tiny House vs. Eigentumswohnung, die 3 Renditesäulen, Risiken, steuerliche Vorteile und ein vollständiges 5-Jahres-Modell – der komplette Einstiegsguide für Investoren.",
   tags: ["Rendite", "ETW-Vergleich", "Risiken", "Cashflow", "§7g"],
-  img: "/images/outside/ESCAPE3.webp",
+  img: "/images/outside/tiny-house-escape-hero.webp",
 };
 
 const articles = [
@@ -46,7 +46,7 @@ const articles = [
     title: "Tiny House als Direktinvestment",
     desc: "Kein Fonds, kein Token: Du wirst echter Eigentümer. Vergleich Direktinvestment vs. Crowdinvesting, Kaufprozess und 3 Sachwert-USPs.",
     tags: ["Eigentum", "Sachwert", "Drittverwendung", "Insolvenzschutz"],
-    img: "/images/outside/DSC08946.webp",
+    img: "/images/outside/tiny-house-renditeobjekt-aussen.webp",
   },
   {
     href: "/wissen/tiny-house-als-rendite",
@@ -55,7 +55,7 @@ const articles = [
     title: "Tiny House als Renditeobjekt: Cashflow erklärt",
     desc: "3-Wege-Aufteilung, Belegungsquoten, monatlicher Cashflow und vollständiges 5-Jahres-Modell.",
     tags: ["Cashflow", "40 % Anteil", "Belegung", "IRR"],
-    img: "/images/outside/fog.jpg",
+    img: "/images/outside/tiny-house-nebel-natur.jpg",
   },
   {
     href: "/wissen/steuerberater-finden",
@@ -64,7 +64,7 @@ const articles = [
     title: "Den richtigen §7g-Steuerberater finden",
     desc: "Checkliste, 7 kritische Erstgespräch-Fragen und was du mitbringen musst – damit kein Steuervorteil verloren geht.",
     tags: ["Steuerberater", "§7g", "Checkliste", "Erstgespräch"],
-    img: "/images/outside/DSC08835.webp",
+    img: "/images/outside/tiny-house-stellplatz-standort.webp",
   },
   {
     href: "/wissen/host-werden",
@@ -73,7 +73,7 @@ const articles = [
     title: "Host werden: Tiny House auf deinem Grundstück",
     desc: "Kein Eigenkapital nötig: Standort-Voraussetzungen, Verdienst bis 45 % und der komplette Bewerbungsprozess.",
     tags: ["Host", "Grundstück", "bis 45 %", "Bewerbung"],
-    img: "/images/outside/green.webp",
+    img: "/images/outside/tiny-house-naturlage-gruen.webp",
   },
   {
     href: "/wissen/tiny-house-finanzierung",
@@ -82,7 +82,7 @@ const articles = [
     title: "Tiny House finanzieren 2026",
     desc: "Kredit, Leasing oder Cash? Vergleich der Finanzierungsoptionen und warum §7g Barzahlung begünstigt.",
     tags: ["Kredit", "Cash", "Leasing"],
-    img: "/images/outside/ESCAPE1.webp",
+    img: "/images/outside/tiny-house-escape-sachwert.webp",
   },
   {
     href: "/wissen/tiny-house-kaufen-checkliste",
@@ -91,7 +91,7 @@ const articles = [
     title: "Checkliste: Tiny House kaufen",
     desc: "Von der §7g-Steuervorbereitung bis zum ersten Cashflow — alle 20 Punkte für Investoren.",
     tags: ["Checkliste", "Kauf", "Cashflow"],
-    img: "/images/inside/DSC08904.webp",
+    img: "/images/inside/tiny-house-innen-eigentumsuebergabe.webp",
   },
   {
     href: "/wissen/tiny-house-genehmigung",
@@ -100,7 +100,7 @@ const articles = [
     title: "Genehmigung: Was du wirklich brauchst",
     desc: "Baurecht, Stellplatz, Bebauungsplan – klare Antworten für Tiny House Investoren in Deutschland.",
     tags: ["Baurecht", "Genehmigung", "Stellplatz"],
-    img: "/images/outside/DSC08828.webp",
+    img: "/images/outside/tiny-house-aussenbereich-natur.webp",
   },
   {
     href: "/wissen/ferienimmobilie-steuer",
@@ -109,7 +109,7 @@ const articles = [
     title: "Ferienimmobilie vs. Tiny House",
     desc: "Steuern, AfA, Rendite und der Vergleich mit Tiny House Investments. Was sich 2026 wirklich lohnt.",
     tags: ["Ferienhaus", "Steuer", "Vergleich"],
-    img: "/images/outside/DSC08980.webp",
+    img: "/images/outside/tiny-house-ferienimmobilie-aussen.webp",
   },
   {
     href: "/wissen/tiny-house-standorte",
@@ -118,7 +118,7 @@ const articles = [
     title: "Beste Standorte in Deutschland",
     desc: "Bayern, Schwarzwald, Ostsee, Allgäu – Belegungsquoten und Rendite im Vergleich.",
     tags: ["Standort", "Belegung", "Regionen"],
-    img: "/images/outside/Esy-sur-eur-SWEDEN-16.webp",
+    img: "/images/outside/tiny-house-skandinavien-naturlage.webp",
   },
   {
     href: "/wissen/passive-einnahmen-immobilien",
@@ -127,7 +127,7 @@ const articles = [
     title: "Passive Einnahmen: 5 Modelle im Vergleich",
     desc: "ETW, REITs, Ferienimmobilien, Crowdinvesting und Tiny House im direkten Vergleich.",
     tags: ["Passiv", "REIT", "Crowdinvesting"],
-    img: "/images/outside/ESCAPE2.webp",
+    img: "/images/outside/tiny-house-escape-wald.webp",
   },
   {
     href: "/wissen/tiny-house-airbnb",
@@ -136,7 +136,7 @@ const articles = [
     title: "Tiny House auf Airbnb vermieten",
     desc: "Wirklich profitabel? Belegungsquoten, Nettorevenuen und Steuereffekte für Airbnb-Vermietung.",
     tags: ["Airbnb", "Vermietung", "Rendite"],
-    img: "/images/inside/DSC08912.webp",
+    img: "/images/inside/tiny-house-innen-airbnb.webp",
   },
 ];
 

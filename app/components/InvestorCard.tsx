@@ -45,7 +45,7 @@ export default function InvestorCard({
       {/* Header Image */}
       <div className="relative h-52 bg-gray-100">
         <Image
-          src={img || "/images/outside/fog.jpg"}
+          src={img || "/images/outside/tiny-house-nebel-natur.jpg"}
           alt={title}
           fill
           className="object-cover"

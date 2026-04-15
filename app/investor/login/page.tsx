@@ -46,7 +46,7 @@ export default function InvestorLoginPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4 relative"
-      style={{ backgroundImage: "url('/images/outside/ESCAPE3.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+      style={{ backgroundImage: "url('/images/outside/tiny-house-escape-hero.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
     >
       {/* dark overlay */}
       <div className="absolute inset-0 bg-black/60 pointer-events-none" />

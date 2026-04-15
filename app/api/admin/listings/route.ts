@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     npv:          body.npv          ?? "",
     occ:          body.occ          ?? "",
     occ_note:     body.occ_note     ?? "",
-    img:          body.img          ?? "/images/outside/fog.jpg",
+    img:          body.img          ?? "/images/outside/tiny-house-nebel-natur.jpg",
     reserved:     Number(body.reserved ?? 0),
     total:        Number(body.total   ?? 1),
     status:       body.status       ?? "planning",

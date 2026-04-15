@@ -219,7 +219,7 @@ function Step1({
         >
           <div className="relative h-48 bg-gray-100">
             <Image
-              src="/images/outside/ESCAPE1.webp"
+              src="/images/outside/tiny-house-escape-sachwert.webp"
               alt="Off-Grid Tiny House"
               fill
               className="object-cover"

@@ -15,7 +15,7 @@ export default function SubPageHeader({
   title,
   subtitle,
   breadcrumb = "Plattform",
-  img = "/images/outside/ESCAPE1.webp",
+  img = "/images/outside/tiny-house-escape-sachwert.webp",
 }: SubPageHeaderProps) {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">

@@ -67,7 +67,7 @@ export const models = [
     badgeColor: "bg-blue-100 text-blue-700",
   },
   {
-    img: "/images/outside/ESCAPE1.webp",
+    img: "/images/outside/tiny-house-escape-sachwert.webp",
     tag: "Off-Grid · Standard",
     title: "TinyInvest Escape",
     desc: "Vollautarkes Tiny House mit Solaranlage, Wassertanks und Clansana-Komposttoilette. Perfekt für naturnahe Standorte ohne Infrastruktur.",
@@ -294,16 +294,16 @@ export const sicherheitItems = [
 ];
 
 export const galleryImages = [
-  "/images/inside/DSC08893.webp",
-  "/images/inside/DSC08900.webp",
-  "/images/inside/DSC08904.webp",
-  "/images/inside/DSC08912.webp",
-  "/images/inside/DSC08915.webp",
-  "/images/inside/DSC08918.webp",
-  "/images/inside/DSC08922.webp",
+  "/images/inside/tiny-house-innen-wohnbereich.webp",
+  "/images/inside/tiny-house-innen-schlafbereich.webp",
+  "/images/inside/tiny-house-innen-eigentumsuebergabe.webp",
+  "/images/inside/tiny-house-innen-airbnb.webp",
+  "/images/inside/tiny-house-innen-genehmigung.webp",
+  "/images/inside/tiny-house-innen-kueche.webp",
+  "/images/inside/tiny-house-innen-wohnzimmer.webp",
   "/images/inside/DSC08924_3544fd99-9b28-46c3-8a38-ca757a23c105.webp",
-  "/images/inside/DSC08930.webp",
-  "/images/inside/DSC08936.webp",
-  "/images/inside/DSC08916.webp",
+  "/images/inside/tiny-house-innen-steuerberatung.webp",
+  "/images/inside/tiny-house-innen-modern.webp",
+  "/images/inside/tiny-house-innen-detail.webp",
   "/images/inside/DSC08916_10fc4c81-2ce1-4879-97c3-aa8b75688770.webp",
 ];

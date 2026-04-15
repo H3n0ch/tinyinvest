@@ -55,7 +55,7 @@ export default function HostWerdenPage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/IMG-20240702-WA0022.webp" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-host-grundstueck.webp" },
   };
 
   const faqSchema = {
@@ -100,7 +100,7 @@ export default function HostWerdenPage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src="/images/outside/IMG-20240702-WA0022.webp" alt="Tiny House Host – Grundstück mit Tiny House" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-host-grundstueck.webp" alt="Tiny House Host – Grundstück mit Tiny House" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -159,7 +159,7 @@ export default function HostWerdenPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/DSC08835.webp" alt="Tiny House Standort – geeignetes Grundstück für Hosts" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-stellplatz-standort.webp" alt="Tiny House Standort – geeignetes Grundstück für Hosts" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Welche Standort-Voraussetzungen gibt es?</h2>
@@ -275,7 +275,7 @@ export default function HostWerdenPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08893.webp" alt="Tiny House Innenausstattung – Host-Qualität für Gäste" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-wohnbereich.webp" alt="Tiny House Innenausstattung – Host-Qualität für Gäste" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">So wirst du TinyInvest Host: Der Prozess</h2>

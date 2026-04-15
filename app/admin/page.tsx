@@ -75,7 +75,7 @@ const BADGE_COLOR_OPTIONS = [
 const EMPTY_LISTING: NewListing = {
   asset_id: "", category: "Ferienimmobilie", title: "", location: "",
   description: "", preis: "", irr: "", npv: "", occ: "", occ_note: "",
-  img: "/images/outside/fog.jpg", reserved: 0, total: 1,
+  img: "/images/outside/tiny-house-nebel-natur.jpg", reserved: 0, total: 1,
   status: "planning", status_label: "In Planung",
   badge: "Phase 2", badge_color: "bg-indigo-100 text-indigo-700",
   sort_order: 99, active: false, lat: null, lng: null,
@@ -160,7 +160,7 @@ function ImageUploadField({
         className={inp}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="/images/outside/fog.jpg oder https://…"
+        placeholder="/images/outside/tiny-house-nebel-natur.jpg oder https://…"
       />
       {/* Upload button */}
       <input
@@ -384,7 +384,7 @@ export default function AdminPage() {
   const [runningMigration, setRunningMigration]     = useState(false);
 
   // Settings
-  const [heroImage, setHeroImage]           = useState("/images/outside/ESCAPE3.webp");
+  const [heroImage, setHeroImage]           = useState("/images/outside/tiny-house-escape-hero.webp");
   const [savingHero, setSavingHero]         = useState(false);
   const [heroSuccess, setHeroSuccess]       = useState(false);
   const [loadingSettings, setLoadingSettings] = useState(false);

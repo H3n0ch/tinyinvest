@@ -29,7 +29,7 @@ export default function RenditeModellPage() {
         badge="Renditemodell · Win-Win-Win"
         title="Wie Ihr Kapital arbeitet. Vollständig transparent."
         subtitle="40 % der Einnahmen fließen monatlich an den Investor. 45 % sichern den Host-Betrieb. 15 % decken die Plattform. Jeder hat einen klaren Anreiz."
-        img="/images/outside/ESCAPE3.webp"
+        img="/images/outside/tiny-house-escape-hero.webp"
       />
 
       {/* KPI bar */}
@@ -185,7 +185,7 @@ export default function RenditeModellPage() {
             <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-4">Weiterführende Artikel</p>
             <Link href="/wissen/kapitalanlage" className="group flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 hover:shadow-sm transition-all text-left mb-3">
               <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
-                <img src="/images/outside/ESCAPE3.webp" alt="Kapitalanlage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src="/images/outside/tiny-house-escape-hero.webp" alt="Kapitalanlage" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div>
                 <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">Flagship-Guide</span>

@@ -32,7 +32,7 @@ export default function TinyHouseAlsRenditePage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/DSC08946.webp" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-renditeobjekt-aussen.webp" },
   };
 
   return (
@@ -59,7 +59,7 @@ export default function TinyHouseAlsRenditePage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src="/images/outside/DSC08946.webp" alt="Tiny House Außenansicht – Renditeobjekt" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-renditeobjekt-aussen.webp" alt="Tiny House Außenansicht – Renditeobjekt" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -105,7 +105,7 @@ export default function TinyHouseAlsRenditePage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/DSC08974.webp" alt="Tiny House Standort Außenansicht" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-investor-aussen.webp" alt="Tiny House Standort Außenansicht" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Belegungsquote & Umsatz: Was ist realistisch?</h2>
@@ -172,7 +172,7 @@ export default function TinyHouseAlsRenditePage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08918.webp" alt="Tiny House Küche und Wohnbereich" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-kueche.webp" alt="Tiny House Küche und Wohnbereich" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">5-Jahres-Cashflow: TinyInvest Escape 79.000 €</h2>

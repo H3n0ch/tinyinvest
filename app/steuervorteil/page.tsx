@@ -29,7 +29,7 @@ export default function SteuerVorteilPage() {
         badge="§7g EStG · Steuer-Analyse 2026"
         title="Der §7g Steuer-Hebel. Vollständig erklärt."
         subtitle="IAB, Sonder-AfA und degressive AfA kombiniert: Bis zu 70 % des Kaufpreises im Kaufjahr steuerlich ansetzen. Exklusiv für bewegliche Wirtschaftsgüter."
-        img="/images/outside/ESCAPE2.webp"
+        img="/images/outside/tiny-house-escape-wald.webp"
       />
 
       {/* Intro stats bar */}
@@ -274,7 +274,7 @@ export default function SteuerVorteilPage() {
             <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-4">Weiterführende Artikel</p>
             <Link href="/wissen/afa-abschreibung" className="group flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 hover:shadow-sm transition-all text-left">
               <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
-                <img src="/images/outside/ESCAPE2.webp" alt="AfA Abschreibung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src="/images/outside/tiny-house-escape-wald.webp" alt="AfA Abschreibung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div>
                 <span className="text-[10px] bg-amber-100 text-amber-700 font-bold px-2 py-0.5 rounded-full">Steuer-Deep-Dive</span>

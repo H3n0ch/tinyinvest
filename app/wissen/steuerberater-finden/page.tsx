@@ -50,7 +50,7 @@ export default function SteuerberaterFindenPage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/inside/DSC08930.webp" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/inside/tiny-house-innen-steuerberatung.webp" },
   };
 
   const faqSchema = {
@@ -88,7 +88,7 @@ export default function SteuerberaterFindenPage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src="/images/inside/DSC08930.webp" alt="Steuerberatung Tiny House Investment §7g" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-steuerberatung.webp" alt="Steuerberatung Tiny House Investment §7g" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -136,7 +136,7 @@ export default function SteuerberaterFindenPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/ESCAPE2.webp" alt="Tiny House Investment – Steueroptimierung" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-escape-wald.webp" alt="Tiny House Investment – Steueroptimierung" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Diese 7 Fragen musst du im Erstgespräch stellen</h2>
@@ -168,7 +168,7 @@ export default function SteuerberaterFindenPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08936.webp" alt="Tiny House Detailaufnahme Innenraum" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-modern.webp" alt="Tiny House Detailaufnahme Innenraum" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was du zum Gespräch mitbringen solltest</h2>

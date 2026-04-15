@@ -131,7 +131,7 @@ export default function AfaAbschreibungPage() {
 
           {/* Image Break 1 */}
           <div className="rounded-2xl overflow-hidden my-14" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/DSC08946.webp" alt="Tiny House Außenansicht Standort" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-renditeobjekt-aussen.webp" alt="Tiny House Außenansicht Standort" className="w-full h-full object-cover" />
           </div>
 
           {/* Die 4 AfA-Varianten */}
@@ -208,7 +208,7 @@ export default function AfaAbschreibungPage() {
 
           {/* Image Break 2 */}
           <div className="rounded-2xl overflow-hidden my-14" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08912.webp" alt="Tiny House Innenausstattung" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-airbnb.webp" alt="Tiny House Innenausstattung" className="w-full h-full object-cover" />
           </div>
 
           {/* IAB Erklärt */}

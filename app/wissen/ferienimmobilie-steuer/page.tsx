@@ -48,7 +48,7 @@ export default function FerienimmobilieSteuerPage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/DSC08980.webp" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-ferienimmobilie-aussen.webp" },
   };
 
   const faqSchema = {
@@ -86,7 +86,7 @@ export default function FerienimmobilieSteuerPage() {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src="/images/outside/DSC08980.webp" alt="Ferienimmobilie vs Tiny House – Steuervergleich" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-ferienimmobilie-aussen.webp" alt="Ferienimmobilie vs Tiny House – Steuervergleich" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -128,7 +128,7 @@ export default function FerienimmobilieSteuerPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/ESCAPE3.webp" alt="Tiny House Ferienunterkunft" className="w-full h-full object-cover" />
+            <img src="/images/outside/tiny-house-escape-hero.webp" alt="Tiny House Ferienunterkunft" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Ferienimmobilie vs. Tiny House: Steuervergleich</h2>
@@ -169,7 +169,7 @@ export default function FerienimmobilieSteuerPage() {
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/DSC08922.webp" alt="Tiny House Wohnbereich modern" className="w-full h-full object-cover" />
+            <img src="/images/inside/tiny-house-innen-wohnzimmer.webp" alt="Tiny House Wohnbereich modern" className="w-full h-full object-cover" />
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">

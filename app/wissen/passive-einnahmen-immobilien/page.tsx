@@ -93,7 +93,7 @@ export default function PassiveEinnahmenPage() {
     "dateModified": "2026-04-14",
     "author": { "@type": "Organization", "name": "TinyInvest", "url": "https://tinyhouse.investments" },
     "publisher": { "@type": "Organization", "name": "TinyInvest", "logo": { "@type": "ImageObject", "url": "https://tinyhouse.investments/logo1.png" } },
-    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/fog.jpg" },
+    "image": { "@type": "ImageObject", "url": "https://tinyhouse.investments/images/outside/tiny-house-nebel-natur.jpg" },
   };
 
   const faqSchema = {
@@ -136,7 +136,7 @@ export default function PassiveEinnahmenPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "21/9" }}>
             <img
-              src="/images/outside/fog.jpg"
+              src="/images/outside/tiny-house-nebel-natur.jpg"
               alt="Tiny House in der Natur – passive Einnahmen durch Immobilien"
               className="w-full h-full object-cover"
             />
@@ -185,7 +185,7 @@ export default function PassiveEinnahmenPage() {
           {/* Image Break 1 */}
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img
-              src="/images/outside/DSC08828.webp"
+              src="/images/outside/tiny-house-aussenbereich-natur.webp"
               alt="Tiny House Außenansicht"
               className="w-full h-full object-cover"
             />
@@ -250,7 +250,7 @@ export default function PassiveEinnahmenPage() {
           {/* Image Break 2 */}
           <div className="rounded-2xl overflow-hidden mb-16" style={{ aspectRatio: "16/7" }}>
             <img
-              src="/images/outside/ESCAPE1.webp"
+              src="/images/outside/tiny-house-escape-sachwert.webp"
               alt="Tiny House Investment – Escape 1"
               className="w-full h-full object-cover"
             />
@@ -284,7 +284,7 @@ export default function PassiveEinnahmenPage() {
           {/* Image Break 3 */}
           <div className="rounded-2xl overflow-hidden mb-16" style={{ aspectRatio: "16/7" }}>
             <img
-              src="/images/inside/DSC08904.webp"
+              src="/images/inside/tiny-house-innen-eigentumsuebergabe.webp"
               alt="Innenansicht Tiny House"
               className="w-full h-full object-cover"
             />

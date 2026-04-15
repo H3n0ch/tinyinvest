@@ -19,18 +19,18 @@ export const metadata = {
 };
 
 const outsideImages = [
-  "/images/outside/ESCAPE1.webp",
-  "/images/outside/ESCAPE2.webp",
-  "/images/outside/ESCAPE3.webp",
-  "/images/outside/DSC08828.webp",
-  "/images/outside/DSC08835.webp",
-  "/images/outside/DSC08946.webp",
-  "/images/outside/DSC08969.webp",
-  "/images/outside/DSC08974.webp",
-  "/images/outside/DSC08980.webp",
-  "/images/outside/fog.jpg",
-  "/images/outside/winter.webp",
-  "/images/outside/green.webp",
+  "/images/outside/tiny-house-escape-sachwert.webp",
+  "/images/outside/tiny-house-escape-wald.webp",
+  "/images/outside/tiny-house-escape-hero.webp",
+  "/images/outside/tiny-house-aussenbereich-natur.webp",
+  "/images/outside/tiny-house-stellplatz-standort.webp",
+  "/images/outside/tiny-house-renditeobjekt-aussen.webp",
+  "/images/outside/tiny-house-wald-naturstandort.webp",
+  "/images/outside/tiny-house-investor-aussen.webp",
+  "/images/outside/tiny-house-ferienimmobilie-aussen.webp",
+  "/images/outside/tiny-house-nebel-natur.jpg",
+  "/images/outside/tiny-house-winter-ganzjahresbetrieb.webp",
+  "/images/outside/tiny-house-naturlage-gruen.webp",
 ];
 
 export default function GaleriePage() {
