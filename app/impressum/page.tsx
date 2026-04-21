@@ -62,7 +62,7 @@ export default function ImpressumPage() {
               <h2 className="text-lg font-bold text-white mb-3">Handelsregister</h2>
               <p>
                 Registergericht: Amtsgericht Frankfurt am Main<br />
-                Registernummer: HRB 127843
+                Registernummer: HRB 127848
               </p>
             </section>
 
