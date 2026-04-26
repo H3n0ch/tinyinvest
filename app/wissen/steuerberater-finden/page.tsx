@@ -133,106 +133,76 @@ export default function SteuerberaterFindenPage() {
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Warum der Steuerberater entscheidend ist</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-            <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
-              <h3 className="font-black text-gray-900 mb-3 text-sm">❌ Was passieren kann ohne Spezialist</h3>
-              <ul className="space-y-2 text-[13px] text-gray-600">
-                <li className="flex gap-2"><span className="text-red-400">→</span>IAB wird nicht rechtzeitig gebildet (Deadline verpasst)</li>
-                <li className="flex gap-2"><span className="text-red-400">→</span>Falsche AfA-Nutzungsdauer angesetzt (zu lang)</li>
-                <li className="flex gap-2"><span className="text-red-400">→</span>Sonder-AfA wird nicht kombiniert → Tausende € verloren</li>
-                <li className="flex gap-2"><span className="text-red-400">→</span>Gewerbliche Prägung nicht dokumentiert → §7g versagt</li>
-                <li className="flex gap-2"><span className="text-red-400">→</span>Degressive AfA übersehen (neu ab 2025)</li>
-              </ul>
-            </div>
-            <div className="bg-green-50 border border-green-100 rounded-2xl p-6">
-              <h3 className="font-black text-gray-900 mb-3 text-sm">✓ Was ein guter Spezialist liefert</h3>
-              <ul className="space-y-2 text-[13px] text-gray-600">
-                <li className="flex gap-2"><span className="text-green-600">→</span>Optimales Timing von IAB (wann bilden, wann auflösen)</li>
-                <li className="flex gap-2"><span className="text-green-600">→</span>Korrekte AfA-Kaskade (Sonder-AfA + deg. AfA + linear)</li>
-                <li className="flex gap-2"><span className="text-green-600">→</span>Maximale Steuerlast-Reduzierung im Kaufjahr</li>
-                <li className="flex gap-2"><span className="text-green-600">→</span>Gewerbliche Dokumentation für Finanzamt</li>
-                <li className="flex gap-2"><span className="text-green-600">→</span>Begleitung bei Betriebsprüfungen</li>
-              </ul>
-            </div>
+          <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Warum der richtige Spezialist entscheidend ist</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ein nicht spezialisierter Berater übersieht typischerweise das IAB-Timing: Der Investitionsabzugsbetrag muss im Jahr vor dem Kauf gebildet werden, wenn der Gewinn hoch ist – nicht im Kaufjahr selbst. Wer diese Frist verpasst, verliert den größten Einzeleffekt. Ebenso häufig wird die Nutzungsdauer falsch angesetzt: Viele Berater setzen 33 oder sogar 50 Jahre an, weil sie das Tiny House wie ein Gebäude behandeln. Korrekt sind 8 Jahre gemäß der AfA-Tabelle für Straßenfahrzeuge und Anhänger.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Ein Spezialist hingegen plant die gesamte AfA-Kaskade im Voraus: IAB im Vorjahr bilden, im Kaufjahr auflösen, gleichzeitig Sonder-AfA (40 %) und degressive AfA (30 %) auf den Restbuchwert anwenden, ab Jahr drei lineare AfA. Er dokumentiert die gewerbliche Nutzung korrekt für das Finanzamt – Betriebsanmeldung, Buchungsbelege, Betreibervertrag, Einnahmen-Überschuss-Rechnung – und begleitet im Fall einer Betriebsprüfung. Der Unterschied zwischen dem richtigen und dem falschen Berater kann sich auf 10.000 bis 20.000 Euro aufsummieren.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Diese 7 Fragen musst du im Erstgespräch stellen</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Das Erstgespräch mit einem Steuerberater ist kein Verhör – aber es ist deine einzige Chance, fachliche Kompetenz vor der Mandatierung zu überprüfen. Stelle diese sieben Fragen und beobachte, wie sicher und präzise die Antworten kommen.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">1. Haben Sie Erfahrung mit §7g EStG bei beweglichen Wirtschaftsgütern?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die Antwort sollte sofort und mit konkreten Praxisbeispielen kommen. Lange Pausen oder allgemeine Aussagen wie „das schauen wir uns an" sind ein Warnsignal.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">2. Wie optimieren Sie IAB, Sonder-AfA und degressive AfA kombiniert?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Der Berater sollte das Timing erklären können: IAB im Vorjahr bei hohem Gewinn bilden, im Kaufjahr auflösen, dann Sonder-AfA 40 % und degressive AfA 30 % auf den Restwert anwenden. Wer nur einen der drei Hebel kennt, kostet dich Geld.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">3. Was ist die korrekte AfA-Nutzungsdauer für ein Tiny House auf Vlemmix Trailer?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Die richtige Antwort: 8 Jahre (12,5 % p.a. linear), gemäß AfA-Tabelle für Straßenfahrzeuge und Anhänger. Nicht 33 oder 50 Jahre wie bei Gebäuden.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">4. Wie dokumentieren wir die gewerbliche Nutzung für das Finanzamt?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Der Berater sollte Betriebsanmeldung, Buchungsbelege, Betreibervertrag und Einnahmen-Überschuss-Rechnung ansprechen sowie die Abgrenzung zur steuerlich schädlichen Liebhaberei erklären.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">5. Gilt der IAB auch, wenn das Tiny House im EU-Ausland steht?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ja – weil das Gewerbe in Deutschland angemeldet ist, greift §7g auch für Objekte im EU-Ausland. Ein guter Berater weist ergänzend auf mögliche Doppelbesteuerungsabkommen hin.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">6. Wie behandeln wir die Auflösung des IAB buchhalterisch?</h3>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Der IAB erhöht im Kaufjahr den buchhalterischen Gewinn (Auflösung), während Sonder-AfA und degressive AfA den Restbuchwert reduzieren. Per Saldo muss der Nettoeffekt positiv sein – das sollte der Berater durchrechnen können.
+            </p>
+            <h3 className="font-black text-gray-900 text-base mb-2">7. Was kostet ein vollständiges Mandat für §7g-Optimierung?</h3>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Erwarte eine transparente Honorarauskunft. Üblich sind 1.500 bis 3.500 Euro pro Jahr für ein vollständiges Mandat inklusive gewerblicher Einnahmen-Überschuss-Rechnung und §7g-Begleitung. Diese Kosten amortisieren sich durch die Mehrersparnis typischerweise innerhalb weniger Wochen.
+            </p>
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img src="/images/outside/tiny-house-escape-wald.webp" alt="Tiny House Investment – Steueroptimierung" className="w-full h-full object-cover" />
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Diese 7 Fragen musst du im Erstgespräch stellen</h2>
-          <div className="space-y-4 mb-12">
-            {[
-              { nr: "01", frage: "Haben Sie Erfahrung mit §7g EStG bei beweglichen Wirtschaftsgütern?", erwartung: "Sofortige Bejahung + Verweis auf Praxisbeispiele. Keine langen Pausen.", ampel: "green" },
-              { nr: "02", frage: "Wie optimieren Sie die Kombination aus IAB, Sonder-AfA und degressiver AfA?", erwartung: "Der Berater erklärt das Timing: IAB im Vorjahr bei hohem Gewinn, Auflösung im Kaufjahr, dann Sonder-AfA 40 % + deg. AfA 30 % auf Restwert.", ampel: "green" },
-              { nr: "03", frage: "Was ist die AfA-Nutzungsdauer für ein Tiny House auf Vlemmix Trailer?", erwartung: "8 Jahre (12,5 % p.a. linear) – gemäß AfA-Tabelle für Straßenfahrzeuge/Anhänger. Nicht 33 oder 50 Jahre wie bei Gebäuden.", ampel: "green" },
-              { nr: "04", frage: "Wie dokumentieren wir die gewerbliche Nutzung korrekt für das Finanzamt?", erwartung: "Besprechung von: Betriebsanmeldung, Buchungsbelegen, Betreibervertrag, Einnahmen-Überschuss-Rechnung, Abgrenzung zu Liebhaberei.", ampel: "amber" },
-              { nr: "05", frage: "Gilt der IAB auch, wenn das Tiny House im EU-Ausland steht?", erwartung: "Ja, da das Gewerbe in Deutschland ist. Hinweis auf DBA-Regelungen. Kein pauschales 'Nein' ohne Begründung.", ampel: "green" },
-              { nr: "06", frage: "Wie behandeln wir die Auflösung des IAB buchhalterisch?", erwartung: "IAB erhöht im Kaufjahr den Gewinn (Auflösung), gleichzeitig reduzieren Sonder-AfA und deg. AfA den Restbuchwert. Per Saldo muss der Nettoeffekt positiv sein.", ampel: "amber" },
-              { nr: "07", frage: "Was kostet ein vollständiges Mandat für §7g-Optimierung?", erwartung: "Transparente Honorarauskunft. Üblich: 1.500–3.500 € p.a. für gewerbliche EÜR + §7g-Begleitung.", ampel: "neutral" },
-            ].map((item) => (
-              <div key={item.nr} className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-10 h-10 rounded-full bg-green-700 flex items-center justify-center text-[11px] font-black text-white">{item.nr}</div>
-                  <div>
-                    <p className="font-black text-gray-900 text-[14px] mb-2">{item.frage}</p>
-                    <div className="flex items-start gap-2">
-                      <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full mt-0.5 ${item.ampel === "green" ? "bg-green-100 text-green-700" : item.ampel === "amber" ? "bg-amber-100 text-amber-700" : "bg-gray-100 text-gray-600"}`}>
-                        {item.ampel === "green" ? "Erwartet" : item.ampel === "amber" ? "Wichtig" : "Info"}
-                      </span>
-                      <p className="text-gray-500 text-[12px] leading-relaxed">{item.erwartung}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Was du zum Gespräch mitbringen solltest</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Ein Steuerberater kann nur so gut beraten wie die Unterlagen, die er von dir bekommt. Bring zum Erstgespräch den Steuerbescheid des Vorjahres mit – er zeigt deinen Grenzsteuersatz und die aktuelle Steuerbelastung, beides ist die Basis für die IAB-Berechnung. Dazu kommen die Asset-Daten des Tiny Houses: Kaufpreis, Modell, und der Nachweis des Vlemmix Trailers mit VIN/FIN-Nummer, der die steuerrechtliche Klassifizierung als bewegliches Wirtschaftsgut belegt.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Außerdem brauchst du oder zumindest die Absicht zur Anmeldung eines Gewerbes – ohne gewerbliche Tätigkeit greift §7g nicht. Den Betreibervertrag mit tiny Escapes kannst du ebenfalls mitbringen: Er belegt die gewerbliche Nutzungsabsicht und die Einkommensstruktur (40 % Mietanteil an den Investor). TinyInvest stellt auf Wunsch ein kostenloses §7g-Factsheet zur Verfügung, das alle relevanten Kennzahlen so aufbereitet, dass dein Steuerberater sofort arbeiten kann.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Informiere deinen Berater außerdem über den geplanten Investitionszeitraum. Das ist relevant für die IAB-Timing-Optimierung: Soll der IAB noch im laufenden Jahr gebildet werden oder bereits im nächsten? Je nach Gewinnhöhe und Steuersatz kann das einen Unterschied von mehreren tausend Euro ausmachen.
+            </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/tiny-house-innen-modern.webp" alt="Tiny House Detailaufnahme Innenraum" className="w-full h-full object-cover" />
-          </div>
-
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was du zum Gespräch mitbringen solltest</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {[
-              { icon: "📊", title: "Steuerbescheid Vorjahr", desc: "Zeigt deinen Grenzsteuersatz, Gewinnhöhe und derzeitige Steuerbelastung – Basis für IAB-Berechnung." },
-              { icon: "📋", title: "Kaufvertrag / Asset-Daten", desc: "Kaufpreis, Modell, Trailer-Zertifikat (VIN/FIN-Nachweis). TinyInvest stellt dir einen vollständigen Informationspack zur Verfügung." },
-              { icon: "💼", title: "Betriebsanmeldung", desc: "Oder die Absicht, ein Gewerbe anzumelden. Ohne gewerbliche Tätigkeit kein §7g." },
-              { icon: "🏡", title: "Betreibervertrag tiny Escapes", desc: "Belegt die gewerbliche Nutzungsabsicht und die Einkommensstruktur (40 % Mietanteil)." },
-              { icon: "📄", title: "§7g Factsheet von TinyInvest", desc: "Das kostenlose Steuer-Factsheet mit allen relevanten Kennzahlen. Dein Steuerberater bekommt direkt alle Infos." },
-              { icon: "🗓️", title: "Investitionszeitraum", desc: "Wann soll das Tiny House gekauft werden? Relevant für die IAB-Timing-Optimierung (Vorjahr vs. Kaufjahr)." },
-            ].map((item) => (
-              <div key={item.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-5">
-                <div className="flex gap-3 mb-2">
-                  <span className="text-2xl shrink-0">{item.icon}</span>
-                  <h3 className="font-black text-gray-900 text-[14px] mt-1">{item.title}</h3>
-                </div>
-                <p className="text-gray-500 text-[13px] leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
-            <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-4">TinyInvest Steuerberater-Netzwerk</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {[
-                "Erfahrung mit IAB + Sonder-AfA bei beweglichen Wirtschaftsgütern",
-                "Kenntnis des TinyInvest-Modells (tiny Escapes, Betreibervertrag)",
-                "Bundesweit verfügbar, Erstgespräch auch digital",
-                "Transparente Honorarstruktur",
-                "Erfahrung mit Betriebsprüfungen in diesem Bereich",
-                "Begleitung von Nebengewerbe-Anmeldung bis Steuererklärung",
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3 text-[13px] text-gray-300">
-                  <span className="text-green-400 font-bold shrink-0">✓</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
+          <h2 className="text-2xl font-black text-gray-900 mb-5 tracking-tight">Das TinyInvest Steuerberater-Netzwerk</h2>
+          <div className="max-w-3xl mb-10">
+            <p className="text-gray-700 text-base leading-relaxed mb-6">
+              TinyInvest arbeitet mit einem Netzwerk geprüfter Steuerberater zusammen, die das Modell kennen: IAB und Sonder-AfA bei beweglichen Wirtschaftsgütern, den Betreibervertrag mit tiny Escapes, die gewerbliche Dokumentation und die Begleitung bei Betriebsprüfungen. Alle Berater sind bundesweit tätig und führen Erstgespräche auch digital. Auf Wunsch stellen wir dir eine persönliche Empfehlung – kostenlos und unverbindlich.
+            </p>
             <div className="text-center">
               <ModalButton className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
-                🔐 Steuerberater-Empfehlung anfordern →
+                Steuerberater-Empfehlung anfordern →
               </ModalButton>
             </div>
           </div>

@@ -138,122 +138,45 @@ export default function TinyHouseFinanzierungPage() {
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Die 3 Finanzierungsoptionen im Überblick</h2>
-          <div className="space-y-5 mb-12">
-            {[
-              {
-                icon: "💶",
-                title: "Option 1: Barzahlung (Cash)",
-                badge: "Empfohlen",
-                badgeColor: "bg-green-100 text-green-700",
-                pros: ["Kein Zinsaufwand (spart 5–8 % p.a.)", "Maximaler §7g-Steuereffekt im Kaufjahr", "Sofortiger Eigentumsübergang", "Keine Bank-Abhängigkeit"],
-                cons: ["Kapital gebunden (keine Hebelwirkung)", "Liquiditätsbedarf ab 65.000 €"],
-              },
-              {
-                icon: "🏦",
-                title: "Option 2: Kredit / Gewerbedarlehen",
-                badge: "Möglich",
-                badgeColor: "bg-amber-100 text-amber-700",
-                pros: ["Kapital für weitere Investments verfügbar", "Zinsen als Betriebsausgabe absetzbar", "Hebelwirkung auf Eigenkapitalrendite"],
-                cons: ["5–8 % Kreditzinsen reduzieren Nettorendite", "Kein klassisches Immobilien-Darlehen möglich", "Bonität und Sicherheiten erforderlich"],
-              },
-              {
-                icon: "📋",
-                title: "Option 3: Leasing",
-                badge: "Nicht empfohlen",
-                badgeColor: "bg-red-100 text-red-700",
-                pros: ["Niedrige monatliche Rate", "Leasingrate als Betriebsausgabe"],
-                cons: ["Kein Eigentumsübergang → kein IAB möglich", "Kein §7g-Effekt (Leasinggeber ist Eigentümer)", "Gesamtkosten meist höher als Kauf"],
-              },
-            ].map((opt) => (
-              <div key={opt.title} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl shrink-0">{opt.icon}</span>
-                  <div className="flex-grow">
-                    <div className="flex items-center gap-3 mb-3">
-                      <h3 className="font-black text-gray-900 text-base">{opt.title}</h3>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${opt.badgeColor}`}>{opt.badge}</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-[10px] text-green-600 font-bold uppercase mb-2">Vorteile</p>
-                        <ul className="space-y-1">
-                          {opt.pros.map((p) => (
-                            <li key={p} className="flex gap-2 text-[13px] text-gray-600">
-                              <span className="text-green-500 shrink-0">✓</span>{p}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <p className="text-[10px] text-red-500 font-bold uppercase mb-2">Nachteile</p>
-                        <ul className="space-y-1">
-                          {opt.cons.map((c) => (
-                            <li key={c} className="flex gap-2 text-[13px] text-gray-500">
-                              <span className="text-red-400 shrink-0">✗</span>{c}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Barzahlung – warum Cash beim Tiny House fast immer gewinnt</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Wer ein Tiny House direkt aus Eigenkapital kauft, hat im ersten Jahr einen entscheidenden Vorteil: Den vollen §7g-Steuereffekt ohne Abzug. Durch Investitionsabzugsbetrag (IAB), Sonder-AfA und degressive AfA summiert sich der steuerliche Rückfluss auf bis zu 40 % des Kaufpreises – bei einem 80.000-€-Objekt und 42 % Grenzsteuersatz entspricht das rund 33.600 €. Hinzu kommen kein Zinsaufwand, sofortiger Eigentumsübergang und keine Bankkonditionsverhandlung.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Der einzige echte Nachteil der Barzahlung ist der Liquiditätsbedarf: Der Einstieg beginnt bei 65.000 €. Wer dieses Kapital nicht vollständig binden möchte, kann nach dem Kaufjahr mit der Steuererstattung einen Teil zurückgewinnen – effektiv ist die Nettoliquiditätsbelastung nach dem ersten Steuerjahr deutlich niedriger als der nominale Kaufpreis.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Kredit – möglich, aber teurer</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Kredite für Tiny Houses sind möglich – typischerweise über Volksbanken und Sparkassen als Konsumentenkredit oder Gewerbedarlehen für bewegliche Wirtschaftsgüter. Ein klassisches Immobiliendarlehen mit Grundbucheintragung scheidet aus, da das Tiny House auf einem Vlemmix-Trailer als bewegliches Wirtschaftsgut gilt und kein Grundstück involviert ist.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Die Zinslast bei 6 % auf 80.000 € beträgt über fünf Jahre rund 12.800 €. Zwar sind Zinsen als Betriebsausgaben steuerlich absetzbar, dennoch liegt das Netto-Ergebnis über fünf Jahre mit Kredit bei etwa 64.000 € gegenüber rund 76.800 € bei Barzahlung – ein Unterschied von fast 13.000 €. Kredit lohnt sich nur dann, wenn das frei gehaltene Kapital anderweitig eine höhere Rendite erzielt als die Kreditzinsen.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Leasing – warum es für §7g-Investoren nicht funktioniert</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Leasing scheidet für Tiny House Investments nahezu vollständig aus. Der entscheidende Grund: Beim Leasing bleibt der Leasinggeber Eigentümer des Wirtschaftsguts – der Investor tritt also nicht als wirtschaftlicher Eigentümer auf. Damit entfällt die Voraussetzung für den Investitionsabzugsbetrag und die Sonder-AfA nach §7g EStG. Die monatliche Leasingrate ist zwar als Betriebsausgabe absetzbar, der steuerliche Effekt ist jedoch deutlich geringer als bei direktem Erwerb. Gesamtwirtschaftlich sind Leasingkosten in der Regel höher als ein Direktkauf – ohne den §7g-Hebel.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Warum §7g die Finanzierungsentscheidung dominiert</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Bei klassischen Immobilien macht Fremdkapitalhebel oft Sinn – wegen langer AfA-Laufzeiten, Inflationsschutz und niedrigen Eigenkapitalquoten. Bei Tiny Houses dreht §7g die Logik um. Der Steuereffekt im Kaufjahr ist so dominant, dass er sämtliche Zinsvorteile übertrifft. Konkret: Wer 80.000 € bar zahlt, erzielt bei 42 % Grenzsteuersatz über fünf Jahre rund 76.800 € Netto-Ergebnis aus Steuererstattung und Mieteinnahmen. Mit Kredit (6 % p.a.) sinkt dieses Ergebnis auf etwa 64.000 €.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Das bedeutet nicht, dass Kredit grundsätzlich falsch ist. Wer mehrere Objekte staffeln möchte oder das Eigenkapital in einem anderen Asset mit höherer Rendite arbeiten lässt, kann einen Kredit rechtfertigen. Für den typischen Einzelinvestor mit einem §7g-optimierten Einstieg ist Cash jedoch die überlegene Wahl – sowohl steuerlich als auch strukturell.
+            </p>
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img src="/images/outside/tiny-house-wald-naturstandort.webp" alt="Tiny House Standort Natur" className="w-full h-full object-cover" />
-          </div>
-
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Warum §7g die Finanzierungsentscheidung dominiert</h2>
-          <p className="text-gray-700 text-base leading-relaxed mb-8">
-            Bei klassischen Immobilien macht Fremdkapital oft Sinn — wegen der Zinsen, der Inflation und der langen AfA-Laufzeit. Bei Tiny Houses dreht §7g die Logik um. Der Steuereffekt im Kaufjahr ist so groß, dass er jeden Zinsaufwand übertrifft.
-          </p>
-
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
-            <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-4">Beispiel: 80.000 € Tiny House · 42 % Grenzsteuersatz</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-red-400 font-bold mb-3 text-[12px] uppercase">Mit Kredit (6 % p.a.)</h4>
-                <div className="space-y-2 text-[13px]">
-                  {[
-                    { label: "Kaufpreis", value: "80.000 €" },
-                    { label: "Zinslast gesamt (5 J.)", value: "– 12.800 €" },
-                    { label: "§7g Steuereffekt", value: "+ 33.600 €" },
-                    { label: "Mieteinnahmen (5 J.)", value: "+ 43.200 €" },
-                    { label: "Netto-Ergebnis", value: "≈ + 64.000 €", bold: true },
-                  ].map((r) => (
-                    <div key={r.label} className={`flex justify-between border-b border-white/10 pb-1.5 ${r.bold ? "text-green-400 font-bold text-base" : "text-gray-300"}`}>
-                      <span>{r.label}</span><span className="font-data">{r.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h4 className="text-green-400 font-bold mb-3 text-[12px] uppercase">Mit Cash</h4>
-                <div className="space-y-2 text-[13px]">
-                  {[
-                    { label: "Kaufpreis (Cash)", value: "80.000 €" },
-                    { label: "Zinslast", value: "0 €" },
-                    { label: "§7g Steuereffekt", value: "+ 33.600 €" },
-                    { label: "Mieteinnahmen (5 J.)", value: "+ 43.200 €" },
-                    { label: "Netto-Ergebnis", value: "≈ + 76.800 €", bold: true },
-                  ].map((r) => (
-                    <div key={r.label} className={`flex justify-between border-b border-white/10 pb-1.5 ${r.bold ? "text-green-400 font-bold text-base" : "text-gray-300"}`}>
-                      <span>{r.label}</span><span className="font-data">{r.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="mt-6 bg-green-600/20 border border-green-500/30 rounded-xl p-4">
-              <p className="text-green-300 font-bold text-[13px]">→ Cash-Vorteil: ~12.800 € mehr Netto-Ergebnis über 5 Jahre</p>
-            </div>
-          </div>
-
-          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/tiny-house-innen-steuerberatung.webp" alt="Tiny House Innenraum" className="w-full h-full object-cover" />
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Cash vs. Kredit vs. Leasing – Direktvergleich</h2>

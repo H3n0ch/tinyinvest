@@ -19,14 +19,6 @@ export const metadata = {
   },
 };
 
-const standorte = [
-  { region: "Bayern & Alpen", icon: "🏔️", belegung: "70–80 %", preis: "120–180 €/Nacht", saison: "Ganzjährig", stärke: "Winter-Tourismus, Wandern, Skigebiete" },
-  { region: "Schwarzwald", icon: "🌲", belegung: "65–75 %", preis: "90–140 €/Nacht", saison: "Frühling–Herbst", stärke: "Natur, Wellness, Radtourismus" },
-  { region: "Ostseeküste", icon: "🌊", belegung: "60–75 %", preis: "100–160 €/Nacht", saison: "Mai–September (Spitze)", stärke: "Strandnähe, Familientourismus" },
-  { region: "Allgäu", icon: "🐄", belegung: "65–75 %", preis: "90–130 €/Nacht", saison: "Sommer + Winter", stärke: "Wandern, Naturpark, Nähe Österreich" },
-  { region: "Eifel & Mosel", icon: "🍇", belegung: "55–65 %", preis: "80–120 €/Nacht", saison: "Frühling–Herbst", stärke: "Weinregion, Natur, Stadtferne" },
-  { region: "Harz", icon: "🦌", belegung: "60–70 %", preis: "75–110 €/Nacht", saison: "Ganzjährig", stärke: "Wandern, Winter, Brockennähe" },
-];
 
 const faqItems = [
   {
@@ -141,28 +133,64 @@ export default function TinyHouseStandortePage() {
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Top 6 Regionen im Vergleich</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-            {standorte.map((s) => (
-              <div key={s.region} className="bg-white border border-gray-100 rounded-2xl p-5 hover:border-green-200 transition-colors">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{s.icon}</span>
-                  <h3 className="font-black text-gray-900 text-base">{s.region}</h3>
-                </div>
-                <div className="grid grid-cols-3 gap-3 mb-3">
-                  {[
-                    { label: "Belegung", value: s.belegung },
-                    { label: "Preis/Nacht", value: s.preis },
-                    { label: "Hauptsaison", value: s.saison },
-                  ].map((m) => (
-                    <div key={m.label} className="bg-gray-50 rounded-xl p-2 text-center">
-                      <p className="text-[9px] text-gray-400 uppercase font-bold">{m.label}</p>
-                      <p className="text-[11px] font-bold text-gray-800 mt-0.5">{m.value}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-[12px] text-gray-500">💡 {s.stärke}</p>
-              </div>
-            ))}
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm mb-12">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-100">
+                    <th className="text-left p-4 text-[12px] text-gray-500 font-semibold">Region</th>
+                    <th className="p-4 text-[12px] text-gray-500 font-semibold text-center">Belegung</th>
+                    <th className="p-4 text-[12px] text-gray-500 font-semibold text-center">Nachtpreis</th>
+                    <th className="p-4 text-[12px] text-gray-500 font-semibold text-center">Saison</th>
+                    <th className="p-4 text-[12px] text-gray-500 font-semibold text-left">Stärke</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50 text-[13px]">
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🏔️ Bayern &amp; Alpen</td>
+                    <td className="p-4 text-center font-bold text-green-700">70–80 %</td>
+                    <td className="p-4 text-center text-gray-600">120–180 €</td>
+                    <td className="p-4 text-center text-gray-600">Ganzjährig</td>
+                    <td className="p-4 text-gray-500">Winter-Tourismus, Wandern, Ski</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🌲 Schwarzwald</td>
+                    <td className="p-4 text-center font-bold text-green-700">65–75 %</td>
+                    <td className="p-4 text-center text-gray-600">90–140 €</td>
+                    <td className="p-4 text-center text-gray-600">Frühling–Herbst</td>
+                    <td className="p-4 text-gray-500">Natur, Wellness, Radtourismus</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🌊 Ostseeküste</td>
+                    <td className="p-4 text-center font-bold text-amber-600">60–75 %</td>
+                    <td className="p-4 text-center text-gray-600">100–160 €</td>
+                    <td className="p-4 text-center text-gray-600">Mai–September</td>
+                    <td className="p-4 text-gray-500">Strandnähe, Familientourismus</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🐄 Allgäu</td>
+                    <td className="p-4 text-center font-bold text-green-700">65–75 %</td>
+                    <td className="p-4 text-center text-gray-600">90–130 €</td>
+                    <td className="p-4 text-center text-gray-600">Sommer + Winter</td>
+                    <td className="p-4 text-gray-500">Wandern, Naturpark, Österreich-Nähe</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🍇 Eifel &amp; Mosel</td>
+                    <td className="p-4 text-center font-bold text-amber-600">55–65 %</td>
+                    <td className="p-4 text-center text-gray-600">80–120 €</td>
+                    <td className="p-4 text-center text-gray-600">Frühling–Herbst</td>
+                    <td className="p-4 text-gray-500">Weinregion, Natur, Stadtferne</td>
+                  </tr>
+                  <tr className="hover:bg-gray-50/50">
+                    <td className="p-4 font-semibold text-gray-800">🦌 Harz</td>
+                    <td className="p-4 text-center font-bold text-green-700">60–70 %</td>
+                    <td className="p-4 text-center text-gray-600">75–110 €</td>
+                    <td className="p-4 text-center text-gray-600">Ganzjährig</td>
+                    <td className="p-4 text-gray-500">Wandern, Winter, Brockennähe</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
@@ -170,27 +198,20 @@ export default function TinyHouseStandortePage() {
           </div>
 
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was einen Standort wirklich profitabel macht</h2>
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { icon: "📅", title: "Ganzjährige Nachfrage", desc: "Saisonunabhängige Standorte erzielen gleichmäßigen Cashflow über 12 Monate." },
-                { icon: "📸", title: "Instagrammable Lage", desc: "Naturkulisse, Alleinlage oder besonderes Design erhöhen organische Reichweite auf Buchungsplattformen." },
-                { icon: "🚗", title: "Erreichbarkeit", desc: "Standorte <2h von Ballungsräumen (München, Hamburg, Berlin) haben strukturell höhere Auslastung." },
-                { icon: "🌐", title: "Professionelles Listing", desc: "Dynamisches Pricing und Mehrkanal-Buchung (Airbnb, Booking, Eigenwebsite) maximieren Belegung." },
-              ].map((c) => (
-                <div key={c.title} className="flex gap-3">
-                  <span className="text-xl shrink-0">{c.icon}</span>
-                  <div>
-                    <p className="font-bold text-[13px] text-white mb-0.5">{c.title}</p>
-                    <p className="text-[12px] text-gray-400 leading-relaxed">{c.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Vier Faktoren bestimmen, ob ein Standort langfristig rentabel ist. An erster Stelle steht ganzjährige Nachfrage: Standorte, die Winterwanderer genauso ansprechen wie Sommertouristen, erzielen gleichmäßigen Cashflow über alle zwölf Monate. Saisonstandorte wie die Ostseeküste können in der Hochphase höhere Nachtpreise abrufen, kämpfen aber in der Nebensaison mit deutlich niedrigerer Auslastung.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Erreichbarkeit ist der zweite Schlüsselfaktor: Standorte innerhalb von zwei Stunden Fahrzeit von Ballungsräumen wie München, Hamburg oder Berlin haben strukturell höhere Auslastungsquoten, weil sie auch für Kurzurlauber über ein verlängertes Wochenende attraktiv sind. Dazu kommt die Listing-Qualität: Dynamisches Pricing, professionelle Fotos und Präsenz auf mehreren Buchungsplattformen gleichzeitig – Airbnb, Booking.com und die tiny Escapes Eigenwebsite – maximieren die Belegung unabhängig von der Ausgangslage.
+            </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/tiny-house-innen-schlafbereich.webp" alt="Tiny House Innenausstattung Schlafbereich" className="w-full h-full object-cover" />
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Warum Standort-Risiko für TinyInvest-Investoren kein Thema ist</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              TinyInvest-Investoren kaufen kein Tiny House ohne geprüften Standort. Jedes Objekt im Marktplatz ist bereits einem validierten Standort im tiny Escapes Netzwerk zugeordnet – die Standort-Due-Diligence, Stellplatzgenehmigung und Host-Beziehung sind Teil des Pakets. Das bedeutet: Du triffst keine Standortentscheidung im Blindflug, sondern auf Basis geprüfter Belegungs- und Preisdaten. Wer dennoch Einfluss auf die Region nehmen möchte, kann je nach Verfügbarkeit zwischen verschiedenen Standorten wählen – alle aktuell verfügbaren Projekte mit Standortangabe und Renditeprognose sind im Marktplatz einsehbar.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">

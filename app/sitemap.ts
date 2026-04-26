@@ -108,13 +108,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/steuerberater-finden`,
-      lastModified: "2026-04-14",
+      lastModified: "2026-04-26",
       changeFrequency: "monthly",
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/wissen/host-werden`,
-      lastModified: "2026-04-14",
+      lastModified: "2026-04-26",
       changeFrequency: "monthly",
       priority: 0.85,
     },
@@ -144,7 +144,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/tiny-house-finanzierung`,
-      lastModified: "2026-04-13",
+      lastModified: "2026-04-26",
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -168,7 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/tiny-house-standorte`,
-      lastModified: "2026-04-13",
+      lastModified: "2026-04-26",
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -180,7 +180,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/wissen/tiny-house-kaufen-checkliste`,
-      lastModified: "2026-04-13",
+      lastModified: "2026-04-26",
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -205,6 +205,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}/wissen/tiny-house-rendite-rechner`,
       lastModified: "2026-04-15",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/pv-anlage-als-kapitalanlage`,
+      lastModified: "2026-04-23",
       changeFrequency: "monthly",
       priority: 0.9,
     },

@@ -145,188 +145,64 @@ export default function HostWerdenPage() {
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Das Host-Modell: Wie funktioniert es?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {[
-              { step: "01", icon: "🏡", title: "Du bringst das Grundstück", desc: "Du stellst einen geeigneten Stellplatz zur Verfügung – privat, landwirtschaftlich oder gewerblich. Mindestens 50–80 m² ebene Fläche mit Zufahrt.", color: "border-amber-200 bg-amber-50" },
-              { step: "02", icon: "💼", title: "Investor kauft das Haus", desc: "TinyInvest vermittelt einen passenden Investor, der das Tiny House kauft. Du schließt einen Betreibervertrag ab – kein Eigenkapital nötig.", color: "border-green-200 bg-green-50" },
-              { step: "03", icon: "💰", title: "Beide verdienen", desc: "Du bekommst bis zu 45 % der monatlichen Mieteinnahmen – je besser deine Bewertungen, desto mehr. Der Investor erhält 40 % passiv.", color: "border-gray-200 bg-gray-50" },
-            ].map((item) => (
-              <div key={item.step} className={`rounded-3xl border p-6 ${item.color}`}>
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <span className="text-[10px] font-bold text-gray-400">SCHRITT {item.step}</span>
-                <h3 className="font-black text-gray-900 text-base mt-1 mb-2">{item.title}</h3>
-                <p className="text-[13px] text-gray-600 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Das Host-Modell erklärt</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Du stellst einen geeigneten Stellplatz zur Verfügung – privat, landwirtschaftlich oder gewerblich, mindestens 50–80 m² ebene Fläche mit stabiler Zufahrt für einen Tieflader. TinyInvest vermittelt dann einen passenden Investor, der das Tiny House kauft. Du schließt einen Betreibervertrag ab, kein Eigenkapital nötig. Sobald das Haus aufgestellt und gelistet ist, teilen sich die Einnahmen auf: Du als Host erhältst bis zu 45 %, der Investor bekommt 40 % passiv, 15 % entfallen auf die Plattform.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Was das Modell für Hosts besonders attraktiv macht: Es gibt kein eigenes Kapitalrisiko und kein unternehmerisches Haftungsrisiko für das Gebäude. Die Vergütung ist leistungsbasiert – je besser deine Gäste-Bewertungen und Belegungsquoten, desto höher dein Anteil. Die Plattform übernimmt Marketing, Buchungsmanagement und Preisgestaltung. Du konzentrierst dich auf das, was Gäste wirklich schätzen: persönliche Betreuung vor Ort, saubere Übergaben und ein gepflegtes Ambiente.
+            </p>
           </div>
 
-          <div className="bg-gray-900 rounded-2xl p-6 text-white mb-12">
-            <p className="font-black text-base mb-2">💡 Warum das Modell für Hosts attraktiv ist</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-gray-300">
-              {[
-                "Kein Eigenkapital für das Tiny House nötig",
-                "Kein eigenes Unternehmens- oder Investitionsrisiko",
-                "Leistungsbasierte Vergütung: mehr Einsatz = mehr Verdienst",
-                "Plattform übernimmt Marketing & Buchungsverwaltung",
-                "Ganzjähriges passives Zusatzeinkommen",
-                "Exit nach vereinbarter Laufzeit ohne Verlust",
-              ].map((point, i) => (
-                <div key={i} className="flex gap-2">
-                  <span className="text-amber-400 shrink-0">✓</span>
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Welche Standorte eignen sich?</h2>
+          <div className="max-w-3xl mb-8">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              TinyInvest-Standorte befinden sich in Tourismusregionen – Natur, Wald, Wasser oder landschaftlich reizvolle Lagen sind ideal. Städtenähe bis 60 Minuten Fahrtzeit ist vertretbar, entscheidend ist das Erlebnis vor Ort. Geeignete Grundstückstypen reichen vom Bauernhof über Campingplätze und Ferienparks bis zu Privatgärten ab 800 m², Seegrundstücken oder Waldrändern. Auch Weinberge und Naturgrundstücke im Ausland wurden bereits erfolgreich erschlossen.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Infrastrukturanforderungen hängen vom Modell ab: On-Grid-Häuser benötigen einen 230V-Stromanschluss und Wasserversorgung. Off-Grid-Modelle kommen ohne diese Anschlüsse aus – Energie kommt von der Solaranlage, Sanitär wird über eine Komposttoilette gelöst. Bei der Genehmigungsfrage – Stellplatzgenehmigung oder temporäres Aufstellen – unterstützt TinyInvest aktiv. Die gewerbliche Nutzung muss in der Regel als Nebenerwerb angemeldet werden; auch dabei hilft das Team.
+            </p>
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img src="/images/outside/tiny-house-stellplatz-standort.webp" alt="Tiny House Standort – geeignetes Grundstück für Hosts" className="w-full h-full object-cover" />
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Welche Standort-Voraussetzungen gibt es?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
-            {[
-              { icon: "📐", title: "Mindestfläche", items: ["50–80 m² ebene Grundfläche", "Ausreichend Platz für Terrasse (optional)", "Stabile Zufahrt für LKW/Tieflader", "Keine starke Hanglage"], good: true },
-              { icon: "🌍", title: "Lage", items: ["Tourismusregionen bevorzugt", "Natur, Wald, Wasser in der Nähe", "Städtenähe < 60 min vertretbar", "EU-weit möglich (auch Ausland)"], good: true },
-              { icon: "🔌", title: "Infrastruktur (On-Grid)", items: ["Strom-Anschluss (230V) wünschenswert", "Wasserversorgung wünschenswert", "Off-Grid-Modelle auch ohne Anschluss", "Abwasserentsorgung bei Off-Grid via Komposttoilette"], good: true },
-              { icon: "📋", title: "Genehmigung", items: ["Bauplanung/Stellplatzgenehmigung", "Temporäres Aufstellen oft einfacher", "TinyInvest unterstützt bei Genehmigungsfragen", "Gewerbliche Nutzung (Vermietung) anmelden"], good: false },
-            ].map((section) => (
-              <div key={section.title} className="bg-white border border-gray-100 rounded-2xl p-5">
-                <div className="flex gap-3 mb-3">
-                  <span className="text-2xl">{section.icon}</span>
-                  <h3 className="font-black text-gray-900 text-[14px] mt-1">{section.title}</h3>
-                </div>
-                <ul className="space-y-1.5">
-                  {section.items.map((item, i) => (
-                    <li key={i} className="flex gap-2 text-[12px] text-gray-600">
-                      <span className={section.good ? "text-green-500" : "text-amber-500"}>→</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5 mb-12">
-            <p className="font-black text-amber-800 text-sm mb-2">🌿 Ideal geeignete Grundstückstypen</p>
-            <div className="flex flex-wrap gap-2">
-              {["Bauernhof/Landwirtschaft", "Privater Garten >800m²", "Campingplatz", "Ferienpark", "Naturgrundstück", "Seegrundstück", "Waldrand", "Weinberg"].map((type) => (
-                <span key={type} className="text-[11px] bg-white border border-amber-200 text-amber-700 font-semibold px-3 py-1 rounded-full">{type}</span>
-              ))}
-            </div>
-          </div>
-
           <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was kannst du als Host verdienen?</h2>
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-8">
-            <p className="text-[11px] text-gray-400 uppercase tracking-widest font-semibold mb-6">Beispielrechnung: TinyInvest Escape (79.000 €) · 60 % Belegung</p>
-            <div className="space-y-3 mb-6">
-              {[
-                { label: "Gesamt-Mieteinnahmen/Monat", value: "1.825 €", highlight: false },
-                { label: "Dein Anteil als Host (bis 45 %)", value: "bis 821 €/Monat", highlight: true },
-                { label: "Investor (40 %)", value: "730 €", highlight: false },
-                { label: "TinyInvest Plattform (15 %)", value: "274 €", highlight: false },
-                { label: "Dein Jahresverdienst (45 %)", value: "bis 9.852 €", highlight: true },
-              ].map((row) => (
-                <div key={row.label} className={`flex justify-between py-2 border-b border-white/10 ${row.highlight ? "text-amber-300 font-bold" : "text-gray-300 text-[13px]"}`}>
-                  <span>{row.label}</span>
-                  <span className="font-data">{row.value}</span>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/10 rounded-xl p-4 text-center">
-                <p className="text-gray-400 text-[10px] mb-1">Monatseinkommen (45 %)</p>
-                <p className="font-data text-2xl font-black text-white">bis 821 €</p>
-              </div>
-              <div className="bg-amber-600 rounded-xl p-4 text-center">
-                <p className="text-amber-200 text-[10px] mb-1">Jahreseinkommen</p>
-                <p className="font-data text-2xl font-black text-white">bis 9.852 €</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-green-50 border border-green-100 rounded-2xl p-5 mb-12">
-            <p className="font-black text-green-800 text-sm mb-2">🏆 Leistungsbasierte Vergütung</p>
-            <p className="text-green-700 text-[13px] leading-relaxed">
-              Dein Anteil ist nicht fest – er hängt von deiner Leistung ab. Exzellente Gäste-Bewertungen, schnelle Reaktionszeiten und gepflegte Ausstattung werden belohnt. Hosts mit Top-Ratings erhalten den vollen 45 %-Anteil. Das motiviert – und sichert dem Investor gleichzeitig bestmögliche Belegungsquoten.
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Auf Basis eines TinyInvest Escape (79.000 €) bei 60 % Belegung ergibt sich folgendes Bild: Die monatlichen Gesamtmieteinnahmen liegen bei rund 1.825 €. Davon fließen bis zu 45 % – also bis zu 821 € pro Monat – an dich als Host. Über das Jahr summiert sich das auf bis zu 9.852 €. Der Investor erhält 730 € monatlich passiv, ohne eigene Tätigkeit vor Ort.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Dein Anteil ist nicht vertraglich fixiert, sondern leistungsbasiert. Exzellente Gäste-Bewertungen, schnelle Reaktionszeiten und eine gepflegte Ausstattung werden mit dem vollen 45 %-Anteil belohnt. Das setzt einen klaren Anreiz – und sichert dem Investor gleichzeitig maximale Belegungsquoten. Hosts, die konsequent Top-Ratings sammeln, erreichen nach wenigen Saisons eine verlässliche Nebeneinkommen-Basis ohne eigenes Kapital eingesetzt zu haben.
             </p>
           </div>
 
-          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Was machst du als TinyInvest Host?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {[
-              { icon: "🔑", title: "Check-in & Check-out", desc: "Gäste empfangen, Schlüsselübergabe (oder Smart-Lock), kurze Einweisung ins Haus. Dauert 15–30 Minuten pro Buchung.", freq: "Pro Buchung" },
-              { icon: "🧹", title: "Reinigung", desc: "Das Tiny House nach jedem Aufenthalt reinigen. Standard: 1–2 Stunden pro Reinigung je nach Modell. Kann auch an einen Reinigungsservice delegiert werden.", freq: "Pro Buchung" },
-              { icon: "🌿", title: "Grundstückspflege", desc: "Außenbereich, Terrasse und Umgebung des Tiny Houses gepflegt halten. Saisonale Arbeit: Rasen mähen, Laub entfernen etc.", freq: "Wöchentlich" },
-              { icon: "💬", title: "Gäste-Kommunikation", desc: "Anfragen beantworten, Fragen während des Aufenthalts klären. Plattform (tiny Escapes) übernimmt Buchungsmanagement und Bezahlung.", freq: "Laufend" },
-              { icon: "🔧", title: "Kleine Wartungsarbeiten", desc: "Glühbirnen wechseln, kleine Reparaturen, Solarpanel reinigen. Größere Reparaturen werden durch TinyInvest koordiniert.", freq: "Gelegentlich" },
-              { icon: "📸", title: "Listing-Qualität sichern", desc: "Auf Wunsch aktuelle Fotos, Bewertungen beantworten und Verbesserungsvorschläge an TinyInvest kommunizieren.", freq: "Monatlich" },
-            ].map((task) => (
-              <div key={task.title} className="bg-white border border-gray-100 rounded-2xl p-5">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl shrink-0">{task.icon}</span>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-black text-gray-900 text-[13px]">{task.title}</h3>
-                      <span className="text-[9px] bg-amber-100 text-amber-700 font-bold px-2 py-0.5 rounded-full">{task.freq}</span>
-                    </div>
-                    <p className="text-gray-500 text-[12px] leading-relaxed">{task.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Deine Aufgaben als Host</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Der Kern deiner Tätigkeit dreht sich um drei Bereiche: Check-in und Check-out, Reinigung sowie Grundstückspflege. Pro Buchung empfängst du die Gäste persönlich oder über einen Smart-Lock, gibst eine kurze Einweisung ins Haus – das dauert typisch 15 bis 30 Minuten. Nach jedem Aufenthalt reinigst du das Tiny House, was je nach Modell ein bis zwei Stunden in Anspruch nimmt. Wer das outsourcen möchte, kann einen lokalen Reinigungsservice beauftragen, was viele erfahrene Hosts mit mehreren Buchungen pro Monat tun.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Hinzu kommen Grundstückspflege – Terrasse, Außenbereich, Rasen mähen, Laub entfernen – sowie gelegentliche kleine Wartungsarbeiten: Glühbirnen wechseln, Solarpanel reinigen, kleinere Reparaturen. Größere Instandhaltungsmaßnahmen koordiniert TinyInvest; du trägst keine Kosten dafür. Die Kommunikation mit Gästen läuft großteils über die Plattform tiny Escapes, die auch Buchungsmanagement und Zahlungsabwicklung übernimmt.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Realistisch betrachtet bedeutet das bei vier Buchungen pro Monat etwa acht Stunden für Check-ins und Reinigungen sowie zwei bis drei Stunden für Grundstückspflege – insgesamt rund zehn bis zwölf Stunden monatlich. Für diesen Aufwand erhältst du bis zu 821 € – ein Stundensatz, der sich sehen lässt.
+            </p>
           </div>
 
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 mb-12">
-            <p className="font-black text-gray-900 text-sm mb-3">⏱️ Realistischer Zeitaufwand</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              {[
-                { label: "Bei 4 Buchungen/Monat", value: "~8 Std.", sub: "Check-in + Reinigung" },
-                { label: "Grundstückspflege", value: "~2–3 Std.", sub: "Pro Monat" },
-                { label: "Gesamt", value: "~10–12 Std.", sub: "Pro Monat" },
-              ].map((item) => (
-                <div key={item.label} className="bg-amber-50 rounded-xl p-4">
-                  <p className="text-gray-500 text-[10px] mb-1">{item.label}</p>
-                  <p className="font-black text-amber-700 text-xl">{item.value}</p>
-                  <p className="text-gray-400 text-[10px]">{item.sub}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/inside/tiny-house-innen-wohnbereich.webp" alt="Tiny House Innenausstattung – Host-Qualität für Gäste" className="w-full h-full object-cover" />
-          </div>
-
-          <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">So wirst du TinyInvest Host: Der Prozess</h2>
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">Von der ersten Anfrage bis zur ersten Buchung – typisch 4–8 Wochen.</p>
-          <div className="relative mb-12">
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-amber-100 hidden md:block" />
-            <div className="space-y-4">
-              {[
-                { num: "1", title: "Anfrage & Standortbeschreibung", desc: "Du schreibst uns kurz: Wo liegt dein Grundstück? Wie groß ist die verfügbare Fläche? Gibt es Strom/Wasser? Wir schauen innerhalb von 24h drauf.", badge: "1 Tag" },
-                { num: "2", title: "Kostenlose Standortprüfung", desc: "TinyInvest bewertet deinen Standort nach: Lage, Tourismusattraktivität, Genehmigungspotenzial, Infrastruktur. Du bekommst ehrliches Feedback.", badge: "2–5 Tage" },
-                { num: "3", title: "Positives Feedback & Investor-Matching", desc: "Wenn dein Standort geeignet ist: TinyInvest sucht einen passenden Investor für dein Grundstück. Du kannst das Modell und den Investor kennenlernen.", badge: "1–2 Wochen" },
-                { num: "4", title: "Betreibervertrag & Gewerbe", desc: "Du unterschreibst einen Betreibervertrag. TinyInvest hilft dir bei der Gewerbeanmeldung (falls nötig) und der Genehmigungsfrage.", badge: "1 Woche" },
-                { num: "5", title: "Aufbau & Einweisung", desc: "Das Tiny House wird geliefert, aufgebaut und buchungsbereit eingerichtet. Du wirst in alle Abläufe eingewiesen – Check-in, Reinigung, Dashboard.", badge: "1–2 Wochen" },
-                { num: "6", title: "Erste Buchungen & Auszahlung", desc: "Das Haus wird auf tiny Escapes + Airbnb gelistet. Erste Buchungen kommen typisch nach 2–4 Wochen. Du bekommst monatlich deine Auszahlung.", badge: "Laufend" },
-              ].map((step, i) => (
-                <div key={i} className="relative flex gap-6 items-start">
-                  <div className="shrink-0 w-16 h-16 rounded-full bg-amber-500 flex items-center justify-center text-xl font-black text-white shadow-sm z-10">
-                    {step.num}
-                  </div>
-                  <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 grow">
-                    <div className="flex items-center justify-between flex-wrap gap-2 mb-1">
-                      <h4 className="font-black text-gray-900 text-[14px]">{step.title}</h4>
-                      <span className="text-[9px] bg-amber-100 text-amber-700 font-bold px-2 py-0.5 rounded-full">{step.badge}</span>
-                    </div>
-                    <p className="text-gray-500 text-[13px] leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Der Bewerbungsprozess: Schritt für Schritt</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Der Weg vom ersten Kontakt bis zur ersten Gästebuchung dauert typisch vier bis acht Wochen. Im ersten Schritt schreibst du TinyInvest eine kurze Beschreibung deines Grundstücks – Lage, verfügbare Fläche, Infrastruktur. Das Team meldet sich innerhalb von 24 Stunden. Innerhalb von zwei bis fünf Tagen erhältst du eine ehrliche Einschätzung: Lage, Tourismusattraktivität, Genehmigungspotenzial und Infrastruktur werden bewertet.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed mb-5">
+              Wenn dein Standort geeignet ist, beginnt das Investor-Matching: TinyInvest sucht einen passenden Investor für dein Grundstück, du kannst das Modell und die Person kennenlernen. Das dauert in der Regel ein bis zwei Wochen. Danach folgt die Vertragsphase: Du unterschreibst den Betreibervertrag, TinyInvest hilft dir bei Gewerbeanmeldung und Genehmigungsfragen.
+            </p>
+            <p className="text-gray-700 text-base leading-relaxed">
+              Im vorletzten Schritt wird das Tiny House geliefert, aufgebaut und buchungsbereit eingerichtet – du wirst in alle Abläufe eingewiesen: Check-in-Prozess, Reinigungsstandards, Dashboard-Nutzung. Anschließend wird das Haus auf tiny Escapes und Airbnb gelistet. Erste Buchungen gehen typischerweise nach zwei bis vier Wochen ein. Ab dann bekommst du monatlich deine Auszahlung.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">

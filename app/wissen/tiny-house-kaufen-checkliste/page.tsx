@@ -21,56 +21,6 @@ export const metadata = {
   },
 };
 
-const checklistItems = [
-  {
-    phase: "Phase 1: Steuervorbereitung",
-    icon: "🏛️",
-    color: "border-amber-100 bg-amber-50/30",
-    items: [
-      { check: "Grenzsteuersatz ermitteln (≥35 % für optimalen §7g-Effekt)", important: true },
-      { check: "Steuerberater konsultieren – §7g-Strategie festlegen (mit oder ohne IAB)", important: true },
-      { check: "Falls IAB: Im Vorjahr bilden (Steuererklärung!)", important: false },
-      { check: "Einkunftsart klären: Vermietung & Verpachtung oder Gewerbebetrieb", important: false },
-      { check: "Liquidität für Kaufpreis + Puffer bereitstellen", important: false },
-    ],
-  },
-  {
-    phase: "Phase 2: Auswahl & Beratung",
-    icon: "🔍",
-    color: "border-blue-100 bg-blue-50/30",
-    items: [
-      { check: "Modell wählen: Comfort (65.000 €) oder Premium (ab 80.000 €)", important: true },
-      { check: "Investor-Unterlagen anfordern (Rendite-Prognose, §7g-Factsheet)", important: false },
-      { check: "Standort besprechen: Deutschland, Österreich, Schweiz", important: false },
-      { check: "Rendite-Rechner nutzen: /rechner/rendite", important: false },
-      { check: "Referenzstandorte prüfen oder besuchen", important: false },
-    ],
-  },
-  {
-    phase: "Phase 3: Kauf & Übereignung",
-    icon: "📝",
-    color: "border-green-100 bg-green-50/30",
-    items: [
-      { check: "Kaufvertrag prüfen: Eigentumsübergang auf deinen Namen", important: true },
-      { check: "VIN/FIN des Vlemmix Trailers dokumentieren", important: true },
-      { check: "Betreibervertrag mit tiny Escapes unterzeichnen", important: false },
-      { check: "Host-Standort bestätigen und Aufstelltermin vereinbaren", important: false },
-      { check: "Steuerberater über Kaufdatum informieren (AfA-Start)", important: false },
-    ],
-  },
-  {
-    phase: "Phase 4: Betrieb & Cashflow",
-    icon: "💶",
-    color: "border-purple-100 bg-purple-50/30",
-    items: [
-      { check: "Monatliche Mietauszahlung einrichten (40 % Investor-Anteil)", important: true },
-      { check: "Buchhaltung: Separate Einnahmen-Überschuss-Rechnung führen", important: false },
-      { check: "Belegungsquote monatlich monitoren", important: false },
-      { check: "§7g AfA in Steuererklärung geltend machen", important: true },
-      { check: "IAB auflösen (falls im Vorjahr gebildet)", important: false },
-    ],
-  },
-];
 
 const faqItems = [
   {
@@ -188,49 +138,36 @@ export default function ChecklistePage() {
             </p>
           </div>
 
-          <div className="space-y-8 mb-12">
-            {checklistItems.map((phase) => (
-              <div key={phase.phase} className={`rounded-2xl border-2 ${phase.color} p-7`}>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-2xl">{phase.icon}</span>
-                  <h2 className="text-base font-black text-gray-900">{phase.phase}</h2>
-                </div>
-                <div className="space-y-3">
-                  {phase.items.map((item) => (
-                    <div key={item.check} className="flex items-start gap-3 bg-white/60 rounded-xl px-4 py-3">
-                      <div className={`w-5 h-5 rounded border-2 shrink-0 mt-0.5 ${item.important ? "border-green-500 bg-green-50" : "border-gray-200"}`} />
-                      <p className={`text-[13px] leading-relaxed ${item.important ? "text-gray-900 font-semibold" : "text-gray-600"}`}>
-                        {item.check}
-                        {item.important && <span className="ml-2 text-[10px] text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded-full">Wichtig</span>}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Phase 1 – Steuervorbereitung</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Bevor du ein Tiny House kaufst, muss die Steuerstrategie stehen. Ermittle deinen Grenzsteuersatz – für den vollen §7g-Effekt sollte er mindestens 35 % betragen. Hole dir frühzeitig einen Steuerberater mit §7g-Erfahrung und kläre gemeinsam, ob du den Investitionsabzugsbetrag im Vorjahr bilden willst: Dann muss die IAB-Position bereits in der Steuererklärung des Jahres vor dem Kauf erscheinen. Kläre außerdem die Einkunftsart – Vermietung und Verpachtung oder Gewerbebetrieb – da dies den weiteren Verlauf beeinflusst. Stelle die nötige Liquidität für den vollen Kaufpreis plus Puffer bereit, bevor du in die Vertragsphase gehst.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Phase 2 – Modell & Beratung</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Wähle das passende Modell: Das Comfort-Modell (ab 65.000 €) eignet sich für den Einstieg, das Premium-Modell (ab 80.000 €) bietet höhere Ausstattung und in der Regel bessere Belegungsquoten. Fordere die Investor-Unterlagen an – das §7g-Factsheet und die Renditeprognose sind die Grundlage jeder Entscheidung. Nutze den Rendite-Rechner unter /rechner/rendite für eigene Szenarien. Besprich den Standort mit TinyInvest: Deutschland, Österreich und die Schweiz kommen infrage. Wer möchte, kann Referenzstandorte besuchen, bevor die endgültige Entscheidung fällt.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Phase 3 – Kauf & Übereignung</h2>
+          <div className="max-w-3xl mb-8">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Beim Kaufvertrag ist ein Punkt entscheidend: Der Eigentumsübergang muss auf deinen Namen erfolgen – das ist die Voraussetzung für §7g. Dokumentiere die VIN bzw. FIN des Vlemmix-Trailers, die das bewegliche Wirtschaftsgut eindeutig identifiziert. Unterzeichne den Betreibervertrag mit tiny Escapes, bestätige den Host-Standort und vereinbare den Aufstelltermin. Informiere deinen Steuerberater unmittelbar über das Kaufdatum, da es den Start der AfA-Abschreibung bestimmt.
+            </p>
           </div>
 
           <div className="rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "16/7" }}>
             <img src="/images/inside/tiny-house-innen-wohnbereich.webp" alt="Tiny House Innenraum modern" className="w-full h-full object-cover" />
           </div>
 
-          <div className="bg-gray-900 rounded-2xl p-8 text-white mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              {[
-                { value: "4–8 Wo.", label: "Kauf bis erster Cashflow" },
-                { value: "0 Std.", label: "Aufwand pro Monat" },
-                { value: "12–14 %", label: "IRR p.a. projiziert" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <p className="font-data text-2xl font-black text-green-400">{s.value}</p>
-                  <p className="text-[11px] text-gray-400 mt-1">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl overflow-hidden mb-10" style={{ aspectRatio: "16/7" }}>
-            <img src="/images/outside/tiny-house-naturlage-gruen.webp" alt="Tiny House im Grünen" className="w-full h-full object-cover" />
+          <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Phase 4 – Betrieb & Cashflow</h2>
+          <div className="max-w-3xl mb-12">
+            <p className="text-gray-700 text-base leading-relaxed">
+              Sobald das Tiny House buchungsbereit aufgestellt ist, beginnt der operative Betrieb. Richte die monatliche Mietauszahlung ein – als Investor erhältst du 40 % der Einnahmen passiv. Führe eine separate Einnahmen-Überschuss-Rechnung für das Tiny House und monitore die Belegungsquote monatlich über das Dashboard. In der Steuererklärung des Kaufjahres wird die §7g-AfA geltend gemacht; wurde im Vorjahr ein IAB gebildet, muss dieser jetzt aufgelöst werden. Investoren, die diese Schritte konsequent umsetzen, sehen typischerweise innerhalb von vier bis acht Wochen nach dem Kauf die erste Mietauszahlung.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
