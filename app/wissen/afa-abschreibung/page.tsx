@@ -165,7 +165,7 @@ export default function AfaAbschreibungPage() {
             <img src="/images/outside/tiny-house-renditeobjekt-aussen.webp" alt="Tiny House Außenansicht Standort" className="w-full h-full object-cover" />
           </div>
 
-          {/* Die 4 AfA-Variante */}
+          {/* Die 4 AfA-Varianten */}
           <div className="mb-14">
             <h2 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Die 4 AfA-Varianten für dein Tiny House</h2>
             <div className="max-w-3xl mb-8">
