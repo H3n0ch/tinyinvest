@@ -35,6 +35,11 @@ export default function Footer() {
                   Vertriebspartner werden
                 </Link>
               </li>
+              <li>
+                <Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">
+                  Für Hosts
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -62,7 +67,6 @@ export default function Footer() {
               <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Rendite & Cashflow</Link></li>
               <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuerberater finden</Link></li>
               <li><Link href="/wissen" className="text-green-400 hover:text-green-300 text-sm transition-colors font-semibold">Alle Guides →</Link></li>
-              <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Für Hosts</Link></li>
             </ul>
           </div>
 
