@@ -193,6 +193,24 @@ const articles = [
     tags: ["PV", "Alternative", "IAB", "§7g"],
     img: "/images/outside/tiny-house-naturlage-gruen.webp",
   },
+  {
+    href: "/wissen/tiny-house-kaufen",
+    badge: "Kaufguide",
+    badgeColor: "bg-green-100 text-green-700",
+    title: "Tiny House kaufen 2026: Preise, Modelle & Investment-Option",
+    desc: "Preise ab 65.000 €, Modellvergleich, Genehmigung – und warum viele Käufer ihr Tiny House als Kapitalanlage vermieten statt selbst einzuziehen.",
+    tags: ["Kaufen", "Preise", "Modelle", "Investment"],
+    img: "/images/outside/tiny-house-investor-aussen.webp",
+  },
+  {
+    href: "/wissen/tiny-house-kaufen-mit-grundstueck",
+    badge: "Kaufguide",
+    badgeColor: "bg-green-100 text-green-700",
+    title: "Tiny House mit Grundstück kaufen: Pakete, Preise & Standorte",
+    desc: "Paketangebote aus Tiny House und Grundstück an geprüften Standorten in Bayern, Ostsee & Schwarzwald. Mit Genehmigungsinfo.",
+    tags: ["Mit Grundstück", "Bayern", "Ostsee", "Standorte"],
+    img: "/images/outside/tiny-house-host-grundstueck.webp",
+  },
 ];
 
 const glossarItems = [

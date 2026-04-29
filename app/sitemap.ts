@@ -220,5 +220,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-kaufen`,
+      lastModified: "2026-04-29",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/wissen/tiny-house-kaufen-mit-grundstueck`,
+      lastModified: "2026-04-29",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }
