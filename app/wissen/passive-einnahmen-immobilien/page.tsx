@@ -324,8 +324,8 @@ export default function PassiveEinnahmenPage() {
 
           {/* Navigation Links */}
           <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
-            <Link href="/wissen/kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
-              Tiny House Kapitalanlage →
+            <Link href="/tiny-house-als-kapitalanlage" className="border border-green-200 text-green-700 hover:bg-green-50 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
+              In ein Tiny House investieren →
             </Link>
             <Link href="/rechner/rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
               Rendite berechnen →

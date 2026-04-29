@@ -104,7 +104,7 @@ export default function TinyHouseKapitalanlagePage() {
           </div>
 
           <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-2xl">
-            Du kaufst ein physisches Tiny House – kein Fondsanteil. Ein Betreiber vermietet es für dich.
+            In ein Tiny House investieren heißt: Du kaufst ein physisches Objekt – kein Fondsanteil. Ein Betreiber vermietet es für dich.
             Du erhältst 40 % der Einnahmen monatlich und sparst im ersten Jahr bis zu 33.000 € Steuern über §7g EStG.
           </p>
 
@@ -124,7 +124,7 @@ export default function TinyHouseKapitalanlagePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <span className="text-green-700 font-semibold text-xs uppercase tracking-widest">Die Mathematik</span>
           <h2 className="text-2xl font-black text-gray-900 mt-2 mb-8 tracking-tight">
-            Tiny House vs. Traditionelles Apartment
+            In ein Tiny House investieren: Was du wirklich bekommst
           </h2>
 
           {/* Infografik */}
