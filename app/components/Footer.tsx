@@ -50,7 +50,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Wissen & Hosts</h4>
             <div className="grid grid-cols-2 gap-x-6">
               <ul className="space-y-2">
