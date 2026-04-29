@@ -22,6 +22,29 @@ export const metadata = {
   },
 };
 
+const faqItems = [
+  {
+    question: "Wie hoch ist die Rendite eines Tiny Houses bei TinyInvest?",
+    answer: "Bei 60 % Belegung und einem Durchschnittspreis von 100 € pro Nacht erhält der Investor 40 % der Netto-Einnahmen – rund 720 € monatlich bzw. 8.760 € jährlich auf ein 79.000 € Objekt. Das entspricht ca. 11 % Cash-on-Cash-Rendite. Inklusive §7g-Steuervorteilen (IAB, Sonder-AfA) liegt der IRR über 5 Jahre bei 13–15 % p.a.",
+  },
+  {
+    question: "Was bekomme ich als Investor ausgezahlt?",
+    answer: "Du erhältst monatlich 40 % der Netto-Mieteinnahmen. Die übrigen 60 % gehen an den Host (Stellplatzinhaber) und tiny Escapes (Betrieb, Gästebetreuung, Reinigung). Die Auszahlung erfolgt automatisch – du hast keinen operativen Aufwand.",
+  },
+  {
+    question: "Wie hoch muss die Belegungsquote sein damit sich das Investment lohnt?",
+    answer: "Ab ca. 40 % Belegung deckst du laufende Kosten und erzielst positiven Cashflow. Bei 60 % (realistischer Durchschnitt in der tiny Escapes Community) erreichst du die kalkulierten Renditen. Spitzenobjekte in touristischen Regionen liegen bei 70–80 % Belegung.",
+  },
+  {
+    question: "Was passiert nach 5 Jahren mit dem Tiny House?",
+    answer: "Das Tiny House hat nach 5 Jahren einen Restwert von ca. 55.000 € (auf Basis aktueller Marktdaten für gebrauchte Vlemmix-Einheiten). Du kannst es weiter vermieten, auf einem anderen Standort aufstellen oder verkaufen. Die Mobilität des Objekts ist dabei ein wesentlicher Vorteil gegenüber Immobilien.",
+  },
+  {
+    question: "Wie unterscheidet sich die Tiny House Rendite von klassischen Immobilien?",
+    answer: "Klassische Immobilien erzielen 3–5 % Bruttomietrendite, vor AfA und Steuern. Ein Tiny House bringt 11 % Cash-on-Cash plus signifikante Steuervorteile durch §7g IAB und Sonder-AfA. Der entscheidende Unterschied: Das Tiny House ist als bewegliches Wirtschaftsgut vollständig absetzbar – eine Eigentumswohnung nicht.",
+  },
+];
+
 export default function TinyHouseAlsRenditePage() {
   const articleSchema = {
     "@context": "https://schema.org",
@@ -46,11 +69,22 @@ export default function TinyHouseAlsRenditePage() {
     ]
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="article-schema-rendite" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Script id="breadcrumb-schema-tiny-house-als-rendite" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <Script id="faq-schema-rendite" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="pt-32 pb-10 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,6 +310,17 @@ export default function TinyHouseAlsRenditePage() {
       </article>
 
       <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <h2 className="text-xl font-black text-gray-900 mb-8 tracking-tight">FAQ: Tiny House Rendite & Cashflow</h2>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-black text-gray-900 text-[14px] mb-2">{item.question}</h3>
+                <p className="text-gray-500 text-[13px] leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h3 className="text-2xl font-black text-gray-900 mb-4">Rendite selbst berechnen</h3>
           <p className="text-gray-500 text-sm mb-6">Unser interaktiver Renditerechner zeigt dir deine persönliche Netto-Rendite nach Steuer – in Echtzeit.</p>

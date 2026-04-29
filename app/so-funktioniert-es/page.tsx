@@ -179,6 +179,14 @@ export default function SoFunktioniertEsPage() {
                 Projekte ansehen →
               </Link>
             </div>
+            <div className="flex flex-wrap gap-3 justify-center mt-4">
+              <Link href="/wissen/iab-tiny-house" className="border border-gray-200 text-gray-500 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
+                IAB Steuerguide lesen →
+              </Link>
+              <Link href="/wissen/host-werden" className="border border-gray-200 text-gray-500 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all">
+                Host werden Guide →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

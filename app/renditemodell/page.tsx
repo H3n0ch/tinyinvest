@@ -193,6 +193,26 @@ export default function RenditeModellPage() {
                 <p className="text-gray-400 text-[11px]">Vergleich, 3 Renditesäulen, Risiken</p>
               </div>
             </Link>
+            <Link href="/wissen/afa-abschreibung" className="group flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 hover:shadow-sm transition-all text-left mb-3">
+              <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="/images/outside/tiny-house-escape-sachwert.webp" alt="§7g AfA Abschreibung" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div>
+                <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">Steuer-Guide</span>
+                <p className="font-black text-gray-900 text-[13px] mt-1 group-hover:text-green-700 transition-colors">§7g AfA & Abschreibung erklärt →</p>
+                <p className="text-gray-400 text-[11px]">IAB, Sonder-AfA, degressive AfA im Detail</p>
+              </div>
+            </Link>
+            <Link href="/wissen/tiny-house-als-rendite" className="group flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-4 hover:border-green-200 hover:shadow-sm transition-all text-left">
+              <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
+                <img src="/images/outside/tiny-house-renditeobjekt-aussen.webp" alt="Tiny House Rendite Cashflow" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
+              <div>
+                <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">Cashflow-Guide</span>
+                <p className="font-black text-gray-900 text-[13px] mt-1 group-hover:text-green-700 transition-colors">Tiny House Rendite & Cashflow →</p>
+                <p className="text-gray-400 text-[11px]">5-Jahres-Modell, IRR, Mieteinnahmen</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

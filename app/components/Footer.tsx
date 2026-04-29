@@ -50,22 +50,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-2">
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">Wissen & Hosts</h4>
-            <ul className="space-y-2">
-              <li><Link href="/wissen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Wissens-Hub & Glossar</Link></li>
-              <li><Link href="/wissen/kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Kapitalanlage-Guide</Link></li>
-              <li><Link href="/wissen/afa-abschreibung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g AfA erklärt</Link></li>
-              <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Rendite & Cashflow</Link></li>
-              <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuerberater finden</Link></li>
-              <li><Link href="/wissen/7g-tiny-house-investment" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g Leitfaden</Link></li>
-              <li><Link href="/wissen/iab-tiny-house" className="text-gray-400 hover:text-green-400 text-sm transition-colors">IAB Tiny House</Link></li>
-              <li><Link href="/wissen/tiny-house-steuern-sparen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuern sparen</Link></li>
-              <li><Link href="/wissen/pv-anlage-als-kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">PV vs. Tiny House</Link></li>
-              <li><Link href="/wissen/solaranlage-alternative" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Solaranlage Alternative</Link></li>
-              <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Für Hosts</Link></li>
-              <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Host werden Guide</Link></li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-6">
+              <ul className="space-y-2">
+                <li><Link href="/wissen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Wissens-Hub & Glossar</Link></li>
+                <li><Link href="/wissen/kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Kapitalanlage-Guide</Link></li>
+                <li><Link href="/wissen/afa-abschreibung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g AfA erklärt</Link></li>
+                <li><Link href="/wissen/tiny-house-als-rendite" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Rendite & Cashflow</Link></li>
+                <li><Link href="/wissen/direktinvestment" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Direktinvestment</Link></li>
+                <li><Link href="/wissen/steuerberater-finden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuerberater finden</Link></li>
+                <li><Link href="/wissen/7g-tiny-house-investment" className="text-gray-400 hover:text-green-400 text-sm transition-colors">§7g Leitfaden</Link></li>
+                <li><Link href="/wissen/iab-tiny-house" className="text-gray-400 hover:text-green-400 text-sm transition-colors">IAB Tiny House</Link></li>
+                <li><Link href="/wissen/tiny-house-steuern-sparen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuern sparen</Link></li>
+                <li><Link href="/wissen/pv-anlage-als-kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">PV vs. Tiny House</Link></li>
+              </ul>
+              <ul className="space-y-2">
+                <li><Link href="/wissen/solaranlage-alternative" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Solaranlage Alternative</Link></li>
+                <li><Link href="/wissen/ferienimmobilie-steuer" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Ferienimmobilie Steuer</Link></li>
+                <li><Link href="/wissen/passive-einnahmen-immobilien" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Passive Einnahmen</Link></li>
+                <li><Link href="/wissen/tiny-house-airbnb" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Tiny House Airbnb</Link></li>
+                <li><Link href="/wissen/tiny-house-finanzierung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Finanzierung</Link></li>
+                <li><Link href="/wissen/tiny-house-genehmigung" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Genehmigung</Link></li>
+                <li><Link href="/wissen/tiny-house-standorte" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Standorte</Link></li>
+                <li><Link href="/wissen/tiny-house-kaufen-checkliste" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Kaufen Checkliste</Link></li>
+                <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Für Hosts</Link></li>
+                <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Host werden Guide</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div>

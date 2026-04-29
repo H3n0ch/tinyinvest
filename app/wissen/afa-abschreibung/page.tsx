@@ -45,7 +45,7 @@ export default function AfaAbschreibungPage() {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://tinyhouse.investments" },
       { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://tinyhouse.investments/wissen" },
-      { "@type": "ListItem", "position": 3, "name": "AfA   const faqSchema = { Abschreibung", "item": "https://tinyhouse.investments/wissen/afa-abschreibung" }
+      { "@type": "ListItem", "position": 3, "name": "AfA Abschreibung", "item": "https://tinyhouse.investments/wissen/afa-abschreibung" }
     ]
   };
 

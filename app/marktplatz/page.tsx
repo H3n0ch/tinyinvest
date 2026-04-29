@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { supabase } from "../lib/supabase";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -223,6 +224,24 @@ export default async function MarktplatzPage() {
             (z.B. Kroatien, Rumänien, Thailand) ist §7g <strong>nicht automatisch</strong> anwendbar – bitte konsultieren Sie einen
             auf §7g spezialisierten Steuerberater.
           </p>
+        </div>
+      </section>
+
+      {/* Guides */}
+      <section className="py-10 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-4">Weiterführende Guides</p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/wissen/tiny-house-als-rendite" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all bg-white">
+              Wie funktionieren die Mieteinnahmen? →
+            </Link>
+            <Link href="/wissen/iab-tiny-house" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all bg-white">
+              IAB & Steuervorteile →
+            </Link>
+            <Link href="/wissen/kapitalanlage" className="border border-gray-200 text-gray-600 hover:border-green-300 hover:text-green-700 font-semibold px-5 py-2.5 rounded-full text-[13px] transition-all bg-white">
+              Kapitalanlage-Guide →
+            </Link>
+          </div>
         </div>
       </section>
 
