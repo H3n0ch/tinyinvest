@@ -209,6 +209,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/wissen/solaranlage-alternative`,
+      lastModified: "2026-04-28",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/wissen/pv-anlage-als-kapitalanlage`,
       lastModified: "2026-04-23",
       changeFrequency: "monthly",

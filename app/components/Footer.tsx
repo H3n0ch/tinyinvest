@@ -62,6 +62,7 @@ export default function Footer() {
               <li><Link href="/wissen/iab-tiny-house" className="text-gray-400 hover:text-green-400 text-sm transition-colors">IAB Tiny House</Link></li>
               <li><Link href="/wissen/tiny-house-steuern-sparen" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Steuern sparen</Link></li>
               <li><Link href="/wissen/pv-anlage-als-kapitalanlage" className="text-gray-400 hover:text-green-400 text-sm transition-colors">PV vs. Tiny House</Link></li>
+              <li><Link href="/wissen/solaranlage-alternative" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Solaranlage Alternative</Link></li>
               <li><Link href="/hosts" className="text-amber-400 hover:text-amber-300 text-sm transition-colors font-semibold">Für Hosts</Link></li>
               <li><Link href="/wissen/host-werden" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Host werden Guide</Link></li>
             </ul>

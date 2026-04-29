@@ -184,6 +184,15 @@ const articles = [
     tags: ["PV", "Solaranlage", "Vergleich", "Rendite"],
     img: "/images/outside/tiny-house-naturlage-gruen.webp",
   },
+  {
+    href: "/wissen/solaranlage-alternative",
+    badge: "PV-Alternative",
+    badgeColor: "bg-blue-100 text-blue-700",
+    title: "Solaranlage Alternative 2026: §7g IAB ohne Photovoltaik",
+    desc: "PV lohnt sich nicht mehr? Welche Alternativen für den §7g IAB qualifizieren – und warum Tiny Houses doppelte Rendite bringen.",
+    tags: ["PV", "Alternative", "IAB", "§7g"],
+    img: "/images/outside/tiny-house-naturlage-gruen.webp",
+  },
 ];
 
 const glossarItems = [
