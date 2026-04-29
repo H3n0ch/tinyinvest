@@ -81,12 +81,47 @@ export default function IabTinyHousePage() {
     })),
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "IAB für Tiny House beantragen: Schritt für Schritt",
+    "description": "So bildest du den Investitionsabzugsbetrag (§7g) für ein Tiny House, erhältst die Steuererstattung und setzt Sonder-AfA im Kaufjahr ab.",
+    "totalTime": "P1Y",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Steuererklärung einreichen & IAB bilden",
+        "text": "Du oder dein Steuerberater trägt in der Anlage EÜR oder Bilanz den IAB ein (Zeile 97–99). Kein gesonderter Antrag beim Finanzamt nötig – der IAB wird automatisch bei der Steuerveranlagung berücksichtigt.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Steuererstattung erhalten",
+        "text": "Das Finanzamt erstattet die Mehrsteuer durch den IAB. Bei 40.000 € IAB und 42 % Grenzsteuersatz: ca. 16.800 € Erstattung innerhalb von 3–6 Monaten nach Veranlagung.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Tiny House kaufen (innerhalb 3 Jahre)",
+        "text": "Du kaufst das Tiny House innerhalb von 3 Jahren nach IAB-Bildung. Im Kaufjahr wird der IAB aufgelöst und mit dem Kaufpreis verrechnet. Belege: Kaufvertrag direkt mit Hersteller (Vlemmix Trailer).",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Sonder-AfA & degressive AfA im Kaufjahr absetzen",
+        "text": "Im selben Steuerjahr greift die Sonder-AfA (40 %) auf den Restkaufpreis. Zusätzlich kann die degressive AfA (30 %) angewendet werden. In der Summe: bis zu 70 % Sofortabschreibung im Kaufjahr.",
+      },
+    ],
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="article-schema-iab" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Script id="breadcrumb-schema-iab" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Script id="faq-schema-iab" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="howto-schema-iab" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-10 bg-white">

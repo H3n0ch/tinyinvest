@@ -80,12 +80,47 @@ export default function TinyHouseSteuernSparenPage() {
     })),
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Mit Tiny House Steuern sparen: Die optimale Steuerstrategie in 4 Schritten",
+    "description": "So nutzt du IAB, Sonder-AfA und degressive AfA für ein Tiny House Investment und sparst bis zu 34.000 € Steuern im ersten Jahr.",
+    "totalTime": "P1Y",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Steuersituation analysieren",
+        "text": "Lass deinen Grenzsteuersatz für das laufende und das kommende Jahr ermitteln. Je höher dein Grenzsteuersatz, desto wertvoller ist die Abschreibung. Bei 42 % Spitzensteuersatz spart jeder Euro Abschreibung 42 Cent.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "IAB im Vorjahr bilden",
+        "text": "Dein Steuerberater trägt in der Anlage EÜR oder Bilanz den IAB ein. Bei 80.000 € geplantem Kaufpreis sind das bis zu 40.000 € IAB – was bei 42 % Steuersatz ca. 16.800 € Soforterstattung ergibt.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Tiny House im Kaufjahr erwerben",
+        "text": "Du kaufst direkt beim Hersteller (Vlemmix Trailer). Das Tiny House wird per Kaufvertrag und Fahrzeugbrief (VIN/FIN) als bewegliches Wirtschaftsgut dokumentiert. TinyInvest begleitet diesen Prozess vollständig.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Sonder-AfA + degressive AfA im Kaufjahr absetzen",
+        "text": "Im selben Jahr: Sonder-AfA (40 %) auf den um den IAB reduzierten Kaufpreis plus degressive AfA (30 %). In der Summe über 70 % Sofortabschreibung im Kaufjahr. Ab dem Folgejahr fließen die Mieteinnahmen.",
+      },
+    ],
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="article-schema-steuern" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Script id="breadcrumb-schema-steuern" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Script id="faq-schema-steuern" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script id="howto-schema-steuern" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
 
       {/* Hero */}
       <section className="pt-32 pb-10 bg-white">

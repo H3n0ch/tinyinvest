@@ -155,11 +155,46 @@ export default function PillarPage() {
     })),
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "§7g IAB für Tiny House Investment nutzen: Schritt für Schritt",
+    "description": "So wendest du den §7g Investitionsabzugsbetrag, Sonder-AfA und degressive AfA für ein Tiny House als Kapitalanlage an.",
+    "totalTime": "P1Y",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Voraussetzungen prüfen",
+        "text": "Du benötigst betriebliche Einkünfte (Gewerbebetrieb, Freiberuf oder Vermietung mit Gewinnerzielungsabsicht) und einen Gewinn unter 200.000 € im Jahr der IAB-Bildung. Das Tiny House auf Vlemmix Trailer gilt als bewegliches Wirtschaftsgut.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "IAB in der Steuererklärung bilden",
+        "text": "Dein Steuerberater trägt den IAB in Anlage EÜR (Zeile 97–99) oder der Bilanz ein. Der Abzugsbetrag kann bis zu 50 % der geplanten Investitionssumme betragen, maximal 200.000 €.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Tiny House kaufen & Sonder-AfA anwenden",
+        "text": "Im Kaufjahr wird der IAB aufgelöst und mit dem Buchwert verrechnet. Zusätzlich greift die Sonder-AfA (20 % im Investitionsjahr) sowie optional die degressive AfA (25 % p.a.). Belege: Kaufvertrag, Fahrzeugbrief (VIN/FIN), Übergabeprotokoll.",
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Betriebliche Nutzung sicherstellen",
+        "text": "Das Tiny House muss in den ersten 3 Jahren nach Investition ausschließlich oder fast ausschließlich betrieblich genutzt werden. Die Vermietung über tiny Escapes erfüllt diese Voraussetzung automatisch.",
+      },
+    ],
+  };
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar variant="sub" />
       <Script id="article-schema-7g" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Script id="breadcrumb-schema-7g-tiny-house-investment" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <Script id="howto-schema-7g" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <Script id="faq-schema-7g" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
